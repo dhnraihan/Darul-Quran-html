@@ -2592,7 +2592,7 @@ img {
 }
 
 .qoute-section {
-    background-image: url(https://www.ummulquran.live/bg.jpg);
+    background-image: url(/bg.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
