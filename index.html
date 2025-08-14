@@ -978,6 +978,143 @@
         }
     </style>
 
+    <!-- about section -->
+    <style>
+    /* About Image Container Sizes */
+    .about-img-container {
+        position: relative;
+        width: 290px;
+        height: 290px;
+    }
+
+    @media (min-width: 768px) {
+        .about-img-container {
+            width: 450px;
+            height: 450px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .about-img-container {
+            width: 550px;
+            height: 550px;
+        }
+    }
+
+    /* Foreground Image Position */
+    .about-fg-img {
+        position: absolute;
+        z-index: 10;
+        right: 37px;
+        top: -51px;
+    }
+
+    @media (min-width: 768px) {
+        .about-fg-img {
+            right: 57px;
+            top: -79px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .about-fg-img {
+            right: 75px;
+            top: -33px;
+        }
+    }
+
+    /* Animated Circles */
+    .about-circle-wrapper {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        animation: circleRotate 15s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    }
+
+    .about-circle,
+    .about-circle-2 {
+        display: block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        position: absolute;
+        box-shadow: 0px 0px 20px 0px rgba(0, 255, 106, 0.3);
+    }
+
+    @media (min-width: 768px) {
+        .about-circle,
+        .about-circle-2 {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .about-circle {
+        bottom: -15px;
+        left: 50%;
+        background: linear-gradient(to bottom, #8dc53f, #76c14e, #5ebd5b, #46b868, #29b373);
+    }
+
+    .about-circle-2 {
+        top: -16px;
+        right: 50%;
+        background: linear-gradient(to top, #8dc53f, #76c14e, #5ebd5b, #46b868, #29b373);
+    }
+
+    /* Circle Animation */
+    @keyframes circleRotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Smooth text reveal animation */
+    #moreText {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+
+    #moreText.show {
+        max-height: 2000px;
+        opacity: 1;
+    }
+
+    /* Hover Effects */
+    .about-fg-img img {
+        transition: transform 0.5s ease;
+    }
+
+    .about-img-container:hover .about-fg-img img {
+        transform: scale(1.05);
+    }
+
+    .about-img-container:hover .about-circle-wrapper {
+        animation-duration: 10s;
+    }
+
+    /* Gradient text animation */
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .gradient-text-animated {
+        background: linear-gradient(90deg, #10b981, #14b8a6, #06b6d4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 200%;
+        animation: gradientShift 3s ease infinite;
+    }
+    </style>
+
     <!-- loading script -->
     <script>
         // Preloader Logic
@@ -1215,51 +1352,111 @@
 
                             <!-- Step 1 -->
                             <div class="step-forms step-forms-active space-y-4">
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                        <i class="fas fa-phone text-gray-400"></i>
-                                    </div>
+                                <div>
                                     <input type="tel" 
                                         id="phone" 
-                                        class="w-full pl-12 pr-4 py-4 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none input-glow transition-all duration-300 text-lg"
+                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300"
                                         placeholder="মোবাইল নাম্বার"
                                         required>
                                 </div>
-                                
                                 <div>
-                                    <label for="name" class="block text-sm font-bold text-gray-700 mb-2">
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
                                         Student Name <span class="text-red-500">*</span>
                                     </label>
-                                    <div class="relative">
-                                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                            <i class="fas fa-user text-gray-400"></i>
-                                        </div>
-                                        <input type="text" 
-                                            id="name" 
-                                            class="w-full pl-12 pr-4 py-4 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none input-glow transition-all duration-300 text-lg"
-                                            placeholder="আপনার নাম লিখুন"
-                                            required>
-                                    </div>
+                                    <input type="text" 
+                                        id="name" 
+                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300"
+                                        placeholder="আপনার নাম লিখুন"
+                                        required>
                                 </div>
 
-                                <div class="bg-gradient-to-r from-orange-50 to-pink-50 p-5 rounded-xl border-l-4 border-orange-500">
-                                    <p class="text-sm font-bold text-gray-700">
-                                        <i class="fas fa-info-circle text-orange-500 mr-2"></i>
+                                <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500">
+                                    <p class="text-sm font-medium text-gray-700">
                                         কুরআন শিক্ষা প্রত্যেক মুসলিমের জন্য ফরজ। আজ থেকেই কুরআন দিয়ে জীবন গড়া শুরু করুন
                                     </p>
                                 </div>
 
                                 <button type="submit" 
                                         id="firstStepBtn"
-                                        class="w-full py-5 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-bold text-lg rounded-xl hover:scale-105 transform transition-all duration-300 shadow-2xl hover:shadow-orange-500/50">
-                                    ফ্রি ক্লাসটি নিশ্চিত করুন
-                                    <i class="fas fa-arrow-right ml-2"></i>
+                                        class="w-full py-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-bold rounded-lg hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-2xl">
+                                    <span class="button-text">ফ্রি ক্লাসটি নিশ্চিত করুন</span>
+                                    <i class="fas fa-spinner fa-spin ml-2 hidden loading-spinner"></i>
                                 </button>
                             </div>
 
                             <!-- Step 2 (Hidden initially) -->
                             <div class="step-forms hidden space-y-4">
-                                <!-- Step 2 content remains the same -->
+                                <!-- Hidden ID field -->
+                                <input type="hidden" id="id" value="">
+                                
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                                        Email <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="email" 
+                                        id="email" 
+                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300"
+                                        placeholder="আপনার ইমেইল"
+                                        required>
+                                </div>
+                                
+                                <div>
+                                    <label for="parentsName" class="block text-sm font-medium text-gray-700 mb-2">
+                                        Parents Name
+                                    </label>
+                                    <input type="text" 
+                                        id="parentsName" 
+                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300"
+                                        placeholder="অভিভাবকের নাম">
+                                </div>
+                                
+                                <div>
+                                    <label for="studentAge" class="block text-sm font-medium text-gray-700 mb-2">
+                                        Student Age
+                                    </label>
+                                    <input type="number" 
+                                        id="studentAge" 
+                                        min="3"
+                                        max="100"
+                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300"
+                                        placeholder="ছাত্র/ছাত্রীর বয়স">
+                                </div>
+                                
+                                <div>
+                                    <label for="trialTime" class="block text-sm font-medium text-gray-700 mb-2">
+                                        Trial Class Time
+                                    </label>
+                                    <input type="time" 
+                                        id="trialTime" 
+                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300">
+                                </div>
+                                
+                                <div>
+                                    <label for="trialDate" class="block text-sm font-medium text-gray-700 mb-2">
+                                        Trial Class Date
+                                    </label>
+                                    <input type="date" 
+                                        id="trialDate" 
+                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300">
+                                </div>
+
+                                <button type="submit" 
+                                        id="secondStepBtn"
+                                        class="w-full py-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold rounded-lg hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-2xl">
+                                    <span class="button-text">Schedule Your Free Class</span>
+                                    <i class="fas fa-spinner fa-spin ml-2 hidden loading-spinner"></i>
+                                </button>
+                            </div>
+
+                            <!-- Step 3 (Success) -->
+                            <div class="step-forms hidden space-y-4">
+                                <div class="text-center py-8">
+                                    <div class="w-24 h-24 mx-auto mb-4 bg-green-500 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-4xl"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-2">আলহামদুলিল্লাহ!</h3>
+                                    <p class="text-gray-600">আপনার রেজিস্ট্রেশন সফল হয়েছে। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব ইনশাআল্লাহ।</p>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -1277,7 +1474,6 @@
       <span class="info-particle" style="top: 70%; left: 35%; animation-delay: 2s;">i</span>
       <span class="info-particle" style="top: 60%; left: 15%; animation-delay: 3s;">i</span>
       <span class="info-particle" style="top: 50%; left: 90%; animation-delay: 4s;">i</span> -->
-
       <!-- YouTube Embed -->
       <!-- <iframe
         src="https://www.youtube.com/embed/6avi1CdRv7c"
@@ -1291,49 +1487,115 @@
 
  
     <!-- About section start here -->
-    <section class="about-section padding-tb shape-1">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-12">
-                    <div class="lab-item">
-                        <div class="lab-inner">
-                            <div class="lab-content text-center">
-                                <div class="header-title m-0">
-                                    <h5>DaarulQuran</h5>
-                                    <p class="mb-0 fw-bold">[ ট্রেড লাইসেন্স নাম্বার 03/B-3300 ]</p>
-                                    <h2 class="mb-0">আল- কুরআন শিখুন যে কোন সময়, বিশ্বের যেকোন স্থান থেকে!</h2>
-                                    
-                                </div>
-                                <h5 class="my-4 text-center fw-bold">বিশ্বস্থতায় আমরা প্রতিশ্রুতিবদ্ধ। </h5>
-                                <p class="fw-bold" style="text-align:justify;">বাংলাদেশ খুবই নগন্য পরিমাণে অনলাইন প্রতিষ্ঠান আছে যারা লাইসেন্স ভুক্ত এবং নিয়মিত সরকারকে ট্যাক্স প্রদান করে , যার মধ্যে দারুল কুরআন অন্যতম এবং তারই সাথে একটা Ed-tech প্ল্যাটফর্ম হতে যে সকল কোয়ালিটি বজায় রাখা প্রয়োজন সেগুলোর সবকিছুই অত্যন্ত গুরুত্ব এবং দায়িত্ব সহকারে পালন করে আসছি আমরা আলহামদুলিল্লল্লাহ ,<span id="moreText" style="display: none; transition: opacity 0.5s ease-in-out;"> দারুল কুরআন বিশ্বব্যাপি বাংলাদেশি ভাই-বোনদের তাদের সুবিধামত সময়ে ,সপ্তাহের যেকোন দিন ,অভিজ্ঞ শিক্ষক / শিক্ষিকা দ্বারা লাইভ ক্লাসের মাদ্ধমে সহিহ কোরআন শিক্ষা / হিফযুল কোরআন / আরবি ভাষা শিক্ষা সেবা প্রদান করে আসছে। আমাদের বিশেষায়িত শিক্ষক আছেন যারা ভার্চুয়াল ক্লাস নেওয়ায় বিশেষ প্রশিক্ষিত। দারুল কুরআন থেকে কুরআন শিখে আপনি বিশুদ্ধভাবে সকল নিয়ম অনুসরণ করে কুরআন পড়তে পারবেন ইনশাল্লাহ । আমাদের প্রতিষ্ঠানে শিশু, কিশোর ও প্রাপ্তবয়স্কদের জন্যে আলাদা আলাদা শিক্ষক রয়েছে, যাতে আপনার শেখাটা উপভোগ্য হয়। এখানে নারী-পুরুষদের জন্যে সম্পুর্ন পৃথক ব্যাবস্থাপনা। নারীদের জন্যে নারী শিক্ষিকা এবং পুরুষদের জন্যে পুরুষ শিক্ষক। আমাদের সকল শিক্ষক হাফেজ, ক্বারি, মাওলানা। সেই সাথে উচ্চতর ইসলামিক বিষয়ে অধ্যায়নরত, <span style="color: #2337FB">আমাদের অধিকাংশ শিক্ষক মিশরের আল- আজহার বিশ্ববিদ্যালয়ের ছাত্র / ছাত্রী,আর এই কারণে আমরা ২৪ঘন্টাই যেকোন সময় ক্লাস করাতে পারি আলহামদুলিল্লাহ্‌ </span> আমাদের সমৃদ্ধ শিক্ষক প্যানেল থেকে আপনি বা আপনার সন্তানের জন্যে বেস্ট শিক্ষক সিলেক্ট করতে পারবেন। সেইসাথে পরবর্তীতে যেকোন সমস্যাই শিক্ষক পরিবর্তন করার বিকল্প অপশনও রয়েছে। আমরা স্বতঃস্ফূর্তভাবে শ্রেষ্ঠ শিক্ষক প্রদানে প্রতুশ্রুতিবদ্ধ। আমাদের শিক্ষক প্যানেলে বিভিন্ন ভাষায় দক্ষ শিক্ষক রয়েছে, যারা ইংরেজি,আরবি, বাংলা,হিন্দি, ভাষায় পাঠদানে সক্ষম। 
-                                    <br>
-                                    <span style="color: #5518B2;">একজন মুসলিম হিসেবে আল কোরআন পড়তে জানা এবং আমল করা আমাদের ওপর ফরয ,আর আরবি ভাষা এমন এক ভাষা যেইখানে সামান্য টান ,গুন্নাহ ছুটে গেলেই অর্থ পরিবর্তন হয়ে যাই ,তাই লাইভ ক্লাসের মাধ্যমে অভিজ্ঞ হুজুরের কাছে সহিহ সুদ্ধভাবে কোরআন শেখার বিকল্প নেই । </span>কুরআন আপনার জান্নাতে যাওয়ার পথকে সুগম করবে।
-                                    আল্লাহ আপনার সহায় হোন।।
-                                    জাযাকুমুল্লাহু খাইরান।
-                                </span>
-                                </p>
-                                <div style="text-align:center">
-                                    <button id="readMoreBtn" style="padding: 5px 10px; font-size: 14px; border-radius: 5px; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer;">আরও পড়ুন</button>
-                                    <button id="showLessBtn" style="display: none; padding: 5px 10px; font-size: 14px; border-radius: 5px; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer;">কম পড়ুন</button>
-                                </div>
-                                <a href="#" class="lab-btn mt-4">অবহেলা না করে আজই শুরু করুন <i class="fa-solid fa-heart"></i></a>
-                            </div>
+    <section class="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-br from-white via-emerald-50 to-green-50">
+         <!-- Background Patterns -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-72 h-72 bg-emerald-500 rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-green-500 rounded-full filter blur-3xl"></div>
+        </div>
+        
+        <!-- Islamic Pattern Overlay -->
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <pattern id="islamic-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <polygon points="50,5 61,35 95,35 68,57 79,87 50,65 21,87 32,57 5,35 39,35" 
+                            fill="none" stroke="currentColor" stroke-width="0.5"/>
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#islamic-pattern)" />
+            </svg>
+        </div>
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+                <!-- Text Content -->
+                <div class="w-full lg:w-1/2 pl-14">
+                    <div class="text-center lg:text-left">
+                        <!-- Header -->
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-emerald-600 mb-2">DaarulQuran</h5>
+                            <p class="text-sm font-bold text-gray-600 mb-4">[ ট্রেড লাইসেন্স নাম্বার ]</p>
+                            <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 leading-tight">
+                                আল-কুরআন শিখুন যে কোন সময়, বিশ্বের যেকোন স্থান থেকে!
+                            </h2>
                         </div>
+                        <h5 class="text-xl font-bold text-gray-700 my-6">
+                            বিশ্বস্থতায় আমরা প্রতিশ্রুতিবদ্ধ।
+                        </h5>
+                        
+                        <!-- Main Content -->
+                        <div class="text-justify text-gray-600 font-medium leading-relaxed">
+                            <p>
+                                বাংলাদেশ খুবই নগন্য পরিমাণে অনলাইন প্রতিষ্ঠান আছে যারা লাইসেন্স ভুক্ত এবং নিয়মিত সরকারকে ট্যাক্স প্রদান করে, যার মধ্যে দারুল কুরআন অন্যতম এবং তারই সাথে একটা Ed-tech প্ল্যাটফর্ম হতে যে সকল কোয়ালিটি বজায় রাখা প্রয়োজন সেগুলোর সবকিছুই অত্যন্ত গুরুত্ব এবং দায়িত্ব সহকারে পালন করে আসছি আমরা আলহামদুলিল্লাহ,
+                            </p>
+                            
+                            <!-- Expandable Content -->
+                            <div id="moreText" class="hidden transition-all duration-500 ease-in-out mt-4 space-y-4">
+                                <p>
+                                    দারুল কুরআন বিশ্বব্যাপি বাংলাদেশি ভাই-বোনদের তাদের সুবিধামত সময়ে, সপ্তাহের যেকোন দিন, অভিজ্ঞ শিক্ষক/শিক্ষিকা দ্বারা লাইভ ক্লাসের মাধ্যমে সহিহ কোরআন শিক্ষা/হিফযুল কোরআন/আরবি ভাষা শিক্ষা সেবা প্রদান করে আসছে। আমাদের বিশেষায়িত শিক্ষক আছেন যারা ভার্চুয়াল ক্লাস নেওয়ায় বিশেষ প্রশিক্ষিত। দারুল কুরআন থেকে কুরআন শিখে আপনি বিশুদ্ধভাবে সকল নিয়ম অনুসরণ করে কুরআন পড়তে পারবেন ইনশাআল্লাহ।
+                                </p>
+                                
+                                <p>
+                                    আমাদের প্রতিষ্ঠানে শিশু, কিশোর ও প্রাপ্তবয়স্কদের জন্যে আলাদা আলাদা শিক্ষক রয়েছে, যাতে আপনার শেখাটা উপভোগ্য হয়। এখানে নারী-পুরুষদের জন্যে সম্পূর্ণ পৃথক ব্যবস্থাপনা। নারীদের জন্যে নারী শিক্ষিকা এবং পুরুষদের জন্যে পুরুষ শিক্ষক। আমাদের সকল শিক্ষক হাফেজ, ক্বারি, মাওলানা। সেই সাথে উচ্চতর ইসলামিক বিষয়ে অধ্যয়নরত।
+                                </p>
+                                
+                                <p class="text-blue-600 font-bold">
+                                    আমাদের অধিকাংশ শিক্ষক মিশরের আল-আজহার বিশ্ববিদ্যালয়ের ছাত্র/ছাত্রী, আর এই কারণে আমরা ২৪ঘন্টাই যেকোন সময় ক্লাস করাতে পারি আলহামদুলিল্লাহ।
+                                </p>
+                                
+                                <p>
+                                    আমাদের সমৃদ্ধ শিক্ষক প্যানেল থেকে আপনি বা আপনার সন্তানের জন্যে বেস্ট শিক্ষক সিলেক্ট করতে পারবেন। সেইসাথে পরবর্তীতে যেকোন সমস্যায় শিক্ষক পরিবর্তন করার বিকল্প অপশনও রয়েছে। আমরা স্বতঃস্ফূর্তভাবে শ্রেষ্ঠ শিক্ষক প্রদানে প্রতিশ্রুতিবদ্ধ। আমাদের শিক্ষক প্যানেলে বিভিন্ন ভাষায় দক্ষ শিক্ষক রয়েছে, যারা ইংরেজি, আরবি, বাংলা, হিন্দি ভাষায় পাঠদানে সক্ষম।
+                                </p>
+                                
+                                <p class="text-purple-600 font-bold">
+                                    একজন মুসলিম হিসেবে আল কোরআন পড়তে জানা এবং আমল করা আমাদের ওপর ফরয, আর আরবি ভাষা এমন এক ভাষা যেখানে সামান্য টান, গুন্নাহ ছুটে গেলেই অর্থ পরিবর্তন হয়ে যায়, তাই লাইভ ক্লাসের মাধ্যমে অভিজ্ঞ হুজুরের কাছে সহিহ সুদ্ধভাবে কোরআন শেখার বিকল্প নেই।
+                                </p>
+                                
+                                <p>
+                                    কুরআন আপনার জান্নাতে যাওয়ার পথকে সুগম করবে। আল্লাহ আপনার সহায় হোন।। জাযাকুমুল্লাহু খাইরান।
+                                </p>
+                            </div>  
+                        </div>
+                        
+                        <!-- Buttons -->
+                        <div class="mt-6 text-center lg:text-left">
+                            <button id="readMoreBtn" 
+                                    class="px-6 py-2 bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-lg text-sm font-medium transition-all duration-300">
+                                আরও পড়ুন
+                            </button>
+                            <button id="showLessBtn" 
+                                    class="hidden px-6 py-2 bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-lg text-sm font-medium transition-all duration-300">
+                                কম পড়ুন
+                            </button>
+                        </div>
+                        
+                        <!-- CTA Button -->
+                        <a href="#" 
+                        class="inline-flex items-center gap-2 mt-8 px-8 py-4 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-bold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                            অবহেলা না করে আজই শুরু করুন 
+                            <i class="fas fa-heart text-pink-300"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-12">
-                    <div class="lab-item">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <div class="img-grp">
-                                    <div class="about-circle-wrapper">
-                                        <div class="about-circle-2"></div>
-                                        <div class="about-circle"></div>
-                                    </div>
-                                    <div class="about-fg-img">
-                                        <img src="about02.png" alt="about-image">
-                                    </div>
-                                </div>
+                
+                <!-- Image Section -->
+                <div class="w-full lg:w-1/2">
+                    <div class="relative">
+                        <!-- Animated Background -->
+                        <div class="about-img-container relative mx-auto">
+                            <!-- Background Pattern -->
+                            <div class="absolute inset-0 bg-cover bg-center rounded-full opacity-20"
+                                style="background-image: url('about01.png');"></div>
+                            
+                            <!-- Animated Circles Container -->
+                            <div class="about-circle-wrapper">
+                                <div class="about-circle"></div>
+                                <div class="about-circle-2"></div>
+                            </div>
+                            
+                            <!-- Main Image -->
+                            <div class="about-fg-img">
+                                <img src="about02.png" 
+                                    alt="About DaarulQuran" 
+                                    class="w-full h-auto">
                             </div>
                         </div>
                     </div>
@@ -1347,8 +1609,7 @@
 
     
     <!-- Pricing section -->
-  
-<section id="pricing-container">
+    <section id="pricing-container">
     <div class="section-heading blue-border text-center mrgb4x">
         <h3 class="letterspace4x">উম্মুলকোরআন প্রতিষ্ঠানে যা যা শিখতে পারবেন</h3>
         <p style="padding: 15px; margin-bottom: 20px;">
@@ -2101,6 +2362,358 @@
                 });
             });
         });
+    </script>
+
+    <script>
+    // Helper Functions
+    function isPhoneValid(phone) {
+        // Remove all non-numeric characters except +
+        const cleanPhone = phone.replace(/[^\d+]/g, '');
+        // Check if it's a valid phone number (at least 10 digits)
+        return cleanPhone.length >= 10 && cleanPhone.length <= 15;
+    }
+
+    function isEmailValid(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    function formLoading(form) {
+        // Disable all inputs and buttons
+        const inputs = form.querySelectorAll('input, button, select, textarea');
+        inputs.forEach(input => {
+            input.disabled = true;
+        });
+        
+        // Show loading spinner
+        const activeButton = form.querySelector('.step-forms-active button[type="submit"]');
+        if (activeButton) {
+            const buttonText = activeButton.querySelector('.button-text');
+            const spinner = activeButton.querySelector('.loading-spinner');
+            if (buttonText) buttonText.textContent = 'Processing...';
+            if (spinner) spinner.classList.remove('hidden');
+            activeButton.classList.add('opacity-75', 'cursor-not-allowed');
+        }
+    }
+
+    function formLoadingStop(form, buttonText = 'Submit') {
+        // Enable all inputs and buttons
+        const inputs = form.querySelectorAll('input, button, select, textarea');
+        inputs.forEach(input => {
+            input.disabled = false;
+        });
+        
+        // Hide loading spinner
+        const activeButton = form.querySelector('.step-forms-active button[type="submit"]');
+        if (activeButton) {
+            const buttonTextElement = activeButton.querySelector('.button-text');
+            const spinner = activeButton.querySelector('.loading-spinner');
+            if (buttonTextElement) buttonTextElement.textContent = buttonText;
+            if (spinner) spinner.classList.add('hidden');
+            activeButton.classList.remove('opacity-75', 'cursor-not-allowed');
+        }
+    }
+
+    function clearForm(form) {
+        // Clear all input values
+        const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="time"], input[type="date"], textarea');
+        inputs.forEach(input => {
+            input.value = '';
+        });
+    }
+
+    // Progress Bar Update Function
+    function updateProgressBar(step) {
+        const progressBar = document.querySelector('.progress-bar-animated');
+        const progressSteps = document.querySelectorAll('.progress-step');
+        
+        if (progressBar) {
+            const widths = ['33%', '66%', '100%'];
+            progressBar.style.width = widths[step] || '33%';
+        }
+        
+        // Update step indicators
+        const stepIndicators = document.querySelectorAll('[class*="bg-gray-300"]');
+        stepIndicators.forEach((indicator, index) => {
+            if (index <= step) {
+                indicator.classList.remove('bg-gray-300');
+                indicator.classList.add('bg-gradient-to-r', 'from-orange-500', 'to-pink-500');
+            }
+        });
+    }
+
+    // Main Form Logic
+    let formSteps = document.querySelectorAll(".step-forms");
+    let form = document.getElementById('forms');
+    let firstStepBtn = document.getElementById('firstStepBtn');
+    let secondStepBtn = document.getElementById('secondStepBtn');
+    let phoneField = document.getElementById('phone');
+    let idField = document.getElementById('id');
+    let nameField = document.getElementById('name');
+    let emailField = document.getElementById('email');
+    let parentsNameField = document.getElementById('parentsName');
+    let studentAgeField = document.getElementById('studentAge');
+
+    let formStepsNum = 0;
+
+    // First Step Handler
+    firstStepBtn.addEventListener('click', e => {
+        e.preventDefault();
+
+        let phone = phoneField.value;
+        let name = nameField.value;
+        
+        if (!phone) {
+            toastr.error('মোবাইল নাম্বার প্রয়োজন!');
+            phoneField.focus();
+            return;
+        }
+        
+        if (!name) {
+            toastr.error("নাম প্রয়োজন!");
+            nameField.focus();
+            return;
+        }
+        
+        // Get full international number if using intl-tel-input
+        if (typeof landingIntTel !== 'undefined') {
+            phone = landingIntTel.getNumber();
+        }
+
+        if (!isPhoneValid(phone)) {
+            toastr.error("সঠিক মোবাইল নাম্বার দিন!");
+            phoneField.focus();
+            return;
+        }
+        
+        formLoading(form);
+        
+        // Simulate API call (replace with actual API endpoint)
+        // For testing, using setTimeout
+        setTimeout(() => {
+            // Mock successful response
+            const mockResponse = {
+                status: true,
+                data: { id: 'TEST_' + Date.now() },
+                message: 'Success'
+            };
+            
+            if (mockResponse.status) {
+                formStepsNum++;
+                updateFormSteps();
+                updateProgressBar(formStepsNum);
+                formLoadingStop(form, 'Schedule Your Free Class');
+                idField.value = mockResponse.data.id;
+                toastr.success('প্রথম ধাপ সম্পন্ন হয়েছে!');
+            } else {
+                toastr.error(mockResponse.message);
+                formLoadingStop(form, 'ফ্রি ক্লাসটি নিশ্চিত করুন');
+            }
+        }, 1000);
+        
+        /* Actual API call (uncomment when API is ready)
+        axios.post(`/trialRequestFirst`, { phone, name })
+            .then(res => {
+                let { status, data, message } = res.data;
+                if (status) {
+                    formStepsNum++;
+                    updateFormSteps();
+                    updateProgressBar(formStepsNum);
+                    formLoadingStop(form, 'Schedule Your Free Class');
+                    idField.value = data.id;
+                    toastr.success('প্রথম ধাপ সম্পন্ন হয়েছে!');
+                } else {
+                    toastr.error(message);
+                    formLoadingStop(form, 'ফ্রি ক্লাসটি নিশ্চিত করুন');
+                }
+            })
+            .catch(err => {
+                toastr.error("কিছু সমস্যা হয়েছে!");
+                console.log(err);
+                formLoadingStop(form, 'ফ্রি ক্লাসটি নিশ্চিত করুন');
+            });
+        */
+    });
+
+    // Second Step Handler
+    secondStepBtn.addEventListener('click', e => {
+        e.preventDefault();
+
+        let id = idField.value;
+        let email = emailField.value;
+        let parentsName = parentsNameField.value;
+        let studentAge = studentAgeField.value;
+
+        if (!id) {
+            toastr.error("Invalid Request!");
+            return;
+        }
+
+        if (!email) {
+            toastr.error("ইমেইল প্রয়োজন!");
+            emailField.focus();
+            return;
+        }
+        
+        if (!isEmailValid(email)) {
+            toastr.error("সঠিক ইমেইল দিন!");
+            emailField.focus();
+            return;
+        }
+        
+        formLoading(form);
+        
+        // Simulate API call (replace with actual API endpoint)
+        setTimeout(() => {
+            // Mock successful response
+            const mockResponse = {
+                status: true,
+                message: 'Registration successful!'
+            };
+            
+            if (mockResponse.status) {
+                clearForm(form);
+                formStepsNum++;
+                updateFormSteps();
+                updateProgressBar(formStepsNum);
+                formLoadingStop(form, 'Completed');
+                toastr.success("আলহামদুলিল্লাহ! আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব ইনশাআল্লাহ।");
+                
+                // Redirect after 3 seconds
+                setTimeout(() => {
+                    window.location.href = "https://daarulquran.live/thank-you-page.html";
+                }, 3000);
+            } else {
+                toastr.error(mockResponse.message);
+                formLoadingStop(form, 'Schedule Your Free Class');
+            }
+        }, 1000);
+        
+        /* Actual API call (uncomment when API is ready)
+        axios.post(`/trialRequestSecond`, {id, parentsName, email, studentAge})
+            .then(res => {
+                let { status, message } = res.data;
+                if (status) {
+                    clearForm(form);
+                    if (typeof landingIntTel !== 'undefined') {
+                        landingIntTel.setCountry("us");
+                    }
+                    formStepsNum++;
+                    updateFormSteps();
+                    updateProgressBar(formStepsNum);
+                    formLoadingStop(form, 'Completed');
+                    toastr.success("আলহামদুলিল্লাহ! আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব ইনশাআল্লাহ।");
+                    setTimeout(() => {
+                        window.location.href = "https://daarulquran.live/thank-you-page.html";
+                    }, 3000);
+                } else {
+                    toastr.error(message);
+                    formLoadingStop(form, 'Schedule Your Free Class');
+                }
+            })
+            .catch(err => {
+                toastr.error("কিছু সমস্যা হয়েছে!");
+                console.log(err);
+                formLoadingStop(form, 'Schedule Your Free Class');
+            });
+        */
+    });
+
+    function updateFormSteps() {
+        formSteps.forEach((formStep) => {
+            formStep.classList.contains("step-forms-active") &&
+                formStep.classList.remove("step-forms-active");
+        });
+        
+        if (formSteps[formStepsNum]) {
+            formSteps[formStepsNum].classList.add("step-forms-active");
+        }
+    }
+
+    // FAQ Accordion
+    let questions = document.querySelectorAll(".question");
+    questions.forEach(question => {
+        question.addEventListener("click", event => {
+            const active = document.querySelector(".question.active");
+            if (active && active !== question) {
+                active.classList.toggle("active");
+                active.nextElementSibling.style.maxHeight = 0;
+            }
+            question.classList.toggle("active");
+            const answer = question.nextElementSibling;
+            if (question.classList.contains("active")) {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            } else {
+                answer.style.maxHeight = 0;
+            }
+        });
+    });
+
+    // Accordion Items
+    const accItems = document.querySelectorAll(".accordion__item");
+    accItems.forEach((acc) => acc.addEventListener("click", toggleAcc));
+
+    function toggleAcc() {
+        accItems.forEach((item) => item != this ? item.classList.remove("accordion__item--active") : null);
+        if (this.classList != "accordion__item--active") {
+            this.classList.toggle("accordion__item--active");
+        }
+    }
+
+    // Initialize Toastr Options
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set minimum date to today for trial date
+        const trialDateField = document.getElementById('trialDate');
+        if (trialDateField) {
+            const today = new Date().toISOString().split('T')[0];
+            trialDateField.setAttribute('min', today);
+        }
+    });
+    </script>
+
+    <!-- about section -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const readMoreBtn = document.getElementById('readMoreBtn');
+        const showLessBtn = document.getElementById('showLessBtn');
+        const moreText = document.getElementById('moreText');
+        
+        readMoreBtn.addEventListener('click', function() {
+            moreText.classList.remove('hidden');
+            moreText.classList.add('show');
+            readMoreBtn.classList.add('hidden');
+            showLessBtn.classList.remove('hidden');
+            
+            // Smooth scroll to the expanded content
+            moreText.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+        
+        showLessBtn.addEventListener('click', function() {
+            moreText.classList.add('hidden');
+            moreText.classList.remove('show');
+            readMoreBtn.classList.remove('hidden');
+            showLessBtn.classList.add('hidden');
+        });
+    });
     </script>
 
     <script>
