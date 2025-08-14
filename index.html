@@ -1,0 +1,1583 @@
+<!doctype html>
+<html lang="en,bn">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.min.css" />
+        
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css">
+    <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script> 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://use.typekit.net/emv3zbo.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="http://fonts.cdnfonts.com/css/segoe-ui-variable" rel="stylesheet">
+
+    <link href="assets/user/css/style.css" rel="stylesheet">
+    <link href="assets/user/css/swiper.min.css" rel="stylesheet">    
+
+    <title>Darul Quran Spreading the Knowledge Of Al-Quran</title>
+</head>
+<body> -->
+        <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- International Tel Input CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.min.css" />
+    
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+
+    <title>Daarul Quran - অনলাইনে সহিহ কুরআন শিক্ষা</title>
+
+    <!-- loading css -->
+    <style>
+        /* Existing styles...  */
+        
+        /* Preloader Styles */
+        #preloader {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        /* Quran Book Animation */
+        .quran-book {
+            width: 120px;
+            height: 150px;
+            margin: 0 auto;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: bookFloat 3s ease-in-out infinite;
+        }
+        
+        .book-cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            border-radius: 10px;
+            box-shadow: 
+                0 0 20px rgba(251, 191, 36, 0.5),
+                0 10px 40px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-origin: left center;
+            animation: bookOpen 3s ease-in-out infinite;
+        }
+        
+        .book-pages {
+            position: absolute;
+            width: 96%;
+            height: 90%;
+            background: linear-gradient(to right, #f5f5f5, #ffffff);
+            left: 2%;
+            top: 5%;
+            border-radius: 5px;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .arabic-text {
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes bookFloat {
+            0%, 100% {
+                transform: translateY(0) rotateY(0);
+            }
+            25% {
+                transform: translateY(-20px) rotateY(10deg);
+            }
+            50% {
+                transform: translateY(0) rotateY(0);
+            }
+            75% {
+                transform: translateY(-10px) rotateY(-10deg);
+            }
+        }
+        
+        @keyframes bookOpen {
+            0%, 100% {
+                transform: rotateY(0);
+            }
+            50% {
+                transform: rotateY(-30deg);
+            }
+        }
+        
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 
+                    0 0 10px rgba(255, 255, 255, 0.8),
+                    0 0 20px rgba(255, 255, 255, 0.6),
+                    0 0 30px rgba(255, 255, 255, 0.4);
+            }
+            50% {
+                text-shadow: 
+                    0 0 20px rgba(255, 255, 255, 1),
+                    0 0 30px rgba(255, 255, 255, 0.8),
+                    0 0 40px rgba(255, 255, 255, 0.6);
+            }
+        }
+        
+        /* Loading Progress Animation */
+        .loading-progress {
+            animation: loadingBar 2.5s ease-out forwards;
+        }
+        
+        @keyframes loadingBar {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+        
+        /* Loading Dots Animation */
+        .loading-dots .dot {
+            animation: dotBlink 1.4s infinite ease-in-out both;
+            display: inline-block;
+        }
+        
+        .loading-dots .dot:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+        
+        .loading-dots .dot:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+        
+        @keyframes dotBlink {
+            0%, 80%, 100% {
+                opacity: 0;
+            }
+            40% {
+                opacity: 1;
+            }
+        }
+        
+        /* Blob Animation */
+        @keyframes blob {
+            0%, 100% {
+                transform: translate(0px, 0px) scale(1);
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+        }
+        
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        
+        .animation-delay-3000 {
+            animation-delay: 3s;
+        }
+        
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+        
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .animate-spin-slow {
+            animation: spin-slow 20s linear infinite;
+        }
+        
+        /* Hide scrollbar during loading */
+        body.loading {
+            overflow: hidden;
+        }
+    </style>
+
+    <style>
+        /* Custom Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            50% {
+                transform: translateY(0) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-10px) rotate(-5deg);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .animate-bounce {
+            animation: bounce 2s infinite;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #f97316, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.5;
+            animation: float 8s infinite;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Progress Bar Styles */
+        .progress-bar {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        /* Form Input Effects */
+        .input-glow:focus {
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+            border-color: #f97316;
+        }
+
+        /* Typewriter Effect */
+        .typewriter {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typewriter 3s steps(40) 1s 1 normal both;
+        }
+
+        /* Background Pattern */
+        .pattern-bg {
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        }
+
+        /* Responsive Video */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Info Particles */
+        .info-particle {
+            position: absolute;
+            background: linear-gradient(135deg, #f97316, #ec4899);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #f97316, #ec4899);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #ea580c, #db2777);
+        }
+    </style>
+
+    <!-- loading script -->
+    <script>
+        // Preloader Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading class to body
+            document.body.classList.add('loading');
+            
+            // Hide preloader after 3 seconds
+            setTimeout(function() {
+                // Fade out preloader
+                const preloader = document.getElementById('preloader');
+                const mainContent = document.getElementById('main-content');
+                
+                preloader.style.transition = 'opacity 0.5s ease-out';
+                preloader.style.opacity = '0';
+                
+                setTimeout(function() {
+                    preloader.style.display = 'none';
+                    document.body.classList.remove('loading');
+                    
+                    // Fade in main content
+                    mainContent.style.opacity = '1';
+                    
+                    // Trigger scroll animations after content is visible
+                    if (typeof AOS !== 'undefined') {
+                        AOS.refresh();
+                    }
+                }, 500);
+            }, 3000); // 3 seconds loading time
+        });
+        
+        // Optional: Add percentage counter
+        let percentage = 0;
+        const percentageCounter = setInterval(function() {
+            percentage += 1;
+            if (percentage > 100) {
+                clearInterval(percentageCounter);
+            }
+        }, 25); // Update every 25ms to reach 100% in 2.5 seconds
+    </script>
+</head>
+<body class="bg-gray-50 pattern-bg">
+    
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-purple-900 via-indigo-900 to-purple-900">
+        <!-- Animated Background Pattern -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 left-0 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+            <div class="absolute top-0 right-0 w-72 h-72 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-0 left-0 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+        </div>
+        
+        <!-- Main Loader Content -->
+        <div class="relative z-10 text-center">
+            <!-- Quran Book Animation -->
+            <div class="quran-loader mb-8">
+                <div class="quran-book">
+                    <div class="book-cover">
+                        <div class="arabic-text">القرآن</div>
+                    </div>
+                    <div class="book-pages"></div>
+                </div>
+            </div>
+            
+            <!-- Logo/Text -->
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 animate-pulse">
+                দারুল কুরআন
+            </h1>
+            <p class="text-white/80 text-lg mb-8">অনলাইনে সহিহ কুরআন শিক্ষা</p>
+            
+            <!-- Loading Progress Bar -->
+            <div class="w-64 mx-auto">
+                <div class="bg-white/20 rounded-full h-2 overflow-hidden">
+                    <div class="loading-progress bg-gradient-to-r from-yellow-400 to-green-400 h-full rounded-full"></div>
+                </div>
+            </div>
+            
+            <!-- Loading Text -->
+            <div class="mt-4 flex items-center justify-center space-x-1">
+                <span class="text-white text-sm">লোড হচ্ছে</span>
+                <span class="loading-dots text-white">
+                    <span class="dot">.</span>
+                    <span class="dot">.</span>
+                    <span class="dot">.</span>
+                </span>
+            </div>
+        </div>
+        
+        <!-- Floating Islamic Patterns -->
+        <div class="absolute top-10 left-10 text-yellow-400/30 text-6xl animate-spin-slow">☪</div>
+        <div class="absolute bottom-10 right-10 text-green-400/30 text-6xl animate-spin-slow animation-delay-2000">✦</div>
+        <div class="absolute top-1/2 right-20 text-white/20 text-4xl animate-float">☪</div>
+        <div class="absolute bottom-20 left-20 text-white/20 text-4xl animate-float animation-delay-3000">✦</div>
+    </div>
+
+    <!-- Main Content Wrapper (wrap your existing content) -->
+    <!-- <div id="main-content" class="opacity-0 transition-opacity duration-1000"> -->
+        <!-- আপনার বাকি সব কন্টেন্ট এখানে... -->
+
+    <section>
+        <div class="container mx-auto px-4 py-8 lg:py-16">
+            <div class="flex flex-col lg:flex-row items-center justify-center gap-8">
+                <!-- Logo Section -->
+                <div class="w-full lg:w-1/2 animate-fadeInUp">
+                    <a href="index.html">
+                        <img src="hero.webp" 
+                            class="w-full hover:scale-105 transition-transform duration-300" 
+                            alt="DaarulQuran Logo">
+                    </a>
+                </div>
+
+                <!-- Form Section -->
+                <div class="w-full lg:w-1/2">
+                    <div class="bg-white rounded-2xl shadow-2xl p-8 hover-lift">
+                        <form id="forms" class="space-y-6" onsubmit="event.preventDefault()">
+                            <!-- Progress Bar -->
+                            <div class="relative mb-8">
+                                <div class="flex justify-between mb-4">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">1</div>
+                                        <span class="ml-2 text-sm font-medium">Account</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-white font-bold">2</div>
+                                        <span class="ml-2 text-sm font-medium text-gray-400">Details</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-white font-bold">3</div>
+                                        <span class="ml-2 text-sm font-medium text-gray-400">Complete</span>
+                                    </div>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-orange-500 to-pink-500 h-2 rounded-full animate-shimmer" style="width: 33%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Form Header -->
+                            <div class="text-center mb-6">
+                                <span class="inline-block px-4 py-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full text-sm font-bold mb-4 animate-pulse">
+                                    ওয়ান টু ওয়ান
+                                </span>
+                                <h1 class="text-3xl lg:text-4xl font-bold mb-4 gradient-text">
+                                    অনলাইনে সহিহ কুরআন শিক্ষা
+                                </h1>
+                                <p class="text-gray-600 font-medium">
+                                    DaarulQuran আপনাদের জন্য ফ্রি মূল্যায়ন ক্লাস এর ব্যবস্থা রেখেছে
+                                </p>
+                            </div>
+
+                            <!-- Step 1 -->
+                            <div class="step-forms step-forms-active space-y-4">
+                                <div>
+                                    <input type="tel" 
+                                        id="phone" 
+                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300"
+                                        placeholder="মোবাইল নাম্বার"
+                                        required>
+                                </div>
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+                                        Student Name <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" 
+                                        id="name" 
+                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300"
+                                        placeholder="আপনার নাম লিখুন"
+                                        required>
+                                </div>
+
+                                <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500">
+                                    <p class="text-sm font-medium text-gray-700">
+                                        কুরআন শিক্ষা প্রত্যেক মুসলিমের জন্য ফরজ। আজ থেকেই কুরআন দিয়ে জীবন গড়া শুরু করুন
+                                    </p>
+                                </div>
+
+                                <button type="submit" 
+                                        id="firstStepBtn"
+                                        class="w-full py-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-bold rounded-lg hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-2xl">
+                                    ফ্রি ক্লাসটি নিশ্চিত করুন
+                                </button>
+                            </div>
+
+                            <!-- Step 2 (Hidden initially) -->
+                            <div class="step-forms hidden space-y-4">
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                                        Email <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="email" 
+                                        id="email" 
+                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300"
+                                        placeholder="আপনার ইমেইল"
+                                        required>
+                                </div>
+                                <div>
+                                    <label for="trialTime" class="block text-sm font-medium text-gray-700 mb-2">
+                                        Trial Class Time
+                                    </label>
+                                    <input type="time" 
+                                        id="trialTime" 
+                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300">
+                                </div>
+                                <div>
+                                    <label for="trialDate" class="block text-sm font-medium text-gray-700 mb-2">
+                                        Trial Class Date
+                                    </label>
+                                    <input type="date" 
+                                        id="trialDate" 
+                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300">
+                                </div>
+
+                                <button type="submit" 
+                                        id="secondStepBtn"
+                                        class="w-full py-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold rounded-lg hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-2xl">
+                                    Schedule Your Free Class
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Info Icon Particles -->
+  <!-- <div class="orbit-container">
+    <div class="responsive-video-wrapper">
+      <span class="info-particle" style="top: 10%; left: 25%; animation-delay: 0s;">i</span>
+      <span class="info-particle" style="top: 30%; left: 75%; animation-delay: 1s;">i</span>
+      <span class="info-particle" style="top: 70%; left: 35%; animation-delay: 2s;">i</span>
+      <span class="info-particle" style="top: 60%; left: 15%; animation-delay: 3s;">i</span>
+      <span class="info-particle" style="top: 50%; left: 90%; animation-delay: 4s;">i</span> -->
+
+      <!-- YouTube Embed -->
+      <!-- <iframe
+        src="https://www.youtube.com/embed/6avi1CdRv7c"
+        title="দারুল কুরআন এর পরিচিতি"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div> -->
+
+ 
+ <!-- About section start here -->
+<section class="about-section padding-tb shape-1">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-12">
+                <div class="lab-item">
+                    <div class="lab-inner">
+                        <div class="lab-content text-center">
+                            <div class="header-title m-0">
+                                <h5>DaarulQuran</h5>
+                                <p class="mb-0 fw-bold">[ ট্রেড লাইসেন্স নাম্বার 03/B-3300 ]</p>
+                                <h2 class="mb-0">আল- কুরআন শিখুন যে কোন সময়, বিশ্বের যেকোন স্থান থেকে!</h2>
+                                
+                            </div>
+                            <h5 class="my-4 text-center fw-bold">বিশ্বস্থতায় আমরা প্রতিশ্রুতিবদ্ধ। </h5>
+                            <p class="fw-bold" style="text-align:justify;">বাংলাদেশ খুবই নগন্য পরিমাণে অনলাইন প্রতিষ্ঠান আছে যারা লাইসেন্স ভুক্ত এবং নিয়মিত সরকারকে ট্যাক্স প্রদান করে , যার মধ্যে দারুল কুরআন অন্যতম এবং তারই সাথে একটা Ed-tech প্ল্যাটফর্ম হতে যে সকল কোয়ালিটি বজায় রাখা প্রয়োজন সেগুলোর সবকিছুই অত্যন্ত গুরুত্ব এবং দায়িত্ব সহকারে পালন করে আসছি আমরা আলহামদুলিল্লল্লাহ ,<span id="moreText" style="display: none; transition: opacity 0.5s ease-in-out;"> দারুল কুরআন বিশ্বব্যাপি বাংলাদেশি ভাই-বোনদের তাদের সুবিধামত সময়ে ,সপ্তাহের যেকোন দিন ,অভিজ্ঞ শিক্ষক / শিক্ষিকা দ্বারা লাইভ ক্লাসের মাদ্ধমে সহিহ কোরআন শিক্ষা / হিফযুল কোরআন / আরবি ভাষা শিক্ষা সেবা প্রদান করে আসছে। আমাদের বিশেষায়িত শিক্ষক আছেন যারা ভার্চুয়াল ক্লাস নেওয়ায় বিশেষ প্রশিক্ষিত। দারুল কুরআন থেকে কুরআন শিখে আপনি বিশুদ্ধভাবে সকল নিয়ম অনুসরণ করে কুরআন পড়তে পারবেন ইনশাল্লাহ । আমাদের প্রতিষ্ঠানে শিশু, কিশোর ও প্রাপ্তবয়স্কদের জন্যে আলাদা আলাদা শিক্ষক রয়েছে, যাতে আপনার শেখাটা উপভোগ্য হয়। এখানে নারী-পুরুষদের জন্যে সম্পুর্ন পৃথক ব্যাবস্থাপনা। নারীদের জন্যে নারী শিক্ষিকা এবং পুরুষদের জন্যে পুরুষ শিক্ষক। আমাদের সকল শিক্ষক হাফেজ, ক্বারি, মাওলানা। সেই সাথে উচ্চতর ইসলামিক বিষয়ে অধ্যায়নরত, <span style="color: #2337FB">আমাদের অধিকাংশ শিক্ষক মিশরের আল- আজহার বিশ্ববিদ্যালয়ের ছাত্র / ছাত্রী,আর এই কারণে আমরা ২৪ঘন্টাই যেকোন সময় ক্লাস করাতে পারি আলহামদুলিল্লাহ্‌ </span> আমাদের সমৃদ্ধ শিক্ষক প্যানেল থেকে আপনি বা আপনার সন্তানের জন্যে বেস্ট শিক্ষক সিলেক্ট করতে পারবেন। সেইসাথে পরবর্তীতে যেকোন সমস্যাই শিক্ষক পরিবর্তন করার বিকল্প অপশনও রয়েছে। আমরা স্বতঃস্ফূর্তভাবে শ্রেষ্ঠ শিক্ষক প্রদানে প্রতুশ্রুতিবদ্ধ। আমাদের শিক্ষক প্যানেলে বিভিন্ন ভাষায় দক্ষ শিক্ষক রয়েছে, যারা ইংরেজি,আরবি, বাংলা,হিন্দি, ভাষায় পাঠদানে সক্ষম। 
+                                <br>
+                                <span style="color: #5518B2;">একজন মুসলিম হিসেবে আল কোরআন পড়তে জানা এবং আমল করা আমাদের ওপর ফরয ,আর আরবি ভাষা এমন এক ভাষা যেইখানে সামান্য টান ,গুন্নাহ ছুটে গেলেই অর্থ পরিবর্তন হয়ে যাই ,তাই লাইভ ক্লাসের মাধ্যমে অভিজ্ঞ হুজুরের কাছে সহিহ সুদ্ধভাবে কোরআন শেখার বিকল্প নেই । </span>কুরআন আপনার জান্নাতে যাওয়ার পথকে সুগম করবে।
+                                আল্লাহ আপনার সহায় হোন।।
+                                জাযাকুমুল্লাহু খাইরান।
+                            </span>
+                            </p>
+                            <div style="text-align:center">
+                                <button id="readMoreBtn" style="padding: 5px 10px; font-size: 14px; border-radius: 5px; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer;">আরও পড়ুন</button>
+                                <button id="showLessBtn" style="display: none; padding: 5px 10px; font-size: 14px; border-radius: 5px; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer;">কম পড়ুন</button>
+                            </div>
+                            <a href="#" class="lab-btn mt-4">অবহেলা না করে আজই শুরু করুন <i class="fa-solid fa-heart"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12">
+                <div class="lab-item">
+                    <div class="lab-inner">
+                        <div class="lab-thumb">
+                            <div class="img-grp">
+                                <div class="about-circle-wrapper">
+                                    <div class="about-circle-2"></div>
+                                    <div class="about-circle"></div>
+                                </div>
+                                <div class="about-fg-img">
+                                    <img src="about02.png" alt="about-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- About section end here -->
+    
+
+    
+    <!-- Pricing section -->
+  
+<section id="pricing-container">
+    <div class="section-heading blue-border text-center mrgb4x">
+        <h3 class="letterspace4x">উম্মুলকোরআন প্রতিষ্ঠানে যা যা শিখতে পারবেন</h3>
+        <p style="padding: 15px; margin-bottom: 20px;">
+            আমাদের সকল ক্লাস লাইভ ওয়ান টু ওয়ান পদ্ধতিতে <a href="https://www.microsoft.com/en-us/microsoft-teams/group-chat-software-b">Teams</a> অ্যাপের মাধ্যমে নেয়া হয় এবং যাদের জন্য এটি কঠিন মনে হবে তাদের জন্য আমরা WhatsApp এ ভিডিও কলের মাধ্যমে স্ক্রিন শেয়ার দিয়ে শেখানোর ব্যবস্থা করে থাকি এবং অনলাইনে ক্লাস নেয়ার জন্য Technical বিষয়ে শিক্ষকদের যথেষ্ট Training করিয়ে তার পর আমরা আমাদের প্রতিটা শিক্ষক নির্বাচন করি।
+            <span id="moreText2" style="display: none; transition: opacity 0.5s ease-in-out;">
+                আমরা সচরাচর ৩০ মিনিট অথবা ৬০ মিনিট এর ক্লাস অফার করি কিন্তু আপনারা চাইলে এইটাও আপনাদের সুবিধামত Customize করে নিতে পারেন ঠিক যেমন আপনারা আপনাদের সুবিধামত সময়ে ,সপ্তাহে যেকোনো দিন আমাদের উম্মুলকোরআনে ক্লাস করতে পারেন এবং প্রয়োজনে যেকোন সময় ক্লাস টাইম অথবা ক্লাসের তারিখ শিক্ষক অথবা আমাদের সাথে কথা বলে পরিবর্তন করে নিতে পারেন।
+                <br>
+                <span style="color: blue;">আমরা কিন্তু আপনাদের থেকে আগে কোন টাকা বা হাদিয়া নেব না।</span> আপনারা আমাদের ট্রায়াল ক্লাস করে যদি আমাদের সকল কিছু ভালো লাগে তাহলে সপ্তাহে কতদিন পরবেন,কত সময় ধরে পরবেন এইগুলাও আপনারাই ঠিক করবেন তারপর ১টা মাস ক্লাস করার পর আপনি ঠিক যতগুলো ক্লাস করেছেন আমরা শুধুমাত্র ঠিক ততগুলো ক্লাসের জন্যই আপনাকে ইনভয়েস দেব ইনশা-আল্লাহ
+                এছাড়া আমরা আমাদের ওয়েবসাইটে অথবা ফেইসবুক পেইজে আমাদের হাদিয়ার কোন উল্লেখ করিনা কারণ আমরা চাই আগে আপানরা আমাদের সাথে কথা বলুন ,আমাদের সম্পর্কে বিস্তারিত জানুন এবং তারপর আপনার যদি আমাদের মানসম্পন্ন মনে হয় কেবল তখনি হাদিয়ার ব্যাপার টা নিয়ে আলোচনা করা যাবে এছাড়াও আমাদের হাদিয়া নির্ধারিত নয় এটিও আপনারাই ঠিক করতে পারবেন যে কোরআন এর খেদমতে আপনারা কতটুকু খরচ করতে রাজি আছেন এবং পরকালের জন্য আপনারা কতটুকু বিনিয়োগ করে আপনার জীবনকে কোরআন দিয়ে সাজিয়ে নিতে পারবেন।
+            </span>
+        </p>
+        <div style="text-align: center; margin-bottom: 20px;margin-top: -20px;">
+            <button id="readMoreBtn2" style="padding: 5px 10px; font-size: 14px; border-radius: 5px; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer;">আরও পড়ুন</button>
+            <button id="showLessBtn2" style="display: none; padding: 5px 10px; font-size: 14px; border-radius: 5px; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer;">কম পড়ুন</button>
+        </div>
+    </div>
+
+    <div id="pricing-cards">
+        <div class="price-card">
+            <div class="price-card--header">
+                <h4>হিফযুল কোরআন</h4>
+                </div>
+            <div class="price-card--price">
+                <div class="price-card--price-conditions">
+                    <div class="price-card--onboarding-fee toggle-price-content" data-price-monthly="৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্" data-price-yearly="৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্">৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য</div>
+                </div>
+            </div>
+            <div class="price-card--cta">
+                <a class="price-card--cta--button btn" href="#forms">শুরু করুণ</a>
+            </div>
+            <div class="price-card--features">
+                <ul class="price-card--features--list">
+                    <li class="price-card--features--item has-tooltip">সম্পূর্ণ কোরআন সহিহ শুদ্ধধভাবে হিফয</li>
+                    <li class="price-card--features--item has-tooltip">মাখরাজ</li>
+                    <li class="price-card--features--item has-tooltip">তাজবীদ</li>
+                    <li class="price-card--features--item has-tooltip">সিফাত</li>
+                    <li class="price-card--features--item has-tooltip">নাজরানা</li>
+                    <li class="price-card--features--item has-tooltip">প্রয়োজনীয় মাসলা মাসায়েল</li>
+                    <li class="price-card--features--item has-tooltip">২৪/৭ Whatsapp এ সাপোর্ট</li>
+                </ul>
+            </div>
+            <div class="price-card--mobile-features-toggle"></div>
+        </div>
+        <div class="price-card price-card--hero">
+            <div class="price-card--header">
+                <h4>সহিহ কোরআন শিক্ষা</h4>
+                </div>
+            <div class="price-card--hero-text">অধিক জনপ্রিয়</div>
+            <div class="price-card--price">
+                <div class="price-card--price-conditions">
+                    <div class="price-card--onboarding-fee toggle-price-content" data-price-monthly="৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য" data-price-yearly="৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য">৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য</div>
+                </div>
+            </div>
+            <div class="price-card--cta">
+                <a class="price-card--cta--button btn" href="#forms">শুরু করুণ</a>
+            </div>
+            <div class="price-card--features">
+                <ul class="price-card--features--list">
+                    <li class="price-card--features--item has-tooltip">মাখরাজ</li>
+                    <li class="price-card--features--item has-tooltip">তাজবীদ</li>
+                    <li class="price-card--features--item has-tooltip">সিফাত</li>
+                    <li class="price-card--features--item has-tooltip">নাজরানা</li>
+                    <li class="price-card--features--item has-tooltip">মাসনুন দোয়া</li>
+                    <li class="price-card--features--item has-tooltip">প্রয়োজনীয় আয়াত / সুরাহ</li>
+                    <li class="price-card--features--item has-tooltip">প্রয়োজনীয় মাসলা মাসায়েল</li>
+                    <li class="price-card--features--item has-tooltip">২৪/৭ Whatsapp এ সাপোর্ট</li>
+                </ul>
+            </div>
+            <div class="price-card--mobile-features-toggle"></div>
+        </div>
+        <div class="price-card">
+            <div class="price-card--header">
+                <h4>আরবি ভাষা শিক্ষা</h4>
+                </div>
+
+            <div class="price-card--price">
+                <div class="price-card--price-conditions">
+                    <div class="price-card--onboarding-fee toggle-price-content" data-price-monthly="৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য" data-price-yearly="৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য">৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য</div>
+                </div>
+            </div>
+
+            <div class="price-card--cta">
+                <a class="price-card--cta--button btn" href="#forms">শুরু করুণ</a>
+            </div>
+
+            <div class="price-card--features">
+                <ul class="price-card--features--list">
+                    <li class="price-card--features--item has-tooltip">মাখরাজ</li>
+                    <li class="price-card--features--item has-tooltip">তাজবীদ</li>
+                    <li class="price-card--features--item has-tooltip">সিফাত</li>
+                    <li class="price-card--features--item has-tooltip">নাজরানা</li>
+                    <li class="price-card--features--item has-tooltip">Hedayatun Nahu (Arabic-Bangla)</li>
+                    <li class="price-card--features--item has-tooltip">Mijanus-sarf-and-Munshaib</li>
+                    <li class="price-card--features--item has-tooltip">Essential Tamrinaat</li>
+                    <li class="price-card--features--item has-tooltip">২৪/৭ Whatsapp এ সাপোর্ট</li>
+                </ul>
+            </div>
+
+            <div class="price-card--mobile-features-toggle"></div>
+        </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Feature Section Start Here -->
+    <section class="feature-section bg-ash padding-tb">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="lab-item feature-item text-xs-center">
+                        <div class="lab-inner">
+                            <div class="lab-thumb">
+                                <img src="/feature01.png" alt="feature-image">
+                            </div>
+                            <div class="lab-content">
+                                <h5>আল কুরআনের দারস</h5>
+                                <p>আলহামদুলিল্লাহ আমরা শিশু থেকে প্রাপ্ত বয়স্ক সবার জন্যে কুরআন শিক্ষার আয়োজন করেছি। এ মহৎ কাজে আপনিও অংশগ্রহন করতে পারেন।
+                                </p>
+                                <a class="btn lightbox-241304500909448" style=" margin-top: 16px; text-transform: uppercase; font-size: 14px; text-decoration: none; cursor: pointer; display: inline-block; padding: 10px; font-family: inherit; text-shadow: none; user-select: none; transition: all,.1s,ease-in; background-color: #FFA500; border: 1px solid #FFA500; color: #FFFFFF; " class="text-btn">Sponsor Now!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="lab-item feature-item">
+                        <div class="lab-inner">
+                            <div class="lab-thumb">
+                                <img src="/feature02.png" alt="feature-image">
+                            </div>
+                            <div class="lab-content">
+                                <h5>ইসলামিক আকিদা</h5>
+                                <p>আমরা ইসলামের মৌলিক আকিদাগুলো শিক্ষাদান করে থাকি। যাতে একজন মুসলিম ইসলাম সম্পর্কে আরো বিস্তৃতভাবে জানতে সক্ষম হয়। আমাদের কার্যক্রম আরো ব্যাপক করতে আপনিও অংশ নিতে পারেন।
+                                </p>
+                                <a class="btn lightbox-241304500909448" style="margin-top: 16px; text-transform: uppercase; font-size: 14px; text-decoration: none; cursor: pointer; display: inline-block; padding: 10px; font-family: inherit; text-shadow: none; user-select: none; transition: all,.1s,ease-in; background-color: #FFA500; border: 1px solid #FFA500; color: #FFFFFF;" class="text-btn">Donate Now!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="lab-item feature-item">
+                        <div class="lab-inner">
+                            <div class="lab-thumb">
+                                <img src="/feature03.png" alt="feature-image">
+                            </div>
+                            <div class="lab-content">
+                                <h5>ইসলামিক এক্টিভিটি</h5>
+                                <p>আমাদের স্বল্প সামর্থে ইসলামিক সৌন্দর্য ছড়িয়ে দিতে চাই। সেই লক্ষ্যে মুসলিম কমিউনিটিতে দাওয়া ও সচেতনতা তৈরি করছি। আমাদের সীমিত উদ্যোগকে আরো বিস্তৃত করতে আপনার সহযোগিতা কামনা করি।
+                                </p>
+                                <a class="btn lightbox-241304500909448" style=" margin-top: 16px; text-transform: uppercase; font-size: 14px; text-decoration: none; cursor: pointer; display: inline-block; padding: 10px; font-family: inherit; text-shadow: none; user-select: none; transition: all,.1s,ease-in; background-color: #FFA500; border: 1px solid #FFA500; color: #FFFFFF; " class="text-btn">Join Us!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="lab-item feature-item">
+                        <div class="lab-inner">
+                            <div class="lab-thumb">
+                                <img src="/fature04.png" alt="feature-image">
+                            </div>
+                            <div class="lab-content">
+                                <h5>মানবিক সেবা</h5>
+                                <p>আমরা ধিরে ধিরে আমাদের কার্যক্রম মানবিক সেবার দিকে নিয়ে যেতে চাই। সেই লক্ষ্যে আমরা দরিদ্র বিমোচন, অতিদরিদ্র মেয়েদের বিবাহ, ইয়াতিমের ভরন পোষন ও গৃহহীন জনগোষ্ঠীর ঘর নির্মাণের প্রদক্ষেপ নিচ্ছি। আমাদের এই প্রকল্পে আপনিও অংশগ্রহন করুন।
+                                </p>
+                                <a class="btn lightbox-241304500909448" style=" margin-top: 16px; text-transform: uppercase; font-size: 14px; text-decoration: none; cursor: pointer; display: inline-block; padding: 10px; font-family: inherit; text-shadow: none; user-select: none; transition: all,.1s,ease-in; background-color: #FFA500; border: 1px solid #FFA500; color: #FFFFFF; " class="text-btn">Get Involved!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Feature Section End Here -->
+
+     <!-- Faith section start here -->
+    <section class="faith-section padding-tb shape-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="header-title">
+                        <h5>The Pillars of Islam</h5>
+                        <h2>Ethical And Moral Beliefs That Guides
+                            To The Straight Path!</h2>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="faith-content">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="shahadah" role="tabpanel"
+                                aria-labelledby="sahadah-tab">
+                                <div class="lab-item faith-item tri-shape-1 pattern-2">
+                                    <div class="lab-inner d-flex align-items-center">
+                                        <div class="lab-thumb">
+                                            <img src="/f (1).png" alt="faith-image">
+                                        </div>
+                                        <div class="lab-content">
+                                            <h4>Shahadah <span>(Faith)</span> </h4>
+                                            <p>The Shahadah, is an Islamic creed, one of the Five Pillars of Islam and
+                                                part of the Adhan. It reads: "I bear witness that there is no deity but
+                                                God, and I bear witness that Muhammad is the messenger of God."</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="prayer" role="tabpanel" aria-labelledby="salah-tab">
+                                <div class="lab-item faith-item tri-shape-1 pattern-2">
+                                    <div class="lab-inner d-flex align-items-center">
+                                        <div class="lab-thumb">
+                                            <img src="/f (2).png" alt="faith-image">
+                                        </div>
+                                        <div class="lab-content">
+                                            <h4>Salaah <span>(Prayer)</span> </h4>
+                                            <p>Each Muslim should pray five times a day: in the morning, at noon, in
+                                                the afternoon, after sunset, and early at night. These prayers can be
+                                                said anywhere, prayers that are said in company of others are better
+                                                than those said alone.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="ramadan" role="tabpanel" aria-labelledby="sawm-tab">
+                                <div class="lab-item faith-item tri-shape-1 pattern-2">
+                                    <div class="lab-inner d-flex align-items-center">
+                                        <div class="lab-thumb">
+                                            <img src="/f (3).png" alt="faith-image">
+                                        </div>
+                                        <div class="lab-content">
+                                            <h4>Sawm <span>(Fasting)</span> </h4>
+                                            <p>Each Muslim should pray five times a day: in the morning, at noon, in
+                                                the afternoon, after sunset, and early at night. These prayers can be
+                                                said anywhere, prayers that are said in company of others are better
+                                                than those said alone.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="jakat" role="tabpanel" aria-labelledby="zakat-tab">
+                                <div class="lab-item faith-item tri-shape-1 pattern-2">
+                                    <div class="lab-inner d-flex align-items-center">
+                                        <div class="lab-thumb">
+                                            <img src="/f (4).png" alt="faith-image">
+                                        </div>
+                                        <div class="lab-content">
+                                            <h4>Zakat <span>(Almsgiving)</span> </h4>
+                                            <p>Each Muslim should pray five times a day: in the morning, at noon, in
+                                                the afternoon, after sunset, and early at night. These prayers can be
+                                                said anywhere, prayers that are said in company of others are better
+                                                than those said alone.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="hajj" role="tabpanel" aria-labelledby="hajj-tab">
+                                <div class="lab-item faith-item tri-shape-1 pattern-2">
+                                    <div class="lab-inner d-flex align-items-center">
+                                        <div class="lab-thumb">
+                                            <img src="/f (5).png" alt="faith-image">
+                                        </div>
+                                        <div class="lab-content">
+                                            <h4>Hajj <span>(Pilgrimage)</span> </h4>
+                                            <p>Each Muslim should pray five times a day: in the morning, at noon, in
+                                                the afternoon, after sunset, and early at night. These prayers can be
+                                                said anywhere, prayers that are said in company of others are better
+                                                than those said alone.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="nav nav-pills mb-3 align-items-center justify-content-center" id="pills-tab"
+                            role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="sahadah-tab" data-bs-toggle="pill" href="#shahadah"
+                                    role="tab" aria-controls="sahadah-tab" aria-selected="true">
+                                    <img src="/fi (1).png" alt="faith-icon">
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="salah-tab" data-bs-toggle="pill" href="#prayer" role="tab"
+                                    aria-controls="salah-tab" aria-selected="false">
+                                    <img src="/fi (2).png" alt="faith-icon">
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="sawm-tab" data-bs-toggle="pill" href="#ramadan" role="tab"
+                                    aria-controls="sawm-tab" aria-selected="false">
+                                    <img src="/fi (3).png" alt="faith-icon">
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="zakat-tab" data-bs-toggle="pill" href="#jakat" role="tab"
+                                    aria-controls="zakat-tab" aria-selected="false">
+                                    <img src="/fi (4).png" alt="faith-icon">
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="hajj-tab" data-bs-toggle="pill" href="#hajj" role="tab"
+                                    aria-controls="hajj-tab" aria-selected="false">
+                                    <img src="/fi (5).png" alt="faith-icon">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Faith section end here -->
+  
+    <div class="container containeryt mt-4">
+        <h3 class="text-center mb-4"></h3>
+
+        <div class="flex mb-4 ">
+            <div class="main-section">
+                <div class="video-container">
+                    <iframe id="main-video" modestbranding class="responsive-video-iframe" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="other-videos">
+                <div id="vid1" class="video-container" onclick="switchVideo(0)"></div>
+                <div id="vid2" class="video-container" onclick="switchVideo(1)"></div>
+                <div id="vid3" class="video-container" onclick="switchVideo(2)"></div>
+                <div id="vid4" class="video-container" onclick="switchVideo(3)"></div>
+                <div id="vid5" class="video-container" onclick="switchVideo(4)"></div>
+            </div>
+        </div>
+    </div>                                                        
+                                                          
+    <!-- Qoute Section start Here -->
+    <div class="qoute-section padding-tb">
+        <div class="qoute-section-wrapper">
+            <div class="qoute-overlay"></div>
+            <div class="container">
+                <div class="qoute-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="lab-item qoute-item">
+                                <div class="lab-inner d-flex align-items-center">
+                                    <div class="lab-thumb">
+                                        <span>Quote From
+                                            Prophet</span>
+                                    </div>
+                                    <div class="lab-content">
+                                        <blockquote class="blockquote">
+                                            <p>`A’ishah (may Allah be pleased with her) narrated that the Prophet (peace
+                                                and blessings be upon him) said <span>"One who is proficient in reciting
+                                                    the Qur’an is associated with the noble, pious (angel) scribes. As
+                                                    for he who stammers
+                                                    when reciting the Qur’an and find it difficult for him, he will be
+                                                    granted a double reward"</span> </p>
+                                            <footer class="blockquote-footer bg-transparent">(Al-Bukhari and Muslim)
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="lab-item qoute-item">
+                                <div class="lab-inner d-flex align-items-center">
+                                    <div class="lab-thumb">
+                                        <span>Quote From
+                                            Prophet</span>
+                                    </div>
+                                    <div class="lab-content">
+                                        <blockquote class="blockquote">
+                                            <p>`Abdullah ibn `Amr ibn Al-`Aas (may Allah be pleased with him) narrated
+                                                that the Prophet (peace and blessings be upon
+                                                him) said <span>"The one who was devoted to the Qur’an will be told [on
+                                                    the Day of Resurrection:] ‘Recite [the Qur’an] and ascend [in
+                                                    ranks] as you used to recite when you were in the world. Your rank
+                                                    will be at the last verse you recite"</span> </p>
+                                            <footer class="blockquote-footer bg-transparent">(Abu Dawud and At-Tirmidhi)
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="lab-item qoute-item">
+                                <div class="lab-inner d-flex align-items-center">
+                                    <div class="lab-thumb">
+                                        <span>Quote From
+                                            Prophet</span>
+                                    </div>
+                                    <div class="lab-content">
+                                        <blockquote class="blockquote">
+                                            <p>Uthman ibn `Affan (may Allah be pleased with him) narrated that the
+                                                Prophet (peace and blessings be upon him) said <span>"The best among you
+                                                    [Muslims] are those who learn the Qur’an and teach it"</span> </p>
+                                            <footer class="blockquote-footer bg-transparent">(Al-Bukhari)
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="lab-item qoute-item">
+                                <div class="lab-inner d-flex align-items-center">
+                                    <div class="lab-thumb">
+                                        <span>Quote From
+                                            Prophet</span>
+                                    </div>
+                                    <div class="lab-content">
+                                        <blockquote class="blockquote">
+                                            <p>Abdullah ibn Mas`ud (may Allah be pleased with him) narrated that the
+                                                Prophet (peace and blessings be upon him) said <span>"Whoever recites a
+                                                    letter of the Book of Allah will be credited with a good deed and a
+                                                    good deed is multiplied into ten.
+
+                                                    I do not say that [the word:] “Alif Lam Meem” is [counted as] one
+                                                    letter. Rather, Alif is one letter, Lam is one letter
+                                                    and Meem is one letter"</span> </p>
+                                            <footer class="blockquote-footer bg-transparent">(At-Tirmidhi)
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="lab-item qoute-item">
+                                <div class="lab-inner d-flex align-items-center">
+                                    <div class="lab-thumb">
+                                        <span>Quote From
+                                            Prophet</span>
+                                    </div>
+                                    <div class="lab-content">
+                                        <blockquote class="blockquote">
+                                            <p>Abu Umamah (may Allah be pleased with him) narrated that the Prophet
+                                                (peace and blessings be upon him) said <span>"Recite the Qur’an, for it
+                                                    will come as an intercessor for its reciters on the Day of
+                                                    Resurrection"</span> </p>
+                                            <footer class="blockquote-footer bg-transparent">(Muslim)
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="swiper-slide">
+                            <div class="lab-item qoute-item">
+                                <div class="lab-inner d-flex align-items-center">
+                                    <div class="lab-thumb">
+                                        <span>Quote From
+                                            Prophet</span>
+                                    </div>
+                                    <div class="lab-content">
+                                        <blockquote class="blockquote">
+                                            <p>An-Nawwas ibn Sm`an (may Allah be pleased with him) narrated that the
+                                                Prophet (peace and blessings be upon him) said <span>"On the Day of
+                                                    Resurrection, the Qur’an will be brought with its people who acted
+                                                    according to it in this world. The
+                                                    Surahs of Al-Baqarah and Aal-`Imran will be at the front arguing on
+                                                    behalf of their [devoted] reciter"</span> </p>
+                                            <footer class="blockquote-footer bg-transparent">(Muslim)
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="lab-item qoute-item">
+                                <div class="lab-inner d-flex align-items-center">
+                                    <div class="lab-thumb">
+                                        <span>Quote From
+                                            Prophet</span>
+                                    </div>
+                                    <div class="lab-content">
+                                        <blockquote class="blockquote">
+                                            <p>Abu Hurairah (may Allah be pleased with him) narrated that the Prophet
+                                                (peace and blessings be upon him) said <span>"Whenever a group of people
+                                                    assemble in one of the Houses of Allah (i.e. Mosques), reciting the
+                                                    Book of Allah and
+                                                    studying it, tranquility descends upon them, Mercy covers them,
+                                                    angels surround them and Allah makes a mention of them
+                                                    among those who are with Him"</span> </p>
+                                            <footer class="blockquote-footer bg-transparent">(Muslim)
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="lab-item qoute-item">
+                                <div class="lab-inner d-flex align-items-center">
+                                    <div class="lab-thumb">
+                                        <span>Quote From
+                                            Prophet</span>
+                                    </div>
+                                    <div class="lab-content">
+                                        <blockquote class="blockquote">
+                                            <p>Abdullah ibn `Abbas (may Allah be pleased with him) narrated that the
+                                                Prophet (peace and blessings be upon him) said <span>"A person who has
+                                                    nothing of the Qur’an in his heart is like a ruined house."</span>
+                                            </p>
+                                            <footer class="blockquote-footer bg-transparent">(At-Tirmidhi)
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="lab-item qoute-item">
+                                <div class="lab-inner d-flex align-items-center">
+                                    <div class="lab-thumb">
+                                        <span>Quote From
+                                            Prophet</span>
+                                    </div>
+                                    <div class="lab-content">
+                                        <blockquote class="blockquote">
+                                            <p>Abu Musa Al-Ash`ari (may Allah be pleased with him) narrated that the Prophet (peace and blessings be upon him) said <span>"Keep refreshing your knowledge of the Qur’an for [I swear] by the One in whose hand the soul of Muhammad is, it is more
+                                            liable to escapes [from memory] than camels do from their hobbles"</span> </p>
+                                            <footer class="blockquote-footer bg-transparent">(Al-Bukhari and Muslim)
+                                            </footer>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Qoute Section end Here -->
+  
+
+    <div class="container mt-5 mt-5">
+    <div class="row">
+        <div class="wrapper m-auto">
+  <h1 style="margin-bottom: 20px; text-align: center;">সচরাচর জিজ্ঞাসা </h1>
+  <div class="container container_style">
+    <div class="question">
+      কিভাবে ক্লাস নেয়া হবে ?
+    </div>
+    <div class="answercont">
+      <div class="answer">
+        আমাদের লাইভ ওয়ান টু ওয়ান ক্লাসগুলো MIcrosoft Teams  অ্যাপ এর মাদ্ধমে নেয়া হয় এবং আপনাদের ক্লাস জয়েন করার Experience সহজতর করতে আমাদের রয়েছে সকল ডিভাইসে ক্লাস জয়েন করার ভিডিও টিউটোরিয়াল এছাড়াও আমাদের রয়েছে অভিজ্ঞ আইটি এক্সপার্ট যিনি আপনাদের ক্লাস জয়েন সম্পর্কিত যেকোন সমস্যার সমাধান করতে সবসময় প্রস্তুত থাকবেন <br> <br>
+
+      </div>
+    </div>
+  </div>
+  
+    <div class="container container_style">
+    <div class="question">
+     কিভাবে ফ্রি ট্রায়াল ক্লাস গ্রহণ করব ? 
+
+    </div>
+    <div class="answercont">
+      <div class="answer">
+       আমাদের ওয়েব সাইটে প্রথমেই ট্রায়াল ক্লাস এর যেই  ফর্ম দেয়া আছে সেইটি পূরণ করে আপনি আমাদের ফ্রি ট্রায়াল ক্লাসে অংশগ্রহণ করতে পারবেন ।  ফর্মটি  পূরণ করে সাবমিট করলে আমাদের ১জন  দীনি  ভাই আপনার সাথে যোগাযোগ করবে এবং তখন বাকিসব তথ্য  দিয়ে আপনাকে ক্লাসে অংশগ্রহণ করতে সাহায্য করবেন । এছাড়াও আপনি সরাসরি আমাদের ওয়েবসাইটে নিচের দিকে ডানকোনাই দেয়া Whatsapp বাটনে ক্লিক করে সরাসরি আমাদের সাথে কথা বলেও আপনার কুরআন শেখার যাত্রা শুরু করতে পারেন <br> <br>
+
+
+      </div>
+    </div>
+  </div>
+  
+      <div class="container container_style">
+    <div class="question">
+     কেন ১টি  ফ্রি ট্রায়াল  ক্লাস ? 
+
+    </div>
+    <div class="answercont">
+      <div class="answer">
+      শেখার  সুবিধার্থে আমরা আপনাদের জন্য ১টি ফ্রি ট্রায়াল ক্লাস এর ব্যবস্থা রেখেছি যেখানে আপনি এবং আমাদের সম্মানিত উস্তাদ পরিচিত হতে পারবেন এবং আপনার কুরআন শেখার প্রথম যাত্রা শুরু হবে ইনশাল্লাহ । 
+ট্রায়াল ক্লাসে আপনার যদি আমাদের কুরআনের শিক্ষক পছন্দ না হয় তাহলে আপনারা অবশ্যই আমাদের জানাবেন , আমরা ইনশাআল্লাহ  তখন আপনার জন্য আরও ভাল শিক্ষক নিযুক্ত করব  <br> <br>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="container container_style">
+    <div class="question">
+       আপনাদের হাদিয়া কত ? 
+    </div>
+    <div class="answercont">
+      <div class="answer">
+       আমাদের উদ্দেশ্যই হচ্ছে আপনাদের মত প্রবাসিদের মধ্যে কুরআন এর আলো পৌঁছিয়ে দেয়া ,কিন্তু এর জন্য আমাদের কিছু খরচ আছে যেইগুলো আমাদের নিজেদের পক্ষে বহন করা সম্ভব নই । আমাদের শিক্ষকদের হাদিয়া দিতে হই, যেহেতু অনলাইন ক্লাস তাই যেকোনো ধরনের technical সমস্যার জন্য technical expert রয়েছে , আপনাদের সার্বক্ষণিক সহায়তার জন্য রয়েছে আরও কিছু টিম মেম্বার ।  তার পরও আমরা যথেষ্ট কম খরচে আপনাদের কুরআন শেখার ব্যবস্থা করে থাকি । আমাদের হাদিয়ার পরিমাণটা নির্ধারিত হয় ক্লাস টাইম এর ওপর ভিত্তি করে ,তাই এই সম্পর্কে বিস্তারিত যানতে আমাদের whatsapp এ  মেসেজ দিন 
+      </div>
+    </div>
+  </div>
+  
+  <div class="container container_style">
+    <div class="question">
+ট্রায়াল ক্লাস এর পর কি করতে হবে? 
+    </div>
+    <div class="answercont">
+      <div class="answer">
+        আপনার ট্রায়াল ক্লাস সম্পন্ন হলে আমরা আপনার সাথে পুনরাই যোগাযোগ করব ইনশাল্লাহ এবং তারপর আপনি কতসময় ধরে  ক্লাস নিতে চান ,সপ্তাহে কইদিন ক্লাস নিতে চান এবং কি শিখতে চান এইগুলো জানার পর আমরা আপনাকে আমাদের হাদিয়া কত দিতে হবে এই সম্পর্কে অবহিত করব । তারপর আল্লাহর ইচ্ছাই সব ঠিক থাকলে আপনি আপনার কুরআন শেখার যাত্রা শুরু করবেন ইনশাল্লাহ <br><br>
+      </div>
+    </div>
+  </div>
+  
+    <div class="container container_style">
+    <div class="question">
+আপনাদের কিভাবে পেমেন্ট করব ? 
+    </div>
+    <div class="answercont">
+      <div class="answer">
+আলহামদুলিল্লাহ আপনি আমাদের ব্যাংক অ্যাকাউন্টে অথবা বিকাশ /নগদ এর মাধ্যমেও পেমেন্ট করতে পারবেন 
+
+      </div>
+    </div>
+  </div>
+  
+</div>
+    </div> 
+</div>                                                                                           
+                                                   
+   <!-- Footer Section start here -->
+    <footer class="footer-section" style="background-image: url(/footer-bg.png);">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row g-3 justify-content-center g-lg-0">
+                    <div class="col-lg-4 col-sm-6 col-12">
+                        <div class="footer-top-item lab-item">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <img src="/f01.png" alt="Phone-icon">
+                                </div>
+                                <div class="lab-content">
+                                    <span>WhatsApp Number :+201500031532</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-12">
+                        <div class="footer-top-item lab-item">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <img src="f02.png" alt="email-icon">
+                                </div>
+                                <div class="lab-content">
+                                    <span>Email : info@DaarulQuran.live</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-12">
+                        <div class="footer-top-item lab-item">
+                            <div class="lab-inner">
+                                <div class="lab-thumb">
+                                    <img src="/f03.png" alt="location-icon">
+                                </div>
+                                <div class="lab-content">
+                                    <span>Address :Nasr City,Egypt 11765</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-middle padding-tb tri-shape-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-12">
+                        <div class="footer-middle-item-wrapper">
+                            <div class="footer-middle-item mb-5 mb-lg-0 text-center">
+                                <div class="fm-item-title">
+                                    <h5>About Daarul Quran</h5>
+                                </div>
+                                <div class="fm-item-content">
+                                    <p class="mb-4">DaarulQuran is an online Platform where we have the vision to spread the knowledge of quran throughout the world. We are the 1st online platform to provide live one on one quran class at your suitable time. you can take our live class anytime you want,our specialized teachers are ready to teach you quran in a sohih way so that you can recite the holy book without any mistake.</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="footer-bottom-content text-center">
+                            <p>&copy;2025 <a href="https://www.DaarulQuran.live">DaarulQuran</a> Number-1 Online Quran Learning Platform <br> Trade License No: 03/B-3300 <br>
+                            <a class="text-black" href="https://www.Daarulquran.live/terms.html" target="_blank">Terms&amp;Condition |</a>
+                            <a class="text-black" href="https://www.daarulquran.live/policy.html" target="_blank">PrivacyPolicy </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section end here -->                           
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <script src="https://kit.fontawesome.com/ed3aafd417.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+        window.axios.defaults.headers.common['X-CSRF-TOKEN'] = `EnBO1Gf39WSZ4RZWVw3ClGIG46llHCSyd4X0iX82`;
+
+        var input = document.querySelector("#phone");
+        let landingIntTel = intlTelInput(input, {
+            initialCountry: "auto",
+            autoHideDialCode: false,
+            geoIpLookup: function(success, failure) {
+                $.get("https://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+                    var countryCode = (resp && resp.country) ? resp.country : "us";
+                    success(countryCode);
+                });
+            },
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"></script>
+    <script src="/assets/user/js/utils.js"></script>
+    <script src="/assets/user/js/swiper.min.js"></script>
+    <script src="/assets/user/js/fontawesome.min.js"></script>                                               
+    <script src="/assets/user/js/main.js"></script>
+
+    
+    <script>
+     document.getElementById('readMoreBtn').addEventListener('click', function() {
+        document.getElementById('moreText').style.display = 'inline';
+        document.getElementById('moreText').style.opacity = '0'; // Set initial opacity to 0
+        setTimeout(function() {
+            document.getElementById('moreText').style.opacity = '1'; // Animate to opacity 1
+        }, 10); // A small delay to ensure the opacity transition works
+        this.style.display = 'none';
+        document.getElementById('showLessBtn').style.display = 'inline';
+    });
+
+    document.getElementById('showLessBtn').addEventListener('click', function() {
+        document.getElementById('moreText').style.opacity = '0';
+        setTimeout(function() {
+            document.getElementById('moreText').style.display = 'none';
+        }, 500);
+        this.style.display = 'none';
+        document.getElementById('readMoreBtn').style.display = 'inline';
+    });  
+    </script>
+    
+    <script>
+        document.getElementById('readMoreBtn2').addEventListener('click', function() {
+            document.getElementById('moreText2').style.display = 'inline';
+            document.getElementById('moreText2').style.opacity = '0';
+            setTimeout(function() {
+                document.getElementById('moreText2').style.opacity = '1';
+            }, 10);
+            this.style.display = 'none';
+            document.getElementById('showLessBtn2').style.display = 'inline';
+        });
+
+        document.getElementById('showLessBtn2').addEventListener('click', function() {
+            document.getElementById('moreText2').style.opacity = '0';
+            setTimeout(function() {
+                document.getElementById('moreText2').style.display = 'none';
+            }, 500);
+            this.style.display = 'none';
+            document.getElementById('readMoreBtn2').style.display = 'inline';
+        });
+    </script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href="https://wa.me/+88017" class="float bounce" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
+</body>
+</html>
