@@ -466,6 +466,250 @@
     </style>
 
     <style>
+        /* Islamic Pattern Background */
+        .islamic-pattern {
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.05) 35px, rgba(255,255,255,0.05) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(255,255,255,0.05) 35px, rgba(255,255,255,0.05) 70px),
+                repeating-linear-gradient(90deg, transparent, transparent 35px, rgba(255,255,255,0.03) 35px, rgba(255,255,255,0.03) 70px);
+            animation: patternMove 30s linear infinite;
+        }
+        
+        @keyframes patternMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(70px, 70px); }
+        }
+        
+        /* Floating Arabic Letters */
+        .arabic-letter {
+            position: absolute;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.15);
+            font-family: 'Traditional Arabic', 'Arabic Typesetting', Arial;
+            animation: floatLetter 20s infinite ease-in-out;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+        
+        .letter-1 { top: 10%; left: 10%; animation-delay: 0s; font-size: 4rem; }
+        .letter-2 { top: 20%; right: 15%; animation-delay: 2s; font-size: 3.5rem; }
+        .letter-3 { bottom: 30%; left: 20%; animation-delay: 4s; }
+        .letter-4 { top: 40%; right: 30%; animation-delay: 6s; font-size: 5rem; }
+        .letter-5 { bottom: 20%; right: 10%; animation-delay: 8s; }
+        .letter-6 { top: 60%; left: 40%; animation-delay: 10s; font-size: 3rem; }
+        .letter-7 { bottom: 40%; left: 50%; animation-delay: 12s; }
+        .letter-8 { top: 30%; left: 60%; animation-delay: 14s; font-size: 4rem; }
+        
+        @keyframes floatLetter {
+            0%, 100% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0.15;
+            }
+            25% {
+                transform: translateY(-30px) translateX(20px) rotate(10deg);
+                opacity: 0.25;
+            }
+            50% {
+                transform: translateY(20px) translateX(-20px) rotate(-5deg);
+                opacity: 0.2;
+            }
+            75% {
+                transform: translateY(-20px) translateX(30px) rotate(5deg);
+                opacity: 0.15;
+            }
+        }
+        
+        /* Islamic Calligraphy */
+        .calligraphy {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 215, 0, 0.2);
+            font-family: 'Noto Naskh Arabic', 'Traditional Arabic', serif;
+            animation: glowCalligraphy 15s infinite ease-in-out;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+        }
+        
+        .calligraphy-1 { top: 5%; right: 40%; animation-delay: 0s; }
+        .calligraphy-2 { bottom: 10%; left: 30%; animation-delay: 3s; font-size: 2.5rem; }
+        .calligraphy-3 { top: 50%; right: 5%; animation-delay: 6s; }
+        .calligraphy-4 { bottom: 40%; right: 40%; animation-delay: 9s; font-size: 1.8rem; }
+        
+        @keyframes glowCalligraphy {
+            0%, 100% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.4;
+                transform: scale(1.1);
+            }
+        }
+        
+        /* Islamic Stars */
+        .islamic-star {
+            position: absolute;
+            animation: rotateStar 30s infinite linear;
+        }
+        
+        .star-1 {
+            width: 100px;
+            height: 100px;
+            top: 15%;
+            left: 5%;
+        }
+        
+        .star-2 {
+            width: 80px;
+            height: 80px;
+            bottom: 25%;
+            right: 8%;
+            animation-direction: reverse;
+        }
+        
+        @keyframes rotateStar {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Crescent Moons */
+        .crescent {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.2);
+            animation: floatCrescent 25s infinite ease-in-out;
+        }
+        
+        .crescent-1 { top: 30%; left: 15%; animation-delay: 0s; }
+        .crescent-2 { bottom: 15%; right: 20%; animation-delay: 5s; font-size: 3rem; }
+        .crescent-3 { top: 70%; left: 60%; animation-delay: 10s; }
+        
+        @keyframes floatCrescent {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(15deg);
+            }
+        }
+        
+        /* Mosque Silhouette */
+        .mosque {
+            position: absolute;
+            opacity: 0.1;
+            animation: fadeInOut 20s infinite;
+        }
+        
+        .mosque-1 {
+            width: 200px;
+            height: 150px;
+            bottom: 0;
+            left: 10%;
+        }
+        
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.05; }
+            50% { opacity: 0.15; }
+        }
+        
+        /* Ayah Particles */
+        .ayah-particle {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.3);
+            animation: particleFloat 15s infinite linear;
+        }
+        
+        .particle-1 { left: 10%; animation-delay: 0s; }
+        .particle-2 { left: 30%; animation-delay: 3s; }
+        .particle-3 { left: 50%; animation-delay: 6s; }
+        .particle-4 { left: 70%; animation-delay: 9s; }
+        .particle-5 { left: 90%; animation-delay: 12s; }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Geometric Islamic Shapes */
+        .geometric-shape {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            animation: geometricRotate 30s infinite linear;
+        }
+        
+        .shape-1 {
+            top: 20%;
+            right: 25%;
+            transform: rotate(45deg);
+        }
+        
+        .shape-2 {
+            bottom: 30%;
+            left: 35%;
+            width: 80px;
+            height: 80px;
+            animation-direction: reverse;
+        }
+        
+        .shape-3 {
+            top: 60%;
+            right: 45%;
+            width: 60px;
+            height: 60px;
+        }
+        
+        @keyframes geometricRotate {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        /* Arabic Header Font */
+        .arabic-header {
+            font-family: 'Amiri', 'Noto Naskh Arabic', 'Traditional Arabic', serif;
+            font-weight: 700;
+        }
+        
+        /* Islamic Gradient Text */
+        .gradient-text-islamic {
+            background: linear-gradient(90deg, #10b981, #14b8a6, #06b6d4, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 300% 300%;
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        /* Arabic Verse */
+        .arabic-verse {
+            font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+            line-height: 2;
+        }
+        
+        /* Parallax on Scroll */
+        @media (min-width: 768px) {
+            .arabic-letter,
+            .calligraphy,
+            .islamic-star,
+            .crescent {
+                will-change: transform;
+                transition: transform 0.3s ease-out;
+            }
+        }
+    </style>
+
+    <style>
         /* Custom Animations */
         @keyframes fadeInUp {
             from {
@@ -829,48 +1073,82 @@
         <div class="absolute bottom-20 left-20 text-white/20 text-4xl animate-float animation-delay-3000">✦</div>
     </div>
 
+    <!-- form -->
     <section class="relative min-h-screen overflow-hidden py-16">
-        <!-- 3D Animated Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
-            <!-- Animated 3D Elements -->
-            <div class="absolute inset-0">
-                <!-- Floating Cubes -->
-                <div class="cube cube-1"></div>
-                <div class="cube cube-2"></div>
-                <div class="cube cube-3"></div>
-                <div class="cube cube-4"></div>
-                <div class="cube cube-5"></div>
-                
-                <!-- Floating Spheres -->
-                <div class="sphere sphere-1"></div>
-                <div class="sphere sphere-2"></div>
-                <div class="sphere sphere-3"></div>
-                
-                <!-- Animated Rings -->
-                <div class="ring ring-1"></div>
-                <div class="ring ring-2"></div>
-                
-                <!-- Particles -->
-                <div class="particles-container">
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                    <div class="particle"></div>
-                </div>
+        <!-- Islamic Pattern Animated Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900">
+            <!-- Islamic Geometric Pattern Overlay -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="islamic-pattern"></div>
             </div>
             
-            <!-- Grid Pattern Overlay -->
-            <div class="absolute inset-0 opacity-10">
-                <div class="grid-pattern"></div>
+            <!-- Animated Arabic Elements -->
+            <div class="absolute inset-0">
+                <!-- Floating Arabic Letters -->
+                <div class="arabic-letter letter-1" data-letter="ا">ا</div>
+                <div class="arabic-letter letter-2" data-letter="ل">ل</div>
+                <div class="arabic-letter letter-3" data-letter="ق">ق</div>
+                <div class="arabic-letter letter-4" data-letter="ر">ر</div>
+                <div class="arabic-letter letter-5" data-letter="آ">آ</div>
+                <div class="arabic-letter letter-6" data-letter="ن">ن</div>
+                <div class="arabic-letter letter-7" data-letter="م">م</div>
+                <div class="arabic-letter letter-8" data-letter="ح">ح</div>
+                
+                <!-- Islamic Calligraphy -->
+                <div class="calligraphy calligraphy-1">بِسْمِ اللَّهِ</div>
+                <div class="calligraphy calligraphy-2">الرَّحْمَٰنِ</div>
+                <div class="calligraphy calligraphy-3">الرَّحِيمِ</div>
+                <div class="calligraphy calligraphy-4">سُبْحَانَ اللَّهِ</div>
+                
+                <!-- Islamic Stars -->
+                <div class="islamic-star star-1">
+                    <svg viewBox="0 0 100 100" class="w-full h-full">
+                        <polygon points="50,5 61,35 95,35 68,57 79,87 50,65 21,87 32,57 5,35 39,35" 
+                                fill="none" 
+                                stroke="rgba(255,255,255,0.3)" 
+                                stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="islamic-star star-2">
+                    <svg viewBox="0 0 100 100" class="w-full h-full">
+                        <polygon points="50,5 61,35 95,35 68,57 79,87 50,65 21,87 32,57 5,35 39,35" 
+                                fill="none" 
+                                stroke="rgba(255,255,255,0.3)" 
+                                stroke-width="2"/>
+                    </svg>
+                </div>
+                
+                <!-- Crescent Moons -->
+                <div class="crescent crescent-1">☪</div>
+                <div class="crescent crescent-2">☪</div>
+                <div class="crescent crescent-3">☪</div>
+                
+                <!-- Mosque Silhouettes -->
+                <div class="mosque mosque-1">
+                    <svg viewBox="0 0 200 150" class="w-full h-full">
+                        <path d="M100 20 Q100 5, 100 5 T100 20 L100 50 L80 50 L80 100 L50 100 L50 150 L150 150 L150 100 L120 100 L120 50 L100 50 Z M100 30 A15 15 0 0 1 100 30 Z" 
+                            fill="rgba(255,255,255,0.1)" 
+                            stroke="rgba(255,255,255,0.2)" 
+                            stroke-width="1"/>
+                    </svg>
+                </div>
+                
+                <!-- Arabic Ayah Particles -->
+                <div class="ayah-particle particle-1">﴿١﴾</div>
+                <div class="ayah-particle particle-2">﴿٢﴾</div>
+                <div class="ayah-particle particle-3">﴿٣﴾</div>
+                <div class="ayah-particle particle-4">﴿٤﴾</div>
+                <div class="ayah-particle particle-5">﴿٥﴾</div>
+                
+                <!-- Geometric Islamic Shapes -->
+                <div class="geometric-shape shape-1"></div>
+                <div class="geometric-shape shape-2"></div>
+                <div class="geometric-shape shape-3"></div>
             </div>
         </div>
 
-        <!-- Main Content -->
-        <div class="container mx-auto px-4 relative z-10">
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 relative z-10">
             <div class="flex items-center justify-center min-h-[90vh]">
                 <!-- Centered Form Section -->
                 <div class="w-full max-w-2xl">
@@ -990,6 +1268,7 @@
         </div>
     </section>
 
+
 <!-- Info Icon Particles -->
   <!-- <div class="orbit-container">
     <div class="responsive-video-wrapper">
@@ -1011,48 +1290,49 @@
   </div> -->
 
  
- <!-- About section start here -->
-<section class="about-section padding-tb shape-1">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 col-12">
-                <div class="lab-item">
-                    <div class="lab-inner">
-                        <div class="lab-content text-center">
-                            <div class="header-title m-0">
-                                <h5>DaarulQuran</h5>
-                                <p class="mb-0 fw-bold">[ ট্রেড লাইসেন্স নাম্বার 03/B-3300 ]</p>
-                                <h2 class="mb-0">আল- কুরআন শিখুন যে কোন সময়, বিশ্বের যেকোন স্থান থেকে!</h2>
-                                
+    <!-- About section start here -->
+    <section class="about-section padding-tb shape-1">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-12">
+                    <div class="lab-item">
+                        <div class="lab-inner">
+                            <div class="lab-content text-center">
+                                <div class="header-title m-0">
+                                    <h5>DaarulQuran</h5>
+                                    <p class="mb-0 fw-bold">[ ট্রেড লাইসেন্স নাম্বার 03/B-3300 ]</p>
+                                    <h2 class="mb-0">আল- কুরআন শিখুন যে কোন সময়, বিশ্বের যেকোন স্থান থেকে!</h2>
+                                    
+                                </div>
+                                <h5 class="my-4 text-center fw-bold">বিশ্বস্থতায় আমরা প্রতিশ্রুতিবদ্ধ। </h5>
+                                <p class="fw-bold" style="text-align:justify;">বাংলাদেশ খুবই নগন্য পরিমাণে অনলাইন প্রতিষ্ঠান আছে যারা লাইসেন্স ভুক্ত এবং নিয়মিত সরকারকে ট্যাক্স প্রদান করে , যার মধ্যে দারুল কুরআন অন্যতম এবং তারই সাথে একটা Ed-tech প্ল্যাটফর্ম হতে যে সকল কোয়ালিটি বজায় রাখা প্রয়োজন সেগুলোর সবকিছুই অত্যন্ত গুরুত্ব এবং দায়িত্ব সহকারে পালন করে আসছি আমরা আলহামদুলিল্লল্লাহ ,<span id="moreText" style="display: none; transition: opacity 0.5s ease-in-out;"> দারুল কুরআন বিশ্বব্যাপি বাংলাদেশি ভাই-বোনদের তাদের সুবিধামত সময়ে ,সপ্তাহের যেকোন দিন ,অভিজ্ঞ শিক্ষক / শিক্ষিকা দ্বারা লাইভ ক্লাসের মাদ্ধমে সহিহ কোরআন শিক্ষা / হিফযুল কোরআন / আরবি ভাষা শিক্ষা সেবা প্রদান করে আসছে। আমাদের বিশেষায়িত শিক্ষক আছেন যারা ভার্চুয়াল ক্লাস নেওয়ায় বিশেষ প্রশিক্ষিত। দারুল কুরআন থেকে কুরআন শিখে আপনি বিশুদ্ধভাবে সকল নিয়ম অনুসরণ করে কুরআন পড়তে পারবেন ইনশাল্লাহ । আমাদের প্রতিষ্ঠানে শিশু, কিশোর ও প্রাপ্তবয়স্কদের জন্যে আলাদা আলাদা শিক্ষক রয়েছে, যাতে আপনার শেখাটা উপভোগ্য হয়। এখানে নারী-পুরুষদের জন্যে সম্পুর্ন পৃথক ব্যাবস্থাপনা। নারীদের জন্যে নারী শিক্ষিকা এবং পুরুষদের জন্যে পুরুষ শিক্ষক। আমাদের সকল শিক্ষক হাফেজ, ক্বারি, মাওলানা। সেই সাথে উচ্চতর ইসলামিক বিষয়ে অধ্যায়নরত, <span style="color: #2337FB">আমাদের অধিকাংশ শিক্ষক মিশরের আল- আজহার বিশ্ববিদ্যালয়ের ছাত্র / ছাত্রী,আর এই কারণে আমরা ২৪ঘন্টাই যেকোন সময় ক্লাস করাতে পারি আলহামদুলিল্লাহ্‌ </span> আমাদের সমৃদ্ধ শিক্ষক প্যানেল থেকে আপনি বা আপনার সন্তানের জন্যে বেস্ট শিক্ষক সিলেক্ট করতে পারবেন। সেইসাথে পরবর্তীতে যেকোন সমস্যাই শিক্ষক পরিবর্তন করার বিকল্প অপশনও রয়েছে। আমরা স্বতঃস্ফূর্তভাবে শ্রেষ্ঠ শিক্ষক প্রদানে প্রতুশ্রুতিবদ্ধ। আমাদের শিক্ষক প্যানেলে বিভিন্ন ভাষায় দক্ষ শিক্ষক রয়েছে, যারা ইংরেজি,আরবি, বাংলা,হিন্দি, ভাষায় পাঠদানে সক্ষম। 
+                                    <br>
+                                    <span style="color: #5518B2;">একজন মুসলিম হিসেবে আল কোরআন পড়তে জানা এবং আমল করা আমাদের ওপর ফরয ,আর আরবি ভাষা এমন এক ভাষা যেইখানে সামান্য টান ,গুন্নাহ ছুটে গেলেই অর্থ পরিবর্তন হয়ে যাই ,তাই লাইভ ক্লাসের মাধ্যমে অভিজ্ঞ হুজুরের কাছে সহিহ সুদ্ধভাবে কোরআন শেখার বিকল্প নেই । </span>কুরআন আপনার জান্নাতে যাওয়ার পথকে সুগম করবে।
+                                    আল্লাহ আপনার সহায় হোন।।
+                                    জাযাকুমুল্লাহু খাইরান।
+                                </span>
+                                </p>
+                                <div style="text-align:center">
+                                    <button id="readMoreBtn" style="padding: 5px 10px; font-size: 14px; border-radius: 5px; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer;">আরও পড়ুন</button>
+                                    <button id="showLessBtn" style="display: none; padding: 5px 10px; font-size: 14px; border-radius: 5px; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer;">কম পড়ুন</button>
+                                </div>
+                                <a href="#" class="lab-btn mt-4">অবহেলা না করে আজই শুরু করুন <i class="fa-solid fa-heart"></i></a>
                             </div>
-                            <h5 class="my-4 text-center fw-bold">বিশ্বস্থতায় আমরা প্রতিশ্রুতিবদ্ধ। </h5>
-                            <p class="fw-bold" style="text-align:justify;">বাংলাদেশ খুবই নগন্য পরিমাণে অনলাইন প্রতিষ্ঠান আছে যারা লাইসেন্স ভুক্ত এবং নিয়মিত সরকারকে ট্যাক্স প্রদান করে , যার মধ্যে দারুল কুরআন অন্যতম এবং তারই সাথে একটা Ed-tech প্ল্যাটফর্ম হতে যে সকল কোয়ালিটি বজায় রাখা প্রয়োজন সেগুলোর সবকিছুই অত্যন্ত গুরুত্ব এবং দায়িত্ব সহকারে পালন করে আসছি আমরা আলহামদুলিল্লল্লাহ ,<span id="moreText" style="display: none; transition: opacity 0.5s ease-in-out;"> দারুল কুরআন বিশ্বব্যাপি বাংলাদেশি ভাই-বোনদের তাদের সুবিধামত সময়ে ,সপ্তাহের যেকোন দিন ,অভিজ্ঞ শিক্ষক / শিক্ষিকা দ্বারা লাইভ ক্লাসের মাদ্ধমে সহিহ কোরআন শিক্ষা / হিফযুল কোরআন / আরবি ভাষা শিক্ষা সেবা প্রদান করে আসছে। আমাদের বিশেষায়িত শিক্ষক আছেন যারা ভার্চুয়াল ক্লাস নেওয়ায় বিশেষ প্রশিক্ষিত। দারুল কুরআন থেকে কুরআন শিখে আপনি বিশুদ্ধভাবে সকল নিয়ম অনুসরণ করে কুরআন পড়তে পারবেন ইনশাল্লাহ । আমাদের প্রতিষ্ঠানে শিশু, কিশোর ও প্রাপ্তবয়স্কদের জন্যে আলাদা আলাদা শিক্ষক রয়েছে, যাতে আপনার শেখাটা উপভোগ্য হয়। এখানে নারী-পুরুষদের জন্যে সম্পুর্ন পৃথক ব্যাবস্থাপনা। নারীদের জন্যে নারী শিক্ষিকা এবং পুরুষদের জন্যে পুরুষ শিক্ষক। আমাদের সকল শিক্ষক হাফেজ, ক্বারি, মাওলানা। সেই সাথে উচ্চতর ইসলামিক বিষয়ে অধ্যায়নরত, <span style="color: #2337FB">আমাদের অধিকাংশ শিক্ষক মিশরের আল- আজহার বিশ্ববিদ্যালয়ের ছাত্র / ছাত্রী,আর এই কারণে আমরা ২৪ঘন্টাই যেকোন সময় ক্লাস করাতে পারি আলহামদুলিল্লাহ্‌ </span> আমাদের সমৃদ্ধ শিক্ষক প্যানেল থেকে আপনি বা আপনার সন্তানের জন্যে বেস্ট শিক্ষক সিলেক্ট করতে পারবেন। সেইসাথে পরবর্তীতে যেকোন সমস্যাই শিক্ষক পরিবর্তন করার বিকল্প অপশনও রয়েছে। আমরা স্বতঃস্ফূর্তভাবে শ্রেষ্ঠ শিক্ষক প্রদানে প্রতুশ্রুতিবদ্ধ। আমাদের শিক্ষক প্যানেলে বিভিন্ন ভাষায় দক্ষ শিক্ষক রয়েছে, যারা ইংরেজি,আরবি, বাংলা,হিন্দি, ভাষায় পাঠদানে সক্ষম। 
-                                <br>
-                                <span style="color: #5518B2;">একজন মুসলিম হিসেবে আল কোরআন পড়তে জানা এবং আমল করা আমাদের ওপর ফরয ,আর আরবি ভাষা এমন এক ভাষা যেইখানে সামান্য টান ,গুন্নাহ ছুটে গেলেই অর্থ পরিবর্তন হয়ে যাই ,তাই লাইভ ক্লাসের মাধ্যমে অভিজ্ঞ হুজুরের কাছে সহিহ সুদ্ধভাবে কোরআন শেখার বিকল্প নেই । </span>কুরআন আপনার জান্নাতে যাওয়ার পথকে সুগম করবে।
-                                আল্লাহ আপনার সহায় হোন।।
-                                জাযাকুমুল্লাহু খাইরান।
-                            </span>
-                            </p>
-                            <div style="text-align:center">
-                                <button id="readMoreBtn" style="padding: 5px 10px; font-size: 14px; border-radius: 5px; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer;">আরও পড়ুন</button>
-                                <button id="showLessBtn" style="display: none; padding: 5px 10px; font-size: 14px; border-radius: 5px; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer;">কম পড়ুন</button>
-                            </div>
-                            <a href="#" class="lab-btn mt-4">অবহেলা না করে আজই শুরু করুন <i class="fa-solid fa-heart"></i></a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6 col-12">
-                <div class="lab-item">
-                    <div class="lab-inner">
-                        <div class="lab-thumb">
-                            <div class="img-grp">
-                                <div class="about-circle-wrapper">
-                                    <div class="about-circle-2"></div>
-                                    <div class="about-circle"></div>
-                                </div>
-                                <div class="about-fg-img">
-                                    <img src="about02.png" alt="about-image">
+                <div class="col-lg-6 col-12">
+                    <div class="lab-item">
+                        <div class="lab-inner">
+                            <div class="lab-thumb">
+                                <div class="img-grp">
+                                    <div class="about-circle-wrapper">
+                                        <div class="about-circle-2"></div>
+                                        <div class="about-circle"></div>
+                                    </div>
+                                    <div class="about-fg-img">
+                                        <img src="about02.png" alt="about-image">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1060,8 +1340,7 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- About section end here -->
     
@@ -1785,40 +2064,40 @@
     
     <!-- form section -->
     <script>
-        // 3D Parallax Effect on Scroll
+        // Islamic Elements Parallax
         document.addEventListener('DOMContentLoaded', function() {
-            const cubes = document.querySelectorAll('.cube');
-            const spheres = document.querySelectorAll('.sphere');
-            const rings = document.querySelectorAll('.ring');
+            const arabicLetters = document.querySelectorAll('.arabic-letter');
+            const calligraphies = document.querySelectorAll('.calligraphy');
+            const crescents = document.querySelectorAll('.crescent');
             
+            // Scroll Parallax
             window.addEventListener('scroll', () => {
                 const scrolled = window.pageYOffset;
-                const parallaxSpeed = 0.5;
                 
-                cubes.forEach((cube, index) => {
-                    const speed = parallaxSpeed * (index + 1) * 0.5;
-                    cube.style.transform = `translateY(${scrolled * speed}px) rotateX(${scrolled * 0.1}deg) rotateY(${scrolled * 0.1}deg)`;
+                arabicLetters.forEach((letter, index) => {
+                    const speed = 0.5 * (index + 1) * 0.3;
+                    letter.style.transform = `translateY(${scrolled * speed}px)`;
                 });
                 
-                spheres.forEach((sphere, index) => {
-                    const speed = parallaxSpeed * (index + 1) * 0.3;
-                    sphere.style.transform = `translateY(${scrolled * -speed}px) scale(${1 + scrolled * 0.0001})`;
-                });
-                
-                rings.forEach((ring, index) => {
-                    const speed = parallaxSpeed * (index + 1) * 0.4;
-                    ring.style.transform = `rotate(${scrolled * speed * 0.1}deg)`;
+                calligraphies.forEach((text, index) => {
+                    const speed = 0.3 * (index + 1) * 0.2;
+                    text.style.transform = `translateY(${scrolled * -speed}px)`;
                 });
             });
             
-            // Mouse Move 3D Effect
+            // Mouse Parallax
             document.addEventListener('mousemove', (e) => {
-                const mouseX = e.clientX / window.innerWidth - 0.5;
-                const mouseY = e.clientY / window.innerHeight - 0.5;
+                const mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+                const mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
                 
-                cubes.forEach((cube, index) => {
-                    const speed = (index + 1) * 5;
-                    cube.style.transform += ` translateX(${mouseX * speed}px) translateY(${mouseY * speed}px)`;
+                arabicLetters.forEach((letter, index) => {
+                    const speed = (index + 1) * 3;
+                    letter.style.transform = `translate(${mouseX * speed}px, ${mouseY * speed}px)`;
+                });
+                
+                crescents.forEach((crescent, index) => {
+                    const speed = (index + 1) * 2;
+                    crescent.style.transform = `translate(${mouseX * speed}px, ${mouseY * speed}px) rotate(${mouseX * 10}deg)`;
                 });
             });
         });
