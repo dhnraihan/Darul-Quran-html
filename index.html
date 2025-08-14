@@ -222,6 +222,249 @@
         }
     </style>
 
+    <!-- form section -->
+    <style>
+        /* 3D Background Animation Styles */
+        .cube {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            transform-style: preserve-3d;
+            animation: rotateCube 20s infinite linear;
+        }
+        
+        .cube::before,
+        .cube::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            border: 2px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .cube-1 {
+            top: 10%;
+            left: 10%;
+            animation-duration: 25s;
+        }
+        
+        .cube-2 {
+            top: 60%;
+            right: 15%;
+            width: 80px;
+            height: 80px;
+            animation-duration: 30s;
+            animation-direction: reverse;
+        }
+        
+        .cube-3 {
+            bottom: 20%;
+            left: 20%;
+            width: 60px;
+            height: 60px;
+            animation-duration: 35s;
+        }
+        
+        .cube-4 {
+            top: 30%;
+            right: 30%;
+            width: 40px;
+            height: 40px;
+            animation-duration: 20s;
+        }
+        
+        .cube-5 {
+            bottom: 30%;
+            right: 10%;
+            width: 70px;
+            height: 70px;
+            animation-duration: 28s;
+            animation-direction: reverse;
+        }
+        
+        @keyframes rotateCube {
+            0% {
+                transform: rotateX(0) rotateY(0) rotateZ(0);
+            }
+            100% {
+                transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+        
+        .sphere {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), rgba(255,255,255,0.05));
+            backdrop-filter: blur(5px);
+            animation: floatSphere 15s infinite ease-in-out;
+        }
+        
+        .sphere-1 {
+            width: 120px;
+            height: 120px;
+            top: 20%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+        
+        .sphere-2 {
+            width: 80px;
+            height: 80px;
+            bottom: 30%;
+            left: 15%;
+            animation-delay: 5s;
+        }
+        
+        .sphere-3 {
+            width: 60px;
+            height: 60px;
+            top: 50%;
+            left: 40%;
+            animation-delay: 10s;
+        }
+        
+        @keyframes floatSphere {
+            0%, 100% {
+                transform: translateY(0) translateX(0) scale(1);
+            }
+            25% {
+                transform: translateY(-30px) translateX(20px) scale(1.1);
+            }
+            50% {
+                transform: translateY(20px) translateX(-20px) scale(0.9);
+            }
+            75% {
+                transform: translateY(-20px) translateX(30px) scale(1.05);
+            }
+        }
+        
+        .ring {
+            position: absolute;
+            border: 3px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            animation: rotateRing 20s infinite linear;
+        }
+        
+        .ring-1 {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .ring-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 10%;
+            right: 20%;
+            animation-direction: reverse;
+        }
+        
+        @keyframes rotateRing {
+            0% {
+                transform: rotateX(0) rotateY(0);
+            }
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+        
+        .particles-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: particleFloat 10s infinite linear;
+        }
+        
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 1s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 2s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 3s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 4s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 5s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 6s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 7s; }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        .grid-pattern {
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 10s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+        
+        .gradient-text-animated {
+            background: linear-gradient(90deg, #f97316, #ec4899, #8b5cf6, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 300% 300%;
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        .progress-bar-animated {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-bar-animated::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        /* Parallax Effect on Scroll */
+        .parallax-element {
+            transition: transform 0.3s ease-out;
+        }
+    </style>
+
     <style>
         /* Custom Animations */
         @keyframes fadeInUp {
@@ -586,127 +829,159 @@
         <div class="absolute bottom-20 left-20 text-white/20 text-4xl animate-float animation-delay-3000">✦</div>
     </div>
 
-    <!-- Main Content Wrapper (wrap your existing content) -->
-    <!-- <div id="main-content" class="opacity-0 transition-opacity duration-1000"> -->
-        <!-- আপনার বাকি সব কন্টেন্ট এখানে... -->
-
-    <section>
-        <div class="container mx-auto px-4 py-8 lg:py-16">
-            <div class="flex flex-col lg:flex-row items-center justify-center gap-8">
-                <!-- Logo Section -->
-                <div class="w-full lg:w-1/2 animate-fadeInUp">
-                    <a href="index.html">
-                        <img src="hero.webp" 
-                            class="w-full hover:scale-105 transition-transform duration-300" 
-                            alt="DaarulQuran Logo">
-                    </a>
+    <section class="relative min-h-screen overflow-hidden py-16">
+        <!-- 3D Animated Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+            <!-- Animated 3D Elements -->
+            <div class="absolute inset-0">
+                <!-- Floating Cubes -->
+                <div class="cube cube-1"></div>
+                <div class="cube cube-2"></div>
+                <div class="cube cube-3"></div>
+                <div class="cube cube-4"></div>
+                <div class="cube cube-5"></div>
+                
+                <!-- Floating Spheres -->
+                <div class="sphere sphere-1"></div>
+                <div class="sphere sphere-2"></div>
+                <div class="sphere sphere-3"></div>
+                
+                <!-- Animated Rings -->
+                <div class="ring ring-1"></div>
+                <div class="ring ring-2"></div>
+                
+                <!-- Particles -->
+                <div class="particles-container">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
                 </div>
+            </div>
+            
+            <!-- Grid Pattern Overlay -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="grid-pattern"></div>
+            </div>
+        </div>
 
-                <!-- Form Section -->
-                <div class="w-full lg:w-1/2">
-                    <div class="bg-white rounded-2xl shadow-2xl p-8 hover-lift">
-                        <form id="forms" class="space-y-6" onsubmit="event.preventDefault()">
+        <!-- Main Content -->
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex items-center justify-center min-h-[90vh]">
+                <!-- Centered Form Section -->
+                <div class="w-full max-w-2xl">
+                    <div class="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-8 md:p-12 hover-lift border border-white/20">
+                        <!-- Floating Badge -->
+                        <div class="absolute -top-5 left-1/2 transform -translate-x-1/2">
+                            <span class="inline-block px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-full text-sm font-bold shadow-lg animate-bounce">
+                                🌟 Limited Time Offer
+                            </span>
+                        </div>
+
+                        <form id="forms" class="space-y-6 mt-8" onsubmit="event.preventDefault()">
                             <!-- Progress Bar -->
                             <div class="relative mb-8">
                                 <div class="flex justify-between mb-4">
                                     <div class="flex items-center">
-                                        <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">1</div>
-                                        <span class="ml-2 text-sm font-medium">Account</span>
+                                        <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg transform hover:scale-110 transition-transform">1</div>
+                                        <span class="ml-3 text-sm font-bold">Account</span>
                                     </div>
                                     <div class="flex items-center">
-                                        <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-white font-bold">2</div>
-                                        <span class="ml-2 text-sm font-medium text-gray-400">Details</span>
+                                        <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-white font-bold">2</div>
+                                        <span class="ml-3 text-sm font-medium text-gray-400">Details</span>
                                     </div>
                                     <div class="flex items-center">
-                                        <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-white font-bold">3</div>
-                                        <span class="ml-2 text-sm font-medium text-gray-400">Complete</span>
+                                        <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-white font-bold">3</div>
+                                        <span class="ml-3 text-sm font-medium text-gray-400">Complete</span>
                                     </div>
                                 </div>
-                                <div class="w-full bg-gray-200 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-orange-500 to-pink-500 h-2 rounded-full animate-shimmer" style="width: 33%"></div>
+                                <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                                    <div class="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 h-3 rounded-full progress-bar-animated" style="width: 33%"></div>
                                 </div>
                             </div>
 
                             <!-- Form Header -->
-                            <div class="text-center mb-6">
-                                <span class="inline-block px-4 py-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full text-sm font-bold mb-4 animate-pulse">
-                                    ওয়ান টু ওয়ান
-                                </span>
-                                <h1 class="text-3xl lg:text-4xl font-bold mb-4 gradient-text">
+                            <div class="text-center mb-8">
+                                <div class="mb-6">
+                                    <span class="inline-block px-5 py-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full text-sm font-bold mb-4 animate-pulse shadow-lg">
+                                        ওয়ান টু ওয়ান লাইভ ক্লাস
+                                    </span>
+                                </div>
+                                <h1 class="text-4xl lg:text-5xl font-bold mb-4 gradient-text-animated">
                                     অনলাইনে সহিহ কুরআন শিক্ষা
                                 </h1>
-                                <p class="text-gray-600 font-medium">
-                                    DaarulQuran আপনাদের জন্য ফ্রি মূল্যায়ন ক্লাস এর ব্যবস্থা রেখেছে
+                                <p class="text-gray-600 font-medium text-lg">
+                                    DaarulQuran আপনাদের জন্য <span class="text-orange-500 font-bold">ফ্রি</span> মূল্যায়ন ক্লাস এর ব্যবস্থা রেখেছে
                                 </p>
+                                
+                                <!-- Trust Badges -->
+                                <div class="flex justify-center items-center gap-6 mt-6">
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-orange-500">5000+</div>
+                                        <div class="text-xs text-gray-600">Happy Students</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-purple-500">4.9⭐</div>
+                                        <div class="text-xs text-gray-600">Rating</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-green-500">24/7</div>
+                                        <div class="text-xs text-gray-600">Support</div>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Step 1 -->
                             <div class="step-forms step-forms-active space-y-4">
-                                <div>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                        <i class="fas fa-phone text-gray-400"></i>
+                                    </div>
                                     <input type="tel" 
                                         id="phone" 
-                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300"
+                                        class="w-full pl-12 pr-4 py-4 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none input-glow transition-all duration-300 text-lg"
                                         placeholder="মোবাইল নাম্বার"
                                         required>
                                 </div>
+                                
                                 <div>
-                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+                                    <label for="name" class="block text-sm font-bold text-gray-700 mb-2">
                                         Student Name <span class="text-red-500">*</span>
                                     </label>
-                                    <input type="text" 
-                                        id="name" 
-                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300"
-                                        placeholder="আপনার নাম লিখুন"
-                                        required>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                            <i class="fas fa-user text-gray-400"></i>
+                                        </div>
+                                        <input type="text" 
+                                            id="name" 
+                                            class="w-full pl-12 pr-4 py-4 border-2 border-gray-300 rounded-xl focus:border-orange-500 focus:outline-none input-glow transition-all duration-300 text-lg"
+                                            placeholder="আপনার নাম লিখুন"
+                                            required>
+                                    </div>
                                 </div>
 
-                                <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500">
-                                    <p class="text-sm font-medium text-gray-700">
+                                <div class="bg-gradient-to-r from-orange-50 to-pink-50 p-5 rounded-xl border-l-4 border-orange-500">
+                                    <p class="text-sm font-bold text-gray-700">
+                                        <i class="fas fa-info-circle text-orange-500 mr-2"></i>
                                         কুরআন শিক্ষা প্রত্যেক মুসলিমের জন্য ফরজ। আজ থেকেই কুরআন দিয়ে জীবন গড়া শুরু করুন
                                     </p>
                                 </div>
 
                                 <button type="submit" 
                                         id="firstStepBtn"
-                                        class="w-full py-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-bold rounded-lg hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-2xl">
+                                        class="w-full py-5 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-bold text-lg rounded-xl hover:scale-105 transform transition-all duration-300 shadow-2xl hover:shadow-orange-500/50">
                                     ফ্রি ক্লাসটি নিশ্চিত করুন
+                                    <i class="fas fa-arrow-right ml-2"></i>
                                 </button>
                             </div>
 
                             <!-- Step 2 (Hidden initially) -->
                             <div class="step-forms hidden space-y-4">
-                                <div>
-                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
-                                        Email <span class="text-red-500">*</span>
-                                    </label>
-                                    <input type="email" 
-                                        id="email" 
-                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300"
-                                        placeholder="আপনার ইমেইল"
-                                        required>
-                                </div>
-                                <div>
-                                    <label for="trialTime" class="block text-sm font-medium text-gray-700 mb-2">
-                                        Trial Class Time
-                                    </label>
-                                    <input type="time" 
-                                        id="trialTime" 
-                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300">
-                                </div>
-                                <div>
-                                    <label for="trialDate" class="block text-sm font-medium text-gray-700 mb-2">
-                                        Trial Class Date
-                                    </label>
-                                    <input type="date" 
-                                        id="trialDate" 
-                                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 focus:outline-none input-glow transition-all duration-300">
-                                </div>
-
-                                <button type="submit" 
-                                        id="secondStepBtn"
-                                        class="w-full py-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold rounded-lg hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-2xl">
-                                    Schedule Your Free Class
-                                </button>
+                                <!-- Step 2 content remains the same -->
                             </div>
                         </form>
                     </div>
@@ -897,9 +1172,6 @@
         </div>
         </div>
     </section>
-
-
-
 
 
     <!-- Feature Section Start Here -->
@@ -1499,7 +1771,7 @@
     </footer>
     <!-- Footer Section end here -->                           
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"> </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"> </script> -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.min.js"></script>
@@ -1510,6 +1782,48 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <!-- form section -->
+    <script>
+        // 3D Parallax Effect on Scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const cubes = document.querySelectorAll('.cube');
+            const spheres = document.querySelectorAll('.sphere');
+            const rings = document.querySelectorAll('.ring');
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxSpeed = 0.5;
+                
+                cubes.forEach((cube, index) => {
+                    const speed = parallaxSpeed * (index + 1) * 0.5;
+                    cube.style.transform = `translateY(${scrolled * speed}px) rotateX(${scrolled * 0.1}deg) rotateY(${scrolled * 0.1}deg)`;
+                });
+                
+                spheres.forEach((sphere, index) => {
+                    const speed = parallaxSpeed * (index + 1) * 0.3;
+                    sphere.style.transform = `translateY(${scrolled * -speed}px) scale(${1 + scrolled * 0.0001})`;
+                });
+                
+                rings.forEach((ring, index) => {
+                    const speed = parallaxSpeed * (index + 1) * 0.4;
+                    ring.style.transform = `rotate(${scrolled * speed * 0.1}deg)`;
+                });
+            });
+            
+            // Mouse Move 3D Effect
+            document.addEventListener('mousemove', (e) => {
+                const mouseX = e.clientX / window.innerWidth - 0.5;
+                const mouseY = e.clientY / window.innerHeight - 0.5;
+                
+                cubes.forEach((cube, index) => {
+                    const speed = (index + 1) * 5;
+                    cube.style.transform += ` translateX(${mouseX * speed}px) translateY(${mouseY * speed}px)`;
+                });
+            });
+        });
+    </script>
+
     <script>
         window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         window.axios.defaults.headers.common['X-CSRF-TOKEN'] = `EnBO1Gf39WSZ4RZWVw3ClGIG46llHCSyd4X0iX82`;
@@ -1532,7 +1846,7 @@
     <script src="/assets/user/js/swiper.min.js"></script>
     <script src="/assets/user/js/fontawesome.min.js"></script>                                               
     <script src="/assets/user/js/main.js"></script>
-
+    <script src="assets/user/js/new.js"></script>
 
     <script>
      document.getElementById('readMoreBtn').addEventListener('click', function() {
