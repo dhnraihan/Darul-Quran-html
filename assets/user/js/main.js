@@ -101,7 +101,7 @@ secondStepBtn.addEventListener('click', e => {
                 updateFormSteps();
                 formLoadingStop(form, 'Schedule Your Free Class');
                 toastr.success("Alhamdulillah! We Will Cotact You Soon Insha-Allah.");
-                window.location.href = "https://ummulquran.live/thank-you-page.html";
+                window.location.href = "https://daarulquran.live/thank-you-page.html";
 
             } else {
                 toastr.error(message);
