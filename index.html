@@ -1,74 +1,79 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Daarul Quran - Online Qur'an Learning Platform | Coming Soon</title>
-    <meta name="description" content="Learn Qur'an online with certified teachers. 1-to-1 live tajwid & hifz classes for kids and adults. Free trial class available.">
-    <meta name="keywords" content="online quran learning, tajwid, hifz, quranic studies, islamic education">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Daarul Quran - Online Qur'an Learning Platform">
-    <meta property="og:description" content="Learn Qur'an online with certified teachers. 1-to-1 live tajwid & hifz classes for kids and adults.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://daarulquran.com">
-    <meta property="og:image" content="https://daarulquran.com/og-image.jpg">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Daarul Quran - Online Qur'an Learning Platform">
-    <meta name="twitter:description" content="Learn Qur'an online with certified teachers. Free trial class available.">
-    
-    <!-- Tailwind CSS CDN -->
+    <title>Daarul Quran - অনলাইন কুরআন শিক্ষা প্ল্যাটফর্ম</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     
     <style>
-        /* Custom Configuration */
-        :root {
-            --emerald: #10B981;
-            --deep-green: #065F46;
-            --off-white: #FAFAF9;
+        /* Rotating animation for star shape */
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
         }
-        
-        body {
-            font-family: 'Inter', 'Noto Sans Arabic', sans-serif;
-            background-color: var(--off-white);
+
+        .rotating-reverse {
+            animation: rotate 30s linear infinite reverse;
         }
-        
-        /* Islamic Geometric Pattern Background */
-        .islamic-pattern {
-            background-image: 
-                repeating-linear-gradient(
-                    45deg,
-                    transparent,
-                    transparent 35px,
-                    rgba(16, 185, 129, 0.03) 35px,
-                    rgba(16, 185, 129, 0.03) 70px
-                ),
-                repeating-linear-gradient(
-                    -45deg,
-                    transparent,
-                    transparent 35px,
-                    rgba(6, 95, 70, 0.02) 35px,
-                    rgba(6, 95, 70, 0.02) 70px
-                );
+
+        .rotating {
+            animation: rotate 30s linear infinite;
         }
-        
-        /* Smooth Scroll Animation */
-        @keyframes fadeInUp {
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #022c22;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .loader-container {
+            text-align: center;
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 4px solid rgba(16, 185, 129, 0.2);
+            border-top: 4px solid #10b981;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+
+        .loader-text {
+            color: #10b981;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        /* Previous styles remain the same */
+        @keyframes slideDown {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(-10px);
             }
             to {
                 opacity: 1;
@@ -76,361 +81,1900 @@
             }
         }
         
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
+        #mobileMenu.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
         }
         
-        .animation-delay-200 {
-            animation-delay: 0.2s;
+        #mobileMenu.show a {
+            animation: slideDown 0.3s ease-out forwards;
+            opacity: 0;
         }
         
-        .animation-delay-400 {
-            animation-delay: 0.4s;
+        #mobileMenu.show a:nth-child(1) { animation-delay: 0.05s; }
+        #mobileMenu.show a:nth-child(2) { animation-delay: 0.1s; }
+        #mobileMenu.show a:nth-child(3) { animation-delay: 0.15s; }
+        #mobileMenu.show a:nth-child(4) { animation-delay: 0.2s; }
+        #mobileMenu.show a:nth-child(5) { animation-delay: 0.25s; }
+        #mobileMenu.show a:nth-child(6) { animation-delay: 0.3s; }
+        #mobileMenu.show a:nth-child(7) { animation-delay: 0.35s; }
+
+        * {
+            font-family: 'Noto Serif Bengali', serif;
         }
-        
-        .animation-delay-600 {
-            animation-delay: 0.6s;
+
+        .arabic-font {
+            font-family: 'Amiri', serif;
         }
-        
-        /* Custom Focus Styles for Accessibility */
-        *:focus {
-            outline: 2px solid var(--emerald);
-            outline-offset: 2px;
+
+        /* Islamic Geometric Pattern */
+        .islamic-pattern {
+            background-image: 
+                radial-gradient(circle at 20% 50%, transparent 20%, rgba(16, 185, 129, 0.03) 21%, rgba(16, 185, 129, 0.03) 34%, transparent 35%),
+                linear-gradient(0deg, transparent 24%, rgba(16, 185, 129, 0.02) 25%, rgba(16, 185, 129, 0.02) 26%, transparent 27%, transparent 74%, rgba(16, 185, 129, 0.02) 75%, rgba(16, 185, 129, 0.02) 76%, transparent 77%);
+            background-size: 50px 50px;
         }
-        
-        /* RTL Support */
-        [dir="rtl"] {
-            font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+
+        .geometric-shape {
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+        }
+
+        .star-shape {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        /* Crescent moon shape */
+        .crescent {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: inset -15px 0 0 0 rgba(251, 191, 36, 0.2);
+        }
+
+        /* Lantern glow effect */
+        .lantern-glow {
+            box-shadow: 
+                0 0 30px rgba(251, 191, 36, 0.3),
+                0 0 60px rgba(251, 191, 36, 0.2),
+                0 0 90px rgba(251, 191, 36, 0.1);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #022c22;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #059669, #047857);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #10b981, #059669);
+        }
+
+        /* GSAP specific styles */
+        .char {
+            display: inline-block;
         }
     </style>
     
-    <!-- Tailwind Custom Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'soft-emerald': '#10B981',
-                        'deep-green': '#065F46',
-                        'off-white': '#FAFAF9'
-                    }
-                }
-            }
+    <style>
+    /* About Image Container Sizes */
+    .about-img-container {
+        position: relative;
+        width: 290px;
+        height: 290px;
+    }
+
+    @media (min-width: 768px) {
+        .about-img-container {
+            width: 450px;
+            height: 450px;
         }
-    </script>
+    }
+
+    @media (min-width: 1200px) {
+        .about-img-container {
+            width: 550px;
+            height: 550px;
+        }
+    }
+
+    /* Foreground Image Position */
+    .about-fg-img {
+        position: absolute;
+        z-index: 10;
+        right: 37px;
+        top: -51px;
+    }
+
+    @media (min-width: 768px) {
+        .about-fg-img {
+            right: 57px;
+            top: -79px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .about-fg-img {
+            right: 75px;
+            top: -33px;
+        }
+    }
+
+    /* Animated Circles */
+    .about-circle-wrapper {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        animation: circleRotate 15s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    }
+
+    .about-circle,
+    .about-circle-2 {
+        display: block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        position: absolute;
+        box-shadow: 0px 0px 20px 0px rgba(0, 255, 106, 0.3);
+    }
+
+    @media (min-width: 768px) {
+        .about-circle,
+        .about-circle-2 {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .about-circle {
+        bottom: -15px;
+        left: 50%;
+        background: linear-gradient(to right, #b92b27, #1565c0); 
+    }
+
+    .about-circle-2 {
+        top: -16px;
+        right: 50%;
+        background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+    }
+
+    /* Circle Animation */
+    @keyframes circleRotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Smooth text reveal animation */
+    #moreText {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+
+    #moreText.show {
+        max-height: 2000px;
+        opacity: 1;
+    }
+
+    /* Hover Effects */
+    .about-fg-img img {
+        transition: transform 0.5s ease;
+    }
+
+    .about-img-container:hover .about-fg-img img {
+        transform: scale(1.05);
+    }
+
+    .about-img-container:hover .about-circle-wrapper {
+        animation-duration: 10s;
+    }
+
+    /* Gradient text animation */
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .gradient-text-animated {
+        background: linear-gradient(90deg, #10b981, #14b8a6, #06b6d4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 200%;
+        animation: gradientShift 3s ease infinite;
+    }
+    </style>
+
 </head>
-<body class="min-h-screen islamic-pattern">
-    
-    <!-- Language Toggle -->
-    <div class="fixed top-4 right-4 z-50">
-        <button 
-            onclick="toggleLanguage()"
-            class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-deep-green font-medium"
-            aria-label="Toggle language"
-        >
-            <span id="langToggle">বাংলা</span>
-        </button>
+<body class="bg-gradient-to-b from-[#022c22] to-[#064e3b] min-h-screen">
+
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader-container">
+            <div class="loader"></div>
+            <div class="loader-text">Loading...</div>
+            <div class="arabic-font text-emerald-400 text-2xl mt-4">بِسْمِ اللَّهِ</div>
+        </div>
     </div>
-    
-    <!-- Main Container -->
-    <div class="container mx-auto px-4 py-8 max-w-6xl">
-        
-        <!-- Hero Section -->
-        <section class="text-center pt-12 pb-16 opacity-0 animate-fade-in-up">
-            
-            <!-- Logo/Brand Name -->
-            <div class="mb-8">
-                <!-- Logo Image -->
-                <div class="flex justify-center mb-6">
-                    <img 
-                        src="/Daarul-quran.webp" 
-                        alt="Daarul Quran Logo"
-                        class="h-20 md:h-28 lg:h-32 w-auto object-contain filter drop-shadow-lg hover:scale-105 transition-transform duration-300"
-                        loading="eager"
-                    >
+
+    <!-- Navigation with Mobile Menu -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-[#022c22]/80 border-b border-emerald-800/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <a href="index.html">
+                        <img src="../static/images/daarulquran.webp" class="w-[60px]" alt="">
+                        <span class="text-white font-semibold text-lg">Daarul Quran</span>
+                    </a>
                 </div>
                 
-                <!-- Brand Name -->
-                <h1 class="text-4xl md:text-6xl font-bold text-deep-green">
-                    <span class="block text-3xl md:text-5xl mb-2" data-lang="bn">দারুল কুরআন</span>
-                    <span data-lang="en">Daarul Quran</span>
-                </h1>
-                
-                <!-- Tagline -->
-                <p class="text-lg md:text-xl text-gray-600 mt-4" data-lang="en">
-                    Your Gateway to Sacred Knowledge
-                </p>
-                <p class="text-lg md:text-xl text-gray-600 mt-4 hidden" data-lang="bn">
-                    পবিত্র জ্ঞানের আপনার প্রবেশদ্বার
-                </p>
-            </div>
-            
-            <!-- Countdown Timer -->
-            <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 max-w-2xl mx-auto mb-8 opacity-0 animate-fade-in-up animation-delay-200">
-                <p class="text-sm uppercase tracking-wider text-gray-500 mb-4" data-lang="en">Launching In</p>
-                <p class="text-sm uppercase tracking-wider text-gray-500 mb-4 hidden" data-lang="bn">লঞ্চ হচ্ছে</p>
-                
-                <div id="countdown" class="grid grid-cols-4 gap-2 md:gap-4 text-center">
-                    <div class="bg-off-white rounded-xl p-3 md:p-4">
-                        <div class="text-2xl md:text-4xl font-bold text-soft-emerald" id="days">00</div>
-                        <div class="text-xs md:text-sm text-gray-500 mt-1" data-lang="en">Days</div>
-                        <div class="text-xs md:text-sm text-gray-500 mt-1 hidden" data-lang="bn">দিন</div>
-                    </div>
-                    <div class="bg-off-white rounded-xl p-3 md:p-4">
-                        <div class="text-2xl md:text-4xl font-bold text-soft-emerald" id="hours">00</div>
-                        <div class="text-xs md:text-sm text-gray-500 mt-1" data-lang="en">Hours</div>
-                        <div class="text-xs md:text-sm text-gray-500 mt-1 hidden" data-lang="bn">ঘন্টা</div>
-                    </div>
-                    <div class="bg-off-white rounded-xl p-3 md:p-4">
-                        <div class="text-2xl md:text-4xl font-bold text-soft-emerald" id="minutes">00</div>
-                        <div class="text-xs md:text-sm text-gray-500 mt-1" data-lang="en">Minutes</div>
-                        <div class="text-xs md:text-sm text-gray-500 mt-1 hidden" data-lang="bn">মিনিট</div>
-                    </div>
-                    <div class="bg-off-white rounded-xl p-3 md:p-4">
-                        <div class="text-2xl md:text-4xl font-bold text-soft-emerald" id="seconds">00</div>
-                        <div class="text-xs md:text-sm text-gray-500 mt-1" data-lang="en">Seconds</div>
-                        <div class="text-xs md:text-sm text-gray-500 mt-1 hidden" data-lang="bn">সেকেন্ড</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Email/WhatsApp Form -->
-            <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 max-w-2xl mx-auto opacity-0 animate-fade-in-up animation-delay-400">
-                <h2 class="text-2xl font-semibold text-deep-green mb-4" data-lang="en">
-                    Be the First to Know
-                </h2>
-                <h2 class="text-2xl font-semibold text-deep-green mb-4 hidden" data-lang="bn">
-                    প্রথম জানুন
-                </h2>
-                
-                <form class="space-y-4" onsubmit="handleSubmit(event)">
-                    <div>
-                        <input 
-                            type="email" 
-                            placeholder="Enter your email address"
-                            data-placeholder-en="daarulquranlive@gmail.com"
-                            data-placeholder-bn="daarulquranlive@gmail.com"
-                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-soft-emerald focus:ring-2 focus:ring-soft-emerald/20 transition-all duration-300"
-                            required
-                            aria-label="Email address"
-                        >
-                    </div>
-                    <div>
-                        <input 
-                            type="tel" 
-                            placeholder="WhatsApp number (optional)"
-                            data-placeholder-en="WhatsApp number (optional)"
-                            data-placeholder-bn="হোয়াটসঅ্যাপ নম্বর (ঐচ্ছিক)"
-                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-soft-emerald focus:ring-2 focus:ring-soft-emerald/20 transition-all duration-300"
-                            aria-label="WhatsApp number"
-                        >
-                    </div>
-                    <button 
-                        type="submit"
-                        class="w-full bg-soft-emerald text-white font-semibold py-3 px-6 rounded-xl hover:bg-green-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                    >
-                        <span data-lang="en">Get Notified</span>
-                        <span class="hidden" data-lang="bn">বিজ্ঞপ্তি পান</span>
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="index.html" class="text-emerald-100/70 hover:text-white transition">হোম</a>
+                    <a href="#courses" class="text-emerald-100/70 hover:text-white transition">কোর্সসমূহ</a>
+                    <a href="#teachers" class="text-emerald-100/70 hover:text-white transition">শিক্ষকমণ্ডলী</a>
+                    <a href="contact.html" class="text-emerald-100/70 hover:text-white transition">যোগাযোগ</a>
+                    <a href="about.html" class="text-emerald-100/70 hover:text-white transition">আমাদের সম্পর্কে</a>
+                    <button class="px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg hover:shadow-emerald-500/25 transition">
+                        শুরু করুন
                     </button>
-                </form>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden text-white p-2">
+                    <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
             </div>
-        </section>
+        </div>
         
-        <!-- Value Propositions -->
-        <section class="py-12 opacity-0 animate-fade-in-up animation-delay-600">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Value Card 1 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-                    <div class="text-soft-emerald text-3xl mb-4">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <h3 class="font-semibold text-deep-green mb-2" data-lang="en">Live Classes</h3>
-                    <h3 class="font-semibold text-deep-green mb-2 hidden" data-lang="bn">লাইভ ক্লাস</h3>
-                    <p class="text-gray-600 text-sm" data-lang="en">Personalized Tajwid & Hifz sessions with dedicated instructors</p>
-                    <p class="text-gray-600 text-sm hidden" data-lang="bn">নিবেদিত শিক্ষকদের সাথে ব্যক্তিগত তাজবিদ ও হিফজ সেশন</p>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="lg:hidden hidden">
+            <div class="container mx-auto px-4 py-4 bg-[#022c22]/95 backdrop-blur-lg border-t border-emerald-800/20">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">হোম</a>
+                    <a href="#courses" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">কোর্সসমূহ</a>
+                    <a href="#teachers" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">শিক্ষকমণ্ডলী</a>
+                    <a href="contact.html" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">যোগাযোগ</a>
+                    <a href="about.html" class="text-emerald-100/70 hover:text-white transition">আমাদের সম্পর্কে</a>
+                    <button class="w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg hover:shadow-emerald-500/25 transition mt-4">
+                        শুরু করুন
+                    </button>
                 </div>
-                
-                <!-- Value Card 2 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-                    <div class="text-soft-emerald text-3xl mb-4">
-                        <i class="fas fa-gift"></i>
-                    </div>
-                    <h3 class="font-semibold text-deep-green mb-2" data-lang="en">Free Trial Class</h3>
-                    <h3 class="font-semibold text-deep-green mb-2 hidden" data-lang="bn">বিনামূল্যে ট্রায়াল ক্লাস</h3>
-                    <p class="text-gray-600 text-sm" data-lang="en">Experience our teaching methodology before enrollment</p>
-                    <p class="text-gray-600 text-sm hidden" data-lang="bn">ভর্তির আগে আমাদের শিক্ষাদান পদ্ধতি অনুভব করুন</p>
-                </div>
-                
-                <!-- Value Card 3 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-                    <div class="text-soft-emerald text-3xl mb-4">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <h3 class="font-semibold text-deep-green mb-2" data-lang="en">Certified Teachers</h3>
-                    <h3 class="font-semibold text-deep-green mb-2 hidden" data-lang="bn">সার্টিফাইড শিক্ষক</h3>
-                    <p class="text-gray-600 text-sm" data-lang="en">Learn from qualified and experienced Qur'an educators</p>
-                    <p class="text-gray-600 text-sm hidden" data-lang="bn">যোগ্য এবং অভিজ্ঞ কুরআন শিক্ষকদের কাছে শিখুন</p>
-                </div>
-                
-                <!-- Value Card 4 -->
-                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
-                    <div class="text-soft-emerald text-3xl mb-4">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="font-semibold text-deep-green mb-2" data-lang="en">All Ages Welcome</h3>
-                    <h3 class="font-semibold text-deep-green mb-2 hidden" data-lang="bn">সব বয়সের জন্য</h3>
-                    <p class="text-gray-600 text-sm" data-lang="en">Tailored programs for kids and adults of all levels</p>
-                    <p class="text-gray-600 text-sm hidden" data-lang="bn">সকল স্তরের শিশু এবং প্রাপ্তবয়স্কদের জন্য উপযুক্ত প্রোগ্রাম</p>
-                </div>
-                
             </div>
-        </section>
+        </div>
+    </nav>
+
+    <!-- Main Hero Section -->
+    <section class="relative min-h-screen w-full flex items-center justify-center overflow-hidden mt-[30px] pt-20">
         
-        <!-- Social Links -->
-        <section class="py-12 text-center">
-            <div class="flex justify-center space-x-6">
-                <a 
-                    href="https://wa.me/yourwhatsappnumber" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300"
-                    aria-label="WhatsApp"
-                >
-                    <i class="fab fa-whatsapp text-2xl text-green-600"></i>
-                </a>
-                <a 
-                    href="https://youtube.com/yourchannel" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300"
-                    aria-label="YouTube"
-                >
-                    <i class="fab fa-youtube text-2xl text-red-600"></i>
-                </a>
-                <a 
-                    href="https://facebook.com/yourpage" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300"
-                    aria-label="Facebook"
-                >
-                    <i class="fab fa-facebook text-2xl text-blue-600"></i>
-                </a>
+        <!-- Islamic Pattern Background -->
+        <div class="absolute inset-0 islamic-pattern opacity-30"></div>
+        
+        <!-- Gradient Overlays -->
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-transparent to-amber-900/20"></div>
+        
+        <!-- Parallax Container for Geometric Shapes -->
+        <div class="absolute inset-0 overflow-hidden" id="parallaxContainer">
+            
+            <!-- Large Pentagon Shape -->
+            <div class="parallax-shape rotating-reverse geometric-shape absolute left-[-5%] top-[20%] w-[300px] h-[300px] bg-gradient-to-br from-emerald-500/10 to-emerald-700/10 border border-emerald-500/20" 
+                data-speed="0.3" 
+                style="--delay: 0.2s; --rotate: 15deg;">
             </div>
-        </section>
+            
+            <!-- Star Shape -->
+            <div class="parallax-shape star-shape absolute right-[5%] top-[15%] w-[200px] h-[200px] bg-gradient-to-br from-amber-500/10 to-amber-600/10 border border-amber-500/20 rotating" 
+                data-speed="-0.2">
+            </div>
+            
+            <!-- Crescent Moons -->
+            <div class="parallax-shape absolute left-[10%] bottom-[20%]" data-speed="0.5">
+                <div class="crescent"></div>
+            </div>
+            
+            <div class="parallax-shape absolute right-[20%] bottom-[30%]" data-speed="-0.3">
+                <div class="crescent transform rotate-45"></div>
+            </div>
+            
+            <!-- Floating Circles with Arabic Calligraphy -->
+            <div class="parallax-shape floating absolute opacity-50 left-5 top-[80px] sm:left-[25%] sm:top-[10%]" 
+                data-speed="0.4" 
+                style="--delay: 0.5s;">
+                <div class="w-10 h-10 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 border border-emerald-400/30 flex items-center justify-center">
+                    <span class="arabic-font text-emerald-300 text-2xl">الله</span>
+                </div>
+            </div>
+            
+            <div class="parallax-shape floating absolute right-[12%] top-[55%]" 
+                data-speed="-0.4" 
+                style="--delay: 0.8s;">
+                <div class="w-24 h-24 rounded-full bg-gradient-to-br from-amber-500/20 to-amber-600/20 border border-amber-400/30 flex items-center justify-center">
+                    <span class="arabic-font text-amber-300 text-3xl">محمد</span>
+                </div>
+            </div>
+            
+            <!-- Geometric Lines -->
+            <div class="parallax-shape absolute left-[40%] top-[5%]" data-speed="0.1">
+                <div class="w-[200px] h-[1px] bg-gradient-to-r from-transparent via-emerald-400/30 to-transparent"></div>
+            </div>
+            
+            <div class="parallax-shape absolute right-[30%] bottom-[15%]" data-speed="-0.1">
+                <div class="w-[150px] h-[1px] bg-gradient-to-r from-transparent via-amber-400/30 to-transparent"></div>
+            </div>
+            
+            <!-- Small floating dots -->
+            <div class="parallax-shape pulse-glow absolute left-[60%] top-[30%]" 
+                data-speed="0.6" 
+                style="--delay: 0s;">
+                <div class="w-4 h-4 rounded-full bg-emerald-400/40"></div>
+            </div>
+            
+            <div class="parallax-shape pulse-glow absolute left-[70%] bottom-[40%]" 
+                data-speed="-0.5" 
+                style="--delay: 0.5s;">
+                <div class="w-3 h-3 rounded-full bg-amber-400/40"></div>
+            </div>
+            
+            <div class="parallax-shape pulse-glow absolute right-[40%] top-[40%]" 
+                data-speed="0.3" 
+                style="--delay: 1s;">
+                <div class="w-5 h-5 rounded-full bg-emerald-300/30"></div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="relative z-10 container mx-auto px-4 md:px-6">
+            <div class="max-w-5xl mx-auto text-center">
+                
+                <!-- Badge -->
+                <div class="fade-in inline-flex items-center gap-3 px-4 py-2 rounded-full bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 mb-8" 
+                    style="--delay: 0.3s;">
+                    <div class="w-2 h-2 rounded-full bg-emerald-400 pulse-glow"></div>
+                    <span class="text-emerald-200 text-sm">আধুনিক অনলাইন শিক্ষা প্ল্যাটফর্ম</span>
+                    <div class="w-2 h-2 rounded-full bg-emerald-400 pulse-glow"></div>
+                </div>
+
+                <!-- Arabic Quote -->
+                <div class="fade-in mb-6" style="--delay: 0.5s;">
+                    <p class="arabic-font text-3xl md:text-4xl text-amber-400/80 mb-2">
+                        اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ
+                    </p>
+                    <p class="text-emerald-200/60 text-sm">পড়ুন আপনার প্রভুর নামে, যিনি সৃষ্টি করেছেন</p>
+                </div>
+
+                <!-- Main Title -->
+                <div class="fade-in" style="--delay: 0.7s;">
+                    <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6">
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-300 via-emerald-200 to-amber-300">
+                            Daarul Quran
+                        </span>
+                    </h1>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-white mb-8">
+                        কুরআন শিক্ষার আধুনিক সমাধান
+                    </h2>
+                </div>
+
+                <!-- Description -->
+                <div class="fade-up max-w-3xl mx-auto mb-10" style="--delay: 0.9s;">
+                    <p class="text-lg text-emerald-100/70 leading-relaxed">
+                        একটি আধুনিক অনলাইন প্ল্যাটফর্ম, যেখানে সবাই সহজে এবং সুবিধাজনকভাবে কুরআন শিক্ষা নিতে পারে। 
+                        আমাদের লক্ষ্য শিক্ষার্থীদের জন্য প্রামাণিক, সহজবোধ্য ও ডিজিটাল শিক্ষণ পরিবেশ তৈরি করা।
+                    </p>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="fade-up flex flex-wrap gap-4 justify-center items-center mb-12" style="--delay: 1.1s;">
+                    <button class="group px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-semibold text-lg hover:shadow-xl hover:shadow-emerald-500/30 transition-all transform hover:scale-105">
+                        <span>ফ্রি ক্লাসটি নিশ্চিত করুন</span>
+                    </button>
+                    <button class="group px-8 py-4 bg-white/10 backdrop-blur-sm border border-emerald-400/30 text-white rounded-full font-semibold text-lg hover:bg-white/20 transition-all">
+                        <span>কোর্স দেখুন</span>
+                    </button>
+                </div>
+
+                <!-- Features -->
+                <div class="fade-up grid grid-cols-1 md:grid-cols-3 gap-6" style="--delay: 1.3s;">
+                    <div class="bg-emerald-900/20 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 hover:bg-emerald-900/30 transition-all">
+                        <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center mb-4 mx-auto lantern-glow">
+                            <span class="text-white text-xl">📖</span>
+                        </div>
+                        <h3 class="text-white font-semibold mb-2">তাজবীদ সহ শিক্ষা</h3>
+                        <p class="text-emerald-200/60 text-sm">সঠিক উচ্চারণ ও তাজবীদের নিয়ম সহ কুরআন শিক্ষা</p>
+                    </div>
+
+                    <div class="bg-emerald-900/20 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 hover:bg-emerald-900/30 transition-all">
+                        <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-lg flex items-center justify-center mb-4 mx-auto lantern-glow">
+                            <span class="text-white text-xl">👥</span>
+                        </div>
+                        <h3 class="text-white font-semibold mb-2">লাইভ ক্লাস</h3>
+                        <p class="text-emerald-200/60 text-sm">অভিজ্ঞ শিক্ষকদের সাথে সরাসরি ইন্টারেক্টিভ ক্লাস</p>
+                    </div>
+
+                    <div class="bg-emerald-900/20 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 hover:bg-emerald-900/30 transition-all">
+                        <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center mb-4 mx-auto lantern-glow">
+                            <span class="text-white text-xl">🎯</span>
+                        </div>
+                        <h3 class="text-white font-semibold mb-2">ব্যক্তিগত পরিকল্পনা</h3>
+                        <p class="text-emerald-200/60 text-sm">আপনার সুবিধা অনুযায়ী শিক্ষা গ্রহণ করুন</p>
+                    </div>
+                </div>
+
+                <div class="border-t border-emerald-200/30 mt-8 "></div>
+
+                <!-- Stats -->
+                <div class="fade-up grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 mb-8" style="--delay: 1.5s;">
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">১২০০+</div>
+                        <div class="text-sm text-emerald-200/60">সক্রিয় শিক্ষার্থী</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">৪০+</div>
+                        <div class="text-sm text-emerald-200/60">অভিজ্ঞ শিক্ষক</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">২৪/৭</div>
+                        <div class="text-sm text-emerald-200/60">সহায়তা সেবা</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">১০০%</div>
+                        <div class="text-sm text-emerald-200/60">সন্তুষ্টি</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom gradient overlay -->
+        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#022c22] to-transparent"></div>
+    </section>
+
+    <!-- video Testimonial Section -->
+    <section>
+        <!-- Video Testimonial -->
+        <div class="mt-16 mb-16 max-w-4xl mx-auto">
+            <div class="fade-up bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 backdrop-blur-sm border border-emerald-500/20 rounded-3xl p-8" style="--delay: 0.7s;">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-4">সাফল্যের গল্প</h3>
+                        <p class="text-emerald-200/70 mb-6">
+                            দেখুন কীভাবে আমাদের শিক্ষার্থীরা তাদের কুরআন শিক্ষার লক্ষ্য অর্জন করেছেন
+                        </p>
+                        <button class="px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition">
+                            ▶ ভিডিও দেখুন
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <div class="aspect-video bg-emerald-900/50 rounded-2xl flex items-center justify-center">
+                            <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition cursor-pointer">
+                                <span class="text-white text-3xl ml-2">▶</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About section start here -->
+    <section class="relative overflow-hidden py-16 lg:py-24 bg-white" style="background-image: url('pattern-2.png');">
         
-    </div>
-    
+        <!-- Islamic Pattern Overlay -->
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <pattern id="islamic-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <polygon points="50,5 61,35 95,35 68,57 79,87 50,65 21,87 32,57 5,35 39,35" 
+                            fill="none" stroke="currentColor" stroke-width="0.5"/>
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#islamic-pattern)" />
+            </svg>
+        </div>
+        
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+                <!-- Text Content -->
+                <div class="w-full lg:w-1/2 pl-14">
+                    <div class="text-center lg:text-left">
+                        <!-- Header -->
+                        <div class="mb-6">
+                            <h5 class="text-lg font-bold text-emerald-600 mb-2">DaarulQuran</h5>
+                            <p class="text-sm font-bold text-gray-600 mb-4">[ ট্রেড লাইসেন্স নাম্বার ]</p>
+                            <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 leading-tight">
+                                আল-কুরআন শিখুন যে কোন সময়, বিশ্বের যেকোন স্থান থেকে!
+                            </h2>
+                        </div>
+                        <h5 class="text-xl font-bold text-gray-700 my-6">
+                            বিশ্বস্থতায় আমরা প্রতিশ্রুতিবদ্ধ।
+                        </h5>
+                        
+                        <!-- Main Content -->
+                        <div class="text-justify text-gray-600 font-medium leading-relaxed">
+                            <p>
+                                বাংলাদেশ খুবই নগন্য পরিমাণে অনলাইন প্রতিষ্ঠান আছে যারা লাইসেন্স ভুক্ত এবং নিয়মিত সরকারকে ট্যাক্স প্রদান করে, যার মধ্যে দারুল কুরআন অন্যতম এবং তারই সাথে একটা Ed-tech প্ল্যাটফর্ম হতে যে সকল কোয়ালিটি বজায় রাখা প্রয়োজন সেগুলোর সবকিছুই অত্যন্ত গুরুত্ব এবং দায়িত্ব সহকারে পালন করে আসছি আমরা আলহামদুলিল্লাহ,
+                            </p>
+                            
+                            <!-- Expandable Content -->
+                            <div id="moreText" class="hidden transition-all duration-500 ease-in-out mt-4 space-y-4">
+                                <p>
+                                    দারুল কুরআন বিশ্বব্যাপি বাংলাদেশি ভাই-বোনদের তাদের সুবিধামত সময়ে, সপ্তাহের যেকোন দিন, অভিজ্ঞ শিক্ষক/শিক্ষিকা দ্বারা লাইভ ক্লাসের মাধ্যমে সহিহ কোরআন শিক্ষা/হিফযুল কোরআন/আরবি ভাষা শিক্ষা সেবা প্রদান করে আসছে। আমাদের বিশেষায়িত শিক্ষক আছেন যারা ভার্চুয়াল ক্লাস নেওয়ায় বিশেষ প্রশিক্ষিত। দারুল কুরআন থেকে কুরআন শিখে আপনি বিশুদ্ধভাবে সকল নিয়ম অনুসরণ করে কুরআন পড়তে পারবেন ইনশাআল্লাহ।
+                                </p>
+                                
+                                <p>
+                                    আমাদের প্রতিষ্ঠানে শিশু, কিশোর ও প্রাপ্তবয়স্কদের জন্যে আলাদা আলাদা শিক্ষক রয়েছে, যাতে আপনার শেখাটা উপভোগ্য হয়। এখানে নারী-পুরুষদের জন্যে সম্পূর্ণ পৃথক ব্যবস্থাপনা। নারীদের জন্যে নারী শিক্ষিকা এবং পুরুষদের জন্যে পুরুষ শিক্ষক। আমাদের সকল শিক্ষক হাফেজ, ক্বারি, মাওলানা। সেই সাথে উচ্চতর ইসলামিক বিষয়ে অধ্যয়নরত।
+                                </p>
+                                
+                                <p class="text-blue-600 font-bold">
+                                    আমাদের অধিকাংশ শিক্ষক মিশরের আল-আজহার বিশ্ববিদ্যালয়ের ছাত্র/ছাত্রী, আর এই কারণে আমরা ২৪ঘন্টাই যেকোন সময় ক্লাস করাতে পারি আলহামদুলিল্লাহ।
+                                </p>
+                                
+                                <p>
+                                    আমাদের সমৃদ্ধ শিক্ষক প্যানেল থেকে আপনি বা আপনার সন্তানের জন্যে বেস্ট শিক্ষক সিলেক্ট করতে পারবেন। সেইসাথে পরবর্তীতে যেকোন সমস্যায় শিক্ষক পরিবর্তন করার বিকল্প অপশনও রয়েছে। আমরা স্বতঃস্ফূর্তভাবে শ্রেষ্ঠ শিক্ষক প্রদানে প্রতিশ্রুতিবদ্ধ। আমাদের শিক্ষক প্যানেলে বিভিন্ন ভাষায় দক্ষ শিক্ষক রয়েছে, যারা ইংরেজি, আরবি, বাংলা, হিন্দি ভাষায় পাঠদানে সক্ষম।
+                                </p>
+                                
+                                <p class="text-purple-600 font-bold">
+                                    একজন মুসলিম হিসেবে আল কোরআন পড়তে জানা এবং আমল করা আমাদের ওপর ফরয, আর আরবি ভাষা এমন এক ভাষা যেখানে সামান্য টান, গুন্নাহ ছুটে গেলেই অর্থ পরিবর্তন হয়ে যায়, তাই লাইভ ক্লাসের মাধ্যমে অভিজ্ঞ হুজুরের কাছে সহিহ সুদ্ধভাবে কোরআন শেখার বিকল্প নেই।
+                                </p>
+                                
+                                <p>
+                                    কুরআন আপনার জান্নাতে যাওয়ার পথকে সুগম করবে। আল্লাহ আপনার সহায় হোন।। জাযাকুমুল্লাহু খাইরান।
+                                </p>
+                            </div>  
+                        </div>
+                        
+                        <!-- Buttons -->
+                        <div class="mt-6 text-center lg:text-left">
+                            <button id="readMoreBtn" 
+                                    class="px-6 py-2 bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-lg text-sm font-medium transition-all duration-300">
+                                read more
+                            </button>
+                            <button id="showLessBtn" 
+                                    class="hidden px-6 py-2 bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-lg text-sm font-medium transition-all duration-300">
+                                read less
+                            </button>
+                        </div>
+                        
+                        <!-- CTA Button -->
+                        <a href="#" 
+                        class="inline-flex items-center gap-2 mt-8 px-8 py-4 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-bold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                            অবহেলা না করে আজই শুরু করুন 
+                            <i class="fas fa-heart text-pink-300"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Image Section -->
+                <div class="w-full lg:w-1/2">
+                    <div class="relative">
+                        <!-- Animated Background -->
+                        <div class="about-img-container relative mx-auto">
+                            <!-- Background Pattern -->
+                            <div class="absolute inset-0 bg-cover bg-center rounded-full"
+                                style="background-image: url('about01.png');"></div>
+                            
+                            <!-- Animated Circles Container -->
+                            <div class="about-circle-wrapper">
+                                <div class="about-circle"></div>
+                                <div class="about-circle-2"></div>
+                            </div>
+                            
+                            <!-- Main Image -->
+                            <div class="about-fg-img">
+                                <img src="about02.png" 
+                                    alt="About DaarulQuran" 
+                                    class="w-full h-auto">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teachers Section -->
+    <section id="teachers" class="relative py-20 overflow-hidden bg-gradient-to-b from-[#064e3b] to-[#022c22]">
+        <div class="absolute inset-0 islamic-pattern opacity-20"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <div class="fade-in inline-flex items-center gap-3 mb-6" style="--delay: 0.1s;">
+                    <div class="w-12 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+                    <span class="arabic-font text-amber-400 text-2xl">بِسْمِ اللَّهِ</span>
+                    <div class="w-12 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+                </div>
+                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.2s;">
+                    আমাদের অভিজ্ঞ শিক্ষকমণ্ডলী
+                </h2>
+                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 0.3s;">
+                    আল-আজহার ও মদীনা বিশ্ববিদ্যালয় থেকে সনদপ্রাপ্ত উস্তাদগণ
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- Teacher Card 1 -->
+                <div class="scale-in group relative" style="--delay: 0.4s;">
+                    <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 hover:border-emerald-400/40 transition-all">
+                        <div class="relative mb-4">
+                            <div class="w-24 h-24 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
+                                <span class="text-white text-3xl">👳‍♂️</span>
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center">
+                                <span class="text-white text-xs">★</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white text-center mb-2">শাইখ আব্দুল্লাহ</h3>
+                        <p class="text-emerald-300/70 text-sm text-center mb-3">হিফজ বিভাগ প্রধান</p>
+                        <div class="space-y-1">
+                            <p class="text-emerald-200/50 text-xs">• আল-আজহার গ্র্যাজুয়েট</p>
+                            <p class="text-emerald-200/50 text-xs">• ১৫+ বছরের অভিজ্ঞতা</p>
+                            <p class="text-emerald-200/50 text-xs">• ইজাজাহ প্রাপ্ত</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teacher Card 2 -->
+                <div class="scale-in group relative" style="--delay: 0.5s;">
+                    <div class="bg-gradient-to-br from-amber-900/40 to-amber-800/30 backdrop-blur-sm border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400/40 transition-all">
+                        <div class="relative mb-4">
+                            <div class="w-24 h-24 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center">
+                                <span class="text-white text-3xl">👳‍♀️</span>
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
+                                <span class="text-white text-xs">★</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white text-center mb-2">উস্তাজা ফাতিমা</h3>
+                        <p class="text-amber-300/70 text-sm text-center mb-3">মহিলা বিভাগ প্রধান</p>
+                        <div class="space-y-1">
+                            <p class="text-emerald-200/50 text-xs">• মদীনা ইউনিভার্সিটি</p>
+                            <p class="text-emerald-200/50 text-xs">• তাজবীদ বিশেষজ্ঞ</p>
+                            <p class="text-emerald-200/50 text-xs">• ১০+ বছরের অভিজ্ঞতা</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teacher Card 3 -->
+                <div class="scale-in group relative" style="--delay: 0.6s;">
+                    <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 hover:border-emerald-400/40 transition-all">
+                        <div class="relative mb-4">
+                            <div class="w-24 h-24 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
+                                <span class="text-white text-3xl">👳‍♂️</span>
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center">
+                                <span class="text-white text-xs">★</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white text-center mb-2">শাইখ উমর</h3>
+                        <p class="text-emerald-300/70 text-sm text-center mb-3">কিরাত বিশেষজ্ঞ</p>
+                        <div class="space-y-1">
+                            <p class="text-emerald-200/50 text-xs">• দশ কিরাতে পারদর্শী</p>
+                            <p class="text-emerald-200/50 text-xs">• আন্তর্জাতিক কারী</p>
+                            <p class="text-emerald-200/50 text-xs">• ২০+ বছরের অভিজ্ঞতা</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teacher Card 4 -->
+                <div class="scale-in group relative" style="--delay: 0.7s;">
+                    <div class="bg-gradient-to-br from-amber-900/40 to-amber-800/30 backdrop-blur-sm border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400/40 transition-all">
+                        <div class="relative mb-4">
+                            <div class="w-24 h-24 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center">
+                                <span class="text-white text-3xl">👳‍♂️</span>
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
+                                <span class="text-white text-xs">★</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white text-center mb-2">শাইখ ইব্রাহীম</h3>
+                        <p class="text-amber-300/70 text-sm text-center mb-3">তাফসীর বিভাগ</p>
+                        <div class="space-y-1">
+                            <p class="text-emerald-200/50 text-xs">• দারুল উলূম দেওবন্দ</p>
+                            <p class="text-emerald-200/50 text-xs">• তাফসীর বিশেষজ্ঞ</p>
+                            <p class="text-emerald-200/50 text-xs">• আরবি ভাষাবিদ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="text-center mt-10">
+                <button class="px-8 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition">
+                    সকল শিক্ষক দেখুন
+                </button>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Learning Process Section -->
+    <section id="process" class="relative py-20 overflow-hidden bg-gradient-to-b from-[#022c22] to-[#064e3b]">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.1s;">
+                    কীভাবে শিখবেন
+                </h2>
+                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 0.2s;">
+                    সহজ ৪টি ধাপে শুরু করুন আপনার কুরআন শিক্ষার যাত্রা
+                </p>
+            </div>
+
+            <div class="max-w-5xl mx-auto">
+                <div class="relative">
+                    <!-- Connection Line -->
+                    <div class="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500/20 via-amber-500/20 to-emerald-500/20 hidden md:block"></div>
+
+                    <div class="grid md:grid-cols-4 gap-8 relative">
+                        <!-- Step 1 -->
+                        <div class="slide-left text-center" style="--delay: 0.3s;">
+                            <div class="relative">
+                                <div class="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mb-4 relative z-10">
+                                    <span class="text-white text-2xl font-bold">১</span>
+                                </div>
+                                <div class="absolute top-10 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-emerald-500/10 rounded-full blur-xl"></div>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-2">রেজিস্ট্রেশন</h3>
+                            <p class="text-emerald-200/60 text-sm">সহজ অনলাইন ফর্ম পূরণ করুন</p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="slide-left text-center" style="--delay: 0.4s;">
+                            <div class="relative">
+                                <div class="w-20 h-20 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center mb-4 relative z-10">
+                                    <span class="text-white text-2xl font-bold">২</span>
+                                </div>
+                                <div class="absolute top-10 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-amber-500/10 rounded-full blur-xl"></div>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-2">মূল্যায়ন</h3>
+                            <p class="text-emerald-200/60 text-sm">আপনার লেভেল নির্ধারণ</p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="slide-right text-center" style="--delay: 0.5s;">
+                            <div class="relative">
+                                <div class="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mb-4 relative z-10">
+                                    <span class="text-white text-2xl font-bold">৩</span>
+                                </div>
+                                <div class="absolute top-10 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-emerald-500/10 rounded-full blur-xl"></div>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-2">ক্লাস শুরু</h3>
+                            <p class="text-emerald-200/60 text-sm">নির্ধারিত সময়ে ক্লাস জয়েন</p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="slide-right text-center" style="--delay: 0.6s;">
+                            <div class="relative">
+                                <div class="w-20 h-20 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center mb-4 relative z-10">
+                                    <span class="text-white text-2xl font-bold">৪</span>
+                                </div>
+                                <div class="absolute top-10 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-amber-500/10 rounded-full blur-xl"></div>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white mb-2">সার্টিফিকেট</h3>
+                            <p class="text-emerald-200/60 text-sm">কোর্স শেষে সনদ প্রাপ্তি</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Grid -->
+                <div class="grid md:grid-cols-3 gap-6 mt-16">
+                    <div class="fade-up bg-gradient-to-br text-center from-emerald-900/30 to-transparent border border-emerald-500/20 rounded-2xl p-6" style="--delay: 0.7s;">
+                        <div class="text-3xl mb-4">📱</div>
+                        <h4 class="text-lg font-semibold text-white mb-2">মোবাইল অ্যাপ</h4>
+                        <p class="text-emerald-200/60 text-sm">যেকোনো স্থান থেকে শিখুন</p>
+                    </div>
+
+                    <div class="fade-up bg-gradient-to-br text-center from-amber-900/30 to-transparent border border-amber-500/20 rounded-2xl p-6" style="--delay: 0.8s;">
+                        <div class="text-3xl mb-4">🎥</div>
+                        <h4 class="text-lg font-semibold text-white mb-2">রেকর্ডেড ক্লাস</h4>
+                        <p class="text-emerald-200/60 text-sm">মিস করলে পরে দেখুন</p>
+                    </div>
+
+                    <div class="fade-up bg-gradient-to-br text-center from-emerald-900/30 to-transparent border border-emerald-500/20 rounded-2xl p-6" style="--delay: 0.9s;">
+                        <div class="text-3xl mb-4">📚</div>
+                        <h4 class="text-lg font-semibold text-white mb-2">ই-বুক সংগ্রহ</h4>
+                        <p class="text-emerald-200/60 text-sm">বিনামূল্যে স্টাডি ম্যাটেরিয়াল</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="relative py-20 overflow-hidden bg-gradient-to-b from-[#064e3b] to-[#022c22]">
+        <div class="absolute inset-0 islamic-pattern opacity-10"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <div class="fade-in inline-flex items-center gap-3 mb-6" style="--delay: 0.1s;">
+                    <div class="w-12 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+                    <span class="arabic-font text-amber-400 text-xl">الْحَمْدُ لِلَّهِ</span>
+                    <div class="w-12 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+                </div>
+                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.2s;">
+                    শিক্ষার্থীদের মন্তব্য
+                </h2>
+                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 0.3s;">
+                    আমাদের সন্তুষ্ট শিক্ষার্থীদের অভিজ্ঞতা
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="scale-in" style="--delay: 0.4s;">
+                    <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 relative">
+                        <div class="absolute -top-4 left-6 text-6xl text-emerald-500/20">"</div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
+                                <span class="text-white text-xl">👨</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">রাফি আহমেদ</h4>
+                                <div class="flex gap-1">
+                                    <span class="text-amber-400 text-sm">★★★★★</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-emerald-200/70 text-sm leading-relaxed">
+                            "আলহামদুলিল্লাহ, Daarul Quran এর মাধ্যমে আমি সঠিক তাজবীদসহ কুরআন পড়তে শিখেছি। 
+                            শিক্ষকদের আন্তরিকতা ও পড়ানোর পদ্ধতি অসাধারণ।"
+                        </p>
+                        <p class="text-emerald-300/50 text-xs mt-3">হিফজ কোর্স - ৬ মাস</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="scale-in" style="--delay: 0.5s;">
+                    <div class="bg-gradient-to-br from-amber-900/40 to-amber-800/30 backdrop-blur-sm border border-amber-500/20 rounded-2xl p-6 relative">
+                        <div class="absolute -top-4 left-6 text-6xl text-amber-500/20">"</div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center">
+                                <span class="text-white text-xl">👩</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">ফাতেমা খাতুন</h4>
+                                <div class="flex gap-1">
+                                    <span class="text-amber-400 text-sm">★★★★★</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-emerald-200/70 text-sm leading-relaxed">
+                            "ঘরে বসে এত সুন্দরভাবে কুরআন শেখার সুযোগ পেয়ে আমি খুবই খুশি। 
+                            মহিলা উস্তাজা খুবই যত্নসহকারে পড়ান।"
+                        </p>
+                        <p class="text-amber-300/50 text-xs mt-3">তাজবীদ কোর্স - ৩ মাস</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="scale-in" style="--delay: 0.6s;">
+                    <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 relative">
+                        <div class="absolute -top-4 left-6 text-6xl text-emerald-500/20">"</div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
+                                <span class="text-white text-xl">👦</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">সাদিক হাসান</h4>
+                                <div class="flex gap-1">
+                                    <span class="text-amber-400 text-sm">★★★★★</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-emerald-200/70 text-sm leading-relaxed">
+                            "আমার ছেলে এখানে নূরানী পদ্ধতিতে কুরআন শিখছে। 
+                            অনলাইনে এত মনোযোগ দিয়ে পড়ানো হয় দেখে আমি মুগ্ধ।"
+                        </p>
+                        <p class="text-emerald-300/50 text-xs mt-3">নূরানী কোর্স - চলমান</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="relative py-20 overflow-hidden bg-gradient-to-b from-[#022c22] to-[#064e3b]">
+        <div class="absolute inset-0">
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.1s;">
+                    কোর্স ফি
+                </h2>
+                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 0.2s;">
+                    সাশ্রয়ী মূল্যে মানসম্মত শিক্ষা
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Basic Plan -->
+                <div class="scale-in" style="--delay: 0.3s;">
+                    <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-3xl p-8 hover:border-emerald-400/40 transition-all">
+                        <div class="text-center mb-6">
+                            <div class="text-4xl font-bold text-white mb-2">হিফযুল কোরআন</div>
+                            <h3 class="text-sm font-semibold text-emerald-400 mb-2">৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য</h3>
+                            <!-- <p class="text-emerald-200/60 text-sm">প্রতি মাস</p> -->
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-amber-400">✓</span> সম্পূর্ণ কোরআন সহিহ শুদ্ধধভাবে হিফয
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-amber-400">✓</span> মাখরাজ
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-amber-400">✓</span> তাজবীদ
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-amber-400">✓</span> নাজরানা
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-amber-400">✓</span> প্রয়োজনীয় মাসলা মাসায়েল
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-amber-400">✓</span> ২৪/৭ Whatsapp এ সাপোর্ট
+                            </li>
+                        </ul>
+                        <button class="w-full py-3 bg-emerald-600/30 border border-emerald-500/30 text-white rounded-xl hover:bg-emerald-600/50 transition-all">
+                            শুরু করুন
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Popular Plan -->
+                <div class="scale-in relative" style="--delay: 0.4s;">
+                    <div class="absolute mb-5 -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-sm rounded-full">
+                        জনপ্রিয়
+                    </div>
+                    <div class="bg-gradient-to-br from-amber-900/50 to-amber-800/40 backdrop-blur-sm border-2 border-amber-500/30 rounded-3xl p-8 hover:border-amber-400/50 transition-all">
+                        <div class="text-center mb-6">
+                            <div class="text-4xl font-bold text-white mb-2">সহিহ কোরআন শিক্ষা</div>
+                            <h3 class="text-sm font-semibold text-amber-400 mb-2">৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য</h3>
+                            <!-- <p class="text-emerald-200/60 text-sm">প্রতি মাস</p> -->
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-amber-400">✓</span> মাখরাজ
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-amber-400">✓</span> তাজবীদ
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-amber-400">✓</span> সিফাত
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-amber-400">✓</span> নাজরানা
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-amber-400">✓</span> মাসনুন দোয়া
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-amber-400">✓</span> প্রয়োজনীয় আয়াত / সুরাহ
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-amber-400">✓</span> প্রয়োজনীয় মাসলা মাসায়েল
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-amber-400">✓</span> ২৪/৭ Whatsapp এ সাপোর্ট
+                            </li>
+                        </ul>
+                        <button class="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl hover:shadow-lg hover:shadow-amber-500/25 transition-all">
+                            শুরু করুন
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="scale-in" style="--delay: 0.5s;">
+                    <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-3xl p-8 hover:border-emerald-400/40 transition-all">
+                        <div class="text-center mb-6">
+                            <div class="text-4xl font-bold text-white mb-2">আরবি ভাষা শিক্ষা</div>
+                            <p class="text-emerald-200/60 text-sm">৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য</p>
+                            <!-- <h3 class="text-xl font-semibold text-emerald-400 mb-2">প্রিমিয়াম</h3> -->                            
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-emerald-400">✓</span> মাখরাজ
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-emerald-400">✓</span> তাজবীদ
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-emerald-400">✓</span> সিফাত
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-emerald-400">✓</span> নাজরানা
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-emerald-400">✓</span> Hedayatun Nahu (Arabic-Bangla)
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-emerald-400">✓</span> Mijanus-sarf-and-Munshaib
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-emerald-400">✓</span> Essential Tamrinaat
+                            </li>
+                            <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                                <span class="text-emerald-400">✓</span> ২৪/৭ Whatsapp এ সাপোর্ট
+                            </li>
+                        </ul>
+                        <button class="w-full py-3 bg-emerald-600/30 border border-emerald-500/30 text-white rounded-xl hover:bg-emerald-600/50 transition-all">
+                            শুরু করুন
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Discount Banner -->
+            <div class="mt-12 max-w-3xl mx-auto">
+                <div class="fade-up bg-gradient-to-r from-emerald-900/50 to-amber-900/50 backdrop-blur-sm border border-emerald-500/30 rounded-2xl p-6 text-center" style="--delay: 0.6s;">
+                    <p class="text-amber-400 font-semibold mb-2">The Pillars of Islam</p>
+                    <p class="text-white text-xl">Ethical And Moral Beliefs That Guides To The Straight Path!
+                        <!-- <span class="font-bold text-emerald-400">QURAN20</span> -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="relative py-20 overflow-hidden bg-gradient-to-b from-[#064e3b] to-[#022c22]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.1s;">
+                    সাধারণ প্রশ্নোত্তর
+                </h2>
+                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 0.2s;">
+                    আপনার প্রশ্নের উত্তর এখানে পাবেন
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="fade-up bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl overflow-hidden" style="--delay: 0.3s;">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-emerald-900/40 transition-all" onclick="toggleFAQ(this)">
+                        <span class="text-white font-semibold">অনলাইনে কীভাবে কুরআন শিখব?</span>
+                        <span class="text-emerald-400 text-xl transition-transform">+</span>
+                    </button>
+                    <div class="hidden px-6 pb-4">
+                        <p class="text-emerald-200/70">
+                            আমাদের প্ল্যাটফর্মে Zoom/Google Meet এর মাধ্যমে লাইভ ক্লাস হয়। 
+                            আপনি শিক্ষকের সাথে সরাসরি কথা বলতে ও প্রশ্ন করতে পারবেন।
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="fade-up bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl overflow-hidden" style="--delay: 0.4s;">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-emerald-900/40 transition-all" onclick="toggleFAQ(this)">
+                        <span class="text-white font-semibold">কিভাবে ফ্রি ট্রায়াল ক্লাস গ্রহণ করব ?</span>
+                        <span class="text-emerald-400 text-xl transition-transform">+</span>
+                    </button>
+                    <div class="hidden px-6 pb-4">
+                        <p class="text-emerald-200/70">
+                            আমাদের ওয়েব সাইটে প্রথমেই ট্রায়াল ক্লাস এর যেই ফর্ম দেয়া আছে সেইটি পূরণ করে আপনি আমাদের ফ্রি ট্রায়াল ক্লাসে অংশগ্রহণ করতে পারবেন । ফর্মটি পূরণ করে সাবমিট করলে আমাদের ১জন দীনি ভাই আপনার সাথে যোগাযোগ করবে এবং তখন বাকিসব তথ্য দিয়ে আপনাকে ক্লাসে অংশগ্রহণ করতে সাহায্য করবেন । এছাড়াও আপনি সরাসরি আমাদের ওয়েবসাইটে নিচের দিকে ডানকোনাই দেয়া Whatsapp বাটনে ক্লিক করে সরাসরি আমাদের সাথে কথা বলেও আপনার কুরআন শেখার যাত্রা শুরু করতে পারেন
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="fade-up bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl overflow-hidden" style="--delay: 0.5s;">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-emerald-900/40 transition-all" onclick="toggleFAQ(this)">
+                        <span class="text-white font-semibold">কেন ১টি ফ্রি ট্রায়াল ক্লাস ?</span>
+                        <span class="text-emerald-400 text-xl transition-transform">+</span>
+                    </button>
+                    <div class="hidden px-6 pb-4">
+                        <p class="text-emerald-200/70">
+                            শেখার সুবিধার্থে আমরা আপনাদের জন্য ১টি ফ্রি ট্রায়াল ক্লাস এর ব্যবস্থা রেখেছি যেখানে আপনি এবং আমাদের সম্মানিত উস্তাদ পরিচিত হতে পারবেন এবং আপনার কুরআন শেখার প্রথম যাত্রা শুরু হবে ইনশাল্লাহ । ট্রায়াল ক্লাসে আপনার যদি আমাদের কুরআনের শিক্ষক পছন্দ না হয় তাহলে আপনারা অবশ্যই আমাদের জানাবেন , আমরা ইনশাআল্লাহ তখন আপনার জন্য আরও ভাল শিক্ষক নিযুক্ত করব
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="fade-up bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl overflow-hidden" style="--delay: 0.6s;">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-emerald-900/40 transition-all" onclick="toggleFAQ(this)">
+                        <span class="text-white font-semibold">আপনাদের হাদিয়া কত ?</span>
+                        <span class="text-emerald-400 text-xl transition-transform">+</span>
+                    </button>
+                    <div class="hidden px-6 pb-4">
+                        <p class="text-emerald-200/70">
+                            আমাদের উদ্দেশ্যই হচ্ছে আপনাদের মত প্রবাসিদের মধ্যে কুরআন এর আলো পৌঁছিয়ে দেয়া ,কিন্তু এর জন্য আমাদের কিছু খরচ আছে যেইগুলো আমাদের নিজেদের পক্ষে বহন করা সম্ভব নই । আমাদের শিক্ষকদের হাদিয়া দিতে হই, যেহেতু অনলাইন ক্লাস তাই যেকোনো ধরনের technical সমস্যার জন্য technical expert রয়েছে , আপনাদের সার্বক্ষণিক সহায়তার জন্য রয়েছে আরও কিছু টিম মেম্বার । তার পরও আমরা যথেষ্ট কম খরচে আপনাদের কুরআন শেখার ব্যবস্থা করে থাকি । আমাদের হাদিয়ার পরিমাণটা নির্ধারিত হয় ক্লাস টাইম এর ওপর ভিত্তি করে ,তাই এই সম্পর্কে বিস্তারিত যানতে আমাদের whatsapp এ মেসেজ দিন
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="fade-up bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl overflow-hidden" style="--delay: 0.6s;">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-emerald-900/40 transition-all" onclick="toggleFAQ(this)">
+                        <span class="text-white font-semibold">ট্রায়াল ক্লাস এর পর কি করতে হবে?</span>
+                        <span class="text-emerald-400 text-xl transition-transform">+</span>
+                    </button>
+                    <div class="hidden px-6 pb-4">
+                        <p class="text-emerald-200/70">
+                            আপনার ট্রায়াল ক্লাস সম্পন্ন হলে আমরা আপনার সাথে পুনরাই যোগাযোগ করব ইনশাল্লাহ এবং তারপর আপনি কতসময় ধরে ক্লাস নিতে চান ,সপ্তাহে কইদিন ক্লাস নিতে চান এবং কি শিখতে চান এইগুলো জানার পর আমরা আপনাকে আমাদের হাদিয়া কত দিতে হবে এই সম্পর্কে অবহিত করব । তারপর আল্লাহর ইচ্ছাই সব ঠিক থাকলে আপনি আপনার কুরআন শেখার যাত্রা শুরু করবেন ইনশাল্লাহ
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="fade-up bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl overflow-hidden" style="--delay: 0.6s;">
+                    <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-emerald-900/40 transition-all" onclick="toggleFAQ(this)">
+                        <span class="text-white font-semibold">আপনাদের কিভাবে পেমেন্ট করব ?</span>
+                        <span class="text-emerald-400 text-xl transition-transform">+</span>
+                    </button>
+                    <div class="hidden px-6 pb-4">
+                        <p class="text-emerald-200/70">
+                            আলহামদুলিল্লাহ আপনি আমাদের ব্যাংক অ্যাকাউন্টে অথবা বিকাশ /নগদ এর মাধ্যমেও পেমেন্ট করতে পারবেন
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-20 overflow-hidden bg-gradient-to-b from-[#022c22] to-[#011a14]">
+        <div class="absolute inset-0 islamic-pattern opacity-10"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.1s;">
+                    যোগাযোগ করুন
+                </h2>
+                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 0.2s;">
+                    আপনার যেকোনো প্রশ্ন বা সহায়তার জন্য আমরা আছি
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="slide-left" style="--delay: 0.3s;">
+                    <div class="bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 rounded-3xl p-8">
+                        
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label class="text-emerald-200/70 text-sm mb-2 block">আপনার নাম</label>
+                                <input name="name" type="text" required
+                                    class="w-full px-4 py-3 bg-emerald-900/30 border border-emerald-500/30 rounded-xl text-white placeholder-emerald-200/30 focus:border-emerald-400/50 focus:outline-none transition"
+                                    placeholder="নাম লিখুন">
+                            </div>
+                            <div>
+                                <label class="text-emerald-200/70 text-sm mb-2 block">ইমেইল/ফোন</label>
+                                <input name="contact" type="text" required
+                                    class="w-full px-4 py-3 bg-emerald-900/30 border border-emerald-500/30 rounded-xl text-white placeholder-emerald-200/30 focus:border-emerald-400/50 focus:outline-none transition"
+                                    placeholder="ইমেইল বা ফোন নম্বর">
+                            </div>
+                            <div>
+                                <label class="text-emerald-200/70 text-sm mb-2 block">বিষয়</label>
+                                <select name="subject"
+                                    class="w-full px-4 py-3 bg-emerald-900/30 border border-emerald-500/30 rounded-xl text-white focus:border-emerald-400/50 focus:outline-none transition">
+                                    <option>কোর্স সম্পর্কে জানতে</option>
+                                    <option>ভর্তি প্রক্রিয়া</option>
+                                    <option>পেমেন্ট সংক্রান্ত</option>
+                                    <option>অন্যান্য</option>
+                                    <option>হিফযুল কোরআন</option>
+                                    <option>সহিহ কোরআন শিক্ষা</option>
+                                    <option>আরবি ভাষা শিক্ষা</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-emerald-200/70 text-sm mb-2 block">বার্তা</label>
+                                <textarea name="message" rows="4"
+                                    class="w-full px-4 py-3 bg-emerald-900/30 border border-emerald-500/30 rounded-xl text-white placeholder-emerald-200/30 focus:border-emerald-400/50 focus:outline-none transition"
+                                    placeholder="আপনার বার্তা লিখুন"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition">
+                                পাঠান
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="slide-right space-y-6" style="--delay: 0.4s;">
+                    <!-- WhatsApp -->
+                    <div class="bg-gradient-to-br from-emerald-900/30 to-transparent border border-emerald-500/20 rounded-2xl p-6 hover:border-emerald-400/30 transition-all">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center">
+                                <span class="text-white text-xl">💬</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">WhatsApp</h4>
+                                <p class="text-emerald-200/70">+880 1345291197</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="bg-gradient-to-br from-amber-900/30 to-transparent border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400/30 transition-all">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center">
+                                <span class="text-white text-xl">✉️</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">ইমেইল</h4>
+                                <p class="text-emerald-200/70">info@daarulquran.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Office -->
+                    <div class="bg-gradient-to-br from-emerald-900/30 to-transparent border border-emerald-500/20 rounded-2xl p-6 hover:border-emerald-400/30 transition-all">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center">
+                                <span class="text-white text-xl">📍</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">অফিস</h4>
+                                <p class="text-emerald-200/70">মিরপুর-১০, ঢাকা-১২১৬</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Support Hours -->
+                    <div class="bg-gradient-to-br from-amber-900/30 to-transparent border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400/30 transition-all">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center">
+                                <span class="text-white text-xl">🕐</span>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">সাপোর্ট সময়</h4>
+                                <p class="text-emerald-200/70">সকাল ৯টা - রাত ১০টা</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="flex gap-4 justify-center pt-4">
+                        <a href="https://www.facebook.com/share/1B23j8TR4F/" class="w-10 h-10 bg-emerald-900/30 border border-emerald-500/30 rounded-lg flex items-center justify-center hover:bg-emerald-900/50 transition">
+                            <span class="text-emerald-400">f</span>
+                        </a>
+                        <a href="https://www.youtube.com/@DaarulQuranlive" class="w-10 h-10 bg-emerald-900/30 border border-emerald-500/30 rounded-lg flex items-center justify-center hover:bg-emerald-900/50 transition">
+                            <span class="text-emerald-400">▶</span>
+                        </a>
+                        <a href="https://www.instagram.com/daarulquranlive?igsh=ZG1qMG00b2lsZWI5" class="w-10 h-10 bg-emerald-900/30 border border-emerald-500/30 rounded-lg flex items-center justify-center hover:bg-emerald-900/50 transition">
+                            <span class="text-emerald-400">📷</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="bg-deep-green text-white py-8 mt-12">
-        <div class="container mx-auto px-4 text-center">
-            <p class="mb-2">© 2024 Daarul Quran. All rights reserved.</p>
-            <p class="text-sm opacity-75 italic">
-                رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ
-            </p>
-            <p class="text-xs mt-2 opacity-60" data-lang="en">
-                "Our Lord, give us good in this world and good in the Hereafter, and protect us from the torment of the Fire"
-            </p>
-            <p class="text-xs mt-2 opacity-60 hidden" data-lang="bn">
-                "হে আমাদের রব, আমাদের দুনিয়াতে কল্যাণ দান করুন এবং আখিরাতেও কল্যাণ দান করুন এবং আমাদেরকে জাহান্নামের আযাব থেকে রক্ষা করুন"
-            </p>
+    <footer class="relative py-12 bg-[#011a14] border-t border-emerald-800/20">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Logo & About -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-lg flex items-center justify-center">
+                            <span class="arabic-font text-white text-xl">ق</span>
+                        </div>
+                        <span class="text-white font-semibold text-lg">Daarul Quran</span>
+                    </div>
+                    <p class="text-emerald-200/50 text-sm">
+                        আধুনিক পদ্ধতিতে কুরআন শিক্ষার নির্ভরযোগ্য প্ল্যাটফর্ম। আমরা প্রতিশ্রুতিবদ্ধ আপনার কুরআনিক শিক্ষাকে সহজ ও সুন্দর করতে।
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">দ্রুত লিংক</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-emerald-200/50 hover:text-emerald-400 transition text-sm">কোর্সসমূহ</a></li>
+                        <li><a href="#" class="text-emerald-200/50 hover:text-emerald-400 transition text-sm">শিক্ষকমণ্ডলী</a></li>
+                        <li><a href="contact.html" class="text-emerald-200/50 hover:text-emerald-400 transition text-sm">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Courses -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">কোর্স</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-emerald-200/50 hover:text-emerald-400 transition text-sm">হিফযুল কোরআন</a></li>
+                        <li><a href="#" class="text-emerald-200/50 hover:text-emerald-400 transition text-sm">সহিহ কোরআন শিক্ষা</a></li>
+                        <li><a href="#" class="text-emerald-200/50 hover:text-emerald-400 transition text-sm">আরবি ভাষা শিক্ষা</a></li>
+                        <li><a href="#" class="text-emerald-200/50 hover:text-emerald-400 transition text-sm">তাফসীর কোর্স</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">নিউজলেটার</h4>
+                    <p class="text-emerald-200/50 text-sm mb-4">নতুন কোর্স ও অফার সম্পর্কে জানুন</p>
+                    <div class="flex gap-2">
+                        <input type="email" placeholder="ইমেইল" class="flex-1 px-3 py-2 bg-emerald-900/30 border border-emerald-500/30 rounded-lg text-white text-sm placeholder-emerald-200/30 focus:border-emerald-400/50 focus:outline-none">
+                        <button class="px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-lg text-sm hover:shadow-lg hover:shadow-emerald-500/25 transition">
+                            সাবস্ক্রাইব
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 border-t border-emerald-800/20">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-emerald-200/40 text-sm">
+                        © ২০২৫ Daarul Quran. সর্বস্বত্ব সংরক্ষিত।
+                    </p>
+                    <div class="flex gap-6">
+                        <a href="#" class="text-emerald-200/40 hover:text-emerald-400 transition text-sm">শর্তাবলী</a>
+                        <a href="#" class="text-emerald-200/40 hover:text-emerald-400 transition text-sm">প্রাইভেসি পলিসি</a>
+                        <a href="#" class="text-emerald-200/40 hover:text-emerald-400 transition text-sm">রিফান্ড পলিসি</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
-    
-    <!-- JavaScript -->
+
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-3 z-40">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/88001345291197" class="group">
+            <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:shadow-green-500/30 transform hover:scale-110 transition-all">
+                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+            </div>
+            <span class="absolute right-16 top-1/2 transform -translate-y-1/2 bg-black/80 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                WhatsApp এ চ্যাট করুন
+            </span>
+        </a>
+
+        <!-- Call Button -->
+        <a href="tel:+88001345291197" class="group">
+            <div class="w-14 h-14 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:shadow-emerald-500/30 transform hover:scale-110 transition-all">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+            </div>
+            <span class="absolute right-16 top-1/2 transform -translate-y-1/2 bg-black/80 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                সরাসরি কল করুন
+            </span>
+        </a>
+    </div>
+
     <script>
-        // Language Toggle
-        let currentLang = 'en';
-        
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'bn' : 'en';
-            document.getElementById('langToggle').textContent = currentLang === 'en' ? 'বাংলা' : 'English';
-            
-            // Toggle text elements
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                if (el.dataset.lang === currentLang) {
-                    el.classList.remove('hidden');
-                } else {
-                    el.classList.add('hidden');
-                }
+
+        // form submit 
+        const form = document.getElementById("contactForm");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const data = {
+            name: form.name.value,
+            contact: form.contact.value,
+            subject: form.subject.value,
+            message: form.message.value,
+            };
+
+            try {
+            const res = await fetch("https://script.google.com/macros/s/AKfycbwvzALLNpDH9-gqgiHZ2MkWYx-pzqopx893rwDap6d-n09y1vNDGwNyk4xDjqY0Wva1/exec", {
+                method: "POST",
+                body: JSON.stringify(data),
             });
-            
-            // Update placeholders
-            document.querySelectorAll('[data-placeholder-en]').forEach(input => {
-                input.placeholder = currentLang === 'en' 
-                    ? input.dataset.placeholderEn 
-                    : input.dataset.placeholderBn;
-            });
-            
-            // Update HTML lang attribute
-            document.documentElement.lang = currentLang;
-            document.documentElement.dir = currentLang === 'bn' ? 'ltr' : 'ltr'; // Both are LTR
-        }
-        
-        // Countdown Timer
-        function updateCountdown() {
-            const launchDate = new Date('2024-03-01T00:00:00').getTime();
-            const now = new Date().getTime();
-            const timeLeft = launchDate - now;
-            
-            if (timeLeft > 0) {
-                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-                
-                document.getElementById('days').textContent = String(days).padStart(2, '0');
-                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+            if (res.ok) {
+                alert("✅ আপনার ফর্মটি সফলভাবে জমা হয়েছে!");
+                form.reset();
             } else {
-                document.getElementById('countdown').innerHTML = '<div class="col-span-4 text-2xl font-bold text-soft-emerald">We are Live!</div>';
+                alert("❌ কিছু ভুল হয়েছে, আবার চেষ্টা করুন।");
+            }
+            } catch (err) {
+            alert("⚠️ নেটওয়ার্ক সমস্যা: " + err.message);
+            }
+        });
+
+        // about section
+        document.addEventListener('DOMContentLoaded', function() {
+            const readMoreBtn = document.getElementById('readMoreBtn');
+            const showLessBtn = document.getElementById('showLessBtn');
+            const moreText = document.getElementById('moreText');
+            
+            readMoreBtn.addEventListener('click', function() {
+                moreText.classList.remove('hidden');
+                moreText.classList.add('show');
+                readMoreBtn.classList.add('hidden');
+                showLessBtn.classList.remove('hidden');
+                
+                // Smooth scroll to the expanded content
+                moreText.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            });
+            
+            showLessBtn.addEventListener('click', function() {
+                moreText.classList.add('hidden');
+                moreText.classList.remove('show');
+                readMoreBtn.classList.remove('hidden');
+                showLessBtn.classList.add('hidden');
+            });
+        });
+
+        // Parallax effect for Hero Section geometric shapes
+        let ticking = false;
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax-shape');
+            
+            parallaxElements.forEach((element) => {
+                const speed = element.dataset.speed || 0.5;
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+
+            ticking = false;
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateParallax);
+                ticking = true;
             }
         }
-        
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-        
-        // Form Submission
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(event.target);
-            const email = formData.get('email');
-            const whatsapp = formData.get('whatsapp');
-            
-            // Here you would normally send this data to your backend
-            console.log('Form submitted:', { email, whatsapp });
-            
-            // Show success message
-            alert(currentLang === 'en' 
-                ? 'Thank you! We will notify you when we launch.' 
-                : 'ধন্যবাদ! আমরা লঞ্চ করলে আপনাকে জানাব।');
-            
-            // Reset form
-            event.target.reset();
-        }
-        
-        // Intersection Observer for scroll animations
+
+        window.addEventListener('scroll', requestTick);
+
+        // Intersection Observer for Hero Section animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px'
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in-up');
-                    entry.target.style.opacity = '1';
+                    entry.target.style.animationPlayState = 'running';
                 }
             });
         }, observerOptions);
+
+        // Observe all animated elements in Hero Section
+        document.querySelectorAll('.fade-in, .fade-up, .slide-left, .slide-right, .scale-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Optional: Mouse move parallax effect for Hero Section
+        document.addEventListener('mousemove', (e) => {
+            const parallaxContainer = document.getElementById('parallaxContainer');
+            if (parallaxContainer) {
+                const shapes = parallaxContainer.querySelectorAll('.parallax-shape');
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                shapes.forEach((shape, index) => {
+                    const speed = (index + 1) * 2;
+                    const xPos = (x - 0.5) * speed;
+                    const yPos = (y - 0.5) * speed;
+                    shape.style.transform = `translate(${xPos}px, ${yPos}px)`;
+                });
+            }
+        });
+
+        // Register GSAP plugins
+        gsap.registerPlugin(ScrollTrigger, TextPlugin, CustomEase, ScrollToPlugin);
+
+        // Custom ease
+        CustomEase.create("customEase", "0.25, 0.46, 0.45, 0.94");
+
+        // Loading animation
+        window.addEventListener('load', () => {
+            const tl = gsap.timeline();
+            
+            // Rotate loader
+            gsap.to('.loader', {
+                rotation: 360,
+                duration: 1,
+                repeat: -1,
+                ease: 'none'
+            });
+
+            // Loading text animation
+            gsap.to('.loader-text', {
+                opacity: 0.5,
+                yoyo: true,
+                repeat: -1,
+                duration: 0.8
+            });
+
+            // Hide loading screen after content loads
+            setTimeout(() => {
+                tl.to('.loading-screen', {
+                    opacity: 0,
+                    duration: 0.5,
+                    onComplete: () => {
+                        document.querySelector('.loading-screen').style.display = 'none';
+                        initAnimations();
+                    }
+                });
+            }, 1500);
+        });
+
+        function initAnimations() {
+            // Navigation animation
+            gsap.from('.nav-logo', {
+                opacity: 0,
+                x: -50,
+                duration: 0.8,
+                delay: 0.2
+            });
+
+            gsap.from('.nav-link', {
+                opacity: 0,
+                y: -20,
+                duration: 0.6,
+                stagger: 0.1,
+                delay: 0.4
+            });
+
+            gsap.from('.nav-cta', {
+                opacity: 0,
+                scale: 0.8,
+                duration: 0.6,
+                delay: 0.8
+            });
+
+            // Hero section animations
+            const heroTl = gsap.timeline({ delay: 0.5 });
+
+            heroTl.from('.hero-badge', {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                ease: 'customEase'
+            })
+            .from('.hero-arabic', {
+                opacity: 0,
+                scale: 0.8,
+                duration: 1,
+                ease: 'back.out(1.7)'
+            }, '-=0.4')
+            .from('.hero-title h1', {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                ease: 'power3.out'
+            }, '-=0.6')
+            .from('.hero-title h2', {
+                opacity: 0,
+                y: 30,
+                duration: 0.8
+            }, '-=0.6')
+            .from('.hero-description', {
+                opacity: 0,
+                y: 30,
+                duration: 0.8
+            }, '-=0.4')
+            .from('.hero-btn-primary', {
+                opacity: 0,
+                x: -30,
+                duration: 0.6
+            }, '-=0.4')
+            .from('.hero-btn-secondary', {
+                opacity: 0,
+                x: 30,
+                duration: 0.6
+            }, '-=0.5')
+            .from('.feature-card', {
+                opacity: 0,
+                y: 40,
+                duration: 0.6,
+                stagger: 0.2
+            }, '-=0.3')
+            .from('.stat-item', {
+                opacity: 0,
+                scale: 0.5,
+                duration: 0.5,
+                stagger: 0.1
+            }, '-=0.2');
+
+            // Floating shapes animation
+            gsap.utils.toArray('.floating-shape').forEach((shape, i) => {
+                gsap.to(shape, {
+                    y: gsap.utils.random(-20, 20),
+                    x: gsap.utils.random(-10, 10),
+                    rotation: gsap.utils.random(-15, 15),
+                    duration: gsap.utils.random(4, 6),
+                    repeat: -1,
+                    yoyo: true,
+                    ease: 'sine.inOut',
+                    delay: i * 0.2
+                });
+            });
+
+            // Counter animation
+            gsap.utils.toArray('.stat-number').forEach(counter => {
+                const target = parseInt(counter.dataset.target);
+                const obj = { value: 0 };
+                
+                gsap.to(obj, {
+                    value: target,
+                    duration: 2,
+                    delay: 1,
+                    onUpdate: () => {
+                        counter.textContent = Math.floor(obj.value) + '+';
+                    }
+                });
+            });
+
+            // ScrollTrigger animations for sections
+            // Teachers section
+            gsap.from('#teachers .fade-in', {
+                scrollTrigger: {
+                    trigger: '#teachers',
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                stagger: 0.2
+            });
+
+            gsap.from('#teachers .scale-in', {
+                scrollTrigger: {
+                    trigger: '#teachers',
+                    start: 'top 70%'
+                },
+                opacity: 0,
+                scale: 0.8,
+                duration: 0.6,
+                stagger: 0.15
+            });
+
+            // Process section
+            gsap.from('#process .slide-left', {
+                scrollTrigger: {
+                    trigger: '#process',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                x: -50,
+                duration: 0.8,
+                stagger: 0.2
+            });
+
+            gsap.from('#process .slide-right', {
+                scrollTrigger: {
+                    trigger: '#process',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                x: 50,
+                duration: 0.8,
+                stagger: 0.2
+            });
+
+            gsap.from('#process .fade-up', {
+                scrollTrigger: {
+                    trigger: '#process',
+                    start: 'top 70%'
+                },
+                opacity: 0,
+                y: 30,
+                duration: 0.6,
+                stagger: 0.1
+            });
+
+            // Testimonials section
+            gsap.from('#testimonials .scale-in', {
+                scrollTrigger: {
+                    trigger: '#testimonials',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                scale: 0.9,
+                duration: 0.8,
+                stagger: 0.2
+            });
+
+            // Pricing section
+            gsap.from('#pricing .scale-in', {
+                scrollTrigger: {
+                    trigger: '#pricing',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                stagger: 0.2
+            });
+
+            // FAQ section
+            gsap.from('#faq .fade-up', {
+                scrollTrigger: {
+                    trigger: '#faq',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                y: 30,
+                duration: 0.6,
+                stagger: 0.1
+            });
+
+            // Contact section
+            gsap.from('#contact .slide-left', {
+                scrollTrigger: {
+                    trigger: '#contact',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                x: -50,
+                duration: 0.8
+            });
+
+            gsap.from('#contact .slide-right', {
+                scrollTrigger: {
+                    trigger: '#contact',
+                    start: 'top 80%'
+                },
+                opacity: 0,
+                x: 50,
+                duration: 0.8,
+                stagger: 0.1
+            });
+
+            // Parallax effect with GSAP
+            gsap.utils.toArray('.parallax-shape').forEach(shape => {
+                const speed = shape.dataset.speed || 0.5;
+                
+                gsap.to(shape, {
+                    yPercent: -50 * speed,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: '.hero-section',
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                });
+            });
+
+            // Hover animations
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(card, {
+                        scale: 1.05,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(card, {
+                        scale: 1,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                });
+            });
+
+            // Text split animation for headings
+            gsap.utils.toArray('h2').forEach(heading => {
+                gsap.from(heading, {
+                    scrollTrigger: {
+                        trigger: heading,
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse'
+                    },
+                    opacity: 0,
+                    y: 30,
+                    duration: 0.8
+                });
+            });
+
+            // Refresh ScrollTrigger
+            ScrollTrigger.refresh();
+        }
+
+        // Mobile menu functionality (remains the same)
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        const closeIcon = document.getElementById('closeIcon');
         
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            
+            if (!isOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+                
+                // GSAP animation for mobile menu
+                gsap.from(mobileMenu, {
+                    opacity: 0,
+                    y: -20,
+                    duration: 0.3
+                });
+                
+                gsap.from(mobileMenu.querySelectorAll('a, button'), {
+                    opacity: 0,
+                    x: -20,
+                    duration: 0.3,
+                    stagger: 0.05,
+                    delay: 0.1
+                });
+            } else {
+                gsap.to(mobileMenu, {
+                    opacity: 0,
+                    y: -20,
+                    duration: 0.3,
+                    onComplete: () => {
+                        mobileMenu.classList.add('hidden');
+                        menuIcon.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
+                    }
+                });
+            }
+        });
+
+        // FAQ Toggle with GSAP
+        function toggleFAQ(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('span:last-child');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                gsap.from(content, {
+                    height: 0,
+                    opacity: 0,
+                    duration: 0.3
+                });
+                gsap.to(icon, {
+                    rotation: 45,
+                    duration: 0.3
+                });
+            } else {
+                gsap.to(content, {
+                    height: 0,
+                    opacity: 0,
+                    duration: 0.3,
+                    onComplete: () => {
+                        content.classList.add('hidden');
+                    }
+                });
+                gsap.to(icon, {
+                    rotation: 0,
+                    duration: 0.3
+                });
+            }
+        }
+
+        // Smooth scroll with GSAP
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    gsap.to(window, {
+                        duration: 1,
+                        scrollTo: {
+                            y: target,
+                            offsetY: 80
+                        },
+                        ease: 'power2.inOut'
+                    });
+                }
+            });
         });
     </script>
 </body>

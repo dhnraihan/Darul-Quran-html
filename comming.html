@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Daarul Quran - Online Qur'an Learning Platform | Coming Soon</title>
+    <meta name="description" content="Learn Qur'an online with certified teachers. 1-to-1 live tajwid & hifz classes for kids and adults. Free trial class available.">
+    <meta name="keywords" content="online quran learning, tajwid, hifz, quranic studies, islamic education">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Daarul Quran - Online Qur'an Learning Platform">
+    <meta property="og:description" content="Learn Qur'an online with certified teachers. 1-to-1 live tajwid & hifz classes for kids and adults.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://daarulquran.com">
+    <meta property="og:image" content="https://daarulquran.com/og-image.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Daarul Quran - Online Qur'an Learning Platform">
+    <meta name="twitter:description" content="Learn Qur'an online with certified teachers. Free trial class available.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Custom Configuration */
+        :root {
+            --emerald: #10B981;
+            --deep-green: #065F46;
+            --off-white: #FAFAF9;
+        }
+        
+        body {
+            font-family: 'Inter', 'Noto Sans Arabic', sans-serif;
+            background-color: var(--off-white);
+        }
+        
+        /* Islamic Geometric Pattern Background */
+        .islamic-pattern {
+            background-image: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 35px,
+                    rgba(16, 185, 129, 0.03) 35px,
+                    rgba(16, 185, 129, 0.03) 70px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 35px,
+                    rgba(6, 95, 70, 0.02) 35px,
+                    rgba(6, 95, 70, 0.02) 70px
+                );
+        }
+        
+        /* Smooth Scroll Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .animation-delay-200 {
+            animation-delay: 0.2s;
+        }
+        
+        .animation-delay-400 {
+            animation-delay: 0.4s;
+        }
+        
+        .animation-delay-600 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Custom Focus Styles for Accessibility */
+        *:focus {
+            outline: 2px solid var(--emerald);
+            outline-offset: 2px;
+        }
+        
+        /* RTL Support */
+        [dir="rtl"] {
+            font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+        }
+    </style>
+    
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'soft-emerald': '#10B981',
+                        'deep-green': '#065F46',
+                        'off-white': '#FAFAF9'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen islamic-pattern">
+    
+    <!-- Language Toggle -->
+    <div class="fixed top-4 right-4 z-50">
+        <button 
+            onclick="toggleLanguage()"
+            class="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-deep-green font-medium"
+            aria-label="Toggle language"
+        >
+            <span id="langToggle">বাংলা</span>
+        </button>
+    </div>
+    
+    <!-- Main Container -->
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        
+        <!-- Hero Section -->
+        <section class="text-center pt-12 pb-16 opacity-0 animate-fade-in-up">
+            
+            <!-- Logo/Brand Name -->
+            <div class="mb-8">
+                <!-- Logo Image -->
+                <div class="flex justify-center mb-6">
+                    <img 
+                        src="/Daarul-quran.webp" 
+                        alt="Daarul Quran Logo"
+                        class="h-20 md:h-28 lg:h-32 w-auto object-contain filter drop-shadow-lg hover:scale-105 transition-transform duration-300"
+                        loading="eager"
+                    >
+                </div>
+                
+                <!-- Brand Name -->
+                <h1 class="text-4xl md:text-6xl font-bold text-deep-green">
+                    <span class="block text-3xl md:text-5xl mb-2" data-lang="bn">দারুল কুরআন</span>
+                    <span data-lang="en">Daarul Quran</span>
+                </h1>
+                
+                <!-- Tagline -->
+                <p class="text-lg md:text-xl text-gray-600 mt-4" data-lang="en">
+                    Your Gateway to Sacred Knowledge
+                </p>
+                <p class="text-lg md:text-xl text-gray-600 mt-4 hidden" data-lang="bn">
+                    পবিত্র জ্ঞানের আপনার প্রবেশদ্বার
+                </p>
+            </div>
+            
+            <!-- Countdown Timer -->
+            <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 max-w-2xl mx-auto mb-8 opacity-0 animate-fade-in-up animation-delay-200">
+                <p class="text-sm uppercase tracking-wider text-gray-500 mb-4" data-lang="en">Launching In</p>
+                <p class="text-sm uppercase tracking-wider text-gray-500 mb-4 hidden" data-lang="bn">লঞ্চ হচ্ছে</p>
+                
+                <div id="countdown" class="grid grid-cols-4 gap-2 md:gap-4 text-center">
+                    <div class="bg-off-white rounded-xl p-3 md:p-4">
+                        <div class="text-2xl md:text-4xl font-bold text-soft-emerald" id="days">00</div>
+                        <div class="text-xs md:text-sm text-gray-500 mt-1" data-lang="en">Days</div>
+                        <div class="text-xs md:text-sm text-gray-500 mt-1 hidden" data-lang="bn">দিন</div>
+                    </div>
+                    <div class="bg-off-white rounded-xl p-3 md:p-4">
+                        <div class="text-2xl md:text-4xl font-bold text-soft-emerald" id="hours">00</div>
+                        <div class="text-xs md:text-sm text-gray-500 mt-1" data-lang="en">Hours</div>
+                        <div class="text-xs md:text-sm text-gray-500 mt-1 hidden" data-lang="bn">ঘন্টা</div>
+                    </div>
+                    <div class="bg-off-white rounded-xl p-3 md:p-4">
+                        <div class="text-2xl md:text-4xl font-bold text-soft-emerald" id="minutes">00</div>
+                        <div class="text-xs md:text-sm text-gray-500 mt-1" data-lang="en">Minutes</div>
+                        <div class="text-xs md:text-sm text-gray-500 mt-1 hidden" data-lang="bn">মিনিট</div>
+                    </div>
+                    <div class="bg-off-white rounded-xl p-3 md:p-4">
+                        <div class="text-2xl md:text-4xl font-bold text-soft-emerald" id="seconds">00</div>
+                        <div class="text-xs md:text-sm text-gray-500 mt-1" data-lang="en">Seconds</div>
+                        <div class="text-xs md:text-sm text-gray-500 mt-1 hidden" data-lang="bn">সেকেন্ড</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Email/WhatsApp Form -->
+            <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 max-w-2xl mx-auto opacity-0 animate-fade-in-up animation-delay-400">
+                <h2 class="text-2xl font-semibold text-deep-green mb-4" data-lang="en">
+                    Be the First to Know
+                </h2>
+                <h2 class="text-2xl font-semibold text-deep-green mb-4 hidden" data-lang="bn">
+                    প্রথম জানুন
+                </h2>
+                
+                <form class="space-y-4" onsubmit="handleSubmit(event)">
+                    <div>
+                        <input 
+                            type="email" 
+                            placeholder="Enter your email address"
+                            data-placeholder-en="daarulquranlive@gmail.com"
+                            data-placeholder-bn="daarulquranlive@gmail.com"
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-soft-emerald focus:ring-2 focus:ring-soft-emerald/20 transition-all duration-300"
+                            required
+                            aria-label="Email address"
+                        >
+                    </div>
+                    <div>
+                        <input 
+                            type="tel" 
+                            placeholder="WhatsApp number (optional)"
+                            data-placeholder-en="WhatsApp number (optional)"
+                            data-placeholder-bn="হোয়াটসঅ্যাপ নম্বর (ঐচ্ছিক)"
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-soft-emerald focus:ring-2 focus:ring-soft-emerald/20 transition-all duration-300"
+                            aria-label="WhatsApp number"
+                        >
+                    </div>
+                    <button 
+                        type="submit"
+                        class="w-full bg-soft-emerald text-white font-semibold py-3 px-6 rounded-xl hover:bg-green-600 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                    >
+                        <span data-lang="en">Get Notified</span>
+                        <span class="hidden" data-lang="bn">বিজ্ঞপ্তি পান</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+        
+        <!-- Value Propositions -->
+        <section class="py-12 opacity-0 animate-fade-in-up animation-delay-600">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Value Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-soft-emerald text-3xl mb-4">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="font-semibold text-deep-green mb-2" data-lang="en">Live Classes</h3>
+                    <h3 class="font-semibold text-deep-green mb-2 hidden" data-lang="bn">লাইভ ক্লাস</h3>
+                    <p class="text-gray-600 text-sm" data-lang="en">Personalized Tajwid & Hifz sessions with dedicated instructors</p>
+                    <p class="text-gray-600 text-sm hidden" data-lang="bn">নিবেদিত শিক্ষকদের সাথে ব্যক্তিগত তাজবিদ ও হিফজ সেশন</p>
+                </div>
+                
+                <!-- Value Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-soft-emerald text-3xl mb-4">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="font-semibold text-deep-green mb-2" data-lang="en">Free Trial Class</h3>
+                    <h3 class="font-semibold text-deep-green mb-2 hidden" data-lang="bn">বিনামূল্যে ট্রায়াল ক্লাস</h3>
+                    <p class="text-gray-600 text-sm" data-lang="en">Experience our teaching methodology before enrollment</p>
+                    <p class="text-gray-600 text-sm hidden" data-lang="bn">ভর্তির আগে আমাদের শিক্ষাদান পদ্ধতি অনুভব করুন</p>
+                </div>
+                
+                <!-- Value Card 3 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-soft-emerald text-3xl mb-4">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="font-semibold text-deep-green mb-2" data-lang="en">Certified Teachers</h3>
+                    <h3 class="font-semibold text-deep-green mb-2 hidden" data-lang="bn">সার্টিফাইড শিক্ষক</h3>
+                    <p class="text-gray-600 text-sm" data-lang="en">Learn from qualified and experienced Qur'an educators</p>
+                    <p class="text-gray-600 text-sm hidden" data-lang="bn">যোগ্য এবং অভিজ্ঞ কুরআন শিক্ষকদের কাছে শিখুন</p>
+                </div>
+                
+                <!-- Value Card 4 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-soft-emerald text-3xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="font-semibold text-deep-green mb-2" data-lang="en">All Ages Welcome</h3>
+                    <h3 class="font-semibold text-deep-green mb-2 hidden" data-lang="bn">সব বয়সের জন্য</h3>
+                    <p class="text-gray-600 text-sm" data-lang="en">Tailored programs for kids and adults of all levels</p>
+                    <p class="text-gray-600 text-sm hidden" data-lang="bn">সকল স্তরের শিশু এবং প্রাপ্তবয়স্কদের জন্য উপযুক্ত প্রোগ্রাম</p>
+                </div>
+                
+            </div>
+        </section>
+        
+        <!-- Social Links -->
+        <section class="py-12 text-center">
+            <div class="flex justify-center space-x-6">
+                <a 
+                    href="https://wa.me/yourwhatsappnumber" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300"
+                    aria-label="WhatsApp"
+                >
+                    <i class="fab fa-whatsapp text-2xl text-green-600"></i>
+                </a>
+                <a 
+                    href="https://youtube.com/yourchannel" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300"
+                    aria-label="YouTube"
+                >
+                    <i class="fab fa-youtube text-2xl text-red-600"></i>
+                </a>
+                <a 
+                    href="https://facebook.com/yourpage" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-white rounded-xl p-4 shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300"
+                    aria-label="Facebook"
+                >
+                    <i class="fab fa-facebook text-2xl text-blue-600"></i>
+                </a>
+            </div>
+        </section>
+        
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-deep-green text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2">© 2024 Daarul Quran. All rights reserved.</p>
+            <p class="text-sm opacity-75 italic">
+                رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ
+            </p>
+            <p class="text-xs mt-2 opacity-60" data-lang="en">
+                "Our Lord, give us good in this world and good in the Hereafter, and protect us from the torment of the Fire"
+            </p>
+            <p class="text-xs mt-2 opacity-60 hidden" data-lang="bn">
+                "হে আমাদের রব, আমাদের দুনিয়াতে কল্যাণ দান করুন এবং আখিরাতেও কল্যাণ দান করুন এবং আমাদেরকে জাহান্নামের আযাব থেকে রক্ষা করুন"
+            </p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // Language Toggle
+        let currentLang = 'en';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'bn' : 'en';
+            document.getElementById('langToggle').textContent = currentLang === 'en' ? 'বাংলা' : 'English';
+            
+            // Toggle text elements
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                if (el.dataset.lang === currentLang) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            });
+            
+            // Update placeholders
+            document.querySelectorAll('[data-placeholder-en]').forEach(input => {
+                input.placeholder = currentLang === 'en' 
+                    ? input.dataset.placeholderEn 
+                    : input.dataset.placeholderBn;
+            });
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = currentLang === 'bn' ? 'ltr' : 'ltr'; // Both are LTR
+        }
+        
+        // Countdown Timer
+        function updateCountdown() {
+            const launchDate = new Date('2024-03-01T00:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = launchDate - now;
+            
+            if (timeLeft > 0) {
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            } else {
+                document.getElementById('countdown').innerHTML = '<div class="col-span-4 text-2xl font-bold text-soft-emerald">We are Live!</div>';
+            }
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Form Submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const email = formData.get('email');
+            const whatsapp = formData.get('whatsapp');
+            
+            // Here you would normally send this data to your backend
+            console.log('Form submitted:', { email, whatsapp });
+            
+            // Show success message
+            alert(currentLang === 'en' 
+                ? 'Thank you! We will notify you when we launch.' 
+                : 'ধন্যবাদ! আমরা লঞ্চ করলে আপনাকে জানাব।');
+            
+            // Reset form
+            event.target.reset();
+        }
+        
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
