@@ -17,6 +17,140 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     
     <style>
+        /* About Image Container Sizes */
+        .about-img-container {
+            position: relative;
+            width: 290px;
+            height: 290px;
+        }
+
+        @media (min-width: 768px) {
+            .about-img-container {
+                width: 450px;
+                height: 450px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .about-img-container {
+                width: 550px;
+                height: 550px;
+            }
+        }
+
+        /* Foreground Image Position */
+        .about-fg-img {
+            position: absolute;
+            z-index: 10;
+            right: 37px;
+            top: -51px;
+        }
+
+        @media (min-width: 768px) {
+            .about-fg-img {
+                right: 57px;
+                top: -79px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .about-fg-img {
+                right: 75px;
+                top: -33px;
+            }
+        }
+
+        /* Animated Circles */
+        .about-circle-wrapper {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            animation: circleRotate 15s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+        }
+
+        .about-circle,
+        .about-circle-2 {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0px 0px 20px 0px rgba(0, 255, 106, 0.3);
+        }
+
+        @media (min-width: 768px) {
+            .about-circle,
+            .about-circle-2 {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        .about-circle {
+            bottom: -15px;
+            left: 50%;
+            background: linear-gradient(to right, #b92b27, #1565c0); 
+        }
+
+        .about-circle-2 {
+            top: -16px;
+            right: 50%;
+            background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+        }
+
+        /* Circle Animation */
+        @keyframes circleRotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Smooth text reveal animation */
+        #moreText {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+
+        #moreText.show {
+            max-height: 2000px;
+            opacity: 1;
+        }
+
+        /* Hover Effects */
+        .about-fg-img img {
+            transition: transform 0.5s ease;
+        }
+
+        .about-img-container:hover .about-fg-img img {
+            transform: scale(1.05);
+        }
+
+        .about-img-container:hover .about-circle-wrapper {
+            animation-duration: 10s;
+        }
+
+        /* Gradient text animation */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .gradient-text-animated {
+            background: linear-gradient(90deg, #10b981, #14b8a6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+
         /* Rotating animation for star shape */
         @keyframes rotate {
             from {
@@ -162,142 +296,6 @@
             display: inline-block;
         }
     </style>
-    
-    <style>
-    /* About Image Container Sizes */
-    .about-img-container {
-        position: relative;
-        width: 290px;
-        height: 290px;
-    }
-
-    @media (min-width: 768px) {
-        .about-img-container {
-            width: 450px;
-            height: 450px;
-        }
-    }
-
-    @media (min-width: 1200px) {
-        .about-img-container {
-            width: 550px;
-            height: 550px;
-        }
-    }
-
-    /* Foreground Image Position */
-    .about-fg-img {
-        position: absolute;
-        z-index: 10;
-        right: 37px;
-        top: -51px;
-    }
-
-    @media (min-width: 768px) {
-        .about-fg-img {
-            right: 57px;
-            top: -79px;
-        }
-    }
-
-    @media (min-width: 1200px) {
-        .about-fg-img {
-            right: 75px;
-            top: -33px;
-        }
-    }
-
-    /* Animated Circles */
-    .about-circle-wrapper {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        animation: circleRotate 15s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
-    }
-
-    .about-circle,
-    .about-circle-2 {
-        display: block;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        position: absolute;
-        box-shadow: 0px 0px 20px 0px rgba(0, 255, 106, 0.3);
-    }
-
-    @media (min-width: 768px) {
-        .about-circle,
-        .about-circle-2 {
-            width: 40px;
-            height: 40px;
-        }
-    }
-
-    .about-circle {
-        bottom: -15px;
-        left: 50%;
-        background: linear-gradient(to right, #b92b27, #1565c0); 
-    }
-
-    .about-circle-2 {
-        top: -16px;
-        right: 50%;
-        background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
-    }
-
-    /* Circle Animation */
-    @keyframes circleRotate {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    /* Smooth text reveal animation */
-    #moreText {
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-    }
-
-    #moreText.show {
-        max-height: 2000px;
-        opacity: 1;
-    }
-
-    /* Hover Effects */
-    .about-fg-img img {
-        transition: transform 0.5s ease;
-    }
-
-    .about-img-container:hover .about-fg-img img {
-        transform: scale(1.05);
-    }
-
-    .about-img-container:hover .about-circle-wrapper {
-        animation-duration: 10s;
-    }
-
-    /* Gradient text animation */
-    @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-
-    .gradient-text-animated {
-        background: linear-gradient(90deg, #10b981, #14b8a6, #06b6d4);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 200% 200%;
-        animation: gradientShift 3s ease infinite;
-    }
-    </style>
 
 </head>
 <body class="bg-gradient-to-b from-[#022c22] to-[#064e3b] min-h-screen">
@@ -352,7 +350,7 @@
             <div class="container mx-auto px-4 py-4 bg-[#022c22]/95 backdrop-blur-lg border-t border-emerald-800/20">
                 <div class="flex flex-col space-y-4">
                     <a href="index.html" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">হোম</a>
-                    <a href="#courses" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">কোর্সসমূহ</a>
+                    <a href="#courses" class="text-emerald-100/70 hover:text-white transition">কোর্সসমূহ</a>
                     <a href="#teachers" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">শিক্ষকমণ্ডলী</a>
                     <a href="contact.html" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">যোগাযোগ</a>
                     <a href="about.html" class="text-emerald-100/70 hover:text-white transition">আমাদের সম্পর্কে</a>
@@ -524,7 +522,7 @@
                 <!-- Stats -->
                 <div class="fade-up grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 mb-8" style="--delay: 1.5s;">
                     <div class="text-center">
-                        <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">১২০০+</div>
+                        <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">৬০০+</div>
                         <div class="text-sm text-emerald-200/60">সক্রিয় শিক্ষার্থী</div>
                     </div>
                     <div class="text-center">
@@ -1978,5 +1976,6 @@
             });
         });
     </script>
+    
 </body>
 </html>
