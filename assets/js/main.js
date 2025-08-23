@@ -204,12 +204,10 @@
             // Get form data
             const name = document.getElementById('name').value;
             const fullNumber = iti.getNumber();
-            const whatsappConsent = document.getElementById('whatsapp').checked;
             
             console.log('Form Data:', {
                 name: name,
                 phone: fullNumber,
-                whatsapp: whatsappConsent
             });
             
             // Your form submission logic here
