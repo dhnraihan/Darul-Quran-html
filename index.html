@@ -46,15 +46,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- GSAP CDN -->
+
+    <!-- GSAP Core -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>window.gsap || document.write('<script src="assets/js/gsap.min.js"><\/script>')</script>
+
+    <!-- GSAP Plugins -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>window.ScrollTrigger || document.write('<script src="assets/js/ScrollTrigger.min.js"><\/script>')</script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script>window.TextPlugin || document.write('<script src="assets/js/TextPlugin.min.js"><\/script>')</script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"></script>
+    <script>window.CustomEase || document.write('<script src="assets/js/CustomEase.min.js"><\/script>')</script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    
-    <!--  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.min.css">
+    <script>window.ScrollToPlugin || document.write('<script src="assets/js/ScrollToPlugin.min.js"><\/script>')</script>
+
+    <!-- intlTelInput CSS (with fallback) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.min.css" 
+      onerror="this.onerror=null;this.href='assets/css/intlTelInput.min.css';">
+
 
     <!-- favicon -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -82,7 +95,6 @@
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-NTSX88JQ');</script>
-
        <!-- Structured Data / JSON-LD -->
     <script type="application/ld+json">
     {
@@ -121,7 +133,6 @@
         }
     }
     </script>
-    
     <!-- Course Schema -->
     <script type="application/ld+json">
     {
@@ -150,7 +161,6 @@
         }
     }
     </script>
-    
     <!-- FAQ Schema -->
     <script type="application/ld+json">
     {
@@ -176,7 +186,6 @@
         ]
     }
     </script>
-    
     <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
     {
@@ -198,7 +207,6 @@
         ]
     }
     </script>
-    
     <!-- Local Business Schema -->
     <script type="application/ld+json">
     {
@@ -233,435 +241,8 @@
     }
     </script>
     
-    <style>
+    <link rel="stylesheet" href="assets/css/style.min.css">
 
-        /* License section Particles */
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: linear-gradient(135deg, #10b981, #059669);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: float-up 15s infinite linear;
-        }
-        
-        .particle-1 { left: 10%; animation-delay: 0s; animation-duration: 20s; }
-        .particle-2 { left: 20%; animation-delay: 2s; animation-duration: 25s; }
-        .particle-3 { left: 35%; animation-delay: 4s; animation-duration: 18s; }
-        .particle-4 { left: 50%; animation-delay: 0s; animation-duration: 22s; }
-        .particle-5 { left: 65%; animation-delay: 3s; animation-duration: 28s; }
-        .particle-6 { left: 75%; animation-delay: 5s; animation-duration: 20s; }
-        .particle-7 { left: 85%; animation-delay: 2s; animation-duration: 24s; }
-        .particle-8 { left: 95%; animation-delay: 1s; animation-duration: 19s; }
-        
-        /* Stars */
-        .star {
-            position: absolute;
-            color: #fbbf24;
-            opacity: 0.4;
-            font-size: 20px;
-            animation: twinkle 3s infinite ease-in-out;
-        }
-        
-        .star-1 { top: 20%; left: 15%; animation-delay: 0s; }
-        .star-2 { top: 60%; right: 20%; animation-delay: 1s; }
-        .star-3 { top: 40%; left: 60%; animation-delay: 2s; }
-        .star-4 { bottom: 30%; right: 40%; animation-delay: 1.5s; }
-        
-        /* Floating Dots */
-        .floating-dot {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.8), transparent);
-            border-radius: 50%;
-            animation: float-random 20s infinite ease-in-out;
-        }
-        
-        .dot-1 { top: 10%; left: 80%; animation-delay: 0s; }
-        .dot-2 { top: 50%; left: 10%; animation-delay: 3s; }
-        .dot-3 { top: 70%; left: 50%; animation-delay: 5s; }
-        .dot-4 { top: 30%; right: 25%; animation-delay: 7s; }
-        .dot-5 { bottom: 20%; left: 30%; animation-delay: 2s; }
-        
-        /* Animations */
-        @keyframes float-up {
-            0% {
-                transform: translateY(100vh) translateX(0) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.3;
-            }
-            90% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100px) scale(1.5);
-                opacity: 0;
-            }
-        }
-        
-        @keyframes twinkle {
-            0%, 100% {
-                opacity: 0.4;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.8;
-                transform: scale(1.2);
-            }
-        }
-        
-        @keyframes float-random {
-            0%, 100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            33% {
-                transform: translate(30px, -30px) rotate(120deg);
-            }
-            66% {
-                transform: translate(-20px, 20px) rotate(240deg);
-            }
-        }
-        
-        /* Parallax Scroll Effect */
-        .particles-container {
-            will-change: transform;
-        }
-
-
-        /* quote section  */
-        .quote-dot {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .quote-dot:hover {
-            transform: scale(1.5);
-        }
-        
-        .quote-dot.active {
-            width: 24px !important;
-            background-color: rgb(52 211 153);
-        }
-
-
-        /* bole gesi */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        .delay-500 {
-            animation-delay: 500ms;
-        }
-        
-        .delay-700 {
-            animation-delay: 700ms;
-        }
-        
-        .delay-900 {
-            animation-delay: 900ms;
-        }
-
-        /* pillar of islam */
-        .pillar-card {
-            transition: all 0.3s ease;
-        }
-        
-        .pillar-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .pillar-quote {
-            transform: translateX(100%);
-        }
-        
-        .pillar-quote.active {
-            opacity: 1 !important;
-            transform: translateX(0);
-        }
-        
-        .pillar-dot {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .pillar-dot:hover {
-            transform: scale(1.5);
-        }
-        
-        #progressBar {
-            transition: width 5s linear;
-        }
-        
-        /* Pulse Animation */
-        .pulse-glow {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-            }
-        }
-
-
-        /* Customize intl-tel-input for dark theme */
-        .iti {
-            width: 100%;
-        }
-        
-        .iti__flag-container {
-            background-color: rgba(16, 185, 129, 0.1);
-            border-right: 1px solid rgba(16, 185, 129, 0.3);
-        }
-        
-        .iti__selected-flag {
-            background-color: transparent;
-        }
-        
-        .iti__selected-flag:hover {
-            background-color: rgba(16, 185, 129, 0.2);
-        }
-        
-        .iti__country-list {
-            background-color: #064e3b;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-        
-        .iti__country {
-            color: #d1fae5;
-        }
-        
-        .iti__country:hover {
-            background-color: rgba(16, 185, 129, 0.2);
-        }
-        
-        .iti__dial-code {
-            color: #6ee7b7;
-        }
-        
-        .iti__selected-dial-code {
-            color: #6ee7b7;
-        }
-        
-
-
-
-
-        /* Gradient text animation */
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .gradient-text-animated {
-            background: linear-gradient(90deg, #10b981, #14b8a6, #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% 200%;
-            animation: gradientShift 3s ease infinite;
-        }
-
-        /* Rotating animation for star shape */
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .rotating-reverse {
-            animation: rotate 30s linear infinite reverse;
-        }
-
-        .rotating {
-            animation: rotate 30s linear infinite;
-        }
-
-        /* Loading Screen */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #022c22;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        .loader-container {
-            text-align: center;
-        }
-
-        .loader {
-            width: 80px;
-            height: 80px;
-            border: 4px solid rgba(16, 185, 129, 0.2);
-            border-top: 4px solid #10b981;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-        }
-
-        .loader-text {
-            color: #10b981;
-            font-size: 18px;
-            margin-top: 10px;
-        }
-
-        /* Previous styles remain the same */
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        #mobileMenu.show {
-            display: block;
-            animation: slideDown 0.3s ease-out;
-        }
-        
-        #mobileMenu.show a {
-            animation: slideDown 0.3s ease-out forwards;
-            opacity: 0;
-        }
-        
-        #mobileMenu.show a:nth-child(1) { animation-delay: 0.05s; }
-        #mobileMenu.show a:nth-child(2) { animation-delay: 0.1s; }
-        #mobileMenu.show a:nth-child(3) { animation-delay: 0.15s; }
-        #mobileMenu.show a:nth-child(4) { animation-delay: 0.2s; }
-        #mobileMenu.show a:nth-child(5) { animation-delay: 0.25s; }
-        #mobileMenu.show a:nth-child(6) { animation-delay: 0.3s; }
-        #mobileMenu.show a:nth-child(7) { animation-delay: 0.35s; }
-
-        * {
-            font-family: 'Noto Serif Bengali', serif;
-        }
-
-        .arabic-font {
-            font-family: 'Amiri', serif;
-        }
-
-        /* Islamic Geometric Pattern */
-        .islamic-pattern {
-            background-image: 
-                radial-gradient(circle at 20% 50%, transparent 20%, rgba(16, 185, 129, 0.03) 21%, rgba(16, 185, 129, 0.03) 34%, transparent 35%),
-                linear-gradient(0deg, transparent 24%, rgba(16, 185, 129, 0.02) 25%, rgba(16, 185, 129, 0.02) 26%, transparent 27%, transparent 74%, rgba(16, 185, 129, 0.02) 75%, rgba(16, 185, 129, 0.02) 76%, transparent 77%);
-            background-size: 50px 50px;
-        }
-
-        .geometric-shape {
-            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-        }
-
-        .star-shape {
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-        }
-
-        /* Crescent moon shape */
-        .crescent {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            box-shadow: inset -15px 0 0 0 rgba(251, 191, 36, 0.2);
-        }
-
-        /* Lantern glow effect */
-        .lantern-glow {
-            box-shadow: 
-                0 0 30px rgba(251, 191, 36, 0.3),
-                0 0 60px rgba(251, 191, 36, 0.2),
-                0 0 90px rgba(251, 191, 36, 0.1);
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #022c22;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(to bottom, #059669, #047857);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(to bottom, #10b981, #059669);
-        }
-
-        /* GSAP specific styles */
-        .char {
-            display: inline-block;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        #mobileMenu.show {
-            display: block;
-            animation: slideDown 0.3s ease-out;
-        }
-        
-        #mobileMenu.show a,
-        #mobileMenu.show button {
-            animation: slideIn 0.3s ease-out forwards;
-        }
-        
-        #mobileMenu.show a:nth-child(1) { animation-delay: 0.05s; }
-        #mobileMenu.show a:nth-child(2) { animation-delay: 0.1s; }
-        #mobileMenu.show a:nth-child(3) { animation-delay: 0.15s; }
-        #mobileMenu.show a:nth-child(4) { animation-delay: 0.2s; }
-        #mobileMenu.show a:nth-child(5) { animation-delay: 0.25s; }
-        #mobileMenu.show button { animation-delay: 0.3s; }
-
-    </style>
 </head>
 <body class="bg-gradient-to-b from-[#022c22] to-[#064e3b] min-h-screen">
 
@@ -685,13 +266,18 @@
                 <!-- Logo -->
                 <div class="flex items-center gap-2">
                     <a href="index.html" class="flex items-center gap-2">
-                        <img src="assets/images/daarulquran.webp" loading="lazy" class="w-[60px]" alt="Daarul Quran">
+                        <img src="assets/images/daarulquran.webp" loading="lazy" class="w-[60px]" alt="Daarul Quran Logo">
                         <span class="text-white font-semibold text-lg">Daarul Quran</span>
                     </a>
                 </div>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden lg:flex items-center gap-6">
+                    <button id="langToggle"
+                            class="px-3 py-2 rounded-full text-white border border-emerald-500/30 hover:bg-white/10 transition"
+                            aria-label="Toggle language">
+                        EN
+                    </button>
                     <a href="index.html" class="text-emerald-100/70 hover:text-white transition">হোম</a>
                     <a href="#contactForm" class="px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg hover:shadow-emerald-500/25 transition">
                         শুরু করুন
@@ -714,8 +300,11 @@
         <div id="mobileMenu" class="lg:hidden hidden">
             <div class="container mx-auto px-4 py-4 bg-[#022c22]/95 backdrop-blur-lg border-t border-emerald-800/20">
                 <div class="flex flex-col space-y-4">
+                    <button id="langToggleMobile"
+                            class="block text-center w-full py-3 bg-white/10 backdrop-blur-sm border border-emerald-400/30 text-white rounded-full hover:bg-white/20 transition-all">
+                        English
+                    </button>
                     <a href="index.html" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">হোম</a>
-                    <a href="#courses" class="text-emerald-100/70 hover:text-white transition">কোর্সসমূহ</a>
                     <a href="#contactForm" class="block text-center w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg hover:shadow-emerald-500/25 transition mt-4">
                         শুরু করুন
                     </a>
@@ -836,7 +425,7 @@
                 <div class="fade-in inline-flex items-center gap-3 px-4 py-2 rounded-full bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 mb-8" 
                     style="--delay: 0.3s;">
                     <div class="w-2 h-2 rounded-full bg-emerald-400 pulse-glow"></div>
-                    <span class="text-emerald-200 text-sm">আধুনিক অনলাইন শিক্ষা প্ল্যাটফর্ম</span>
+                    <span class="text-emerald-200 text-sm" data-i18n="badge.modern_platform">আধুনিক অনলাইন শিক্ষা প্ল্যাটফর্ম</span>
                     <div class="w-2 h-2 rounded-full bg-emerald-400 pulse-glow"></div>
                 </div>
 
@@ -895,17 +484,17 @@
                                     <div class="bg-white/5 backdrop-blur-sm border border-emerald-400/20 rounded-2xl p-8 md:p-10">
                                         <!-- Form Header -->
                                         <div class="text-center mb-8">
-                                            <h3 class="text-2xl md:text-3xl font-bold text-white mb-3">
+                                            <h2 class="text-2xl md:text-3xl font-bold text-white mb-3" data-i18n="form.title">
                                                 অনলাইনে সহিহ কুরআন শিক্ষা
-                                            </h3>
-                                            <p class="text-emerald-200/70">Daaul Quran আপনাদের জন্য ফ্রি মূল্যায়ন ক্লাস এর ব্যবস্থা রেখেছে নিচের ফর্মটি পূরণ করে আপনি আমাদের মূল্যায়ন ক্লাসে অংশগ্রহণ করতে পারেন ইনশাআল্লাহ</p>
+                                            </h2>
+                                            <p class="text-emerald-200/70" data-i18n="form.subtitle">Daaul Quran আপনাদের জন্য ফ্রি মূল্যায়ন ক্লাস এর ব্যবস্থা রেখেছে নিচের ফর্মটি পূরণ করে আপনি আমাদের মূল্যায়ন ক্লাসে অংশগ্রহণ করতে পারেন ইনশাআল্লাহ</p>
                                         </div>
                                         
                                         <!-- Form -->
                                         <form class="space-y-6">
                                             <!-- Name Input -->
                                             <div>
-                                                <label for="name" class="block text-emerald-200 font-medium mb-2">
+                                                <label for="name" class="block text-emerald-200 font-medium mb-2" data-i18n="form.name_label">
                                                     আপনার নাম
                                                 </label>
                                                 <input type="text" 
@@ -913,12 +502,13 @@
                                                     name="name" 
                                                     required
                                                     placeholder="আপনার পূর্ণ নাম লিখুন"
+                                                    data-i18n-placeholder="form.name_placeholder"
                                                     class="w-full px-4 py-3 bg-emerald-900/30 border border-emerald-500/30 rounded-lg text-white placeholder-emerald-200/50 focus:outline-none focus:border-emerald-400 focus:bg-emerald-900/40 transition-all">
                                             </div>
                                             
                                             <!-- Phone Input with intl-tel-input -->
                                             <div>
-                                                <label for="phone" class="block text-emerald-200 font-medium mb-2">
+                                                <label for="phone" class="block text-emerald-200 font-medium mb-2" data-i18n="form.phone_label">
                                                     মোবাইল নম্বর
                                                 </label>
                                                 <input type="tel" 
@@ -1062,19 +652,23 @@
 
                                 <!-- Navigation Dots -->
                                 <div class="flex justify-center gap-2 mt-8">
-                                    <button class="quote-dot w-2 h-2 rounded-full bg-emerald-400 transition-all" onclick="goToQuote(0)"></button>
-                                    <button class="quote-dot w-2 h-2 rounded-full bg-emerald-600/50 transition-all" onclick="goToQuote(1)"></button>
+                                    <button onclick="goToQuote(0)" aria-label="কুরআনের বাণী দেখুন" class="p-4 rounded-full">
+                                        <div class="quote-dot w-2 h-2 rounded-full bg-emerald-400 transition-all"></div>
+                                    </button>
+                                    <button onclick="goToQuote(1)" aria-label="হাদীসের বাণী দেখুন" class="p-4 rounded-full">
+                                        <div class="quote-dot w-2 h-2 rounded-full bg-emerald-600/50 transition-all"></div>
+                                    </button>
                                 </div>
 
                                 <!-- Navigation Arrows -->
-                                <button onclick="prevQuote()" class="quote-nav quote-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 opacity-0 md:opacity-100 transition-opacity">
+                                <button onclick="prevQuote()" aria-label="পূর্ববর্তী বাণী" class="quote-nav quote-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 opacity-0 md:opacity-100 transition-opacity">
                                     <div class="w-12 h-12 bg-emerald-900/50 border border-emerald-500/30 rounded-full flex items-center justify-center hover:bg-emerald-900/70 transition-colors">
                                         <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                                         </svg>
                                     </div>
                                 </button>
-                                <button onclick="nextQuote()" class="quote-nav quote-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 opacity-0 md:opacity-100 transition-opacity">
+                                <button onclick="nextQuote()" aria-label="পরবর্তী বাণী" class="quote-nav quote-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 opacity-0 md:opacity-100 transition-opacity">
                                     <div class="w-12 h-12 bg-emerald-900/50 border border-emerald-500/30 rounded-full flex items-center justify-center hover:bg-emerald-900/70 transition-colors">
                                         <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -1235,20 +829,19 @@
                     </div>
                 </div>
                 <div class="border-t border-emerald-200/30 mt-10 mb-16"></div>
+                
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">আমাদের কোর্সসমূহ</h2>
 
-                <!-- Course List -->
-                <div class="group px-30 py-4 mb-12 bg-white/10 backdrop-blur-sm border border-emerald-400/30 text-white rounded-full font-semibold text-lg hover:bg-white/20 transition-all">
-                            <span>কোর্স দেখুন</span>
-                </div>
                 <!-- Features -->
                 <div class="fade-up grid grid-cols-1 md:grid-cols-4 gap-6" style="--delay: 1.3s;">
 
                     <div class="scale-in" style="--delay: 0.3s;">
                         <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-3xl p-8 hover:border-emerald-400/40 transition-all">
                             <div class="text-center mb-6">
-                                <div class="text-4xl font-bold text-white mb-2">হিফযুল কোরআন</div>
-                                <h3 class="text-sm font-semibold text-emerald-400 mb-2">৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য</h3>
-                                <!-- <p class="text-emerald-200/60 text-sm">প্রতি মাস</p> -->
+                                <h3 class="text-3xl font-bold text-white mb-2">হিফযুল কোরআন</h3>
+                                <p class="text-sm font-semibold text-emerald-400 mb-2 h-12">
+                                    ৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য
+                                </p>
                             </div>
                             <ul class="space-y-3 mb-8">
                                 <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
@@ -1283,9 +876,10 @@
                         </div>
                         <div class="bg-gradient-to-br from-amber-900/50 to-amber-800/40 backdrop-blur-sm border-2 border-amber-500/30 rounded-3xl p-8 hover:border-amber-400/50 transition-all">
                             <div class="text-center mb-6">
-                                <div class="text-4xl font-bold text-white mb-2">সহিহ কোরআন শিক্ষা</div>
-                                <h3 class="text-sm font-semibold text-amber-400 mb-2">৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য</h3>
-                                <!-- <p class="text-emerald-200/60 text-sm">প্রতি মাস</p> -->
+                                <h3 class="text-3xl font-bold text-white mb-2">সহিহ কোরআন শিক্ষা</h3>
+                                <p class="text-sm font-semibold text-amber-400 mb-2 h-12">
+                                    ৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য
+                                </p>
                             </div>
                             <ul class="space-y-3 mb-8">
                                 <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
@@ -1325,9 +919,10 @@
                         </div>
                         <div class="bg-gradient-to-br from-amber-900/50 to-amber-800/40 backdrop-blur-sm border-2 border-amber-500/30 rounded-3xl p-8 hover:border-amber-400/50 transition-all">
                             <div class="text-center mb-6">
-                                <div class="text-4xl font-bold text-white mb-2">ক্বেরাত শিক্ষা</div>
-                                <h3 class="text-sm font-semibold text-amber-400 mb-2">৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য</h3>
-                                <!-- <p class="text-emerald-200/60 text-sm">প্রতি মাস</p> -->
+                                <h3 class="text-3xl font-bold text-white mb-2">ক্বেরাত শিক্ষা</h3>
+                                <p class="text-sm font-semibold text-amber-400 mb-2 h-12">
+                                    ৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য
+                                </p>
                             </div>
                             <ul class="space-y-3 mb-8">
                                 <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
@@ -1368,9 +963,10 @@
                     <div class="scale-in" style="--delay: 0.5s;">
                         <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-3xl p-8 hover:border-emerald-400/40 transition-all">
                             <div class="text-center mb-6">
-                                <div class="text-4xl font-bold text-white mb-2">আরবি ভাষা শিক্ষা</div>
-                                <p class="text-emerald-200/60 text-sm">৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য</p>
-                                <!-- <h3 class="text-xl font-semibold text-emerald-400 mb-2">প্রিমিয়াম</h3> -->                            
+                                <h3 class="text-3xl font-bold text-white mb-2">আরবি ভাষা শিক্ষা</h3>
+                                <p class="text-sm font-semibold text-emerald-400 mb-2 h-12">
+                                    ৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য
+                                </p>
                             </div>
                             <ul class="space-y-3 mb-8">
                                 <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
@@ -1449,7 +1045,7 @@
                     style="--delay: 0.1s;">
                     <div class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></div>
                     <div>
-                        <h5 class="text-xl font-bold text-emerald-400 inline">DaarulQuran</h5>
+                        <p class="text-xl font-bold text-emerald-400 inline">DaarulQuran</p>
                         <span class="text-sm font-semibold text-emerald-200/70 ml-2">[ ট্রেড লাইসেন্স: ১৩,১২(১)-৩৪৬/২৫-২৬ ]</span>
                     </div>
                     <div class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></div>
@@ -1597,7 +1193,7 @@
                 <div class="scale-in group relative" style="--delay: 0.4s;">
                     <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 hover:border-emerald-400/40 transition-all">
                         <div class="relative mb-4">
-                            <div class="w-24 h-24 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
+                            <div class="w-24 h-24 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-3xl">
                                 <span class="text-white text-3xl">👳‍♂️</span>
                             </div>
                             <div class="absolute -top-2 -right-2 w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center">
@@ -1618,7 +1214,7 @@
                 <div class="scale-in group relative" style="--delay: 0.5s;">
                     <div class="bg-gradient-to-br from-amber-900/40 to-amber-800/30 backdrop-blur-sm border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400/40 transition-all">
                         <div class="relative mb-4">
-                            <div class="w-24 h-24 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center">
+                            <div class="w-24 h-24 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center text-white text-3xl">
                                 <span class="text-white text-3xl">👳‍♀️</span>
                             </div>
                             <div class="absolute -top-2 -right-2 w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
@@ -1639,7 +1235,7 @@
                 <div class="scale-in group relative" style="--delay: 0.6s;">
                     <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 hover:border-emerald-400/40 transition-all">
                         <div class="relative mb-4">
-                            <div class="w-24 h-24 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
+                            <div class="w-24 h-24 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-3xl">
                                 <span class="text-white text-3xl">👳‍♂️</span>
                             </div>
                             <div class="absolute -top-2 -right-2 w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center">
@@ -1660,7 +1256,7 @@
                 <div class="scale-in group relative" style="--delay: 0.7s;">
                     <div class="bg-gradient-to-br from-amber-900/40 to-amber-800/30 backdrop-blur-sm border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400/40 transition-all">
                         <div class="relative mb-4">
-                            <div class="w-24 h-24 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center">
+                            <div class="w-24 h-24 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center text-white text-3xl">
                                 <span class="text-white text-3xl">👳‍♂️</span>
                             </div>
                             <div class="absolute -top-2 -right-2 w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
@@ -1711,7 +1307,7 @@
                 <!-- Pillar 1: Shahada -->
                 <div class="pillar-card fade-up cursor-pointer group" style="--delay: 0.4s;" onclick="showPillarDetail(0)">
                     <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 hover:border-emerald-400/40 transition-all text-center">
-                        <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform text-2xl">
                             <span class="text-2xl">☪️</span>
                         </div>
                         <h3 class="text-white font-semibold mb-1">শাহাদা</h3>
@@ -1722,7 +1318,7 @@
                 <!-- Pillar 2: Salah -->
                 <div class="pillar-card fade-up cursor-pointer group" style="--delay: 0.5s;" onclick="showPillarDetail(1)">
                     <div class="bg-gradient-to-br from-amber-900/40 to-amber-800/30 backdrop-blur-sm border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400/40 transition-all text-center">
-                        <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform text-2xl">
                             <span class="text-2xl">🕌</span>
                         </div>
                         <h3 class="text-white font-semibold mb-1">সালাত</h3>
@@ -1733,7 +1329,7 @@
                 <!-- Pillar 3: Zakat -->
                 <div class="pillar-card fade-up cursor-pointer group" style="--delay: 0.6s;" onclick="showPillarDetail(2)">
                     <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 hover:border-emerald-400/40 transition-all text-center">
-                        <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform text-2xl">
                             <span class="text-2xl">💰</span>
                         </div>
                         <h3 class="text-white font-semibold mb-1">যাকাত</h3>
@@ -1744,7 +1340,7 @@
                 <!-- Pillar 4: Sawm -->
                 <div class="pillar-card fade-up cursor-pointer group" style="--delay: 0.7s;" onclick="showPillarDetail(3)">
                     <div class="bg-gradient-to-br from-amber-900/40 to-amber-800/30 backdrop-blur-sm border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400/40 transition-all text-center">
-                        <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform text-2xl">
                             <span class="text-2xl">🌙</span>
                         </div>
                         <h3 class="text-white font-semibold mb-1">সাওম</h3>
@@ -1755,7 +1351,7 @@
                 <!-- Pillar 5: Hajj -->
                 <div class="pillar-card fade-up cursor-pointer group" style="--delay: 0.8s;" onclick="showPillarDetail(4)">
                     <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 hover:border-emerald-400/40 transition-all text-center">
-                        <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform text-2xl">
                             <span class="text-2xl">🕋</span>
                         </div>
                         <h3 class="text-white font-semibold mb-1">হজ্জ</h3>
@@ -1774,7 +1370,7 @@
                             <p class="arabic-font text-2xl md:text-3xl text-amber-400 mb-3">
                                 لَا إِلَٰهَ إِلَّا ٱللَّٰهُ مُحَمَّدٌ رَسُولُ ٱللَّٰهِ
                             </p>
-                            <p class="text-white text-lg font-semibold mb-2">শাহাদা - ঈমানের সাক্ষ্য</p>
+                            <h4 class="text-white text-lg font-semibold mb-2">শাহাদা - ঈমানের সাক্ষ্য</h4>
                             <p class="text-emerald-200/70 max-w-2xl">
                                 "আল্লাহ ছাড়া কোন উপাস্য নেই এবং মুহাম্মদ (সাঃ) আল্লাহর রাসূল" - এই সাক্ষ্য দেওয়া ইসলামের প্রথম স্তম্ভ
                             </p>
@@ -1785,7 +1381,7 @@
                             <p class="arabic-font text-2xl md:text-3xl text-amber-400 mb-3">
                                 إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا
                             </p>
-                            <p class="text-white text-lg font-semibold mb-2">সালাত - দৈনিক পাঁচ ওয়াক্ত নামাজ</p>
+                            <h4 class="text-white text-lg font-semibold mb-2">সালাত - দৈনিক পাঁচ ওয়াক্ত নামাজ</h4>
                             <p class="text-emerald-200/70 max-w-2xl">
                                 "নিশ্চয়ই সালাত মুমিনদের উপর নির্দিষ্ট সময়ে ফরজ" (সূরা নিসা: ১০৩)
                             </p>
@@ -1796,7 +1392,7 @@
                             <p class="arabic-font text-2xl md:text-3xl text-amber-400 mb-3">
                                 وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ
                             </p>
-                            <p class="text-white text-lg font-semibold mb-2">যাকাত - সম্পদের পবিত্রতা</p>
+                            <h4 class="text-white text-lg font-semibold mb-2">যাকাত - সম্পদের পবিত্রতা</h4>
                             <p class="text-emerald-200/70 max-w-2xl">
                                 "সালাত কায়েম কর এবং যাকাত প্রদান কর" - সম্পদের ২.৫% দান করা ফরজ
                             </p>
@@ -1807,7 +1403,7 @@
                             <p class="arabic-font text-2xl md:text-3xl text-amber-400 mb-3">
                                 يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ
                             </p>
-                            <p class="text-white text-lg font-semibold mb-2">সাওম - রমজানের রোজা</p>
+                            <h4 class="text-white text-lg font-semibold mb-2">সাওম - রমজানের রোজা</h4>
                             <p class="text-emerald-200/70 max-w-2xl">
                                 "হে ঈমানদারগণ! তোমাদের উপর রোজা ফরজ করা হয়েছে" (সূরা বাকারা: ১৮৩)
                             </p>
@@ -1818,7 +1414,7 @@
                             <p class="arabic-font text-2xl md:text-3xl text-amber-400 mb-3">
                                 وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا
                             </p>
-                            <p class="text-white text-lg font-semibold mb-2">হজ্জ - পবিত্র তীর্থযাত্রা</p>
+                            <h4 class="text-white text-lg font-semibold mb-2">হজ্জ - পবিত্র তীর্থযাত্রা</h4>
                             <p class="text-emerald-200/70 max-w-2xl">
                                 "সামর্থ্যবান ব্যক্তির উপর আল্লাহর জন্য বায়তুল্লাহর হজ্জ করা ফরজ" (সূরা আল-ইমরান: ৯৭)
                             </p>
@@ -1827,11 +1423,21 @@
 
                     <!-- Navigation Dots -->
                     <div class="flex justify-center gap-2 mt-6">
-                        <button onclick="showPillarDetail(0)" class="pillar-dot w-2 h-2 rounded-full bg-emerald-400 transition-all"></button>
-                        <button onclick="showPillarDetail(1)" class="pillar-dot w-2 h-2 rounded-full bg-emerald-600/50 transition-all"></button>
-                        <button onclick="showPillarDetail(2)" class="pillar-dot w-2 h-2 rounded-full bg-emerald-600/50 transition-all"></button>
-                        <button onclick="showPillarDetail(3)" class="pillar-dot w-2 h-2 rounded-full bg-emerald-600/50 transition-all"></button>
-                        <button onclick="showPillarDetail(4)" class="pillar-dot w-2 h-2 rounded-full bg-emerald-600/50 transition-all"></button>
+                        <button onclick="showPillarDetail(0)" aria-label="শাহাদা সম্পর্কে দেখুন" class="p-4 rounded-full">
+                            <div class="pillar-dot w-2 h-2 rounded-full bg-emerald-400 transition-all"></div>
+                        </button>
+                        <button onclick="showPillarDetail(1)" aria-label="সালাত সম্পর্কে দেখুন" class="p-4 rounded-full">
+                            <div class="pillar-dot w-2 h-2 rounded-full bg-emerald-600/50 transition-all"></div>
+                        </button>
+                        <button onclick="showPillarDetail(2)" aria-label="যাকাত সম্পর্কে দেখুন" class="p-4 rounded-full">
+                            <div class="pillar-dot w-2 h-2 rounded-full bg-emerald-600/50 transition-all"></div>
+                        </button>
+                        <button onclick="showPillarDetail(3)" aria-label="সাওম সম্পর্কে দেখুন" class="p-4 rounded-full">
+                            <div class="pillar-dot w-2 h-2 rounded-full bg-emerald-600/50 transition-all"></div>
+                        </button>
+                        <button onclick="showPillarDetail(4)" aria-label="হজ্জ সম্পর্কে দেখুন" class="p-4 rounded-full">
+                            <div class="pillar-dot w-2 h-2 rounded-full bg-emerald-600/50 transition-all"></div>
+                        </button>
                     </div>
 
                     <!-- Auto-play Progress Bar -->
@@ -1885,7 +1491,7 @@
                         <!-- Step 1 -->
                         <div class="slide-left text-center" style="--delay: 0.3s;">
                             <div class="relative">
-                                <div class="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mb-4 relative z-10">
+                                <div class="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mb-4 relative z-10 text-white text-2xl font-bold">
                                     <span class="text-white text-2xl font-bold">১</span>
                                 </div>
                                 <div class="absolute top-10 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-emerald-500/10 rounded-full blur-xl"></div>
@@ -1897,7 +1503,7 @@
                         <!-- Step 2 -->
                         <div class="slide-left text-center" style="--delay: 0.4s;">
                             <div class="relative">
-                                <div class="w-20 h-20 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center mb-4 relative z-10">
+                                <div class="w-20 h-20 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center mb-4 relative z-10 text-white text-2xl font-bold">
                                     <span class="text-white text-2xl font-bold">২</span>
                                 </div>
                                 <div class="absolute top-10 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-amber-500/10 rounded-full blur-xl"></div>
@@ -1909,7 +1515,7 @@
                         <!-- Step 3 -->
                         <div class="slide-right text-center" style="--delay: 0.5s;">
                             <div class="relative">
-                                <div class="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mb-4 relative z-10">
+                                <div class="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mb-4 relative z-10 text-white text-2xl font-bold">
                                     <span class="text-white text-2xl font-bold">৩</span>
                                 </div>
                                 <div class="absolute top-10 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-emerald-500/10 rounded-full blur-xl"></div>
@@ -1921,7 +1527,7 @@
                         <!-- Step 4 -->
                         <div class="slide-right text-center" style="--delay: 0.6s;">
                             <div class="relative">
-                                <div class="w-20 h-20 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center mb-4 relative z-10">
+                                <div class="w-20 h-20 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center mb-4 relative z-10 text-white text-2xl font-bold">
                                     <span class="text-white text-2xl font-bold">৪</span>
                                 </div>
                                 <div class="absolute top-10 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-amber-500/10 rounded-full blur-xl"></div>
@@ -1936,19 +1542,19 @@
                 <div class="grid md:grid-cols-3 gap-6 mt-16">
                     <div class="fade-up bg-gradient-to-br text-center from-emerald-900/30 to-transparent border border-emerald-500/20 rounded-2xl p-6" style="--delay: 0.7s;">
                         <div class="text-3xl mb-4">📱</div>
-                        <h4 class="text-lg font-semibold text-white mb-2">মোবাইল অ্যাপ</h4>
+                        <h3 class="text-lg font-semibold text-white mb-2">মোবাইল অ্যাপ</h3>
                         <p class="text-emerald-200/60 text-sm">যেকোনো স্থান থেকে শিখুন</p>
                     </div>
 
                     <div class="fade-up bg-gradient-to-br text-center from-amber-900/30 to-transparent border border-amber-500/20 rounded-2xl p-6" style="--delay: 0.8s;">
                         <div class="text-3xl mb-4">🎥</div>
-                        <h4 class="text-lg font-semibold text-white mb-2">রেকর্ডেড ক্লাস</h4>
+                        <h3 class="text-lg font-semibold text-white mb-2">রেকর্ডেড ক্লাস</h3>
                         <p class="text-emerald-200/60 text-sm">মিস করলে পরে দেখুন</p>
                     </div>
 
                     <div class="fade-up bg-gradient-to-br text-center from-emerald-900/30 to-transparent border border-emerald-500/20 rounded-2xl p-6" style="--delay: 0.9s;">
                         <div class="text-3xl mb-4">📚</div>
-                        <h4 class="text-lg font-semibold text-white mb-2">ই-বুক সংগ্রহ</h4>
+                        <h3 class="text-lg font-semibold text-white mb-2">ই-বুক সংগ্রহ</h3>
                         <p class="text-emerald-200/60 text-sm">বিনামূল্যে স্টাডি ম্যাটেরিয়াল</p>
                     </div>
                 </div>
@@ -1981,11 +1587,11 @@
                     <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 relative">
                         <div class="absolute -top-4 left-6 text-6xl text-emerald-500/20">"</div>
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-xl">
                                 <span class="text-white text-xl">👨</span>
                             </div>
                             <div>
-                                <h4 class="text-white font-semibold">রাফি আহমেদ</h4>
+                                <h3 class="text-white font-semibold">রাফি আহমেদ</h3>
                                 <div class="flex gap-1">
                                     <span class="text-amber-400 text-sm">★★★★★</span>
                                 </div>
@@ -2004,11 +1610,11 @@
                     <div class="bg-gradient-to-br from-amber-900/40 to-amber-800/30 backdrop-blur-sm border border-amber-500/20 rounded-2xl p-6 relative">
                         <div class="absolute -top-4 left-6 text-6xl text-amber-500/20">"</div>
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center text-white text-xl">
                                 <span class="text-white text-xl">👩</span>
                             </div>
                             <div>
-                                <h4 class="text-white font-semibold">ফাতেমা খাতুন</h4>
+                                <h3 class="text-white font-semibold">ফাতেমা খাতুন</h3>
                                 <div class="flex gap-1">
                                     <span class="text-amber-400 text-sm">★★★★★</span>
                                 </div>
@@ -2027,11 +1633,11 @@
                     <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 relative">
                         <div class="absolute -top-4 left-6 text-6xl text-emerald-500/20">"</div>
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center">
+                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-xl">
                                 <span class="text-white text-xl">👦</span>
                             </div>
                             <div>
-                                <h4 class="text-white font-semibold">সাদিক হাসান</h4>
+                                <h3 class="text-white font-semibold">সাদিক হাসান</h3>
                                 <div class="flex gap-1">
                                     <span class="text-amber-400 text-sm">★★★★★</span>
                                 </div>
@@ -2343,13 +1949,13 @@
                     <a href="https://wa.me/8801345291197" target="_blank" 
                     class="block bg-gradient-to-br from-emerald-900/30 to-transparent border border-emerald-500/20 rounded-2xl p-6 hover:border-emerald-400/40 hover:bg-emerald-900/40 transition-all duration-300 h-full">
                         <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform text-white">
                                 <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="text-white font-semibold text-lg mb-1">WhatsApp</h4>
+                                <h3 class="text-white font-semibold text-lg mb-1">WhatsApp</h3>
                                 <p class="text-emerald-200/70">+880 1345-291-197</p>
                                 <p class="text-emerald-400/70 text-sm mt-1">দ্রুত যোগাযোগের জন্য</p>
                             </div>
@@ -2362,13 +1968,13 @@
                     <a href="mailto:info@daarulquran.com" 
                     class="block bg-gradient-to-br from-amber-900/30 to-transparent border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400/40 hover:bg-amber-900/40 transition-all duration-300 h-full">
                         <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform text-white">
                                 <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="text-white font-semibold text-lg mb-1">ইমেইল</h4>
+                                <h3 class="text-white font-semibold text-lg mb-1">ইমেইল</h3>
                                 <p class="text-emerald-200/70">info@daarulquran.com</p>
                                 <p class="text-amber-400/70 text-sm mt-1">বিস্তারিত প্রশ্নের জন্য</p>
                             </div>
@@ -2380,14 +1986,14 @@
                 <div class="fade-in group" style="--delay: 0.6s;">
                     <div class="bg-gradient-to-br from-emerald-900/30 to-transparent border border-emerald-500/20 rounded-2xl p-6 hover:border-emerald-400/40 transition-all duration-300 h-full">
                         <div class="flex items-start gap-4">
-                            <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                            <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform text-white">
                                 <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="text-white font-semibold text-lg mb-1">অফিস ঠিকানা</h4>
+                                <h3 class="text-white font-semibold text-lg mb-1">অফিস ঠিকানা</h3>
                                 <p class="text-emerald-200/70 text-sm leading-relaxed">৪ ইব্রাহিম স্ট্রিট মিদানুল গাইশ এল-আব্বাসিয়া, এল-ওয়াইলি, কায়রো, মিশর</p>
                             </div>
                         </div>
@@ -2398,13 +2004,13 @@
                 <div class="fade-in group" style="--delay: 0.7s;">
                     <div class="bg-gradient-to-br from-amber-900/30 to-transparent border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400/40 transition-all duration-300 h-full">
                         <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform text-white">
                                 <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="text-white font-semibold text-lg mb-1">সাপোর্ট সময়</h4>
+                                <h3 class="text-white font-semibold text-lg mb-1">সাপোর্ট সময়</h3>
                                 <p class="text-emerald-200/70">২৪/৭ সহায়তা সেবা</p>
                             </div>
                         </div>
@@ -2424,6 +2030,7 @@
                         <svg class="w-5 h-5 text-emerald-400 group-hover:text-white relative z-10 transition-colors" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                         </svg>
+                        <span class="sr-only">Facebook</span>
                     </a>
 
                     <!-- YouTube -->
@@ -2434,6 +2041,7 @@
                         <svg class="w-5 h-5 text-emerald-400 group-hover:text-white relative z-10 transition-colors" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                         </svg>
+                        <span class="sr-only">YouTube</span>
                     </a>
 
                     <!-- Instagram -->
@@ -2444,6 +2052,7 @@
                         <svg class="w-5 h-5 text-emerald-400 group-hover:text-white relative z-10 transition-colors" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
                         </svg>
+                        <span class="sr-only">Instagram</span>
                     </a>
 
                     <!-- TikTok -->
@@ -2454,13 +2063,14 @@
                         <svg class="w-5 h-5 text-emerald-400 group-hover:text-white relative z-10 transition-colors" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
                         </svg>
+                        <span class="sr-only">TikTok</span>
                     </a>
                 </div>
             </div>
 
             <!-- Quick Action -->
             <div class="relative rounded-3xl overflow-hidden h-[300px] mt-4 border border-emerald-500/20">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.782392382695!2d31.27926618298918!3d30.071771452599744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583f98452c2997%3A0x740a86e9f7a61e3!2sEl%20Waily!5e0!3m2!1sen!2sbd!4v1755779871891!5m2!1sen!2sbd" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.782392382695!2d31.27926618298918!3d30.071771452599744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583f98452c2997%3A0x740a86e9f7a61e3!2sEl%20Waily!5e0!3m2!1sen!2sbd!4v1755779871891!5m2!1sen!2sbd" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy title="Google Map showing Darul Quran location"></iframe>">
                 </iframe>
                 <div class="absolute inset-0 map-overlay pointer-events-none"></div>
                 <div class="absolute bottom-4 left-4 bg-emerald-900/90 backdrop-blur-sm border border-emerald-500/30 rounded-xl p-4">
@@ -2494,17 +2104,17 @@
 
         <!-- Copyright -->
        <div class="pt-8 mt-8 border-t border-emerald-800/30">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
                 <!-- Left Side -->
-                <p class="text-emerald-200/50 text-sm text-center md:text-left">
-                    © ২০২৫ <span class="font-semibold">Daarul Quran</span>. সর্বস্বত্ব সংরক্ষিত।
+                <p class="text-emerald-200 text-sm text-center md:text-left">
+                    © ২০২৫ Daarul Quran. সর্বস্বত্ব সংরক্ষিত।
                 </p>
                 
                 <!-- Right Side -->
                 <div class="flex flex-wrap justify-center md:justify-end gap-6">
-                    <a href="#" class="text-emerald-200/50 hover:text-emerald-400 transition-colors duration-200 text-sm">শর্তাবলী</a>
-                    <a href="#" class="text-emerald-200/50 hover:text-emerald-400 transition-colors duration-200 text-sm">প্রাইভেসি পলিসি</a>
-                    <a href="#" class="text-emerald-200/50 hover:text-emerald-400 transition-colors duration-200 text-sm">রিফান্ড পলিসি</a>
+                    <a href="#" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm">শর্তাবলী</a>
+                    <a href="#" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm">প্রাইভেসি পলিসি</a>
+                    <a href="#" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm">রিফান্ড পলিসি</a>
                 </div>
             </div>
         </div>
@@ -2539,565 +2149,9 @@
         </a>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.min.js"></script>
-
-    <script>
-        // license section Parallax effect on scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.particles-container');
-            
-            if (parallax) {
-                const speed = 0.5;
-                parallax.style.transform = `translateY(${scrolled * speed}px)`;
-            }
-            
-            // Individual particle parallax
-            document.querySelectorAll('.particle').forEach((particle, index) => {
-                const speed = 0.2 + (index * 0.1);
-                particle.style.transform = `translateY(${-scrolled * speed}px)`;
-            });
-            
-            // Stars parallax
-            document.querySelectorAll('.star').forEach((star, index) => {
-                const speed = 0.3 + (index * 0.05);
-                star.style.transform = `translateY(${-scrolled * speed}px) rotate(${scrolled * 0.5}deg)`;
-            });
-            
-            // Dots parallax
-            document.querySelectorAll('.floating-dot').forEach((dot, index) => {
-                const speed = 0.1 + (index * 0.08);
-                dot.style.transform = `translateY(${-scrolled * speed}px) translateX(${Math.sin(scrolled * 0.01) * 20}px)`;
-            });
-        });
-
-        // licence readmore toggle
-        function toggleReadMore() {
-            const moreContent = document.getElementById('moreContent');
-            const readMoreBtn = document.getElementById('readMoreBtn');
-            const readLessBtn = document.getElementById('readLessBtn');
-            
-            if (moreContent.classList.contains('hidden')) {
-                moreContent.classList.remove('hidden');
-                readMoreBtn.classList.add('hidden');
-                readLessBtn.classList.remove('hidden');
-            } else {
-                moreContent.classList.add('hidden');
-                readMoreBtn.classList.remove('hidden');
-                readLessBtn.classList.add('hidden');
-            }
-        }
-
-        // Quote Slider
-        let currentQuote = 0;
-        const totalQuotes = 2; // Only 2 quotes now
-        let quoteInterval;
-
-        function updateQuoteDots() {
-            const dots = document.querySelectorAll('.quote-dot');
-            dots.forEach((dot, index) => {
-                if (index === currentQuote) {
-                    dot.classList.remove('bg-emerald-600/50');
-                    dot.classList.add('bg-emerald-400');
-                    dot.style.width = '24px';
-                } else {
-                    dot.classList.remove('bg-emerald-400');
-                    dot.classList.add('bg-emerald-600/50');
-                    dot.style.width = '8px';
-                }
-            });
-        }
-
-        function goToQuote(index) {
-            currentQuote = index;
-            const track = document.getElementById('quoteTrack');
-            if (track) {
-                track.style.transform = `translateX(-${index * 100}%)`;
-                updateQuoteDots();
-            }
-            // Reset auto-play
-            clearInterval(quoteInterval);
-            startQuoteAutoPlay();
-        }
-
-        function nextQuote() {
-            currentQuote = (currentQuote + 1) % totalQuotes;
-            goToQuote(currentQuote);
-        }
-
-        function prevQuote() {
-            currentQuote = (currentQuote - 1 + totalQuotes) % totalQuotes;
-            goToQuote(currentQuote);
-        }
-
-        function startQuoteAutoPlay() {
-            quoteInterval = setInterval(() => {
-                nextQuote();
-            }, 5000); // Change quote every 5 seconds
-        }
-
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            updateQuoteDots();
-            startQuoteAutoPlay();
-        });
-
-        // Pause on hover
-        const carousel = document.querySelector('.quote-carousel');
-        if (carousel) {
-            carousel.addEventListener('mouseenter', () => clearInterval(quoteInterval));
-            carousel.addEventListener('mouseleave', () => startQuoteAutoPlay());
-        }
-
-
-        // pillar of islam section
-        let currentPillar = 0;
-        let autoPlayInterval;
-        const totalPillars = 5;
-
-        function showPillarDetail(index) {
-            // Clear auto-play when user clicks
-            clearInterval(autoPlayInterval);
-            
-            // Update active quote
-            const quotes = document.querySelectorAll('.pillar-quote');
-            quotes.forEach((quote, i) => {
-                if (i === index) {
-                    quote.style.opacity = '1';
-                    quote.style.transform = 'translateX(0)';
-                } else {
-                    quote.style.opacity = '0';
-                    quote.style.transform = i < index ? 'translateX(-100%)' : 'translateX(100%)';
-                }
-            });
-            
-            // Update dots
-            const dots = document.querySelectorAll('.pillar-dot');
-            dots.forEach((dot, i) => {
-                if (i === index) {
-                    dot.classList.remove('bg-emerald-600/50');
-                    dot.classList.add('bg-emerald-400');
-                    dot.style.width = '24px';
-                } else {
-                    dot.classList.remove('bg-emerald-400');
-                    dot.classList.add('bg-emerald-600/50');
-                    dot.style.width = '8px';
-                }
-            });
-            
-            // Update progress bar
-            const progressBar = document.getElementById('progressBar');
-            progressBar.style.width = `${((index + 1) / totalPillars) * 100}%`;
-            
-            // Update pillar cards highlighting
-            const cards = document.querySelectorAll('.pillar-card');
-            cards.forEach((card, i) => {
-                if (i === index) {
-                    card.querySelector('div').style.transform = 'scale(1.05)';
-                    card.querySelector('div').style.borderColor = 'rgba(52, 211, 153, 0.5)';
-                } else {
-                    card.querySelector('div').style.transform = 'scale(1)';
-                    card.querySelector('div').style.borderColor = '';
-                }
-            });
-            
-            currentPillar = index;
-            
-            // Restart auto-play after 10 seconds
-            setTimeout(() => {
-                startAutoPlay();
-            }, 10000);
-        }
-
-        function nextPillar() {
-            currentPillar = (currentPillar + 1) % totalPillars;
-            showPillarDetail(currentPillar);
-        }
-
-        function startAutoPlay() {
-            clearInterval(autoPlayInterval);
-            autoPlayInterval = setInterval(nextPillar, 5000);
-        }
-
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            showPillarDetail(0);
-            startAutoPlay();
-        });
-        
-        // Pause auto-play on hover
-        const sliderContainer = document.getElementById('pillarQuoteSlider');
-        if (sliderContainer) {
-            sliderContainer.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-            sliderContainer.addEventListener('mouseleave', () => startAutoPlay());
-        }
-
-        // main section
-        // Initialize intl-tel-input
-        const phoneInput = document.querySelector("#phone");
-        const iti = window.intlTelInput(phoneInput, {
-            preferredCountries: ['bd', 'in', 'pk', 'sa', 'ae'],
-            separateDialCode: true,
-            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
-        });
-        
-        // Form submission handler
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const name = document.getElementById('name').value;
-            const fullNumber = iti.getNumber();
-            const whatsappConsent = document.getElementById('whatsapp').checked;
-            
-            console.log('Form Data:', {
-                name: name,
-                phone: fullNumber,
-                whatsapp: whatsappConsent
-            });
-            
-            // Your form submission logic here
-            alert('ফর্ম সফলভাবে জমা হয়েছে!');
-        });
-
-
-
-        // Parallax effect for Hero Section geometric shapes
-        let ticking = false;
-        function updateParallax() {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.parallax-shape');
-            
-            parallaxElements.forEach((element) => {
-                const speed = element.dataset.speed || 0.5;
-                const yPos = -(scrolled * speed);
-                element.style.transform = `translateY(${yPos}px)`;
-            });
-
-            ticking = false;
-        }
-
-        function requestTick() {
-            if (!ticking) {
-                window.requestAnimationFrame(updateParallax);
-                ticking = true;
-            }
-        }
-
-        window.addEventListener('scroll', requestTick);
-
-        // Intersection Observer for Hero Section animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all animated elements in Hero Section
-        document.querySelectorAll('.fade-in, .fade-up, .slide-left, .slide-right, .scale-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Optional: Mouse move parallax effect for Hero Section
-        document.addEventListener('mousemove', (e) => {
-            const parallaxContainer = document.getElementById('parallaxContainer');
-            if (parallaxContainer) {
-                const shapes = parallaxContainer.querySelectorAll('.parallax-shape');
-                const x = e.clientX / window.innerWidth;
-                const y = e.clientY / window.innerHeight;
-                
-                shapes.forEach((shape, index) => {
-                    const speed = (index + 1) * 2;
-                    const xPos = (x - 0.5) * speed;
-                    const yPos = (y - 0.5) * speed;
-                    shape.style.transform = `translate(${xPos}px, ${yPos}px)`;
-                });
-            }
-        });
-
-        // Register GSAP plugins
-        gsap.registerPlugin(ScrollTrigger, TextPlugin, CustomEase, ScrollToPlugin);
-
-        // Custom ease
-        CustomEase.create("customEase", "0.25, 0.46, 0.45, 0.94");
-
-        // Loading animation
-        window.addEventListener('load', () => {
-            const tl = gsap.timeline();
-            
-            // Rotate loader
-            gsap.to('.loader', {
-                rotation: 360,
-                duration: 1,
-                repeat: -1,
-                ease: 'none'
-            });
-
-            // Loading text animation
-            gsap.to('.loader-text', {
-                opacity: 0.5,
-                yoyo: true,
-                repeat: -1,
-                duration: 0.8
-            });
-
-            // Hide loading screen after content loads
-            setTimeout(() => {
-                tl.to('.loading-screen', {
-                    opacity: 0,
-                    duration: 0.5,
-                    onComplete: () => {
-                        document.querySelector('.loading-screen').style.display = 'none';
-                        initAnimations();
-                    }
-                });
-            }, 1500);
-        });
-
-        function initAnimations() {
-            // Hero section animations
-            const heroTl = gsap.timeline({ delay: 0.5 });
-
-            // Floating shapes animation
-            gsap.utils.toArray('.floating-shape').forEach((shape, i) => {
-                gsap.to(shape, {
-                    y: gsap.utils.random(-20, 20),
-                    x: gsap.utils.random(-10, 10),
-                    rotation: gsap.utils.random(-15, 15),
-                    duration: gsap.utils.random(4, 6),
-                    repeat: -1,
-                    yoyo: true,
-                    ease: 'sine.inOut',
-                    delay: i * 0.2
-                });
-            });
-
-            // Counter animation
-            gsap.utils.toArray('.stat-number').forEach(counter => {
-                const target = parseInt(counter.dataset.target);
-                const obj = { value: 0 };
-                
-                gsap.to(obj, {
-                    value: target,
-                    duration: 2,
-                    delay: 1,
-                    onUpdate: () => {
-                        counter.textContent = Math.floor(obj.value) + '+';
-                    }
-                });
-            });
-
-            // ScrollTrigger animations for sections
-            // Teachers section
-            gsap.from('#teachers .fade-in', {
-                scrollTrigger: {
-                    trigger: '#teachers',
-                    start: 'top 80%',
-                    toggleActions: 'play none none reverse'
-                },
-                opacity: 0,
-                y: 50,
-                duration: 0.8,
-                stagger: 0.2
-            });
-
-            gsap.from('#teachers .scale-in', {
-                scrollTrigger: {
-                    trigger: '#teachers',
-                    start: 'top 70%'
-                },
-                opacity: 0,
-                scale: 0.8,
-                duration: 0.6,
-                stagger: 0.15
-            });
-
-            // Process section
-            gsap.from('#process .slide-left', {
-                scrollTrigger: {
-                    trigger: '#process',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                x: -50,
-                duration: 0.8,
-                stagger: 0.2
-            });
-
-            gsap.from('#process .slide-right', {
-                scrollTrigger: {
-                    trigger: '#process',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                x: 50,
-                duration: 0.8,
-                stagger: 0.2
-            });
-
-            gsap.from('#process .fade-up', {
-                scrollTrigger: {
-                    trigger: '#process',
-                    start: 'top 70%'
-                },
-                opacity: 0,
-                y: 30,
-                duration: 0.6,
-                stagger: 0.1
-            });
-
-            // Testimonials section
-            gsap.from('#testimonials .scale-in', {
-                scrollTrigger: {
-                    trigger: '#testimonials',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                scale: 0.9,
-                duration: 0.8,
-                stagger: 0.2
-            });
-
-
-            // FAQ section
-            gsap.from('#faq .fade-up', {
-                scrollTrigger: {
-                    trigger: '#faq',
-                    start: 'top 80%'
-                },
-                opacity: 0,
-                y: 30,
-                duration: 0.6,
-                stagger: 0.1
-            });
-            
-            // Hover animations
-            document.querySelectorAll('.feature-card').forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    gsap.to(card, {
-                        scale: 1.05,
-                        duration: 0.3,
-                        ease: 'power2.out'
-                    });
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    gsap.to(card, {
-                        scale: 1,
-                        duration: 0.3,
-                        ease: 'power2.out'
-                    });
-                });
-            });
-
-            // Text split animation for headings
-            gsap.utils.toArray('h2').forEach(heading => {
-                gsap.from(heading, {
-                    scrollTrigger: {
-                        trigger: heading,
-                        start: 'top 85%',
-                        toggleActions: 'play none none reverse'
-                    },
-                    opacity: 0,
-                    y: 30,
-                    duration: 0.8
-                });
-            });
-
-            // Refresh ScrollTrigger
-            ScrollTrigger.refresh();
-        }
-
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuIcon = document.getElementById('menuIcon');
-        const closeIcon = document.getElementById('closeIcon');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            const isOpen = mobileMenu.classList.contains('show');
-            
-            if (!isOpen) {
-                mobileMenu.classList.remove('hidden');
-                mobileMenu.classList.add('show');
-                menuIcon.classList.add('hidden');
-                closeIcon.classList.remove('hidden');
-            } else {
-                mobileMenu.classList.remove('show');
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                }, 300); // Animation duration
-                menuIcon.classList.remove('hidden');
-                closeIcon.classList.add('hidden');
-            }
-        });
-
-        // Close on link click
-        document.querySelectorAll('#mobileMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('show');
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.remove('hidden');
-                closeIcon.classList.add('hidden');
-            });
-        });
-
-        // FAQ Toggle with GSAP
-        function toggleFAQ(button) {
-            const content = button.nextElementSibling;
-            const icon = button.querySelector('span:last-child');
-            
-            if (content.classList.contains('hidden')) {
-                content.classList.remove('hidden');
-                gsap.from(content, {
-                    height: 0,
-                    opacity: 0,
-                    duration: 0.3
-                });
-                gsap.to(icon, {
-                    rotation: 45,
-                    duration: 0.3
-                });
-            } else {
-                gsap.to(content, {
-                    height: 0,
-                    opacity: 0,
-                    duration: 0.3,
-                    onComplete: () => {
-                        content.classList.add('hidden');
-                    }
-                });
-                gsap.to(icon, {
-                    rotation: 0,
-                    duration: 0.3
-                });
-            }
-        }
-
-        // Smooth scroll with GSAP
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    gsap.to(window, {
-                        duration: 1,
-                        scrollTo: {
-                            y: target,
-                            offsetY: 80
-                        },
-                        ease: 'power2.inOut'
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="assets/js/intlTelInput.min.js"></script>
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/main.min.js"></script>
     
 </body>
 </html>
