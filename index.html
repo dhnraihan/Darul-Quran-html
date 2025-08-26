@@ -48,20 +48,20 @@
     
 
     <!-- GSAP Core -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
     <script>window.gsap || document.write('<script src="assets/js/gsap.min.js"><\/script>')</script>
 
     <!-- GSAP Plugins -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
     <script>window.ScrollTrigger || document.write('<script src="assets/js/ScrollTrigger.min.js"><\/script>')</script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/TextPlugin.min.js"></script>
     <script>window.TextPlugin || document.write('<script src="assets/js/TextPlugin.min.js"><\/script>')</script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/CustomEase.min.js"></script>
     <script>window.CustomEase || document.write('<script src="assets/js/CustomEase.min.js"><\/script>')</script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js"></script>
     <script>window.ScrollToPlugin || document.write('<script src="assets/js/ScrollToPlugin.min.js"><\/script>')</script>
 
     <!-- intlTelInput CSS (with fallback) -->
@@ -278,8 +278,8 @@
                             aria-label="Toggle language">
                         EN
                     </button>
-                    <a href="index.html" class="text-emerald-100/70 hover:text-white transition">হোম</a>
-                    <a href="#contactForm" class="px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg hover:shadow-emerald-500/25 transition">
+                    <a href="index.html" data-i18n="nav.home" class="text-emerald-100/70 hover:text-white transition">হোম</a>
+                    <a href="#contactForm" data-i18n="nav.start" class="px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg hover:shadow-emerald-500/25 transition">
                         শুরু করুন
                     </a>
                 </div>
@@ -434,7 +434,7 @@
                     <p class="arabic-font text-3xl md:text-4xl text-amber-400/80 mb-3">
                         اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ
                     </p>
-                    <p class="text-emerald-200/60 text-sm">পড়ুন আপনার প্রভুর নামে, যিনি সৃষ্টি করেছেন</p>
+                    <p class="text-emerald-200/60 text-sm" data-i18n="hero.quote_subtitle">পড়ুন আপনার প্রভুর নামে, যিনি সৃষ্টি করেছেন</p>
                 </div>
 
                 <!-- Main Title -->
@@ -486,7 +486,7 @@
                                         <!-- Form Header -->
                                         <div class="text-center mb-8">
                                             <h2 class="text-2xl md:text-3xl font-bold text-white mb-3" data-i18n="form.title">
-                                                অনলাইনে সহিহ কুরআন শিক্ষা
+                                                অনলাইনে বিশুদ্ধ কুরআন শিক্ষা,
                                             </h2>
                                             <p class="text-emerald-200/70" data-i18n="form.subtitle">Daaul Quran আপনাদের জন্য ফ্রি মূল্যায়ন ক্লাস এর ব্যবস্থা রেখেছে নিচের ফর্মটি পূরণ করে আপনি আমাদের মূল্যায়ন ক্লাসে অংশগ্রহণ করতে পারেন ইনশাআল্লাহ</p>
                                         </div>
@@ -520,15 +520,14 @@
                                             </div>
                                             
                                             <!-- Submit Button -->
-                                            <button type="submit" 
+                                            <button type="submit" data-i18n="form.submit"
                                                     class="w-full py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-lg font-semibold text-lg hover:shadow-xl hover:shadow-emerald-500/30 transition-all transform hover:scale-[1.02]">
-                                                Free Tail Class 
+                                                ফ্রি ট্রায়াল ক্লাস 
                                             </button>
 
                                             <div class="bg-emerald-900/20 border border-emerald-500/20 rounded-lg p-4">
-                                                <p class="text-[0.65rem] text-emerald-100/70 leading-relaxed">
-                                                    বিঃদ্র : ফর্মের প্রথম স্টেপটা অর্থাৎ আপনার নাম এবং মোবাইল নাম্বার দিলে সে তথ্য আমাদের কাছে চলে আসবে ইনশাআল্লাহ এছাড়াও পরবর্তী স্টেপে আপনার ইমেইল, ট্রায়াল ক্লসের ডেট এবং টাইম দিতে পারেন তবে সব ক্ষেত্রেই আমরা আগে আপনার সাথে সরাসরি যোগাযোগ করবো, কথা বলবো ,বিস্তারিত জানাবো তারপরে ট্রায়াল ক্লাস অ্যারেঞ্জ হবে ইনশাআল্লাহ
-                                                </p>
+                                                <p class="text-[0.65rem] text-emerald-100/70 leading-relaxed" data-i18n="form.note">
+                                                    বিঃদ্রঃ ফর্মের প্রথম ধাপ অর্থাৎ আপনার নাম ও মোবাইল নম্বর প্রদান করলে সেই তথ্য আমাদের কাছে চলে আসবে, ইনশাআল্লাহ। এছাড়াও, পরবর্তী ধাপে আপনি আপনার ইমেইল, ট্রায়াল ক্লাসের তারিখ ও সময় দিতে পারবেন। তবে সব ক্ষেত্রে আমরা প্রথমে আপনার সঙ্গে সরাসরি যোগাযোগ করব, কথা বলব ও বিস্তারিত জানাব, তারপরই ট্রায়াল ক্লাসের আয়োজন করা হবে, ইনশাআল্লাহ।
                                             </div>
                                         </form>
                                     </div>
@@ -542,142 +541,141 @@
 
                 <!-- start quote here -->
                 <div class="relative pb-20 pt-8 overflow-hidden">
-                    <!-- Background Pattern -->
-                    <div class="absolute inset-0 islamic-pattern opacity-10"></div>
-                    
-                    <!-- Decorative Elements -->
-                    <div class="absolute top-10 left-1/4 w-72 h-72 bg-emerald-500/5 rounded-full blur-3xl"></div>
-                    <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl"></div>
-                    
-                    <div class="container mx-auto px-4 relative z-10">
-                        <!-- Section Header -->
-                        <div class="text-center mb-12">
-                            <div class="fade-in inline-flex items-center gap-3 px-4 py-2 rounded-full bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 mb-6" 
-                                style="--delay: 0.1s;">
-                                <div class="w-2 h-2 rounded-full bg-emerald-400 pulse-glow"></div>
-                                <span class="text-emerald-200 text-sm">পবিত্র বাণী</span>
-                                <div class="w-2 h-2 rounded-full bg-emerald-400 pulse-glow"></div>
-                            </div>
-                            
-                            <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.2s;">
-                                কুরআন ও হাদীসের <span class="text-emerald-400">আলোকে</span>
-                            </h2>
-                        </div>
-
-                        <!-- Quote Carousel -->
-                        <div class="max-w-4xl mx-auto">
-                            <div class="quote-carousel relative">
-                                <!-- Quote Slider Container -->
-                                <div class="quote-slider overflow-hidden rounded-2xl">
-                                    <div id="quoteTrack" class="quote-track flex transition-transform duration-1000 ease-in-out">
-                                        
-                                        <!-- Quote 1 - Quran -->
-                                        <div class="quote-slide w-full flex-shrink-0">
-                                            <div class="bg-gradient-to-br from-emerald-900/30 to-transparent backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-8 md:p-12">
-                                                <!-- Decorative Quote Icon -->
-                                                <div class="flex justify-center mb-6">
-                                                    <div class="w-16 h-16 bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 rounded-full flex items-center justify-center">
-                                                        <svg class="w-8 h-8 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
-                                                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- Arabic Text -->
-                                                <div class="text-center mb-6">
-                                                    <p class="arabic-font text-3xl md:text-4xl text-amber-400 leading-relaxed mb-4">
-                                                        وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ
-                                                    </p>
-                                                    <p class="text-emerald-200/60 text-sm">
-                                                        সূরা আল-কামার, আয়াত: ১৭
-                                                    </p>
-                                                </div>
-                                                
-                                                <!-- Bengali Translation -->
-                                                <div class="text-center">
-                                                    <p class="text-emerald-100 text-lg md:text-xl leading-relaxed">
-                                                        "আর নিশ্চয়ই আমি কুরআনকে উপদেশ গ্রহণের জন্য সহজ করে দিয়েছি; তবে কি কেউ উপদেশ গ্রহণকারী নেই?"
-                                                    </p>
-                                                </div>
-                                                
-                                                <!-- Source Badge -->
-                                                <div class="flex justify-center mt-6">
-                                                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-900/40 border border-emerald-500/30 rounded-full">
-                                                        <span class="text-emerald-400 text-sm">আল্লাহ তাআলা বলেন</span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Quote 2 - Hadith -->
-                                        <div class="quote-slide w-full flex-shrink-0">
-                                            <div class="bg-gradient-to-br from-amber-900/30 to-transparent backdrop-blur-sm border border-amber-500/20 rounded-2xl p-8 md:p-12">
-                                                <!-- Decorative Quote Icon -->
-                                                <div class="flex justify-center mb-6">
-                                                    <div class="w-16 h-16 bg-gradient-to-br from-amber-500/20 to-amber-600/20 rounded-full flex items-center justify-center">
-                                                        <svg class="w-8 h-8 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
-                                                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                                
-                                                <!-- Arabic Text -->
-                                                <div class="text-center mb-6">
-                                                    <p class="arabic-font text-3xl md:text-4xl text-amber-400 leading-relaxed mb-4">
-                                                        خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ
-                                                    </p>
-                                                    <p class="text-emerald-200/60 text-sm">
-                                                        সহীহ বুখারী
-                                                    </p>
-                                                </div>
-                                                
-                                                <!-- Bengali Translation -->
-                                                <div class="text-center">
-                                                    <p class="text-emerald-100 text-lg md:text-xl leading-relaxed">
-                                                        "তোমাদের মধ্যে সর্বশ্রেষ্ঠ সেই ব্যক্তি, যে কুরআন শেখে এবং অন্যকে শেখায়।"
-                                                    </p>
-                                                </div>
-                                                
-                                                <!-- Source Badge -->
-                                                <div class="flex justify-center mt-6">
-                                                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-amber-900/40 border border-amber-500/30 rounded-full">
-                                                        <span class="text-amber-400 text-sm">রাসূলুল্লাহ ﷺ বলেছেন</span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <!-- Navigation Dots -->
-                                <div class="flex justify-center gap-2 mt-8">
-                                    <button onclick="goToQuote(0)" aria-label="কুরআনের বাণী দেখুন" class="p-4 rounded-full">
-                                        <div class="quote-dot w-2 h-2 rounded-full bg-emerald-400 transition-all"></div>
-                                    </button>
-                                    <button onclick="goToQuote(1)" aria-label="হাদীসের বাণী দেখুন" class="p-4 rounded-full">
-                                        <div class="quote-dot w-2 h-2 rounded-full bg-emerald-600/50 transition-all"></div>
-                                    </button>
-                                </div>
-
-                                <!-- Navigation Arrows -->
-                                <button onclick="prevQuote()" aria-label="পূর্ববর্তী বাণী" class="quote-nav quote-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 opacity-0 md:opacity-100 transition-opacity">
-                                    <div class="w-12 h-12 bg-emerald-900/50 border border-emerald-500/30 rounded-full flex items-center justify-center hover:bg-emerald-900/70 transition-colors">
-                                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                                        </svg>
-                                    </div>
-                                </button>
-                                <button onclick="nextQuote()" aria-label="পরবর্তী বাণী" class="quote-nav quote-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 opacity-0 md:opacity-100 transition-opacity">
-                                    <div class="w-12 h-12 bg-emerald-900/50 border border-emerald-500/30 rounded-full flex items-center justify-center hover:bg-emerald-900/70 transition-colors">
-                                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                        </svg>
-                                    </div>
-                                </button>
-                            </div>
-                        </div>
+                <!-- Background Pattern -->
+                <div class="absolute inset-0 islamic-pattern opacity-10"></div>
+                
+                <!-- Decorative Elements -->
+                <div class="absolute top-10 left-1/4 w-72 h-72 bg-emerald-500/5 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl"></div>
+                
+                <div class="container mx-auto px-4 relative z-10">
+                    <!-- Section Header -->
+                    <div class="text-center mb-12">
+                    <div class="fade-in inline-flex items-center gap-3 px-4 py-2 rounded-full bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 mb-6" style="--delay: 0.1s;">
+                        <div class="w-2 h-2 rounded-full bg-emerald-400 pulse-glow"></div>
+                        <span class="text-emerald-200 text-sm" data-i18n="quotes.tag">পবিত্র বাণী</span>
+                        <div class="w-2 h-2 rounded-full bg-emerald-400 pulse-glow"></div>
                     </div>
+                    
+                    <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.2s;">
+                        <span data-i18n="quotes.heading.before">কুরআন ও হাদীসের</span>
+                        <span class="text-emerald-400" data-i18n="quotes.heading.highlight">আলোকে</span>
+                        <span data-i18n="quotes.heading.after"></span>
+                    </h2>
+                    </div>
+
+                    <!-- Quote Carousel -->
+                    <div class="max-w-4xl mx-auto">
+                    <div class="quote-carousel relative">
+                        <!-- Quote Slider Container -->
+                        <div class="quote-slider overflow-hidden rounded-2xl">
+                        <div id="quoteTrack" class="quote-track flex transition-transform duration-1000 ease-in-out">
+                            
+                            <!-- Quote 1 - Quran -->
+                            <div class="quote-slide w-full flex-shrink-0">
+                            <div class="bg-gradient-to-br from-emerald-900/30 to-transparent backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-8 md:p-12">
+                                <!-- Decorative Quote Icon -->
+                                <div class="flex justify-center mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 rounded-full flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                </div>
+                                </div>
+                                
+                                <!-- Arabic Text -->
+                                <div class="text-center mb-6">
+                                <p class="arabic-font text-3xl md:text-4xl text-amber-400 leading-relaxed mb-4">
+                                    وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ فَهَلْ مِن مُّدَّكِرٍ
+                                </p>
+                                <p class="text-emerald-200/60 text-sm" data-i18n="quotes.quran.surah">
+                                    সূরা আল-কামার, আয়াত: ১৭
+                                </p>
+                                </div>
+                                
+                                <!-- Translation -->
+                                <div class="text-center">
+                                <p class="text-emerald-100 text-lg md:text-xl leading-relaxed" data-i18n="quotes.quran.translation">
+                                    "আর নিশ্চয়ই আমি কুরআনকে উপদেশ গ্রহণের জন্য সহজ করে দিয়েছি; তবে কি কেউ উপদেশ গ্রহণকারী নেই?"
+                                </p>
+                                </div>
+                                
+                                <!-- Source Badge -->
+                                <div class="flex justify-center mt-6">
+                                <span class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-900/40 border border-emerald-500/30 rounded-full">
+                                    <span class="text-emerald-400 text-sm" data-i18n="quotes.quran.badge">আল্লাহ তাআলা বলেন</span>
+                                </span>
+                                </div>
+                            </div>
+                            </div>
+
+                            <!-- Quote 2 - Hadith -->
+                            <div class="quote-slide w-full flex-shrink-0">
+                            <div class="bg-gradient-to-br from-amber-900/30 to-transparent backdrop-blur-sm border border-amber-500/20 rounded-2xl p-8 md:p-12">
+                                <!-- Decorative Quote Icon -->
+                                <div class="flex justify-center mb-6">
+                                <div class="w-16 h-16 bg-gradient-to-br from-amber-500/20 to-amber-600/20 rounded-full flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                </div>
+                                </div>
+                                
+                                <!-- Arabic Text -->
+                                <div class="text-center mb-6">
+                                <p class="arabic-font text-3xl md:text-4xl text-amber-400 leading-relaxed mb-4">
+                                    خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ
+                                </p>
+                                <p class="text-emerald-200/60 text-sm" data-i18n="quotes.hadith.source">সহীহ বুখারী</p>
+                                </div>
+                                
+                                <!-- Translation -->
+                                <div class="text-center">
+                                <p class="text-emerald-100 text-lg md:text-xl leading-relaxed" data-i18n="quotes.hadith.translation">
+                                    "তোমাদের মধ্যে সর্বশ্রেষ্ঠ সেই ব্যক্তি, যে কুরআন শেখে এবং অন্যকে শেখায়।"
+                                </p>
+                                </div>
+                                
+                                <!-- Source Badge -->
+                                <div class="flex justify-center mt-6">
+                                <span class="inline-flex items-center gap-2 px-4 py-2 bg-amber-900/40 border border-amber-500/30 rounded-full">
+                                    <span class="text-amber-400 text-sm" data-i18n="quotes.hadith.badge">রাসূলুল্লাহ ﷺ বলেছেন</span>
+                                </span>
+                                </div>
+                            </div>
+                            </div>
+
+                        </div>
+                        </div>
+
+                        <!-- Navigation Dots -->
+                        <div class="flex justify-center gap-2 mt-8">
+                        <button onclick="goToQuote(0)" class="p-4 rounded-full" data-i18n-aria-label="quotes.dot.quran" aria-label="কুরআনের বাণী দেখুন">
+                            <div class="quote-dot w-2 h-2 rounded-full bg-emerald-400 transition-all"></div>
+                        </button>
+                        <button onclick="goToQuote(1)" class="p-4 rounded-full" data-i18n-aria-label="quotes.dot.hadith" aria-label="হাদীসের বাণী দেখুন">
+                            <div class="quote-dot w-2 h-2 rounded-full bg-emerald-600/50 transition-all"></div>
+                        </button>
+                        </div>
+
+                        <!-- Navigation Arrows -->
+                        <button onclick="prevQuote()" class="quote-nav quote-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 opacity-0 md:opacity-100 transition-opacity" data-i18n-aria-label="quotes.nav.prev" aria-label="পূর্ববর্তী বাণী">
+                        <div class="w-12 h-12 bg-emerald-900/50 border border-emerald-500/30 rounded-full flex items-center justify-center hover:bg-emerald-900/70 transition-colors">
+                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            </svg>
+                        </div>
+                        </button>
+                        <button onclick="nextQuote()" class="quote-nav quote-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 opacity-0 md:opacity-100 transition-opacity" data-i18n-aria-label="quotes.nav.next" aria-label="পরবর্তী বাণী">
+                        <div class="w-12 h-12 bg-emerald-900/50 border border-emerald-500/30 rounded-full flex items-center justify-center hover:bg-emerald-900/70 transition-colors">
+                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                        </button>
+                    </div>
+                    </div>
+                </div>
                 </div>
 
             </div>
@@ -696,17 +694,8 @@
                 <div class="mt-8 mb-16 max-w-4xl mx-auto">
                     <div class="fade-up bg-gradient-to-br from-emerald-900/30 to-emerald-800/20 backdrop-blur-sm border border-emerald-500/20 rounded-3xl p-8" style="--delay: 0.7s;">
                         <div class="items-center">
-                            <!-- <div>
-                                <h3 class="text-2xl font-bold text-white mb-4">সাফল্যের গল্প</h3>
-                                <p class="text-emerald-200/70 mb-6">
-                                    দেখুন কীভাবে আমাদের শিক্ষার্থীরা তাদের কুরআন শিক্ষার লক্ষ্য অর্জন করেছেন
-                                </p>
-                                <button class="px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition">
-                                    ▶ ভিডিও দেখুন
-                                </button>
-                            </div> -->
                             <div class="relative">
-                                <h3 class="text-2xl font-bold text-white text-center mb-4">আমাদের সম্পর্কে</h3>
+                                <h3 class="text-2xl font-bold text-white text-center mb-4" data-i18n="about.learn_more">আমাদের সম্পর্কে জানুন</h3>
                                 <div class="aspect-video bg-emerald-900/50 rounded-2xl flex items-center justify-center">
                                     
                                     <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition cursor-pointer">
@@ -726,10 +715,10 @@
                             <span class="text-amber-400 text-lg">🌍</span>
                             <div class="w-12 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
                         </div>
-                        <h3 class="fade-in text-2xl md:text-3xl font-bold text-white mb-3" style="--delay: 1.1s;">
+                        <h3 class="fade-in text-2xl md:text-3xl font-bold text-white mb-3" style="--delay: 1.1s;" data-i18n="lang.title">
                             আপনার পছন্দের ভাষায় শিখুন
                         </h3>
-                        <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 1.2s;">
+                        <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 1.2s;" data-i18n="lang.subtitle">
                             আমাদের বহুভাষিক শিক্ষকমণ্ডলী বিভিন্ন ভাষায় পাঠদানে পারদর্শী
                         </p>
                     </div>
@@ -776,7 +765,7 @@
                                 <p class="text-emerald-200/60 text-sm arabic-font">لغة القرآن</p>
                                 <div class="mt-3 flex items-center justify-center gap-1">
                                     <span class="text-amber-400 text-xs">★★★★★</span>
-                                    <span class="text-emerald-200/50 text-xs">(কুরআনের ভাষা)</span>
+                                    <span class="text-emerald-200/50 text-xs">(متاح)</span>
                                 </div>
                             </div>
                         </div>
@@ -791,7 +780,7 @@
                                 <p class="text-emerald-200/60 text-sm">हिंदी में सीखें</p>
                                 <div class="mt-3 flex items-center justify-center gap-1">
                                     <span class="text-amber-400 text-xs">★★★★★</span>
-                                    <span class="text-emerald-200/50 text-xs">(Available)</span>
+                                    <span class="text-emerald-200/50 text-xs">(उपलब्ध)</span>
                                 </div>
                             </div>
                         </div>
@@ -806,7 +795,7 @@
                                 <p class="text-emerald-200/60 text-sm">اردو میں سیکھیں</p>
                                 <div class="mt-3 flex items-center justify-center gap-1">
                                     <span class="text-amber-400 text-xs">★★★★★</span>
-                                    <span class="text-emerald-200/50 text-xs">(Available)</span>
+                                    <span class="text-emerald-200/50 text-xs">(دستیاب ہے۔)</span>
                                 </div>
                             </div>
                         </div>
@@ -816,15 +805,15 @@
                     <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-12 mb-10">
                         <div class="fade-up bg-gradient-to-br from-emerald-900/20 to-transparent backdrop-blur-sm border border-emerald-500/10 rounded-xl p-4 text-center" style="--delay: 1.8s;">
                             <div class="text-2xl mb-2">🗣️</div>
-                            <p class="text-emerald-200/70 text-sm">নেটিভ স্পিকার শিক্ষক</p>
+                            <p class="text-emerald-200/70 text-sm" data-i18n="lang.features.native">নেটিভ স্পিকার শিক্ষক</p>
                         </div>
                         <div class="fade-up bg-gradient-to-br from-amber-900/20 to-transparent backdrop-blur-sm border border-amber-500/10 rounded-xl p-4 text-center" style="--delay: 1.9s;">
                             <div class="text-2xl mb-2">📝</div>
-                            <p class="text-emerald-200/70 text-sm">বহুভাষিক স্টাডি ম্যাটেরিয়াল</p>
+                            <p class="text-emerald-200/70 text-sm" data-i18n="lang.features.materials">বহুভাষিক স্টাডি ম্যাটেরিয়াল</p>
                         </div>
                         <div class="fade-up bg-gradient-to-br from-emerald-900/20 to-transparent backdrop-blur-sm border border-emerald-500/10 rounded-xl p-4 text-center" style="--delay: 2.0s;">
                             <div class="text-2xl mb-2">🎯</div>
-                            <p class="text-emerald-200/70 text-sm">ভাষা অনুযায়ী কাস্টমাইজড কোর্স</p>
+                            <p class="text-emerald-200/70 text-sm" data-i18n="lang.features.custom">ভাষা অনুযায়ী কাস্টমাইজড কোর্স</p>
                         </div>
                     </div>
                 </div>
@@ -835,170 +824,123 @@
                 <!-- Features -->
                 <div class="fade-up grid grid-cols-1 md:grid-cols-4 gap-6" style="--delay: 1.3s;">
 
-                    <div class="scale-in" style="--delay: 0.3s;">
-                        <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-3xl p-8 hover:border-emerald-400/40 transition-all">
-                            <div class="text-center mb-6">
-                                <h3 class="text-3xl font-bold text-white mb-2">হিফযুল কোরআন</h3>
-                                <p class="text-sm font-semibold text-emerald-400 mb-2 h-12">
-                                    ৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য
-                                </p>
-                            </div>
-                            <ul class="space-y-3 mb-8">
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span>সম্পূর্ণ কোরআন সহিহ শুদ্ধধভাবে হিফয
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> মাখরাজ
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> তাজবীদ
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> নাজরানা
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> প্রয়োজনীয় মাসলা মাসায়েল
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> ২৪/৭ Whatsapp এ সাপোর্ট
-                                </li>
-                            </ul>
-                            <a href="#contactForm" class="block text-center w-full py-3 bg-emerald-600/30 border border-emerald-500/30 text-white rounded-xl hover:bg-emerald-600/50 transition-all">
-                                শুরু করুন
-                            </a>
-                        </div>
+                <!-- Hifz -->
+                <div class="scale-in" style="--delay: 0.3s;">
+                    <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-3xl p-8 hover:border-emerald-400/40 transition-all">
+                    <div class="text-center mb-6">
+                        <h3 class="text-3xl font-bold text-white mb-2" data-i18n="courses.hifz.title">হিফযুল কোরআন</h3>
+                        <p class="text-sm font-semibold text-emerald-400 mb-2 h-12" data-i18n="courses.hifz.subtitle">
+                        ৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য
+                        </p>
                     </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                        <span class="text-amber-400">✓</span>
+                        <span data-i18n="courses.hifz.points.1">সম্পূর্ণ কুরআন সহিহ-শুদ্ধভাবে হিফয</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                        <span class="text-amber-400">✓</span><span data-i18n="courses.common.makharij"> মাখরাজ</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                        <span class="text-amber-400">✓</span><span data-i18n="courses.common.tajweed"> তাজবীদ</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                        <span class="text-amber-400">✓</span><span data-i18n="courses.common.nazirah"> নাজরানা শিক্ষা</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                        <span class="text-amber-400">✓</span><span data-i18n="courses.common.fiqh"> প্রয়োজনীয় মাসলা মাসায়েল</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
+                        <span class="text-amber-400">✓</span><span data-i18n="courses.common.whatsapp"> ২৪/৭ Whatsapp সাপোর্ট</span>
+                        </li>
+                    </ul>
+                    <a href="#contactForm" class="block text-center w-full py-3 bg-emerald-600/30 border border-emerald-500/30 text-white rounded-xl hover:bg-emerald-600/50 transition-all" data-i18n="courses.button.start">
+                        শুরু করুন
+                    </a>
+                    </div>
+                </div>
 
-                    <!-- Popular Plan 1-->
-                    <div class="scale-in relative" style="--delay: 0.4s;">
-                        <div class="absolute mb-5 -top-5 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-sm rounded-full">
-                            জনপ্রিয়
-                        </div>
-                        <div class="bg-gradient-to-br from-amber-900/50 to-amber-800/40 backdrop-blur-sm border-2 border-amber-500/30 rounded-3xl p-8 hover:border-amber-400/50 transition-all">
-                            <div class="text-center mb-6">
-                                <h3 class="text-3xl font-bold text-white mb-2">সহিহ কোরআন শিক্ষা</h3>
-                                <p class="text-sm font-semibold text-amber-400 mb-2 h-12">
-                                    ৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য
-                                </p>
-                            </div>
-                            <ul class="space-y-3 mb-8">
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> মাখরাজ
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> তাজবীদ
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> সিফাত
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> নাজরানা
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> মাসনুন দোয়া
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> প্রয়োজনীয় আয়াত / সুরাহ
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> প্রয়োজনীয় মাসলা মাসায়েল
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> ২৪/৭ Whatsapp এ সাপোর্ট
-                                </li>
-                            </ul>
-                            <a href="#contactForm" class="block text-center w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl hover:shadow-lg hover:shadow-amber-500/25 transition-all">
-                                শুরু করুন
-                            </a>
-                        </div>
+                <!-- Popular Plan 1: Correct Reading -->
+                <div class="scale-in relative" style="--delay: 0.4s;">
+                    <div class="absolute mb-5 -top-5 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-sm rounded-full" data-i18n="courses.badge.popular">
+                    জনপ্রিয়
                     </div>
-                    <!-- Popular Plan 2-->
-                    <div class="scale-in relative" style="--delay: 0.4s;">
-                        <div class="absolute mb-5 -top-5 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-sm rounded-full">
-                            জনপ্রিয়
-                        </div>
-                        <div class="bg-gradient-to-br from-amber-900/50 to-amber-800/40 backdrop-blur-sm border-2 border-amber-500/30 rounded-3xl p-8 hover:border-amber-400/50 transition-all">
-                            <div class="text-center mb-6">
-                                <h3 class="text-3xl font-bold text-white mb-2">ক্বেরাত শিক্ষা</h3>
-                                <p class="text-sm font-semibold text-amber-400 mb-2 h-12">
-                                    ৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য
-                                </p>
-                            </div>
-                            <ul class="space-y-3 mb-8">
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> রেওয়ায়েত
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> আহরুফে সাব‌আ
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> ইফতিলাফুল হুরুফ
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> নাজরানা
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> ইমালা
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> তাশকীলের পার্থক্য
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> মাখরাজ
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> তাজবীদ
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-amber-400">✓</span> ২৪/৭ Whatsapp এ সাপোর্ট
-                                </li>
-                            </ul>
-                            <a href="#contactForm" class="block text-center w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl hover:shadow-lg hover:shadow-amber-500/25 transition-all">
-                                শুরু করুন
-                            </a>
-                        </div>
+                    <div class="bg-gradient-to-br from-amber-900/50 to-amber-800/40 backdrop-blur-sm border-2 border-amber-500/30 rounded-3xl p-8 hover:border-amber-400/50 transition-all">
+                    <div class="text-center mb-6">
+                        <h3 class="text-3xl font-bold text-white mb-2" data-i18n="courses.reading.title">সহিহ কুরআন শিক্ষা</h3>
+                        <p class="text-sm font-semibold text-amber-400 mb-2 h-12" data-i18n="courses.reading.subtitle">
+                        ৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য
+                        </p>
                     </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.common.makharij"> মাখরাজ</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.common.tajweed"> তাজবীদ</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.common.sifat"> সিফাত</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.common.nazirah"> নাজরানা শিক্ষা</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.reading.points.masnoon_dua"> মাসনুন দোয়া</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.reading.points.ayat_surah"> প্রয়োজনীয় আয়াত/সুরাহ</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.common.fiqh"> প্রয়োজনীয় মাসলা মাসায়েল</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.common.whatsapp"> ২৪/৭ Whatsapp সাপোর্ট</span></li>
+                    </ul>
+                    <a href="#contactForm" class="block text-center w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl hover:shadow-lg hover:shadow-amber-500/25 transition-all" data-i18n="courses.button.start">
+                        শুরু করুন
+                    </a>
+                    </div>
+                </div>
 
-                    <!-- Premium Plan -->
-                    <div class="scale-in" style="--delay: 0.5s;">
-                        <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-3xl p-8 hover:border-emerald-400/40 transition-all">
-                            <div class="text-center mb-6">
-                                <h3 class="text-3xl font-bold text-white mb-2">আরবি ভাষা শিক্ষা</h3>
-                                <p class="text-sm font-semibold text-emerald-400 mb-2 h-12">
-                                    ৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য
-                                </p>
-                            </div>
-                            <ul class="space-y-3 mb-8">
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-emerald-400">✓</span> মাখরাজ
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-emerald-400">✓</span> তাজবীদ
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-emerald-400">✓</span> সিফাত
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-emerald-400">✓</span> নাজরানা
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-emerald-400">✓</span>Hedayatun Nahu (Arabic-Bangla)
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-emerald-400">✓</span>Mijanus-sarf-and-Munshaib
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-emerald-400">✓</span> Essential Tamrinaat
-                                </li>
-                                <li class="flex items-center gap-2 text-emerald-200/70 text-sm">
-                                    <span class="text-emerald-400">✓</span> ২৪/৭ Whatsapp এ সাপোর্ট
-                                </li>
-                            </ul>
-                            <a href="#contactForm" class="block text-center w-full py-3 bg-emerald-600/30 border border-emerald-500/30 text-white rounded-xl hover:bg-emerald-600/50 transition-all">
-                                শুরু করুন
-                            </a>
-                        </div>
+                <!-- Popular Plan 2: Qira'at -->
+                <div class="scale-in relative" style="--delay: 0.4s;">
+                    <div class="absolute mb-5 -top-5 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-sm rounded-full" data-i18n="courses.badge.popular">
+                    জনপ্রিয়
                     </div>
+                    <div class="bg-gradient-to-br from-amber-900/50 to-amber-800/40 backdrop-blur-sm border-2 border-amber-500/30 rounded-3xl p-8 hover:border-amber-400/50 transition-all">
+                    <div class="text-center mb-6">
+                        <h3 class="text-3xl font-bold text-white mb-2" data-i18n="courses.qiraat.title">ক্বেরাত শিক্ষা</h3>
+                        <p class="text-sm font-semibold text-amber-400 mb-2 h-12" data-i18n="courses.qiraat.subtitle">
+                        ৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য
+                        </p>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.qiraat.points.riwayat"> রেওয়ায়েত</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.qiraat.points.seven_ahruf"> আহরুফে সাব‌আ</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.qiraat.points.ikhtilaf"> ইফতিলাফুল হুরুফ</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.qiraat.points.nazirah"> নাজরানা</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.qiraat.points.imalah"> ইমালা</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.qiraat.points.tashkeel"> তাশকীলের পার্থক্য</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.common.makharij"> মাখরাজ</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.common.tajweed"> তাজবীদ</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.common.whatsapp"> ২৪/৭ Whatsapp সাপোর্ট</span></li>
+                    </ul>
+                    <a href="#contactForm" class="block text-center w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl hover:shadow-lg hover:shadow-amber-500/25 transition-all" data-i18n="courses.button.start">
+                        শুরু করুন
+                    </a>
+                    </div>
+                </div>
+
+                <!-- Arabic Language -->
+                <div class="scale-in" style="--delay: 0.5s;">
+                    <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-3xl p-8 hover:border-emerald-400/40 transition-all">
+                    <div class="text-center mb-6">
+                        <h3 class="text-3xl font-bold text-white mb-2" data-i18n="courses.arabic.title">আরবি ভাষা শিক্ষা</h3>
+                        <p class="text-sm font-semibold text-emerald-400 mb-2 h-12" data-i18n="courses.arabic.subtitle">
+                        ৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী পুরুষের জন্য
+                        </p>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-emerald-400">✓</span><span data-i18n="courses.common.makharij"> মাখরাজ</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-emerald-400">✓</span><span data-i18n="courses.common.tajweed"> তাজবীদ</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-emerald-400">✓</span><span data-i18n="courses.common.sifat"> সিফাত</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-emerald-400">✓</span><span data-i18n="courses.arabic.points.nazirah"> নাজরানা</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-emerald-400">✓</span><span data-i18n="courses.arabic.points.hidayatun_nahw"> হিদায়াতুন নাহু (আরবি-বাংলা)</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-emerald-400">✓</span><span data-i18n="courses.arabic.points.mizan_sarf_munshaib"> মিজানুস সারফ ও মুনশাইব</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-emerald-400">✓</span><span data-i18n="courses.arabic.points.tamrinaat"> প্রয়োজনীয় تمرينات (অভ্যাস/অনুশীলন)</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-emerald-400">✓</span><span data-i18n="courses.common.whatsapp"> ২৪/৭ Whatsapp সাপোর্ট</span></li>
+                    </ul>
+                    <a href="#contactForm" class="block text-center w-full py-3 bg-emerald-600/30 border border-emerald-500/30 text-white rounded-xl hover:bg-emerald-600/50 transition-all" data-i18n="courses.button.start">
+                        শুরু করুন
+                    </a>
+                    </div>
+                </div>
 
                 </div>
 
@@ -1006,22 +948,22 @@
 
                 <!-- Stats -->
                 <div class="fade-up grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 mb-8" style="--delay: 1.5s;">
-                    <div class="text-center">
-                        <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">৮৫০+</div>
-                        <div class="text-sm text-emerald-200/60">সক্রিয় শিক্ষার্থী</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">১২০+</div>
-                        <div class="text-sm text-emerald-200/60">অভিজ্ঞ শিক্ষক</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">২৪/৭</div>
-                        <div class="text-sm text-emerald-200/60">সহায়তা সেবা</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">১০০%</div>
-                        <div class="text-sm text-emerald-200/60">সন্তুষ্টি</div>
-                    </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">৮৫০+</div>
+                    <div class="text-sm text-emerald-200/60" data-i18n="stats.learners">সক্রিয় শিক্ষার্থী</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">১২০+</div>
+                    <div class="text-sm text-emerald-200/60" data-i18n="stats.teachers">অভিজ্ঞ শিক্ষক</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">২৪/৭</div>
+                    <div class="text-sm text-emerald-200/60" data-i18n="stats.support">সহায়তা সেবা</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">১০০%</div>
+                    <div class="text-sm text-emerald-200/60" data-i18n="stats.satisfaction">সন্তুষ্টি</div>
+                </div>
                 </div>
             </div>
         </div>
@@ -1046,7 +988,7 @@
                     <div class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></div>
                     <div>
                         <p class="text-xl font-bold text-emerald-400 inline">DaarulQuran</p>
-                        <span class="text-sm font-semibold text-emerald-200/70 ml-2">[ ট্রেড লাইসেন্স: ১৩,১২(১)-৩৪৬/২৫-২৬ ]</span>
+                        <span class="text-sm font-semibold text-emerald-200/70 ml-2" data-i18n="about.badge.trade_license">[ ট্রেড লাইসেন্স: ১৩,১২(১)-৩৪৬/২৫-২৬ ]</span>
                     </div>
                     <div class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></div>
                 </div>
@@ -1057,12 +999,12 @@
                 <div class="fade-up" style="--delay: 0.2s;">
                     <!-- Main Heading -->
                     <div class="mb-8">
-                        <h2 class="text-3xl lg:text-4xl font-bold text-white leading-tight mb-4">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-white leading-tight mb-4" data-i18n="about.heading.before">
                             আল-কুরআন শিখুন – 
-                            <span class="text-emerald-400">যে কোনো সময়, যেকোনো স্থান থেকে!</span>
+                            <span class="text-emerald-400" data-i18n="about.heading.highlight">যে কোনো সময়, যেকোনো স্থান থেকে!</span>
                         </h2>
                         <div class="w-24 h-1 bg-gradient-to-r from-emerald-400 to-amber-400 rounded-full mb-6"></div>
-                        <p class="text-lg text-emerald-200/80 font-medium">
+                        <p class="text-lg text-emerald-200/80 font-medium" data-i18n="about.subheading">
                             কুরআন শিক্ষা প্রত্যেক মুসলিমের জন্য ফরজ। আজ থেকেই কুরআনের আলোয় জীবন গড়া শুরু করুন।
                         </p>
                     </div>
@@ -1072,54 +1014,54 @@
                         <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                         </svg>
-                        <span class="text-amber-400 font-semibold">বিশ্বস্ততায় আমরা প্রতিশ্রুতিবদ্ধ</span>
+                        <span class="text-amber-400 font-semibold" data-i18n="about.trust">বিশ্বস্ততায় আমরা প্রতিশ্রুতিবদ্ধ</span>
                     </div>
 
                     <!-- Initial Content -->
                     <div class="bg-emerald-900/30 backdrop-blur-sm rounded-2xl p-6 border border-emerald-500/20 shadow-lg mb-6">
-                        <p class="text-emerald-100 leading-relaxed">
+                        <p class="text-emerald-100 leading-relaxed" data-i18n="about.initial">
                             বাংলাদেশে খুবই নগন্য পরিমাণে অনলাইন প্রতিষ্ঠান আছে যারা লাইসেন্সভুক্ত এবং নিয়মিত সরকারকে ট্যাক্স প্রদান করে, যার মধ্যে দারুল কুরআন অন্যতম। একটি Ed-tech প্ল্যাটফর্ম হিসেবে যে সকল কোয়ালিটি বজায় রাখা প্রয়োজন, সেগুলোর সবকিছুই অত্যন্ত গুরুত্ব এবং দায়িত্ব সহকারে পালন করে আসছি আমরা আলহামদুলিল্লাহ।
                         </p>
                         
                         <!-- Expandable Content -->
                         <div id="moreContent" class="hidden mt-4 space-y-4 transition-all duration-500">
                             <div class="border-l-4 border-emerald-400 pl-4">
-                                <p class="text-emerald-100 leading-relaxed">
+                                <p class="text-emerald-100 leading-relaxed" data-i18n="about.more.1">
                                     দারুল কুরআন বিশ্বব্যাপী বাংলাদেশি ভাই-বোনদের তাদের সুবিধামত সময়ে, সপ্তাহের যেকোন দিন, অভিজ্ঞ শিক্ষক/শিক্ষিকা দ্বারা লাইভ ক্লাসের মাধ্যমে সহিহ কোরআন শিক্ষা/হিফযুল কোরআন/আরবি ভাষা শিক্ষা সেবা প্রদান করে আসছে।
                                 </p>
                             </div>
                             
                             <div class="bg-emerald-800/30 backdrop-blur-sm rounded-lg p-4 border border-emerald-500/20">
-                                <p class="text-emerald-100 leading-relaxed">
+                                <p class="text-emerald-100 leading-relaxed" data-i18n="about.more.2">
                                     আমাদের বিশেষায়িত শিক্ষক আছেন যারা ভার্চুয়াল ক্লাস নেওয়ায় বিশেষ প্রশিক্ষিত। দারুল কুরআন থেকে কুরআন শিখে আপনি বিশুদ্ধভাবে সকল নিয়ম অনুসরণ করে কুরআন পড়তে পারবেন ইনশাআল্লাহ।
                                 </p>
                             </div>
                             
-                            <p class="text-emerald-100 leading-relaxed">
+                            <p class="text-emerald-100 leading-relaxed" data-i18n="about.more.3">
                                 আমাদের প্রতিষ্ঠানে শিশু, কিশোর ও প্রাপ্তবয়স্কদের জন্যে আলাদা আলাদা শিক্ষক রয়েছে, যাতে আপনার শেখাটা উপভোগ্য হয়। এখানে নারী-পুরুষদের জন্যে সম্পূর্ণ পৃথক ব্যবস্থাপনা। নারীদের জন্যে নারী শিক্ষিকা এবং পুরুষদের জন্যে পুরুষ শিক্ষক।
                             </p>
                             
                             <div class="bg-blue-900/30 backdrop-blur-sm border-l-4 border-blue-400 p-4 rounded-r-lg">
-                                <p class="text-blue-300 font-semibold">
+                                <p class="text-blue-300 font-semibold" data-i18n="about.more.4">
                                     <span class="text-2xl">🎓</span> আমাদের অধিকাংশ শিক্ষক মিশরের আল-আজহার বিশ্ববিদ্যালয়ের ছাত্র/ছাত্রী, আর এই কারণে আমরা ২৪ ঘণ্টাই যেকোন সময় ক্লাস করাতে পারি আলহামদুলিল্লাহ।
                                 </p>
                             </div>
                             
-                            <p class="text-emerald-100 leading-relaxed">
+                            <p class="text-emerald-100 leading-relaxed" data-i18n="about.more.5">
                                 আমাদের সমৃদ্ধ শিক্ষক প্যানেল থেকে আপনি বা আপনার সন্তানের জন্যে বেস্ট শিক্ষক সিলেক্ট করতে পারবেন। সেইসাথে পরবর্তীতে যেকোন সমস্যায় শিক্ষক পরিবর্তন করার বিকল্প অপশনও রয়েছে। আমাদের শিক্ষক প্যানেলে বিভিন্ন ভাষায় দক্ষ শিক্ষক রয়েছে, যারা ইংরেজি, আরবি, বাংলা, হিন্দি, উর্দু ভাষায় পাঠদানে সক্ষম।
                             </p>
                             
                             <div class="bg-purple-900/30 backdrop-blur-sm border-l-4 border-purple-400 p-4 rounded-r-lg">
-                                <p class="text-purple-300 font-semibold">
+                                <p class="text-purple-300 font-semibold" data-i18n="about.more.6">
                                     <span class="text-2xl">📖</span> একজন মুসলিম হিসেবে আল কোরআন পড়তে জানা এবং আমল করা আমাদের ওপর ফরজ। আরবি ভাষা এমন এক ভাষা যেখানে সামান্য টান, গুন্নাহ ছুটে গেলেই অর্থ পরিবর্তন হয়ে যায়, তাই লাইভ ক্লাসের মাধ্যমে অভিজ্ঞ হুজুরের কাছে সহিহ শুদ্ধভাবে কোরআন শেখার বিকল্প নেই।
                                 </p>
                             </div>
                             
                             <div class="text-center mt-6 p-4 bg-gradient-to-r from-emerald-900/40 to-amber-900/40 backdrop-blur-sm rounded-lg border border-emerald-500/20">
-                                <p class="text-emerald-300 font-medium text-lg">
+                                <p class="text-emerald-300 font-medium text-lg" data-i18n="about.more.cta_text_1">
                                     কুরআন আপনার জান্নাতে যাওয়ার পথকে সুগম করবে। 
                                 </p>
-                                <p class="text-amber-400 mt-2">
+                                <p class="text-amber-400 mt-2" data-i18n="about.more.cta_text_2">
                                     আল্লাহ আপনার সহায় হোন। জাযাকুমুল্লাহু খাইরান।
                                 </p>
                             </div>
@@ -1130,12 +1072,12 @@
                     <div class="flex gap-4 items-center">
                         <button id="readMoreBtn" 
                                 onclick="toggleReadMore()"
-                                class="px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all transform hover:scale-105">
+                                class="px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all transform hover:scale-105" data-i18n="about.buttons.read_more">
                             আরও পড়ুন
                         </button>
                         <button id="readLessBtn" 
                                 onclick="toggleReadMore()"
-                                class="hidden px-6 py-3 bg-emerald-900/30 backdrop-blur-sm border-2 border-emerald-400 text-emerald-300 rounded-full font-semibold hover:bg-emerald-900/50 transition-all">
+                                class="hidden px-6 py-3 bg-emerald-900/30 backdrop-blur-sm border-2 border-emerald-400 text-emerald-300 rounded-full font-semibold hover:bg-emerald-900/50 transition-all" data-i18n="about.buttons.read_less">
                             সংক্ষিপ্ত করুন
                         </button>
                     </div>
@@ -1144,7 +1086,7 @@
                     <div class="mt-8">
                         <a href="#" 
                         class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold rounded-full shadow-xl hover:shadow-2xl hover:shadow-amber-500/25 transform hover:scale-105 transition-all group">
-                            <span>অবহেলা না করে আজই শুরু করুন</span>
+                            <span data-i18n="about.cta">অবহেলা না করে আজই শুরু করুন</span>
                             <svg class="w-5 h-5 text-pink-300 group-hover:scale-125 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
                             </svg>
@@ -1181,7 +1123,7 @@
                     <div class="w-12 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
                 </div>
                 <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.2s;">
-                    আমাদের অভিজ্ঞ শিক্ষকমণ্ডলী
+                    আমাদের অভিজ্ঞ শিক্ষকবৃন্দ
                 </h2>
                 <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 0.3s;">
                     আল-আজহার ও মদীনা বিশ্ববিদ্যালয় থেকে সনদপ্রাপ্ত উস্তাদগণ
@@ -1294,11 +1236,11 @@
                     <span class="arabic-font text-amber-400 text-2xl">أركان الإسلام</span>
                     <div class="w-12 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
                 </div>
-                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.2s;">
+                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.2s;" data-i18n="pillars.heading">
                     ইসলামের পাঁচ স্তম্ভ
                 </h2>
-                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 0.3s;">
-                    The Pillars of Islam - Ethical And Moral Beliefs That Guide To The Straight Path
+                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 0.3s;" data-i18n="pillars.subtitle">
+                    ইসলামের স্তম্ভসমূহ — নৈতিক ও চারিত্রিক বিশ্বাস যা সরল পথে চলতে সহায়তা করে
                 </p>
             </div>
 
@@ -1310,8 +1252,8 @@
                         <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform text-2xl">
                             <span class="text-2xl">☪️</span>
                         </div>
-                        <h3 class="text-white font-semibold mb-1">শাহাদা</h3>
-                        <p class="text-emerald-200/60 text-xs">বিশ্বাসের সাক্ষ্য</p>
+                        <h3 class="text-white font-semibold mb-1" data-i18n="pillars.card.shahada.title">শাহাদা</h3>
+                        <p class="text-emerald-200/60 text-xs" data-i18n="pillars.card.shahada.subtitle">বিশ্বাসের সাক্ষ্য</p>
                     </div>
                 </div>
 
@@ -1321,8 +1263,8 @@
                         <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform text-2xl">
                             <span class="text-2xl">🕌</span>
                         </div>
-                        <h3 class="text-white font-semibold mb-1">সালাত</h3>
-                        <p class="text-emerald-200/60 text-xs">পাঁচ ওয়াক্ত নামাজ</p>
+                        <h3 class="text-white font-semibold mb-1" data-i18n="pillars.card.salah.title">সালাত</h3>
+                        <p class="text-emerald-200/60 text-xs" data-i18n="pillars.card.salah.subtitle">পাঁচ ওয়াক্ত নামাজ</p>
                     </div>
                 </div>
 
@@ -1332,8 +1274,8 @@
                         <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform text-2xl">
                             <span class="text-2xl">💰</span>
                         </div>
-                        <h3 class="text-white font-semibold mb-1">যাকাত</h3>
-                        <p class="text-emerald-200/60 text-xs">দান ও শুদ্ধতা</p>
+                        <h3 class="text-white font-semibold mb-1" data-i18n="pillars.card.zakat.title">যাকাত</h3>
+                        <p class="text-emerald-200/60 text-xs" data-i18n="pillars.card.zakat.subtitle">দান ও শুদ্ধতা</p>
                     </div>
                 </div>
 
@@ -1343,8 +1285,8 @@
                         <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform text-2xl">
                             <span class="text-2xl">🌙</span>
                         </div>
-                        <h3 class="text-white font-semibold mb-1">সাওম</h3>
-                        <p class="text-emerald-200/60 text-xs">রমজানের রোজা</p>
+                        <h3 class="text-white font-semibold mb-1" data-i18n="pillars.card.sawm.title">সাওম</h3>
+                        <p class="text-emerald-200/60 text-xs" data-i18n="pillars.card.sawm.subtitle">রমজানের রোজা</p>
                     </div>
                 </div>
 
@@ -1354,8 +1296,8 @@
                         <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform text-2xl">
                             <span class="text-2xl">🕋</span>
                         </div>
-                        <h3 class="text-white font-semibold mb-1">হজ্জ</h3>
-                        <p class="text-emerald-200/60 text-xs">পবিত্র তীর্থযাত্রা</p>
+                        <h3 class="text-white font-semibold mb-1" data-i18n="pillars.card.hajj.title">হজ্জ</h3>
+                        <p class="text-emerald-200/60 text-xs" data-i18n="pillars.card.hajj.subtitle">পবিত্র তীর্থযাত্রা</p>
                     </div>
                 </div>
             </div>
@@ -1370,8 +1312,8 @@
                             <p class="arabic-font text-2xl md:text-3xl text-amber-400 mb-3">
                                 لَا إِلَٰهَ إِلَّا ٱللَّٰهُ مُحَمَّدٌ رَسُولُ ٱللَّٰهِ
                             </p>
-                            <h4 class="text-white text-lg font-semibold mb-2">শাহাদা - ঈমানের সাক্ষ্য</h4>
-                            <p class="text-emerald-200/70 max-w-2xl">
+                            <h4 class="text-white text-lg font-semibold mb-2" data-i18n="pillars.quote.1.title">শাহাদা - ঈমানের সাক্ষ্য</h4>
+                            <p class="text-emerald-200/70 max-w-2xl" data-i18n="pillars.quote.1.desc">
                                 "আল্লাহ ছাড়া কোন উপাস্য নেই এবং মুহাম্মদ (সাঃ) আল্লাহর রাসূল" - এই সাক্ষ্য দেওয়া ইসলামের প্রথম স্তম্ভ
                             </p>
                         </div>
@@ -1381,8 +1323,8 @@
                             <p class="arabic-font text-2xl md:text-3xl text-amber-400 mb-3">
                                 إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا
                             </p>
-                            <h4 class="text-white text-lg font-semibold mb-2">সালাত - দৈনিক পাঁচ ওয়াক্ত নামাজ</h4>
-                            <p class="text-emerald-200/70 max-w-2xl">
+                            <h4 class="text-white text-lg font-semibold mb-2" data-i18n="pillars.quote.2.title">সালাত - দৈনিক পাঁচ ওয়াক্ত নামাজ</h4>
+                            <p class="text-emerald-200/70 max-w-2xl" data-i18n="pillars.quote.2.desc">
                                 "নিশ্চয়ই সালাত মুমিনদের উপর নির্দিষ্ট সময়ে ফরজ" (সূরা নিসা: ১০৩)
                             </p>
                         </div>
@@ -1392,8 +1334,8 @@
                             <p class="arabic-font text-2xl md:text-3xl text-amber-400 mb-3">
                                 وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ
                             </p>
-                            <h4 class="text-white text-lg font-semibold mb-2">যাকাত - সম্পদের পবিত্রতা</h4>
-                            <p class="text-emerald-200/70 max-w-2xl">
+                            <h4 class="text-white text-lg font-semibold mb-2" data-i18n="pillars.quote.3.title">যাকাত - সম্পদের পবিত্রতা</h4>
+                            <p class="text-emerald-200/70 max-w-2xl" data-i18n="pillars.quote.3.desc">
                                 "সালাত কায়েম কর এবং যাকাত প্রদান কর" - সম্পদের ২.৫% দান করা ফরজ
                             </p>
                         </div>
@@ -1403,8 +1345,8 @@
                             <p class="arabic-font text-2xl md:text-3xl text-amber-400 mb-3">
                                 يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ
                             </p>
-                            <h4 class="text-white text-lg font-semibold mb-2">সাওম - রমজানের রোজা</h4>
-                            <p class="text-emerald-200/70 max-w-2xl">
+                            <h4 class="text-white text-lg font-semibold mb-2" data-i18n="pillars.quote.4.title">সাওম - রমজানের রোজা</h4>
+                            <p class="text-emerald-200/70 max-w-2xl" data-i18n="pillars.quote.4.desc">
                                 "হে ঈমানদারগণ! তোমাদের উপর রোজা ফরজ করা হয়েছে" (সূরা বাকারা: ১৮৩)
                             </p>
                         </div>
@@ -1414,8 +1356,8 @@
                             <p class="arabic-font text-2xl md:text-3xl text-amber-400 mb-3">
                                 وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا
                             </p>
-                            <h4 class="text-white text-lg font-semibold mb-2">হজ্জ - পবিত্র তীর্থযাত্রা</h4>
-                            <p class="text-emerald-200/70 max-w-2xl">
+                            <h4 class="text-white text-lg font-semibold mb-2" data-i18n="pillars.quote.5.title">হজ্জ - পবিত্র তীর্থযাত্রা</h4>
+                            <p class="text-emerald-200/70 max-w-2xl" data-i18n="pillars.quote.5.desc">
                                 "সামর্থ্যবান ব্যক্তির উপর আল্লাহর জন্য বায়তুল্লাহর হজ্জ করা ফরজ" (সূরা আল-ইমরান: ৯৭)
                             </p>
                         </div>
@@ -1423,22 +1365,23 @@
 
                     <!-- Navigation Dots -->
                     <div class="flex justify-center gap-2 mt-6">
-                        <button onclick="showPillarDetail(0)" aria-label="শাহাদা সম্পর্কে দেখুন" class="p-4 rounded-full">
+                        <button onclick="showPillarDetail(0)" class="p-4 rounded-full" data-i18n-aria-label="pillars.dot.1" aria-label="শাহাদা সম্পর্কে দেখুন">
                             <div class="pillar-dot w-2 h-2 rounded-full bg-emerald-400 transition-all"></div>
                         </button>
-                        <button onclick="showPillarDetail(1)" aria-label="সালাত সম্পর্কে দেখুন" class="p-4 rounded-full">
+                        <button onclick="showPillarDetail(1)" class="p-4 rounded-full" data-i18n-aria-label="pillars.dot.2" aria-label="সালাত সম্পর্কে দেখুন">
                             <div class="pillar-dot w-2 h-2 rounded-full bg-emerald-600/50 transition-all"></div>
                         </button>
-                        <button onclick="showPillarDetail(2)" aria-label="যাকাত সম্পর্কে দেখুন" class="p-4 rounded-full">
+                        <button onclick="showPillarDetail(2)" class="p-4 rounded-full" data-i18n-aria-label="pillars.dot.3" aria-label="যাকাত সম্পর্কে দেখুন">
                             <div class="pillar-dot w-2 h-2 rounded-full bg-emerald-600/50 transition-all"></div>
                         </button>
-                        <button onclick="showPillarDetail(3)" aria-label="সাওম সম্পর্কে দেখুন" class="p-4 rounded-full">
+                        <button onclick="showPillarDetail(3)" class="p-4 rounded-full" data-i18n-aria-label="pillars.dot.4" aria-label="সাওম সম্পর্কে দেখুন">
                             <div class="pillar-dot w-2 h-2 rounded-full bg-emerald-600/50 transition-all"></div>
                         </button>
-                        <button onclick="showPillarDetail(4)" aria-label="হজ্জ সম্পর্কে দেখুন" class="p-4 rounded-full">
+                        <button onclick="showPillarDetail(4)" class="p-4 rounded-full" data-i18n-aria-label="pillars.dot.5" aria-label="হজ্জ সম্পর্কে দেখুন">
                             <div class="pillar-dot w-2 h-2 rounded-full bg-emerald-600/50 transition-all"></div>
                         </button>
                     </div>
+
 
                     <!-- Auto-play Progress Bar -->
                     <div class="absolute bottom-0 left-0 right-0 h-1 bg-emerald-900/30">
@@ -1451,15 +1394,15 @@
             <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-8">
                 <div class="bg-emerald-900/20 backdrop-blur-sm border border-emerald-500/20 rounded-xl p-4 text-center">
                     <div class="text-2xl mb-2">📖</div>
-                    <p class="text-emerald-200/70 text-sm">প্রতিটি স্তম্ভ একজন মুসলিমের জীবনের অবিচ্ছেদ্য অংশ</p>
+                    <p class="text-emerald-200/70 text-sm" data-i18n="pillars.info.1">প্রতিটি স্তম্ভ একজন মুসলিমের জীবনের অবিচ্ছেদ্য অংশ</p>
                 </div>
                 <div class="bg-amber-900/20 backdrop-blur-sm border border-amber-500/20 rounded-xl p-4 text-center">
                     <div class="text-2xl mb-2">🤲</div>
-                    <p class="text-emerald-200/70 text-sm">এই পাঁচটি স্তম্ভ ইসলামের মূল ভিত্তি</p>
+                    <p class="text-emerald-200/70 text-sm" data-i18n="pillars.info.2">এই পাঁচটি স্তম্ভ ইসলামের মূল ভিত্তি</p>
                 </div>
                 <div class="bg-emerald-900/20 backdrop-blur-sm border border-emerald-500/20 rounded-xl p-4 text-center">
                     <div class="text-2xl mb-2">✨</div>
-                    <p class="text-emerald-200/70 text-sm">প্রতিটি স্তম্ভ আল্লাহর নৈকট্য লাভের পথ</p>
+                    <p class="text-emerald-200/70 text-sm" data-i18n="pillars.info.3">প্রতিটি স্তম্ভ আল্লাহর নৈকট্য লাভের পথ</p>
                 </div>
             </div>
         </div>
@@ -1474,10 +1417,10 @@
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.1s;">
+                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.1s;" data-i18n="process.heading">
                     কীভাবে শিখবেন
                 </h2>
-                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 0.2s;">
+                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 0.2s;" data-i18n="process.subtitle">
                     সহজ ৪টি ধাপে শুরু করুন আপনার কুরআন শিক্ষার যাত্রা
                 </p>
             </div>
@@ -1492,48 +1435,48 @@
                         <div class="slide-left text-center" style="--delay: 0.3s;">
                             <div class="relative">
                                 <div class="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mb-4 relative z-10 text-white text-2xl font-bold">
-                                    <span class="text-white text-2xl font-bold">১</span>
+                                    <span class="text-white text-2xl font-bold" data-i18n="process.step1.num">১</span>
                                 </div>
                                 <div class="absolute top-10 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-emerald-500/10 rounded-full blur-xl"></div>
                             </div>
-                            <h3 class="text-xl font-semibold text-white mb-2">রেজিস্ট্রেশন</h3>
-                            <p class="text-emerald-200/60 text-sm">সহজ অনলাইন ফর্ম পূরণ করুন</p>
+                            <h3 class="text-xl font-semibold text-white mb-2" data-i18n="process.step1.title">রেজিস্ট্রেশন</h3>
+                            <p class="text-emerald-200/60 text-sm" data-i18n="process.step1.desc">সহজ অনলাইন ফর্ম পূরণ করুন</p>
                         </div>
 
                         <!-- Step 2 -->
                         <div class="slide-left text-center" style="--delay: 0.4s;">
                             <div class="relative">
                                 <div class="w-20 h-20 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center mb-4 relative z-10 text-white text-2xl font-bold">
-                                    <span class="text-white text-2xl font-bold">২</span>
+                                    <span class="text-white text-2xl font-bold" data-i18n="process.step2.num">২</span>
                                 </div>
                                 <div class="absolute top-10 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-amber-500/10 rounded-full blur-xl"></div>
                             </div>
-                            <h3 class="text-xl font-semibold text-white mb-2">মূল্যায়ন</h3>
-                            <p class="text-emerald-200/60 text-sm">আপনার লেভেল নির্ধারণ</p>
+                            <h3 class="text-xl font-semibold text-white mb-2" data-i18n="process.step2.title">মূল্যায়ন</h3>
+                            <p class="text-emerald-200/60 text-sm" data-i18n="process.step2.desc">আপনার লেভেল নির্ধারণ</p>
                         </div>
 
                         <!-- Step 3 -->
                         <div class="slide-right text-center" style="--delay: 0.5s;">
                             <div class="relative">
                                 <div class="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center mb-4 relative z-10 text-white text-2xl font-bold">
-                                    <span class="text-white text-2xl font-bold">৩</span>
+                                    <span class="text-white text-2xl font-bold" data-i18n="process.step3.num">৩</span>
                                 </div>
                                 <div class="absolute top-10 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-emerald-500/10 rounded-full blur-xl"></div>
                             </div>
-                            <h3 class="text-xl font-semibold text-white mb-2">ক্লাস শুরু</h3>
-                            <p class="text-emerald-200/60 text-sm">নির্ধারিত সময়ে ক্লাস জয়েন</p>
+                            <h3 class="text-xl font-semibold text-white mb-2" data-i18n="process.step3.title">ক্লাস শুরু</h3>
+                            <p class="text-emerald-200/60 text-sm" data-i18n="process.step3.desc">নির্ধারিত সময়ে ক্লাস জয়েন</p>
                         </div>
 
                         <!-- Step 4 -->
                         <div class="slide-right text-center" style="--delay: 0.6s;">
                             <div class="relative">
                                 <div class="w-20 h-20 mx-auto bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center mb-4 relative z-10 text-white text-2xl font-bold">
-                                    <span class="text-white text-2xl font-bold">৪</span>
+                                    <span class="text-white text-2xl font-bold" data-i18n="process.step4.num">৪</span>
                                 </div>
                                 <div class="absolute top-10 left-1/2 transform -translate-x-1/2 w-32 h-32 bg-amber-500/10 rounded-full blur-xl"></div>
                             </div>
-                            <h3 class="text-xl font-semibold text-white mb-2">সার্টিফিকেট</h3>
-                            <p class="text-emerald-200/60 text-sm">কোর্স শেষে সনদ প্রাপ্তি</p>
+                            <h3 class="text-xl font-semibold text-white mb-2" data-i18n="process.step4.title">সার্টিফিকেট</h3>
+                            <p class="text-emerald-200/60 text-sm" data-i18n="process.step4.desc">কোর্স শেষে সনদ প্রাপ্তি</p>
                         </div>
                     </div>
                 </div>
@@ -1542,20 +1485,20 @@
                 <div class="grid md:grid-cols-3 gap-6 mt-16">
                     <div class="fade-up bg-gradient-to-br text-center from-emerald-900/30 to-transparent border border-emerald-500/20 rounded-2xl p-6" style="--delay: 0.7s;">
                         <div class="text-3xl mb-4">📱</div>
-                        <h3 class="text-lg font-semibold text-white mb-2">মোবাইল অ্যাপ</h3>
-                        <p class="text-emerald-200/60 text-sm">যেকোনো স্থান থেকে শিখুন</p>
+                        <h3 class="text-lg font-semibold text-white mb-2" data-i18n="process.feature.app.title">মোবাইল অ্যাপ</h3>
+                        <p class="text-emerald-200/60 text-sm" data-i18n="process.feature.app.desc">যেকোনো স্থান থেকে শিখুন</p>
                     </div>
 
                     <div class="fade-up bg-gradient-to-br text-center from-amber-900/30 to-transparent border border-amber-500/20 rounded-2xl p-6" style="--delay: 0.8s;">
                         <div class="text-3xl mb-4">🎥</div>
-                        <h3 class="text-lg font-semibold text-white mb-2">রেকর্ডেড ক্লাস</h3>
-                        <p class="text-emerald-200/60 text-sm">মিস করলে পরে দেখুন</p>
+                        <h3 class="text-lg font-semibold text-white mb-2" data-i18n="process.feature.recorded.title">রেকর্ডেড ক্লাস</h3>
+                        <p class="text-emerald-200/60 text-sm" data-i18n="process.feature.recorded.desc">মিস করলে পরে দেখুন</p>
                     </div>
 
                     <div class="fade-up bg-gradient-to-br text-center from-emerald-900/30 to-transparent border border-emerald-500/20 rounded-2xl p-6" style="--delay: 0.9s;">
                         <div class="text-3xl mb-4">📚</div>
-                        <h3 class="text-lg font-semibold text-white mb-2">ই-বুক সংগ্রহ</h3>
-                        <p class="text-emerald-200/60 text-sm">বিনামূল্যে স্টাডি ম্যাটেরিয়াল</p>
+                        <h3 class="text-lg font-semibold text-white mb-2" data-i18n="process.feature.ebooks.title">ই-বুক সংগ্রহ</h3>
+                        <p class="text-emerald-200/60 text-sm" data-i18n="process.feature.ebooks.desc">বিনামূল্যে স্টাডি ম্যাটেরিয়াল</p>
                     </div>
                 </div>
             </div>
@@ -1564,94 +1507,91 @@
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="relative py-20 overflow-hidden bg-gradient-to-b from-[#064e3b] to-[#022c22]">
-        <div class="absolute inset-0 islamic-pattern opacity-10"></div>
-        
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center mb-16">
-                <div class="fade-in inline-flex items-center gap-3 mb-6" style="--delay: 0.1s;">
-                    <div class="w-12 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
-                    <span class="arabic-font text-amber-400 text-xl">الْحَمْدُ لِلَّهِ</span>
-                    <div class="w-12 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+    <div class="absolute inset-0 islamic-pattern opacity-10"></div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center mb-16">
+        <div class="fade-in inline-flex items-center gap-3 mb-6" style="--delay: 0.1s;">
+            <div class="w-12 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+            <span class="arabic-font text-amber-400 text-xl">الْحَمْدُ لِلَّهِ</span>
+            <div class="w-12 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+        </div>
+        <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.2s;" data-i18n="testimonials.heading">
+            শিক্ষার্থীদের মন্তব্য
+        </h2>
+        <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 0.3s;" data-i18n="testimonials.subtitle">
+            আমাদের সন্তুষ্ট শিক্ষার্থীদের অভিজ্ঞতা
+        </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Testimonial 1 -->
+        <div class="scale-in" style="--delay: 0.4s;">
+            <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 relative">
+            <div class="absolute -top-4 left-6 text-6xl text-emerald-500/20">"</div>
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-xl">
+                <span class="text-white text-xl">👨</span>
                 </div>
-                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.2s;">
-                    শিক্ষার্থীদের মন্তব্য
-                </h2>
-                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 0.3s;">
-                    আমাদের সন্তুষ্ট শিক্ষার্থীদের অভিজ্ঞতা
-                </p>
+                <div>
+                <h3 class="text-white font-semibold" data-i18n="testimonials.t1.name">রাফি আহমেদ</h3>
+                <div class="flex gap-1">
+                    <span class="text-amber-400 text-sm">★★★★★</span>
+                </div>
+                </div>
             </div>
-
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Testimonial 1 -->
-                <div class="scale-in" style="--delay: 0.4s;">
-                    <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 relative">
-                        <div class="absolute -top-4 left-6 text-6xl text-emerald-500/20">"</div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-xl">
-                                <span class="text-white text-xl">👨</span>
-                            </div>
-                            <div>
-                                <h3 class="text-white font-semibold">রাফি আহমেদ</h3>
-                                <div class="flex gap-1">
-                                    <span class="text-amber-400 text-sm">★★★★★</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-emerald-200/70 text-sm leading-relaxed">
-                            "আলহামদুলিল্লাহ, Daarul Quran এর মাধ্যমে আমি সঠিক তাজবীদসহ কুরআন পড়তে শিখেছি। 
-                            শিক্ষকদের আন্তরিকতা ও পড়ানোর পদ্ধতি অসাধারণ।"
-                        </p>
-                        <p class="text-emerald-300/50 text-xs mt-3">হিফজ কোর্স - ৬ মাস</p>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="scale-in" style="--delay: 0.5s;">
-                    <div class="bg-gradient-to-br from-amber-900/40 to-amber-800/30 backdrop-blur-sm border border-amber-500/20 rounded-2xl p-6 relative">
-                        <div class="absolute -top-4 left-6 text-6xl text-amber-500/20">"</div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center text-white text-xl">
-                                <span class="text-white text-xl">👩</span>
-                            </div>
-                            <div>
-                                <h3 class="text-white font-semibold">ফাতেমা খাতুন</h3>
-                                <div class="flex gap-1">
-                                    <span class="text-amber-400 text-sm">★★★★★</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-emerald-200/70 text-sm leading-relaxed">
-                            "ঘরে বসে এত সুন্দরভাবে কুরআন শেখার সুযোগ পেয়ে আমি খুবই খুশি। 
-                            মহিলা উস্তাজা খুবই যত্নসহকারে পড়ান।"
-                        </p>
-                        <p class="text-amber-300/50 text-xs mt-3">তাজবীদ কোর্স - ৩ মাস</p>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="scale-in" style="--delay: 0.6s;">
-                    <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 relative">
-                        <div class="absolute -top-4 left-6 text-6xl text-emerald-500/20">"</div>
-                        <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-xl">
-                                <span class="text-white text-xl">👦</span>
-                            </div>
-                            <div>
-                                <h3 class="text-white font-semibold">সাদিক হাসান</h3>
-                                <div class="flex gap-1">
-                                    <span class="text-amber-400 text-sm">★★★★★</span>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-emerald-200/70 text-sm leading-relaxed">
-                            "আমার ছেলে এখানে নূরানী পদ্ধতিতে কুরআন শিখছে। 
-                            অনলাইনে এত মনোযোগ দিয়ে পড়ানো হয় দেখে আমি মুগ্ধ।"
-                        </p>
-                        <p class="text-emerald-300/50 text-xs mt-3">নূরানী কোর্স - চলমান</p>
-                    </div>
-                </div>
+            <p class="text-emerald-200/70 text-sm leading-relaxed" data-i18n="testimonials.t1.quote">
+                "আলহামদুলিল্লাহ, Daarul Quran এর মাধ্যমে আমি সঠিক তাজবীদসহ কুরআন পড়তে শিখেছি। শিক্ষকদের আন্তরিকতা ও পড়ানোর পদ্ধতি অসাধারণ।"
+            </p>
+            <p class="text-emerald-300/50 text-xs mt-3" data-i18n="testimonials.t1.meta">হিফজ কোর্স - ৬ মাস</p>
             </div>
         </div>
+
+        <!-- Testimonial 2 -->
+        <div class="scale-in" style="--delay: 0.5s;">
+            <div class="bg-gradient-to-br from-amber-900/40 to-amber-800/30 backdrop-blur-sm border border-amber-500/20 rounded-2xl p-6 relative">
+            <div class="absolute -top-4 left-6 text-6xl text-amber-500/20">"</div>
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center text-white text-xl">
+                <span class="text-white text-xl">👩</span>
+                </div>
+                <div>
+                <h3 class="text-white font-semibold" data-i18n="testimonials.t2.name">ফাতেমা খাতুন</h3>
+                <div class="flex gap-1">
+                    <span class="text-amber-400 text-sm">★★★★★</span>
+                </div>
+                </div>
+            </div>
+            <p class="text-emerald-200/70 text-sm leading-relaxed" data-i18n="testimonials.t2.quote">
+                "ঘরে বসে এত সুন্দরভাবে কুরআন শেখার সুযোগ পেয়ে আমি খুবই খুশি। মহিলা উস্তাজা খুবই যত্নসহকারে পড়ান।"
+            </p>
+            <p class="text-amber-300/50 text-xs mt-3" data-i18n="testimonials.t2.meta">তাজবীদ কোর্স - ৩ মাস</p>
+            </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="scale-in" style="--delay: 0.6s;">
+            <div class="bg-gradient-to-br from-emerald-900/40 to-emerald-800/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 relative">
+            <div class="absolute -top-4 left-6 text-6xl text-emerald-500/20">"</div>
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-xl">
+                <span class="text-white text-xl">👦</span>
+                </div>
+                <div>
+                <h3 class="text-white font-semibold" data-i18n="testimonials.t3.name">সাদিক হাসান</h3>
+                <div class="flex gap-1">
+                    <span class="text-amber-400 text-sm">★★★★★</span>
+                </div>
+                </div>
+            </div>
+            <p class="text-emerald-200/70 text-sm leading-relaxed" data-i18n="testimonials.t3.quote">
+                "আমার ছেলে এখানে নূরানী পদ্ধতিতে কুরআন শিখছে। অনলাইনে এত মনোযোগ দিয়ে পড়ানো হয় দেখে আমি মুগ্ধ।"
+            </p>
+            <p class="text-emerald-300/50 text-xs mt-3" data-i18n="testimonials.t3.meta">নূরানী কোর্স - চলমান</p>
+            </div>
+        </div>
+        </div>
+    </div>
     </section>
 
     <!-- Islamic Services & Features Section -->
@@ -1671,11 +1611,15 @@
                     <span class="arabic-font text-amber-400 text-2xl">خِدْمَاتُنَا</span>
                     <div class="w-16 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
                 </div>
-                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.2s;">
-                    আমাদের <span class="text-emerald-400">সেবাসমূহ</span>
+                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4 [animation-delay:0.2s]">
+                    <span data-i18n="services.heading.before">আমাদের</span>
+                    <span class="text-emerald-400" data-i18n="services.heading.highlight">সেবাসমূহ</span>
                 </h2>
-                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto text-lg" style="--delay: 0.3s;">
-                    ইসলামি শিক্ষা, দাওয়াহ ও মানবসেবায় আমাদের বিশেষ কার্যক্রম
+
+
+
+                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto text-lg" style="--delay: 0.3s;" data-i18n="services.subtitle">
+                    ইসলামি শিক্ষা, দাওয়াহ (الدعوة) এবং মানবসেবায় আমাদের বিশেষ কার্যক্রম
                 </p>
             </div>
 
@@ -1700,14 +1644,14 @@
                         
                         <!-- Content Section -->
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">
-                                আল কুরআনের দারস
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors" data-i18n="services.quran.title">
+                                আল-কুরআনের দারস
                             </h3>
-                            <p class="text-emerald-200/70 text-sm leading-relaxed mb-6">
-                                আলহামদুলিল্লাহ আমরা শিশু থেকে প্রাপ্ত বয়স্ক সবার জন্যে কুরআন শিক্ষার আয়োজন করেছি। এ মহৎ কাজে আপনিও অংশগ্রহন করতে পারেন।
+                            <p class="text-emerald-200/70 text-sm leading-relaxed mb-6" data-i18n="services.quran.desc">
+                                আলহামদুলিল্লাহ, আমরা শিশু থেকে প্রাপ্তবয়স্ক সবার জন্য কুরআন শিক্ষার ব্যবস্থা করেছি। এ মহৎ কাজে আপনিও অংশ নিতে পারেন।
                             </p>
-                            <button class="w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all transform hover:scale-105">
-                                Sponsor Now
+                            <button class="w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all transform hover:scale-105" data-i18n="services.quran.cta">
+                                স্পনসর করুন
                             </button>
                         </div>
                     </div>
@@ -1731,14 +1675,14 @@
                         
                         <!-- Content Section -->
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-amber-400 transition-colors">
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-amber-400 transition-colors" data-i18n="services.aqidah.title">
                                 ইসলামিক আকিদা
                             </h3>
-                            <p class="text-emerald-200/70 text-sm leading-relaxed mb-6">
-                                আমরা ইসলামের মৌলিক আকিদাগুলো শিক্ষাদান করে থাকি। যাতে একজন মুসলিম ইসলাম সম্পর্কে আরো বিস্তৃতভাবে জানতে সক্ষম হয়।
+                            <p class="text-emerald-200/70 text-sm leading-relaxed mb-6" data-i18n="services.aqidah.desc">
+                                আমরা ইসলামের মৌলিক আকিদাগুলো শিক্ষাদান করে থাকি, যাতে একজন মুসলিম ইসলাম সম্পর্কে আরও গভীরভাবে জানতে সক্ষম হয়।
                             </p>
-                            <button class="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-amber-500/25 transition-all transform hover:scale-105">
-                                Donate Now
+                            <button class="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-amber-500/25 transition-all transform hover:scale-105" data-i18n="services.aqidah.cta"">
+                                এখনই দান করুন
                             </button>
                         </div>
                     </div>
@@ -1762,14 +1706,14 @@
                         
                         <!-- Content Section -->
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">
-                                ইসলামিক এক্টিভিটি
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors" data-i18n="services.activities.title">
+                                ইসলামিক কার্যক্রম
                             </h3>
-                            <p class="text-emerald-200/70 text-sm leading-relaxed mb-6">
-                                আমাদের স্বল্প সামর্থে ইসলামিক সৌন্দর্য ছড়িয়ে দিতে চাই। মুসলিম কমিউনিটিতে দাওয়া ও সচেতনতা তৈরি করছি।
+                            <p class="text-emerald-200/70 text-sm leading-relaxed mb-6" data-i18n="services.activities.desc">
+                                আমাদের সীমিত সামর্থ্য নিয়েও আমরা ইসলামি সৌন্দর্য ছড়িয়ে দিতে চেষ্টা করছি। মুসলিম কমিউনিটিতে দাওয়াহ ও সচেতনতা তৈরি করে যাচ্ছি।
                             </p>
-                            <button class="w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all transform hover:scale-105">
-                                Join Us
+                            <button class="w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all transform hover:scale-105" data-i18n="services.activities.cta">
+                                আমাদের সাথে যুক্ত হন
                             </button>
                         </div>
                     </div>
@@ -1793,14 +1737,14 @@
                         
                         <!-- Content Section -->
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-amber-400 transition-colors">
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-amber-400 transition-colors" data-i18n="services.humanitarian.title">
                                 মানবিক সেবা
                             </h3>
-                            <p class="text-emerald-200/70 text-sm leading-relaxed mb-6">
-                                দরিদ্র বিমোচন, অতিদরিদ্র মেয়েদের বিবাহ, ইয়াতিমের ভরন পোষন ও গৃহহীন জনগোষ্ঠীর ঘর নির্মাণের প্রদক্ষেপ নিচ্ছি।
+                            <p class="text-emerald-200/70 text-sm leading-relaxed mb-6" data-i18n="services.humanitarian.desc">
+                                আমরা দারিদ্র বিমোচন, অতি-দারিদ্র্য মেয়েদের বিবাহ, ইয়াতিমদের ভরণ-পোষণ এবং গৃহহীন জনগোষ্ঠীর জন্য ঘর নির্মাণের উদ্যোগ গ্রহণ করছি।
                             </p>
-                            <button class="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-amber-500/25 transition-all transform hover:scale-105">
-                                Get Involved
+                            <button class="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-amber-500/25 transition-all transform hover:scale-105" data-i18n="services.humanitarian.cta">
+                                সহযোগী হোন
                             </button>
                         </div>
                     </div>
@@ -1810,14 +1754,11 @@
             <!-- Bottom CTA Section -->
             <div class="mt-16 text-center">
                 <div class="fade-up inline-flex flex-col items-center gap-4 bg-gradient-to-br from-emerald-900/30 to-transparent backdrop-blur-sm border border-emerald-500/20 rounded-3xl p-8" style="--delay: 0.8s;">
-                    <p class="text-emerald-200/70 text-lg">আমাদের সাথে যুক্ত হয়ে ইসলামের খেদমতে অংশগ্রহণ করুন</p>
+                    <p class="text-emerald-200/70 text-lg" data-i18n="services.bottom.join_text">আমাদের সঙ্গে যুক্ত হয়ে ইসলামের খেদমতে অংশগ্রহণ করুন।</p>
                     <div class="flex flex-wrap gap-4 justify-center">
-                        <!-- <button class="px-8 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all transform hover:scale-105">
-                            সকল সেবা দেখুন
-                        </button> -->
-                        <button class="px-8 py-3 bg-white/10 backdrop-blur-sm border border-emerald-400/30 text-white rounded-full font-semibold hover:bg-white/20 transition-all">
+                        <a href="tel:+88001345291197" class="px-8 py-3 bg-white/10 backdrop-blur-sm border border-emerald-400/30 text-white rounded-full font-semibold hover:bg-white/20 transition-all" data-i18n="services.bottom.contact">
                             যোগাযোগ করুন
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1828,10 +1769,10 @@
     <section id="faq" class="relative py-20 overflow-hidden bg-gradient-to-b from-[#064e3b] to-[#022c22]">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.1s;">
-                    সাধারণ প্রশ্নোত্তর
+                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.1s;" data-i18n="faq.heading">
+                    সাধারণ জিজ্ঞাসা
                 </h2>
-                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 0.2s;">
+                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 0.2s;" data-i18n="faq.subtitle">
                     আপনার প্রশ্নের উত্তর এখানে পাবেন
                 </p>
             </div>
@@ -1840,13 +1781,12 @@
                 <!-- FAQ Item 1 -->
                 <div class="fade-up bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl overflow-hidden" style="--delay: 0.3s;">
                     <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-emerald-900/40 transition-all" onclick="toggleFAQ(this)">
-                        <span class="text-white font-semibold">অনলাইনে কীভাবে কুরআন শিখব?</span>
+                        <span class="text-white font-semibold mx-auto" data-i18n="faq.q1.title">অনলাইনে কীভাবে কুরআন শিখব?</span>
                         <span class="text-emerald-400 text-xl transition-transform">+</span>
                     </button>
                     <div class="hidden px-6 pb-4">
-                        <p class="text-emerald-200/70">
-                            আমাদের প্ল্যাটফর্মে Zoom/Google Meet এর মাধ্যমে লাইভ ক্লাস হয়। 
-                            আপনি শিক্ষকের সাথে সরাসরি কথা বলতে ও প্রশ্ন করতে পারবেন।
+                        <p class="text-emerald-200/70" data-i18n="faq.q1.body"">
+                            আমাদের প্ল্যাটফর্মে Zoom / Google Meet / Microsoft Teams এর মাধ্যমে লাইভ ক্লাস পরিচালিত হয়। এখানে আপনি শিক্ষকের সঙ্গে সরাসরি কথা বলতে পারবেন এবং আপনার যেকোনো প্রশ্ন করতে পারবেন।
                         </p>
                     </div>
                 </div>
@@ -1854,12 +1794,12 @@
                 <!-- FAQ Item 2 -->
                 <div class="fade-up bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl overflow-hidden" style="--delay: 0.4s;">
                     <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-emerald-900/40 transition-all" onclick="toggleFAQ(this)">
-                        <span class="text-white font-semibold">কিভাবে ফ্রি ট্রায়াল ক্লাস গ্রহণ করব ?</span>
+                        <span class="text-white font-semibold mx-auto" data-i18n="faq.q2.title">কিভাবে ফ্রি ট্রায়াল ক্লাস গ্রহণ করব?</span>
                         <span class="text-emerald-400 text-xl transition-transform">+</span>
                     </button>
                     <div class="hidden px-6 pb-4">
-                        <p class="text-emerald-200/70">
-                            আমাদের ওয়েব সাইটে প্রথমেই ট্রায়াল ক্লাস এর যেই ফর্ম দেয়া আছে সেইটি পূরণ করে আপনি আমাদের ফ্রি ট্রায়াল ক্লাসে অংশগ্রহণ করতে পারবেন । ফর্মটি পূরণ করে সাবমিট করলে আমাদের ১জন দীনি ভাই আপনার সাথে যোগাযোগ করবে এবং তখন বাকিসব তথ্য দিয়ে আপনাকে ক্লাসে অংশগ্রহণ করতে সাহায্য করবেন । এছাড়াও আপনি সরাসরি আমাদের ওয়েবসাইটে নিচের দিকে ডানকোনাই দেয়া Whatsapp বাটনে ক্লিক করে সরাসরি আমাদের সাথে কথা বলেও আপনার কুরআন শেখার যাত্রা শুরু করতে পারেন
+                        <p class="text-emerald-200/70" data-i18n="faq.q2.body">
+                            আমাদের ওয়েবসাইটে ট্রায়াল ক্লাসের জন্য দেওয়া ফর্মটি পূরণ করলেই আপনি আমাদের ফ্রি ট্রায়াল ক্লাসে অংশগ্রহণ করতে পারবেন। ফর্মটি সাবমিট করার পর আমাদের একজন দীনি (মহিলা/পুরুষ) প্রতিনিধি আপনার সঙ্গে যোগাযোগ করবেন এবং প্রয়োজনীয় সব তথ্য দিয়ে আপনাকে ক্লাসে অংশগ্রহণ করতে সহায়তা করবেন। এছাড়াও, আপনি চাইলে সরাসরি আমাদের ওয়েবসাইটের নিচের ডান পাশে থাকা WhatsApp বাটনে ক্লিক করে আমাদের সঙ্গে কথা বলে আপনার কুরআন শেখার যাত্রা Daarul Quran প্রতিষ্ঠানের সঙ্গে শুরু করতে পারেন।
                         </p>
                     </div>
                 </div>
@@ -1867,12 +1807,12 @@
                 <!-- FAQ Item 3 -->
                 <div class="fade-up bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl overflow-hidden" style="--delay: 0.5s;">
                     <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-emerald-900/40 transition-all" onclick="toggleFAQ(this)">
-                        <span class="text-white font-semibold">কেন ১টি ফ্রি ট্রায়াল ক্লাস ?</span>
+                        <span class="text-white font-semibold mx-auto" data-i18n="faq.q3.title">কেন ১টি ফ্রি ট্রায়াল ক্লাস?</span>
                         <span class="text-emerald-400 text-xl transition-transform">+</span>
                     </button>
                     <div class="hidden px-6 pb-4">
-                        <p class="text-emerald-200/70">
-                            শেখার সুবিধার্থে আমরা আপনাদের জন্য ১টি ফ্রি ট্রায়াল ক্লাস এর ব্যবস্থা রেখেছি যেখানে আপনি এবং আমাদের সম্মানিত উস্তাদ পরিচিত হতে পারবেন এবং আপনার কুরআন শেখার প্রথম যাত্রা শুরু হবে ইনশাল্লাহ । ট্রায়াল ক্লাসে আপনার যদি আমাদের কুরআনের শিক্ষক পছন্দ না হয় তাহলে আপনারা অবশ্যই আমাদের জানাবেন , আমরা ইনশাআল্লাহ তখন আপনার জন্য আরও ভাল শিক্ষক নিযুক্ত করব
+                        <p class="text-emerald-200/70" data-i18n="faq.q3.body"">
+                            শেখার সুবিধার্থে আমরা আপনাদের জন্য ১টি ফ্রি ট্রায়াল ক্লাসের ব্যবস্থা রেখেছি, যেখানে আপনি এবং আমাদের সম্মানিত উস্তাদ একে অপরের সঙ্গে পরিচিত হতে পারবেন। এর মাধ্যমে আপনার কুরআন শেখার প্রথম যাত্রা শুরু হবে, ইনশাআল্লাহ। ট্রায়াল ক্লাসে যদি আমাদের কুরআনের শিক্ষক আপনার পছন্দ না হয়, তাহলে অবশ্যই আমাদের জানাবেন। আমরা ইনশাআল্লাহ আপনার জন্য অন্য কোন ভালো শিক্ষক নিয়োগ করব।
                         </p>
                     </div>
                 </div>
@@ -1880,12 +1820,12 @@
                 <!-- FAQ Item 4 -->
                 <div class="fade-up bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl overflow-hidden" style="--delay: 0.6s;">
                     <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-emerald-900/40 transition-all" onclick="toggleFAQ(this)">
-                        <span class="text-white font-semibold">আপনাদের হাদিয়া কত ?</span>
+                        <span class="text-white font-semibold mx-auto" data-i18n="faq.q4.title">আপনাদের হাদিয়া কত?</span>
                         <span class="text-emerald-400 text-xl transition-transform">+</span>
                     </button>
                     <div class="hidden px-6 pb-4">
-                        <p class="text-emerald-200/70">
-                            আমাদের উদ্দেশ্যই হচ্ছে আপনাদের মত প্রবাসিদের মধ্যে কুরআন এর আলো পৌঁছিয়ে দেয়া ,কিন্তু এর জন্য আমাদের কিছু খরচ আছে যেইগুলো আমাদের নিজেদের পক্ষে বহন করা সম্ভব নই । আমাদের শিক্ষকদের হাদিয়া দিতে হই, যেহেতু অনলাইন ক্লাস তাই যেকোনো ধরনের technical সমস্যার জন্য technical expert রয়েছে , আপনাদের সার্বক্ষণিক সহায়তার জন্য রয়েছে আরও কিছু টিম মেম্বার । তার পরও আমরা যথেষ্ট কম খরচে আপনাদের কুরআন শেখার ব্যবস্থা করে থাকি । আমাদের হাদিয়ার পরিমাণটা নির্ধারিত হয় ক্লাস টাইম এর ওপর ভিত্তি করে ,তাই এই সম্পর্কে বিস্তারিত যানতে আমাদের whatsapp এ মেসেজ দিন
+                        <p class="text-emerald-200/70" data-i18n="faq.q4.body">
+                            আমাদের উদ্দেশ্যই হচ্ছে আপনাদের মতো প্রবাসীদের মধ্যে কুরআনের আলো পৌঁছে দেওয়া। কিন্তু এর জন্য আমাদের কিছু খরচ আছে, যেগুলো আমাদের নিজেদের পক্ষে বহন করা সম্ভব নয়। আমাদের শিক্ষকদের হাদিয়া দিতে হয়। যেহেতু অনলাইন ক্লাস, তাই যেকোনো ধরনের technical সমস্যার জন্য technical expert রয়েছে। আপনাদের সার্বক্ষণিক সহায়তার জন্য আরও কিছু টিম মেম্বার আছেন। তারপরও আমরা যথেষ্ট কম খরচে আপনাদের কুরআন শেখার ব্যবস্থা করে থাকি। আমাদের হাদিয়ার পরিমাণ নির্ধারিত হয় ক্লাসের সময়ের ওপর ভিত্তি করে। তাই এ সম্পর্কে বিস্তারিত জানতে আমাদের WhatsApp-এ মেসেজ দিন।
                         </p>
                     </div>
                 </div>
@@ -1893,24 +1833,24 @@
                 <!-- FAQ Item 5 -->
                 <div class="fade-up bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl overflow-hidden" style="--delay: 0.6s;">
                     <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-emerald-900/40 transition-all" onclick="toggleFAQ(this)">
-                        <span class="text-white font-semibold">ট্রায়াল ক্লাস এর পর কি করতে হবে?</span>
+                        <span class="text-white font-semibold mx-auto" data-i18n="faq.q5.title">ট্রায়াল ক্লাসের পর কি করতে হবে?</span>
                         <span class="text-emerald-400 text-xl transition-transform">+</span>
                     </button>
                     <div class="hidden px-6 pb-4">
-                        <p class="text-emerald-200/70">
-                            আপনার ট্রায়াল ক্লাস সম্পন্ন হলে আমরা আপনার সাথে পুনরাই যোগাযোগ করব ইনশাল্লাহ এবং তারপর আপনি কতসময় ধরে ক্লাস নিতে চান ,সপ্তাহে কইদিন ক্লাস নিতে চান এবং কি শিখতে চান এইগুলো জানার পর আমরা আপনাকে আমাদের হাদিয়া কত দিতে হবে এই সম্পর্কে অবহিত করব । তারপর আল্লাহর ইচ্ছাই সব ঠিক থাকলে আপনি আপনার কুরআন শেখার যাত্রা শুরু করবেন ইনশাল্লাহ
-                    </div>
+                        <p class="text-emerald-200/70" data-i18n="faq.q5.body">
+                            আপনার ট্রায়াল ক্লাস সম্পন্ন হলে আমরা আপনার সঙ্গে পুনরায় যোগাযোগ করব, ইনশাআল্লাহ। এরপর আপনি কত সময় ধরে ক্লাস নিতে চান, সপ্তাহে কয় দিন ক্লাস নিতে চান এবং কী শিখতে চান—এসব জানার পর আমরা আপনাকে আমাদের হাদিয়া কত দিতে হবে সে সম্পর্কে অবহিত করব। তারপর আল্লাহর ইচ্ছায় সব ঠিক থাকলে আপনি আপনার কুরআন শেখার যাত্রা শুরু করবেন, ইনশাআল্লাহ।
+                        </div>
                 </div>
 
                 <!-- FAQ Item 6 -->
                 <div class="fade-up bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl overflow-hidden" style="--delay: 0.6s;">
                     <button class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-emerald-900/40 transition-all" onclick="toggleFAQ(this)">
-                        <span class="text-white font-semibold">আপনাদের কিভাবে পেমেন্ট করব ?</span>
+                        <span class="text-white font-semibold mx-auto" data-i18n="faq.q6.title">আপনাদের কীভাবে পেমেন্ট করব?</span>
                         <span class="text-emerald-400 text-xl transition-transform">+</span>
                     </button>
                     <div class="hidden px-6 pb-4">
-                        <p class="text-emerald-200/70">
-                            আলহামদুলিল্লাহ আপনি আমাদের ব্যাংক অ্যাকাউন্টে অথবা বিকাশ /নগদ এর মাধ্যমেও পেমেন্ট করতে পারবেন
+                        <p class="text-emerald-200/70" data-i18n="faq.q6.body">
+                            আলহামদুলিল্লাহ, আপনি আমাদের ব্যাংক অ্যাকাউন্টে অথবা বিকাশ/নগদ-এর মাধ্যমেও পেমেন্ট করতে পারবেন।
                     </div>
                 </div>
             </div>
@@ -1931,13 +1871,13 @@
             <div class="text-center mb-16">
                 <div class="fade-in inline-flex items-center gap-3 px-4 py-2 rounded-full bg-emerald-900/30 backdrop-blur-sm border border-emerald-500/20 mb-6" 
                     style="--delay: 0.1s;">
-                    <span class="text-emerald-200 text-sm">২৪/৭ সহায়তা সেবা</span>
+                    <span class="text-emerald-200 text-sm" data-i18n="contact.badge">২৪/৭ সহায়তা সেবা</span>
                 </div>
                 
-                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.2s;">
-                    আমাদের সাথে <span class="text-emerald-400">যোগাযোগ</span> করুন
+                <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.2s;" data-i18n="contact.heading.before">
+                    আমাদের সাথে <span class="text-emerald-400" data-i18n="contact.heading.highlight">যোগাযোগ</span> <span data-i18n="contact.heading.after">করুন</span>
                 </h2>
-                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto text-lg" style="--delay: 0.3s;">
+                <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto text-lg" style="--delay: 0.3s;" data-i18n="contact.subtitle">
                     আপনার যেকোনো প্রশ্ন বা সহায়তার জন্য আমরা সবসময় প্রস্তুত
                 </p>
             </div>
@@ -1957,7 +1897,7 @@
                             <div>
                                 <h3 class="text-white font-semibold text-lg mb-1">WhatsApp</h3>
                                 <p class="text-emerald-200/70">+880 1345-291-197</p>
-                                <p class="text-emerald-400/70 text-sm mt-1">দ্রুত যোগাযোগের জন্য</p>
+                                <p class="text-emerald-400/70 text-sm mt-1" data-i18n="contact.whatsapp.note">দ্রুত যোগাযোগের জন্য</p>
                             </div>
                         </div>
                     </a>
@@ -1965,7 +1905,7 @@
 
                 <!-- Email Card -->
                 <div class="fade-in group" style="--delay: 0.5s;">
-                    <a href="mailto:info@daarulquran.com" 
+                    <a href="mailto:info@daarulquran.live" 
                     class="block bg-gradient-to-br from-amber-900/30 to-transparent border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400/40 hover:bg-amber-900/40 transition-all duration-300 h-full">
                         <div class="flex items-center gap-4">
                             <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform text-white">
@@ -1974,9 +1914,9 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-white font-semibold text-lg mb-1">ইমেইল</h3>
-                                <p class="text-emerald-200/70">info@daarulquran.com</p>
-                                <p class="text-amber-400/70 text-sm mt-1">বিস্তারিত প্রশ্নের জন্য</p>
+                                <h3 class="text-white font-semibold text-lg mb-1" data-i18n="contact.email.title">ইমেইল</h3>
+                                <p class="text-emerald-200/70">info@daarulquran.live</p>
+                                <p class="text-amber-400/70 text-sm mt-1" data-i18n="contact.email.note">বিস্তারিত প্রশ্নের জন্য</p>
                             </div>
                         </div>
                     </a>
@@ -1993,8 +1933,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-white font-semibold text-lg mb-1">অফিস ঠিকানা</h3>
-                                <p class="text-emerald-200/70 text-sm leading-relaxed">৪ ইব্রাহিম স্ট্রিট মিদানুল গাইশ এল-আব্বাসিয়া, এল-ওয়াইলি, কায়রো, মিশর</p>
+                                <h3 class="text-white font-semibold text-lg mb-1" data-i18n="contact.office.title">অফিস ঠিকানা</h3>
+                                <p class="text-emerald-200/70 text-sm leading-relaxed" data-i18n="contact.office.address">৪ ইব্রাহিম স্ট্রিট ময়দানুল গায়েশ এল-আব্বাসিয়া, এল-ওয়াইলি, কায়রো, মিশর</p>
                             </div>
                         </div>
                     </div>
@@ -2010,8 +1950,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-white font-semibold text-lg mb-1">সাপোর্ট সময়</h3>
-                                <p class="text-emerald-200/70">২৪/৭ সহায়তা সেবা</p>
+                                <h3 class="text-white font-semibold text-lg mb-1" data-i18n="contact.support.title">সাপোর্ট সময়</h3>
+                                <p class="text-emerald-200/70" data-i18n="contact.support.text">২৪/৭ সহায়তা সেবা</p>
                             </div>
                         </div>
                     </div>
@@ -2020,7 +1960,7 @@
 
             <!-- Social Media Section -->
             <div class="fade-in text-center" style="--delay: 0.8s;">
-                <p class="text-emerald-200/60 mb-6">আমাদের সাথে সংযুক্ত থাকুন</p>
+                <p class="text-emerald-200/60 mb-6" data-i18n="contact.social.cta">আমাদের সাথে সংযুক্ত থাকুন</p>
                 <div class="flex gap-4 justify-center">
                     <!-- Facebook -->
                     <a href="https://www.facebook.com/share/1B23j8TR4F/" 
@@ -2075,7 +2015,7 @@
                 <div class="absolute inset-0 map-overlay pointer-events-none"></div>
                 <div class="absolute bottom-4 left-4 bg-emerald-900/90 backdrop-blur-sm border border-emerald-500/30 rounded-xl p-4">
                     <p class="text-white font-semibold mb-1">Daarul Quran</p>
-                    <p class="text-emerald-200/70 text-sm">৪ ইব্রাহিম স্ট্রিট মিদানুল গাইশ এল-আব্বাসিয়া, এল-ওয়াইলি, কায়রো, মিশর</p>
+                    <p class="text-emerald-200/70 text-sm" data-i18n="contact.office.address">৪ ইব্রাহিম স্ট্রিট ময়দানুল গায়েশ এল-আব্বাসিয়া, এল-ওয়াইলি, কায়রো, মিশর</p>
                 </div>
             </div>
         </div>
@@ -2091,7 +2031,7 @@
                         <img src="assets/images/daarulquran.webp" loading="lazy" class="w-[70px] mb-2" alt="Daarul Quran Logo">
                         <span class="text-white font-bold text-xl">Daarul Quran</span>
                     </div>
-                <p class="text-emerald-200/70 text-base leading-relaxed max-w-2xl mx-auto">
+                <p class="text-emerald-200/70 text-base leading-relaxed max-w-2xl mx-auto" data-i18n="footer.about">
                     দারুল কুরআন একটি অনলাইন প্ল্যাটফর্ম, যেখানে আমাদের লক্ষ্য হচ্ছে সারা বিশ্বে 
                     কুরআনের জ্ঞান ছড়িয়ে দেওয়া। আমরা প্রথম অনলাইন প্ল্যাটফর্ম, যারা আপনার 
                     সুবিধাজনক সময়ে লাইভ ওয়ান-টু-ওয়ান কুরআন ক্লাস প্রদান করি। আপনি যেকোনো সময়
@@ -2106,19 +2046,18 @@
        <div class="pt-8 mt-8 border-t border-emerald-800/30">
             <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
                 <!-- Left Side -->
-                <p class="text-emerald-200 text-sm text-center md:text-left">
+                <p class="text-emerald-200 text-sm text-center md:text-left" data-i18n="footer.copyright">
                     © ২০২৫ Daarul Quran. সর্বস্বত্ব সংরক্ষিত।
                 </p>
                 
                 <!-- Right Side -->
                 <div class="flex flex-wrap justify-center md:justify-end gap-6">
-                    <a href="#" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm">শর্তাবলী</a>
-                    <a href="#" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm">প্রাইভেসি পলিসি</a>
-                    <a href="#" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm">রিফান্ড পলিসি</a>
+                    <a href="#" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm" data-i18n="footer.links.terms">শর্তাবলী</a>
+                    <a href="#" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm" data-i18n="footer.links.privacy">প্রাইভেসি পলিসি</a>
+                    <a href="#" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm" data-i18n="footer.links.refund">রিফান্ড পলিসি</a>
                 </div>
             </div>
         </div>
-
     </footer>
 
     <!-- Floating Action Buttons -->
@@ -2151,33 +2090,9 @@
 
     <script src="assets/js/intlTelInput.min.js"></script>
     <script src="assets/js/translations.js"></script>
-    <script src="assets/js/main.min.js"></script>
+    <!-- <script src="assets/js/main.min.js"></script> -->
+    <script src="assets/js/main.js"></script>
     
-    <script>
-        document.querySelector('form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const phone = iti.getNumber();
-
-            const data = { name, phone };
-
-            try {
-                const response = await fetch("https://script.google.com/macros/s/AKfycbxNbDiAWWnogWzoPCe8jUXfQFnsTXELNH2K_jQvenHZyhYV3p-sodlTVay8c-_jrS8OlA/exec", {
-                method: "POST",
-                body: JSON.stringify(data),
-                headers: { "Content-Type": "application/json" }
-                });
-
-                const result = await response.json();
-                console.log("Form Submitted:", result);
-                alert("ফর্ম সফলভাবে জমা হয়েছে!");
-            } catch (error) {
-                console.error("Error:", error);
-                alert("সাবমিশন ব্যর্থ হয়েছে!");
-            }
-            });
-    </script>
 
 </body>
 </html>
