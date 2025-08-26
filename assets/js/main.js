@@ -191,188 +191,25 @@
         // main section
         // Initialize intl-tel-input
         const phoneInput = document.querySelector("#phone");
+
         const iti = window.intlTelInput(phoneInput, {
-            // প্রথমে যে দেশগুলো দেখাবে
-            preferredCountries: ['bd', 'in', 'pk', 'sa', 'ae', 'us', 'gb'],
-            
-            // Country code আলাদা দেখাবে
+            preferredCountries: ['in', 'pk', 'sa', 'ae', 'us', 'gb'],
             separateDialCode: true,
-            
-            // সব দেশ দেখাবে
-            onlyCountries: [], // Empty array = all countries
-            
-            // অথবা specific দেশ exclude করতে চাইলে
-            // excludeCountries: ['il'], // Example: Israel exclude
-            
-            // Utilities script
+            onlyCountries: [],
             utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/25.5.2/build/js/utils.min.js",
-            
-            // Additional options
-            nationalMode: false, // Full international format
-            autoPlaceholder: "aggressive", // Placeholder দেখাবে
-            formatOnDisplay: true // Format করে দেখাবে
+            nationalMode: false,
+            autoPlaceholder: "aggressive",
+            formatOnDisplay: true,
+
+            // --- ভিজিটরের দেশ অটো-ডিটেক্ট ---
+            geoIpLookup: function (success, failure) {
+                fetch("https://ipapi.co/json/") // Free IP lookup API
+                    .then(res => res.json())
+                    .then(data => success(data.country_code.toLowerCase()))
+                    .catch(() => success("bd")); // fallback country যদি detect না হয়
+            }
         });
         
-        // Form submission handler - এই পুরো section টা replace করুন
-        document.querySelector('form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Get submit button
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.textContent;
-            
-            // Disable button and show loading
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="inline-block animate-spin mr-2">⌛</span> জমা হচ্ছে...';
-            
-            // Get form data
-            const name = document.getElementById('name').value.trim();
-            const fullNumber = iti.getNumber(); // Get full international number
-            
-            // Validate
-            if (!name || !fullNumber) {
-                alert('সকল ফিল্ড পূরণ করুন');
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
-                return;
-            }
-            
-            // Create FormData
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('phone', fullNumber);
-            
-            try {
-                // Method 1: Try with regular fetch first
-                const response = await fetch("https://script.google.com/macros/s/AKfycbzBhDok7UgIthqW38QwEwBISWadPJslpL6YDyIunJYxm5VOV6zssxn2AGq676bVUB-ktQ/exec", {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                if (response.ok) {
-                    // Success animation with GSAP
-                    gsap.timeline()
-                        .to(submitBtn, {
-                            backgroundColor: '#10b981',
-                            duration: 0.3
-                        })
-                        .to(submitBtn, {
-                            scale: 1.05,
-                            duration: 0.2,
-                            yoyo: true,
-                            repeat: 1
-                        });
-                    
-                    submitBtn.innerHTML = '✓ সফলভাবে জমা হয়েছে!';
-                    
-                    // Show success message
-                    const successMsg = document.createElement('div');
-                    successMsg.className = 'mt-4 p-4 bg-emerald-500/20 border border-emerald-500/50 rounded-lg text-emerald-200 text-sm';
-                    successMsg.innerHTML = 'ধন্যবাদ! আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।';
-                    this.appendChild(successMsg);
-                    
-                    // Animate success message
-                    gsap.from(successMsg, {
-                        opacity: 0,
-                        y: -20,
-                        duration: 0.5
-                    });
-                    
-                    // Reset form after 3 seconds
-                    setTimeout(() => {
-                        this.reset();
-                        iti.setCountry("bd");
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = originalBtnText;
-                        submitBtn.style.backgroundColor = '';
-                        successMsg.remove();
-                    }, 3000);
-                    
-                } else {
-                    throw new Error('Response not OK');
-                }
-                
-            } catch (error) {
-                console.error("Error:", error);
-                
-                // Try Method 2: no-cors mode as fallback
-                try {
-                    await fetch("https://script.google.com/macros/s/AKfycbzBhDok7UgIthqW38QwEwBISWadPJslpL6YDyIunJYxm5VOV6zssxn2AGq676bVUB-ktQ/exec", {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        body: formData
-                    });
-                    
-                    // Assume success since no-cors doesn't return response
-                    gsap.to(submitBtn, {
-                        backgroundColor: '#10b981',
-                        duration: 0.3
-                    });
-                    
-                    submitBtn.innerHTML = '✓ সফলভাবে জমা হয়েছে!';
-                    
-                    // Show success message
-                    const successMsg = document.createElement('div');
-                    successMsg.className = 'mt-4 p-4 bg-emerald-500/20 border border-emerald-500/50 rounded-lg text-emerald-200 text-sm';
-                    successMsg.innerHTML = 'ধন্যবাদ! আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব।';
-                    this.appendChild(successMsg);
-                    
-                    gsap.from(successMsg, {
-                        opacity: 0,
-                        y: -20,
-                        duration: 0.5
-                    });
-                    
-                    // Reset after 3 seconds
-                    setTimeout(() => {
-                        this.reset();
-                        iti.setCountry("bd");
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = originalBtnText;
-                        submitBtn.style.backgroundColor = '';
-                        successMsg.remove();
-                    }, 3000);
-                    
-                } catch (fallbackError) {
-                    // Error animation
-                    gsap.to(submitBtn, {
-                        backgroundColor: '#ef4444',
-                        duration: 0.3,
-                        yoyo: true,
-                        repeat: 1
-                    });
-                    
-                    submitBtn.innerHTML = '✗ সাবমিশন ব্যর্থ';
-                    
-                    // Show error message
-                    const errorMsg = document.createElement('div');
-                    errorMsg.className = 'mt-4 p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200 text-sm';
-                    errorMsg.innerHTML = 'দুঃখিত, কিছু সমস্যা হয়েছে। পুনরায় চেষ্টা করুন অথবা সরাসরি কল করুন।';
-                    this.appendChild(errorMsg);
-                    
-                    gsap.from(errorMsg, {
-                        opacity: 0,
-                        y: -20,
-                        duration: 0.5
-                    });
-                    
-                    // Reset button after 3 seconds
-                    setTimeout(() => {
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = originalBtnText;
-                        submitBtn.style.backgroundColor = '';
-                        errorMsg.remove();
-                    }, 3000);
-                }
-            }
-            
-            // Log for debugging
-            console.log('Form Data Submitted:', {
-                name: name,
-                phone: fullNumber,
-                timestamp: new Date().toISOString()
-            });
-        });
 
 
 
