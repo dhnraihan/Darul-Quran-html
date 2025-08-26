@@ -243,6 +243,16 @@
     
     <link rel="stylesheet" href="assets/css/style.min.css">
 
+    <style>
+        @keyframes fadeIn {
+        0% { opacity: 0; transform: translateY(10px); }
+        100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+        animation: fadeIn 1s ease-out forwards;
+        }
+    </style>
+
 </head>
 <body class="bg-gradient-to-b from-[#022c22] to-[#064e3b] min-h-screen">
 
@@ -1122,8 +1132,8 @@
             <span class="arabic-font text-amber-400 text-2xl">بِسْمِ اللَّهِ</span>
             <div class="w-12 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
         </div>
-        <h2 class="fade-in text-3xl md:text-5xl font-bold text-white mb-4" style="--delay: 0.2s;" data-i18n="teachers.heading">
-            আমাদের অভিজ্ঞ শিক্ষকবৃন্দ
+        <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 animate-fadeIn [animation-delay:0.2s]" data-i18n="teachers.heading">
+            আমাদের <span class="text-emerald-400">অভিজ্ঞ শিক্ষকবৃন্দ</span>
         </h2>
         <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto" style="--delay: 0.3s;" data-i18n="teachers.subtitle">
             আল-আজহার ও মদীনা বিশ্ববিদ্যালয় থেকে সনদপ্রাপ্ত উস্তাদগণ
