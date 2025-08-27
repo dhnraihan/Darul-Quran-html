@@ -190,25 +190,25 @@
 
         // main section
         // Initialize intl-tel-input
-        const phoneInput = document.querySelector("#phone");
+        // const phoneInput = document.querySelector("#phone");
 
-        const iti = window.intlTelInput(phoneInput, {
-            preferredCountries: ['in', 'pk', 'sa', 'ae', 'us', 'gb'],
-            separateDialCode: true,
-            onlyCountries: [],
-            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/25.5.2/build/js/utils.min.js",
-            nationalMode: false,
-            autoPlaceholder: "aggressive",
-            formatOnDisplay: true,
+        // const iti = window.intlTelInput(phoneInput, {
+        //     preferredCountries: ['in', 'pk', 'sa', 'ae', 'us', 'gb'],
+        //     separateDialCode: true,
+        //     onlyCountries: [],
+        //     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/25.5.2/build/js/utils.min.js",
+        //     nationalMode: false,
+        //     autoPlaceholder: "aggressive",
+        //     formatOnDisplay: true,
 
-            // --- ভিজিটরের দেশ অটো-ডিটেক্ট ---
-            geoIpLookup: function (success, failure) {
-                fetch("https://ipapi.co/json/") // Free IP lookup API
-                    .then(res => res.json())
-                    .then(data => success(data.country_code.toLowerCase()))
-                    .catch(() => success("bd")); // fallback country যদি detect না হয়
-            }
-        });
+        //     geoIpLookup: function (success, failure) {
+        //         fetch("https://ipapi.co/json/") // Free IP lookup API
+        //             .then(res => res.json())
+        //             .then(data => success(data.country_code.toLowerCase()))
+        //             .catch(() => success("bd")); // fallback country যদি detect না হয়
+        //     }
+        // });
+        
         
 
 

@@ -474,19 +474,6 @@
                                                 decoding="async">
                                             <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/40 to-transparent"></div>
                                         </div>
-
-                                        <!-- Floating badge -->
-                                        <!-- <div class="absolute -bottom-6 left-6 bg-white/10 backdrop-blur-sm border border-emerald-400/30 rounded-xl p-4">
-                                            <div class="flex items-center gap-3">
-                                                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center">
-                                                    <span class="text-white text-xl">🌙</span>
-                                                </div>
-                                                <div>
-                                                    <p class="text-white font-semibold">ফ্রি ট্রায়াল ক্লাস</p>
-                                                    <p class="text-emerald-200/70 text-sm">প্রথম ক্লাস সম্পূর্ণ বিনামূল্যে</p>
-                                                </div>
-                                            </div>
-                                        </div> -->
                                     </div>
                                 </div>
                                 
@@ -2096,6 +2083,26 @@
     <script src="assets/js/translations.js"></script>
     <!-- <script src="assets/js/main.min.js"></script> -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+        const phoneInput = document.querySelector("#phone");
+
+        const iti = window.intlTelInput(phoneInput, {
+            initialCountry: "auto", // এই লাইনটাই অটো-ডিটেক্ট চালু করবে
+            geoIpLookup: function (success, failure) {
+            fetch("https://ipapi.co/json/")
+                .then(res => res.json())
+                .then(data => success((data && data.country_code ? data.country_code : "BD").toLowerCase()))
+                .catch(() => success("bd")); // ফfallback বাংলাদেশ
+            },
+            preferredCountries: ['pk', 'sa', 'ae', 'us', 'gb'],
+            separateDialCode: true,
+            nationalMode: false,
+            autoPlaceholder: "aggressive",
+            formatOnDisplay: true,
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/25.5.2/build/js/utils.min.js",
+        });
+    </script>
     
 
 </body>
