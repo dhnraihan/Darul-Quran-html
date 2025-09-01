@@ -244,6 +244,84 @@
     <link rel="stylesheet" href="assets/css/style.min.css">
 
     <style>
+        /* Bank Modal Styles */
+        .bank-modal-open {
+            overflow: hidden;
+        }
+
+        #bankModal.show {
+            display: flex !important;
+        }
+
+        #bankModal.show #bankModalContent {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        /* Copy button animations */
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .copy-btn.copied {
+            background: rgba(34, 197, 94, 0.3) !important;
+        }
+
+        .copy-btn.copied svg {
+            color: #22c55e !important;
+        }
+
+        /* Toast animation */
+        .toast-show {
+            transform: translateX(0) !important;
+        }
+
+        /* Modal backdrop blur effect */
+        #bankModal {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            #bankModalContent {
+                margin: 1rem;
+                max-width: calc(100vw - 2rem);
+            }
+            
+            .bank-details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scrollbar for modal */
+        #bankModalContent::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #bankModalContent::-webkit-scrollbar-track {
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 3px;
+        }
+
+        #bankModalContent::-webkit-scrollbar-thumb {
+            background: rgba(16, 185, 129, 0.3);
+            border-radius: 3px;
+        }
+
+        #bankModalContent::-webkit-scrollbar-thumb:hover {
+            background: rgba(16, 185, 129, 0.5);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+
         @keyframes fadeIn {
         0% { opacity: 0; transform: translateY(10px); }
         100% { opacity: 1; transform: translateY(0); }
@@ -289,20 +367,28 @@
                         EN
                     </button>
                     <a href="index.html" data-i18n="nav.home" class="text-emerald-100/70 hover:text-white transition">হোম</a>
+                    <a href="mission.html" data-i18n="nav.mission" class="text-emerald-100/70 hover:text-white transition">মিশন ও ভিশন</a>
                     <a href="#contactForm" data-i18n="nav.start" class="px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg hover:shadow-emerald-500/25 transition">
                         শুরু করুন
                     </a>
                 </div>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="lg:hidden text-white p-2" aria-label="Open mobile menu">
-                    <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                    <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
+
+                <!-- Mobile Controls (Language Toggle + Menu Button) -->
+                <div class="lg:hidden flex items-center gap-3">
+                    <button id="langToggleMobile"
+                            class="px-3 py-2 rounded-full text-white border border-emerald-500/30 hover:bg-white/10 transition text-sm"
+                            aria-label="Toggle language">
+                        EN
+                    </button>
+                    <button id="mobileMenuBtn" class="text-white p-2" aria-label="Open mobile menu">
+                        <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
         
@@ -310,12 +396,9 @@
         <div id="mobileMenu" class="lg:hidden hidden">
             <div class="container mx-auto px-4 py-4 bg-[#022c22]/95 backdrop-blur-lg border-t border-emerald-800/20">
                 <div class="flex flex-col space-y-4">
-                    <button id="langToggleMobile"
-                            class="block text-center w-full py-3 bg-white/10 backdrop-blur-sm border border-emerald-400/30 text-white rounded-full hover:bg-white/20 transition-all">
-                        English
-                    </button>
-                    <a href="index.html" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">হোম</a>
-                    <a href="#contactForm" class="block text-center w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg hover:shadow-emerald-500/25 transition mt-4">
+                    <a href="index.html" data-i18n="nav.home" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">হোম</a>
+                    <a href="mission.html" data-i18n="nav.mission" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">মিশন ও ভিশন</a>
+                    <a href="#contactForm" data-i18n="nav.start" class="block text-center w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg hover:shadow-emerald-500/25 transition mt-4">
                         শুরু করুন
                     </a>
                 </div>
@@ -488,8 +571,10 @@
                                             <p class="text-emerald-200/70" data-i18n="form.subtitle">Daaul Quran আপনাদের জন্য ফ্রি মূল্যায়ন ক্লাস এর ব্যবস্থা রেখেছে নিচের ফর্মটি পূরণ করে আপনি আমাদের মূল্যায়ন ক্লাসে অংশগ্রহণ করতে পারেন ইনশাআল্লাহ</p>
                                         </div>
                                         
+                                        <!-- Success/Error Messages -->
+                                        <div id="formMessage" class="hidden mb-4 p-4 rounded-lg transition-all"></div>
                                         <!-- Form -->
-                                        <form class="space-y-6">
+                                        <form id="leadForm" class="space-y-6">
                                             <!-- Name Input -->
                                             <div>
                                                 <label for="name" class="block text-emerald-200 font-medium mb-2" data-i18n="form.name_label">
@@ -517,14 +602,24 @@
                                             </div>
                                             
                                             <!-- Submit Button -->
-                                            <button type="submit" data-i18n="form.submit"
-                                                    class="w-full py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-lg font-semibold text-lg hover:shadow-xl hover:shadow-emerald-500/30 transition-all transform hover:scale-[1.02]">
-                                                ফ্রি ট্রায়াল ক্লাস 
+                                            <button type="submit" 
+                                                    id="submitBtn"
+                                                    data-i18n="form.submit"
+                                                    class="w-full py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-lg font-semibold text-lg hover:shadow-xl hover:shadow-emerald-500/30 transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed">
+                                                <span id="btnText">ফ্রি ট্রায়াল ক্লাস</span>
+                                                <span id="btnLoader" class="hidden">
+                                                    <svg class="inline-block w-5 h-5 animate-spin mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                                    </svg>
+                                                    Processing...
+                                                </span>
                                             </button>
 
                                             <div class="bg-emerald-900/20 border border-emerald-500/20 rounded-lg p-4">
                                                 <p class="text-[0.65rem] text-emerald-100/70 leading-relaxed" data-i18n="form.note">
-                                                    বিঃদ্রঃ ফর্মের প্রথম ধাপ অর্থাৎ আপনার নাম ও মোবাইল নম্বর প্রদান করলে সেই তথ্য আমাদের কাছে চলে আসবে, ইনশাআল্লাহ। এছাড়াও, পরবর্তী ধাপে আপনি আপনার ইমেইল, ট্রায়াল ক্লাসের তারিখ ও সময় দিতে পারবেন। তবে সব ক্ষেত্রে আমরা প্রথমে আপনার সঙ্গে সরাসরি যোগাযোগ করব, কথা বলব ও বিস্তারিত জানাব, তারপরই ট্রায়াল ক্লাসের আয়োজন করা হবে, ইনশাআল্লাহ।
+                                                    বিঃদ্রঃ ফর্মের প্রথম ধাপ অর্থাৎ আপনার নাম ও মোবাইল নম্বর প্রদান করলে সেই তথ্য আমাদের কাছে চলে আসবে, ইনশাআল্লাহ। এছাড়াও, পরবর্তী ধাপে আপনি আপনার ইমেইল, ট্রায়াল ক্লাসের তারিখ ও সময় দিতে পারবেন। তবে সব ক্ষেত্রে আমরা প্রথমে আপনার সঙ্গে সরাসরি যোগাযোগ করব, কথা বলব ও বিস্তারিত জানাব, তারপরই ট্রায়াল ক্লাসের আয়োজন করা হবে, ইনশাআল্লাহ।
+                                                </p>
                                             </div>
                                         </form>
                                     </div>
@@ -693,16 +788,28 @@
                         <div class="items-center">
                             <div class="relative">
                                 <h3 class="text-2xl font-bold text-white text-center mb-4" data-i18n="about.learn_more">আমাদের সম্পর্কে জানুন</h3>
-                                <div class="aspect-video bg-emerald-900/50 rounded-2xl flex items-center justify-center">
-                                    
-                                    <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition cursor-pointer">
-                                        <span class="text-white text-3xl ml-2">▶</span>
+                                <div class="aspect-video bg-emerald-900/50 rounded-2xl overflow-hidden relative">
+                                    <!-- YouTube Video Container -->
+                                    <div id="video-container" class="w-full h-full">
+                                        <!-- Default video (Bengali) -->
+                                        <iframe id="youtube-player" 
+                                                data-src-bn="https://www.youtube-nocookie.com/embed/hboFXp_pcq8?si=H82JJeuMB_frMZT-"
+                                                data-src-en="https://www.youtube-nocookie.com/embed/_AbFXuGDRTs?si=yvNqdBwoo8_3-1_M"
+                                                class="w-full h-full" 
+                                                src="https://www.youtube-nocookie.com/embed/hboFXp_pcq8?si=H82JJeuMB_frMZT-"
+                                                title="YouTube video player" 
+                                                frameborder="0" 
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                referrerpolicy="strict-origin-when-cross-origin"
+                                                allowfullscreen>
+                                        </iframe>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
 
                 <!-- Language Section -->
                 <div class="mt-10">
@@ -901,7 +1008,7 @@
                         <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.qiraat.points.riwayat"> রেওয়ায়েত</span></li>
                         <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.qiraat.points.seven_ahruf"> আহরুফে সাব‌আ</span></li>
                         <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.qiraat.points.ikhtilaf"> ইফতিলাফখুল হুরুফ</span></li>
-                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.qiraat.points.maqamat"> মাক্বামাত</span></li>
+                        <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.common.maqamat"> মাক্বামাত</span></li>
                         <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.qiraat.points.imalah"> ইমালা</span></li>
                         <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.qiraat.points.tashkeel"> তাশকীলের পার্থক্য</span></li>
                         <li class="flex items-center gap-2 text-emerald-200/70 text-sm"><span class="text-amber-400">✓</span><span data-i18n="courses.common.makharij"> মাখরাজ</span></li>
@@ -945,22 +1052,22 @@
 
                 <!-- Stats -->
                 <div class="fade-up grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 mb-8" style="--delay: 1.5s;">
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">৮৫০+</div>
-                    <div class="text-sm text-emerald-200/60" data-i18n="stats.learners">সক্রিয় শিক্ষার্থী</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">১২০+</div>
-                    <div class="text-sm text-emerald-200/60" data-i18n="stats.teachers">অভিজ্ঞ শিক্ষকমণ্ডলী</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">২৪/৭</div>
-                    <div class="text-sm text-emerald-200/60" data-i18n="stats.support">সহায়তা সেবা</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1">১০০%</div>
-                    <div class="text-sm text-emerald-200/60" data-i18n="stats.satisfaction">সন্তুষ্টি</div>
-                </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1" data-localize-digits >৮৫০+</div>
+                        <div class="text-sm text-emerald-200/60" data-i18n="stats.learners">সক্রিয় শিক্ষার্থী</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1" data-localize-digits>১২০+</div>
+                        <div class="text-sm text-emerald-200/60" data-i18n="stats.teachers">অভিজ্ঞ শিক্ষকমণ্ডলী</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1" data-localize-digits>২৪/৭</div>
+                        <div class="text-sm text-emerald-200/60" data-i18n="stats.support">সহায়তা সেবা</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-amber-400 mb-1" data-localize-digits>১০০%</div>
+                        <div class="text-sm text-emerald-200/60" data-i18n="stats.satisfaction">সন্তুষ্টি</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1474,23 +1581,27 @@
 
                 <!-- Features Grid -->
                 <div class="grid md:grid-cols-3 gap-6 mt-16">
-                    <div class="fade-up bg-gradient-to-br text-center from-emerald-900/30 to-transparent border border-emerald-500/20 rounded-2xl p-6" style="--delay: 0.7s;">
-                        <div class="text-3xl mb-4">📱</div>
-                        <h3 class="text-lg font-semibold text-white mb-2" data-i18n="process.feature.app.title">মোবাইল অ্যাপ</h3>
-                        <p class="text-emerald-200/60 text-sm" data-i18n="process.feature.app.desc">যেকোনো স্থান থেকে শিখুন</p>
-                    </div>
-
-                    <div class="fade-up bg-gradient-to-br text-center from-amber-900/30 to-transparent border border-amber-500/20 rounded-2xl p-6" style="--delay: 0.8s;">
-                        <div class="text-3xl mb-4">🎥</div>
-                        <h3 class="text-lg font-semibold text-white mb-2" data-i18n="process.feature.recorded.title">রেকর্ডেড ক্লাস</h3>
-                        <p class="text-emerald-200/60 text-sm" data-i18n="process.feature.recorded.desc">মিস করলে পরে দেখুন</p>
-                    </div>
-
-                    <div class="fade-up bg-gradient-to-br text-center from-emerald-900/30 to-transparent border border-emerald-500/20 rounded-2xl p-6" style="--delay: 0.9s;">
-                        <div class="text-3xl mb-4">📚</div>
-                        <h3 class="text-lg font-semibold text-white mb-2" data-i18n="process.feature.ebooks.title">ই-বুক সংগ্রহ</h3>
-                        <p class="text-emerald-200/60 text-sm" data-i18n="process.feature.ebooks.desc">বিনামূল্যে স্টাডি ম্যাটেরিয়াল</p>
-                    </div>
+                    <a href="#contactForm">
+                        <div class="fade-up bg-gradient-to-br text-center from-emerald-900/30 to-transparent border border-emerald-500/20 rounded-2xl p-6" style="--delay: 0.7s;">
+                            <div class="text-3xl mb-4">📱</div>
+                            <h3 class="text-lg font-semibold text-white mb-2" data-i18n="process.feature.app.title">মোবাইল অ্যাপ</h3>
+                            <p class="text-emerald-200/60 text-sm" data-i18n="process.feature.app.desc">যেকোনো স্থান থেকে শিখুন</p>
+                        </div>
+                    </a>
+                    <a href="#contactForm"> 
+                        <div class="fade-up bg-gradient-to-br text-center from-amber-900/30 to-transparent border border-amber-500/20 rounded-2xl p-6" style="--delay: 0.8s;">
+                            <div class="text-3xl mb-4">🎥</div>
+                            <h3 class="text-lg font-semibold text-white mb-2" data-i18n="process.feature.recorded.title">রেকর্ডেড ক্লাস</h3>
+                            <p class="text-emerald-200/60 text-sm" data-i18n="process.feature.recorded.desc">মিস করলে পরে দেখুন</p>
+                        </div>
+                    </a>
+                    <a href="#contactForm">
+                        <div class="fade-up bg-gradient-to-br text-center from-emerald-900/30 to-transparent border border-emerald-500/20 rounded-2xl p-6" style="--delay: 0.9s;">
+                            <div class="text-3xl mb-4">📚</div>
+                            <h3 class="text-lg font-semibold text-white mb-2" data-i18n="process.feature.ebooks.title">ই-বুক সংগ্রহ</h3>
+                            <p class="text-emerald-200/60 text-sm" data-i18n="process.feature.ebooks.desc">বিনামূল্যে স্টাডি ম্যাটেরিয়াল</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -1607,8 +1718,6 @@
                     <span class="text-emerald-400" data-i18n="services.heading.highlight">সেবাসমূহ</span>
                 </h2>
 
-
-
                 <p class="fade-in text-emerald-200/60 max-w-2xl mx-auto text-lg" style="--delay: 0.3s;" data-i18n="services.subtitle">
                     ইসলামি শিক্ষা, দাওয়াহ (الدعوة) এবং মানবসেবায় আমাদের বিশেষ কার্যক্রম
                 </p>
@@ -1641,7 +1750,7 @@
                             <p class="text-emerald-200/70 text-sm leading-relaxed mb-6" data-i18n="services.quran.desc">
                                 আলহামদুলিল্লাহ, আমরা শিশু থেকে প্রাপ্তবয়স্ক সবার জন্য কুরআন শিক্ষার ব্যবস্থা করেছি। এ মহৎ কাজে আপনিও অংশ নিতে পারেন।
                             </p>
-                            <button class="w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all transform hover:scale-105" data-i18n="services.quran.cta">
+                            <button id="donationBtn" class="w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all transform hover:scale-105" data-i18n="services.quran.cta">
                                 স্পনসর করুন
                             </button>
                         </div>
@@ -1672,7 +1781,7 @@
                             <p class="text-emerald-200/70 text-sm leading-relaxed mb-6" data-i18n="services.aqidah.desc">
                                 আমরা ইসলামের মৌলিক আকিদাগুলো শিক্ষাদান করে থাকি, যাতে একজন মুসলিম ইসলাম সম্পর্কে আরও গভীরভাবে জানতে সক্ষম হয়।
                             </p>
-                            <button class="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-amber-500/25 transition-all transform hover:scale-105" data-i18n="services.aqidah.cta"">
+                            <button id="donationBtn" class="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-amber-500/25 transition-all transform hover:scale-105" data-i18n="services.aqidah.cta">
                                 এখনই দান করুন
                             </button>
                         </div>
@@ -1703,7 +1812,7 @@
                             <p class="text-emerald-200/70 text-sm leading-relaxed mb-6" data-i18n="services.activities.desc">
                                 আমাদের সীমিত সামর্থ্য নিয়েও আমরা ইসলামের সৌন্দর্য ছড়িয়ে দিতে চেষ্টা করছি। মুসলিম কমিউনিটিতে দাওয়াহ ও সচেতনতা তৈরি করে যাচ্ছি।
                             </p>
-                            <button class="w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all transform hover:scale-105" data-i18n="services.activities.cta">
+                            <button id="donationBtn" class="w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all transform hover:scale-105" data-i18n="services.activities.cta">
                                 আমাদের সাথে যুক্ত হন
                             </button>
                         </div>
@@ -1734,7 +1843,7 @@
                             <p class="text-emerald-200/70 text-sm leading-relaxed mb-6" data-i18n="services.humanitarian.desc">
                                 আমরা দারিদ্র্য বিমোচন, অতি-দরিদ্র মেয়েদের বিবাহ, ইয়াতিমদের ভরণ-পোষণ এবং গৃহহীন জনগোষ্ঠীর জন্য ঘর নির্মাণের উদ্যোগ গ্রহণ করছি।
                             </p>
-                            <button class="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-amber-500/25 transition-all transform hover:scale-105" data-i18n="services.humanitarian.cta">
+                            <button id="donationBtn" class="w-full py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-amber-500/25 transition-all transform hover:scale-105" data-i18n="services.humanitarian.cta">
                                 সহযোগী হোন
                             </button>
                         </div>
@@ -1747,7 +1856,7 @@
                 <div class="fade-up inline-flex flex-col items-center gap-4 bg-gradient-to-br from-emerald-900/30 to-transparent backdrop-blur-sm border border-emerald-500/20 rounded-3xl p-8" style="--delay: 0.8s;">
                     <p class="text-emerald-200/70 text-lg" data-i18n="services.bottom.join_text">আমাদের সঙ্গে যুক্ত হয়ে ইসলামের খেদমতে অংশগ্রহণ করুন।</p>
                     <div class="flex flex-wrap gap-4 justify-center">
-                        <a href="tel:+88001345291197" class="px-8 py-3 bg-white/10 backdrop-blur-sm border border-emerald-400/30 text-white rounded-full font-semibold hover:bg-white/20 transition-all" data-i18n="services.bottom.contact">
+                        <a href="tel:+8801345291197" class="px-8 py-3 bg-white/10 backdrop-blur-sm border border-emerald-400/30 text-white rounded-full font-semibold hover:bg-white/20 transition-all" data-i18n="services.bottom.contact">
                             যোগাযোগ করুন
                         </a>
                     </div>
@@ -1755,6 +1864,7 @@
             </div>
         </div>
     </section>
+    
 
     <!-- FAQ Section -->
     <section id="faq" class="relative py-20 overflow-hidden bg-gradient-to-b from-[#064e3b] to-[#022c22]">
@@ -2045,7 +2155,6 @@
                 <div class="flex flex-wrap justify-center md:justify-end gap-6">
                     <a href="#" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm" data-i18n="footer.links.terms">শর্তাবলী</a>
                     <a href="#" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm" data-i18n="footer.links.privacy">প্রাইভেসি পলিসি</a>
-                    <a href="#" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm" data-i18n="footer.links.refund">রিফান্ড পলিসি</a>
                 </div>
             </div>
         </div>
@@ -2079,31 +2188,472 @@
         </a>
     </div>
 
-    <script src="assets/js/intlTelInput.min.js"></script>
+    <!-- Bank Details Modal -->
+    <div id="bankModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] hidden items-center justify-center p-4">
+        <div class="bg-gradient-to-br from-emerald-900/95 to-green-900/95 backdrop-blur-xl rounded-2xl border border-emerald-500/30 max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl transform transition-all duration-300 scale-95 opacity-0" id="bankModalContent">
+            
+            <!-- Header -->
+            <div class="relative p-6 pb-4 border-b border-emerald-500/20">
+                <div class="flex items-center gap-3 mb-2">
+                    <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white" data-i18n="donation.bank.heading">ব্যাংক তথ্য</h3>
+                        <p class="text-emerald-300/70 text-sm" data-i18n="donation.bank.subtitle">Bank Details for Donation</p>
+                    </div>
+                </div>
+                
+                <!-- Close Button -->
+                <button id="closeBankModal" class="absolute top-4 right-4 w-8 h-8 bg-emerald-500/20 hover:bg-emerald-500/40 rounded-lg flex items-center justify-center transition-colors group">
+                    <svg class="w-5 h-5 text-emerald-300 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Bank Details Content -->
+            <div class="p-6 space-y-4">
+                
+                <!-- Bank Name -->
+                <div class="bg-emerald-800/30 rounded-xl p-4 border border-emerald-500/20">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <label class="text-emerald-300/70 text-xs font-medium uppercase tracking-wide">Bank Name</label>
+                            <p class="text-white font-semibold text-lg" id="bankName">NRB Bank</p>
+                        </div>
+                        <button class="copy-btn w-8 h-8 bg-emerald-500/20 hover:bg-emerald-500/40 rounded-lg flex items-center justify-center transition-colors" data-copy="NRB Bank">
+                            <svg class="w-4 h-4 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Branch Name -->
+                <div class="bg-emerald-800/30 rounded-xl p-4 border border-emerald-500/20">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <label class="text-emerald-300/70 text-xs font-medium uppercase tracking-wide">Branch Name</label>
+                            <p class="text-white font-semibold text-lg">Ishwardi</p>
+                        </div>
+                        <button class="copy-btn w-8 h-8 bg-emerald-500/20 hover:bg-emerald-500/40 rounded-lg flex items-center justify-center transition-colors" data-copy="Ishwardi">
+                            <svg class="w-4 h-4 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Account Name -->
+                <div class="bg-amber-800/30 rounded-xl p-4 border border-amber-500/20">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <label class="text-amber-300/70 text-xs font-medium uppercase tracking-wide">Account Name</label>
+                            <p class="text-white font-semibold text-lg">DAARULQURAN</p>
+                        </div>
+                        <button class="copy-btn w-8 h-8 bg-amber-500/20 hover:bg-amber-500/40 rounded-lg flex items-center justify-center transition-colors" data-copy="DAARULQURAN">
+                            <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Account Number -->
+                <div class="bg-blue-800/30 rounded-xl p-4 border border-blue-500/20">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <label class="text-blue-300/70 text-xs font-medium uppercase tracking-wide">Account Number</label>
+                            <p class="text-white font-semibold text-lg font-mono">6022210086360</p>
+                        </div>
+                        <button class="copy-btn w-8 h-8 bg-blue-500/20 hover:bg-blue-500/40 rounded-lg flex items-center justify-center transition-colors" data-copy="6022210086360">
+                            <svg class="w-4 h-4 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Customer ID -->
+                <div class="bg-purple-800/30 rounded-xl p-4 border border-purple-500/20">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <label class="text-purple-300/70 text-xs font-medium uppercase tracking-wide">Customer ID</label>
+                            <p class="text-white font-semibold text-lg font-mono">0355234/0355261</p>
+                        </div>
+                        <button class="copy-btn w-8 h-8 bg-purple-500/20 hover:bg-purple-500/40 rounded-lg flex items-center justify-center transition-colors" data-copy="0355234/0355261">
+                            <svg class="w-4 h-4 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- R.M. Code -->
+                <div class="bg-indigo-800/30 rounded-xl p-4 border border-indigo-500/20">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <label class="text-indigo-300/70 text-xs font-medium uppercase tracking-wide">R.M. Code</label>
+                            <p class="text-white font-semibold text-lg font-mono">11908</p>
+                        </div>
+                        <button class="copy-btn w-8 h-8 bg-indigo-500/20 hover:bg-indigo-500/40 rounded-lg flex items-center justify-center transition-colors" data-copy="11908">
+                            <svg class="w-4 h-4 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SWIFT Code -->
+                <div class="bg-red-800/30 rounded-xl p-4 border border-red-500/20">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <label class="text-red-300/70 text-xs font-medium uppercase tracking-wide">SWIFT Code</label>
+                            <p class="text-white font-semibold text-lg font-mono">NRBDBDDH</p>
+                        </div>
+                        <button class="copy-btn w-8 h-8 bg-red-500/20 hover:bg-red-500/40 rounded-lg flex items-center justify-center transition-colors" data-copy="NRBDBDDH">
+                            <svg class="w-4 h-4 text-red-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Routing Number -->
+                <div class="bg-green-800/30 rounded-xl p-4 border border-green-500/20">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <label class="text-green-300/70 text-xs font-medium uppercase tracking-wide">Routing Number</label>
+                            <p class="text-white font-semibold text-lg font-mono">290761212</p>
+                        </div>
+                        <button class="copy-btn w-8 h-8 bg-green-500/20 hover:bg-green-500/40 rounded-lg flex items-center justify-center transition-colors" data-copy="290761212">
+                            <svg class="w-4 h-4 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Copy All Button -->
+                <div class="pt-4 border-t border-emerald-500/20">
+                    <button id="copyAllBtn" class="w-full py-3 bg-gradient-to-r from-emerald-500 to-green-500 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all transform hover:scale-105 flex items-center justify-center gap-2" data-i18n="donation.copy_all" data-i18n-aria-label="donation.copy_all.aria" aria-label="সব তথ্য কপি করুন">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        সব তথ্য কপি করুন
+                    </button>
+                </div>
+
+                <!-- Note -->
+                <div class="bg-amber-900/20 border border-amber-500/30 rounded-xl p-4">
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-amber-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-amber-300 font-medium text-sm mb-1" data-i18n="donation.note.title">দয়া করে মনে রাখুন</h4>
+                            <p class="text-amber-200/70 text-xs leading-relaxed" data-i18n="donation.note.desc">
+                                অনুদানের পর অনুগ্রহ করে আমাদের সাথে যোগাযোগ করুন এবং transaction ID প্রদান করুন।
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="copyToast" class="fixed top-4 right-4 bg-emerald-600 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-[10000]">
+        <div class="flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span data-i18n="ui.copied">কপি হয়েছে!</span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <!-- <script src="assets/js/intlTelInput.min.js"></script> -->
     <script src="assets/js/translations.js"></script>
     <!-- <script src="assets/js/main.min.js"></script> -->
     <script src="assets/js/main.js"></script>
 
     <script>
-        const phoneInput = document.querySelector("#phone");
+        // Bank Modal Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const donationBtn = document.getElementById('donationBtn');
+            const bankModal = document.getElementById('bankModal');
+            const bankModalContent = document.getElementById('bankModalContent');
+            const closeBankModal = document.getElementById('closeBankModal');
+            const copyBtns = document.querySelectorAll('.copy-btn');
+            const copyAllBtn = document.getElementById('copyAllBtn');
+            const copyToast = document.getElementById('copyToast');
 
-        const iti = window.intlTelInput(phoneInput, {
-            initialCountry: "auto", // এই লাইনটাই অটো-ডিটেক্ট চালু করবে
-            geoIpLookup: function (success, failure) {
-            fetch("https://ipapi.co/json/")
-                .then(res => res.json())
-                .then(data => success((data && data.country_code ? data.country_code : "BD").toLowerCase()))
-                .catch(() => success("bd")); // ফfallback বাংলাদেশ
-            },
-            // preferredCountries: ['pk', 'sa', 'ae', 'us', 'gb'],
-            separateDialCode: true,
-            nationalMode: false,
-            autoPlaceholder: "aggressive",
-            formatOnDisplay: true,
-            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/25.5.2/build/js/utils.min.js",
+            // Open modal
+            if (donationBtn && bankModal) {
+                donationBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openBankModal();
+                });
+            }
+
+            // Close modal
+            if (closeBankModal) {
+                closeBankModal.addEventListener('click', closeBankModalFn);
+            }
+
+            // Close on backdrop click
+            if (bankModal) {
+                bankModal.addEventListener('click', function(e) {
+                    if (e.target === bankModal) {
+                        closeBankModalFn();
+                    }
+                });
+            }
+
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && bankModal && !bankModal.classList.contains('hidden')) {
+                    closeBankModalFn();
+                }
+            });
+
+            // Copy individual items
+            copyBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const textToCopy = this.getAttribute('data-copy');
+                    copyToClipboard(textToCopy, this);
+                });
+            });
+
+            // Copy all information
+            if (copyAllBtn) {
+                copyAllBtn.addEventListener('click', function() {
+                    const allBankInfo = `
+        Bank Details - DAARULQURAN
+        =====================================
+        Bank Name: NRB Bank
+        Branch Name: Ishwardi
+        Account Name: DAARULQURAN
+        Account Number: 6022210086360
+        Customer ID: 0355234/0355261
+        R.M. Code: 11908
+        SWIFT Code: NRBDBDDH
+        Routing Number: 290761212
+        =====================================
+                    `.trim();
+                    
+                    copyToClipboard(allBankInfo, this);
+                });
+            }
+
+            // Functions
+            function openBankModal() {
+                bankModal.classList.remove('hidden');
+                bankModal.classList.add('show');
+                document.body.classList.add('bank-modal-open');
+                
+                // Animate in
+                setTimeout(() => {
+                    if (bankModalContent) {
+                        bankModalContent.style.transform = 'scale(1)';
+                        bankModalContent.style.opacity = '1';
+                    }
+                }, 10);
+            }
+
+            function closeBankModalFn() {
+                if (bankModalContent) {
+                    bankModalContent.style.transform = 'scale(0.95)';
+                    bankModalContent.style.opacity = '0';
+                }
+                
+                setTimeout(() => {
+                    bankModal.classList.add('hidden');
+                    bankModal.classList.remove('show');
+                    document.body.classList.remove('bank-modal-open');
+                }, 300);
+            }
+
+            function copyToClipboard(text, button) {
+                // Try the modern approach first
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        showCopySuccess(button);
+                        showToast();
+                    }).catch(err => {
+                        // Fallback to older method
+                        fallbackCopyTextToClipboard(text, button);
+                    });
+                } else {
+                    // Fallback for older browsers
+                    fallbackCopyTextToClipboard(text, button);
+                }
+            }
+
+            function fallbackCopyTextToClipboard(text, button) {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                
+                // Avoid scrolling to bottom
+                textArea.style.top = "0";
+                textArea.style.left = "0";
+                textArea.style.position = "fixed";
+                textArea.style.opacity = "0";
+                
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful) {
+                        showCopySuccess(button);
+                        showToast();
+                    }
+                } catch (err) {
+                    console.error('Fallback: Oops, unable to copy', err);
+                }
+                
+                document.body.removeChild(textArea);
+            }
+
+            function showCopySuccess(button) {
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.classList.remove('copied');
+                }, 1000);
+            }
+
+            function showToast() {
+                if (copyToast) {
+                    copyToast.classList.add('toast-show');
+                    setTimeout(() => {
+                        copyToast.classList.remove('toast-show');
+                    }, 2000);
+                }
+            }
         });
-    </script>
-    
 
+        // আপনার deployment URL
+        const GSCRIPT_URL = "https://script.google.com/macros/s/AKfycbwpP_P0g4WmUb2DjEqsWhm-hi5XYJ7XtW_ik__wzX6FKfDws9hgf-cXRGkbSFq6EvWUJQ/exec";
+        
+        // Initialize intl-tel-input
+        const phoneInput = document.querySelector("#phone");
+        const iti = window.intlTelInput(phoneInput, {
+            initialCountry: "bd",
+            // preferredCountries: ['bd', 'pk', 'sa', 'ae', 'us', 'gb'],
+            separateDialCode: true,
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            try {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'জমা হচ্ছে...';
+                
+                const name = document.getElementById('name').value;
+                const phoneNumber = iti.getNumber();
+                const countryData = iti.getSelectedCountryData();
+                
+                // ⚠️ IMPORTANT: Use URLSearchParams, NOT FormData!
+                const params = new URLSearchParams();
+                params.append('name', name);
+                params.append('phone', phoneNumber);
+                params.append('countryName', countryData.name || 'Unknown');
+                params.append('countryCode', countryData.iso2 || 'XX');
+                
+                // Send request
+                await fetch(GSCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',  // Important for Google Apps Script
+                    body: params      // URLSearchParams, not FormData!
+                });
+                
+                // Success message
+                showSuccessMessage();
+                
+                // Reset form
+                this.reset();
+                iti.setCountry("bd");
+                
+                // Optional: Check sheet after 2 seconds
+                setTimeout(() => {
+                    console.log('✅ Data should be in your Google Sheet now!');
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                showErrorMessage();
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+        
+        // Success message function
+        function showSuccessMessage() {
+            // Create or update message div
+            let msgDiv = document.getElementById('formMessage');
+            if (!msgDiv) {
+                msgDiv = document.createElement('div');
+                msgDiv.id = 'formMessage';
+                document.querySelector('form').parentNode.insertBefore(msgDiv, document.querySelector('form'));
+            }
+            
+            msgDiv.className = 'mb-4 p-4 rounded-lg bg-green-500/20 border border-green-500/30 text-green-200';
+            msgDiv.innerHTML = `
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>✅ আপনার তথ্য সফলভাবে জমা হয়েছে! আমরা শীঘ্রই যোগাযোগ করব।</span>
+                </div>
+            `;
+            msgDiv.style.display = 'block';
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                msgDiv.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Error message function
+        function showErrorMessage() {
+            let msgDiv = document.getElementById('formMessage');
+            if (!msgDiv) {
+                msgDiv = document.createElement('div');
+                msgDiv.id = 'formMessage';
+                document.querySelector('form').parentNode.insertBefore(msgDiv, document.querySelector('form'));
+            }
+            
+            msgDiv.className = 'mb-4 p-4 rounded-lg bg-red-500/20 border border-red-500/30 text-red-200';
+            msgDiv.innerHTML = `
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>❌ কিছু সমস্যা হয়েছে। আবার চেষ্টা করুন।</span>
+                </div>
+            `;
+            msgDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                msgDiv.style.display = 'none';
+            }, 5000);
+        }
+    </script>
 </body>
 </html>

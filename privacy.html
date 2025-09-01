@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>প্রাইভেসি পলিসি - দারুল কুরআন একাডেমি | Privacy Policy</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="দারুল কুরআন একাডেমির প্রাইভেসি পলিসি। আমরা কীভাবে আপনার ব্যক্তিগত তথ্য সংগ্রহ, ব্যবহার এবং সুরক্ষা করি তা জানুন।">
+    <meta name="keywords" content="দারুল কুরআন, প্রাইভেসি পলিসি, ডেটা সুরক্ষা, ব্যক্তিগত তথ্য, অনলাইন কুরআন শিক্ষা">
+    <meta name="author" content="Daarul Quran Academy">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="প্রাইভেসি পলিসি - দারুল কুরআন একাডেমি">
+    <meta property="og:description" content="দারুল কুরআন একাডেমির প্রাইভেসি পলিসি। আমরা কীভাবে আপনার ব্যক্তিগত তথ্য সংগ্রহ, ব্যবহার এবং সুরক্ষা করি তা জানুন।">
+    <meta property="og:image" content="https://daarulquran.live/assets/images/daarulquran.webp">
+    <meta property="og:url" content="https://daarulquran.live/privacy.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Daarul Quran Academy">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="প্রাইভেসি পলিসি - দারুল কুরআন একাডেমি">
+    <meta name="twitter:description" content="দারুল কুরআন একাডেমির প্রাইভেসি পলিসি। আমরা কীভাবে আপনার ব্যক্তিগত তথ্য সংগ্রহ, ব্যবহার এবং সুরক্ষা করি তা জানুন।">
+    <meta name="twitter:image" content="https://daarulquran.live/assets/images/daarulquran.webp">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/daarulquran.webp">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://daarulquran.live/privacy.html">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="assets/images/daarulquran.webp" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
+            overflow-x: hidden;
+            background: #022c22;
+            line-height: 1.6;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #064e3b 0%, #022c22 100%);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(16, 185, 129, 0.3);
+            border-top: 4px solid #10b981;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Screen Reader Only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #064e3b;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #059669;
+        }
+
+        /* Mobile Menu Animation */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+
+        .mobile-menu.show {
+            max-height: 500px;
+        }
+
+        /* TOC Styles */
+        .toc-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .toc-link:hover {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: rgba(16, 185, 129, 0.3);
+            transform: translateX(5px);
+        }
+
+        .toc-link.active {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(34, 197, 94, 0.2));
+            border-color: rgba(16, 185, 129, 0.5);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+        }
+
+        .toc-link.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(to bottom, #10b981, #22c55e);
+        }
+
+        .toc-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 8px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .toc-link:hover .toc-number {
+            background: rgba(16, 185, 129, 0.3);
+            transform: scale(1.1);
+        }
+
+        .toc-link.active .toc-number {
+            background: linear-gradient(135deg, #10b981, #22c55e);
+            color: white;
+        }
+
+        .toc-text {
+            flex: 1;
+            color: rgba(209, 250, 229, 0.8);
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .toc-link:hover .toc-text {
+            color: #10b981;
+        }
+
+        .toc-link.active .toc-text {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .toc-arrow {
+            width: 16px;
+            height: 16px;
+            color: rgba(16, 185, 129, 0.4);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .toc-link:hover .toc-arrow {
+            opacity: 1;
+            transform: translateX(0);
+            color: #10b981;
+        }
+
+        .toc-link.active .toc-arrow {
+            opacity: 1;
+            transform: translateX(0);
+            color: #10b981;
+        }
+
+        /* Policy content styles */
+        .policy-content h1 {
+            color: #10b981;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .policy-content h2 {
+            color: #10b981;
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(16, 185, 129, 0.3);
+            scroll-margin-top: 100px;
+        }
+
+        .policy-content h3 {
+            color: #34d399;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            scroll-margin-top: 100px;
+        }
+
+        .policy-content h4 {
+            color: #6ee7b7;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .policy-content p {
+            color: rgba(209, 250, 229, 0.9);
+            margin-bottom: 1.25rem;
+            line-height: 1.8;
+        }
+
+        .policy-content ul {
+            color: rgba(209, 250, 229, 0.9);
+            margin-left: 2rem;
+            margin-bottom: 1.25rem;
+            list-style-type: disc;
+        }
+
+        .policy-content li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .policy-content li p {
+            margin-bottom: 0.5rem;
+        }
+
+        .policy-content strong {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .policy-content a {
+            color: #10b981;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        .policy-content a:hover {
+            color: #34d399;
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .policy-content h1 {
+                font-size: 2rem;
+            }
+            
+            .policy-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .policy-content h3 {
+                font-size: 1.25rem;
+            }
+
+            .policy-content {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .policy-content {
+                padding: 1rem;
+            }
+
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        .toc-link:focus,
+        button:focus,
+        a:focus {
+            outline: 2px solid #10b981;
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .policy-content {
+                background: #000;
+                color: #fff;
+            }
+            
+            .toc-link {
+                background: #000;
+                border: 2px solid #fff;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-emerald-950 via-emerald-900 to-green-950">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen" aria-hidden="true">
+        <div class="loader" role="status" aria-label="Loading page content"></div>
+    </div>
+
+    <!-- Skip to main content link for screen readers -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-emerald-600 text-white px-4 py-2 rounded">
+        Skip to main content
+    </a>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-[#022c22]/80 border-b border-emerald-800/20" role="navigation" aria-label="Main navigation">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <a href="index.html" class="flex items-center gap-2" aria-label="Go to homepage">
+                        <img src="assets/images/daarulquran.webp" 
+                             loading="eager" 
+                             class="w-[60px]" 
+                             alt="Daarul Quran Academy Logo"
+                             width="60" 
+                             height="60">
+                        <span class="text-white font-semibold text-lg">Daarul Quran</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="index.html" class="text-emerald-100/70 hover:text-white transition">Home</a>
+                    <a href="mission.html" class="text-emerald-100/70 hover:text-white transition">Mission & Vision</a>
+                    <a href="index.html#contactForm" class="px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg hover:shadow-emerald-500/25 transition">
+                        শুরু করুন
+                    </a>
+                </div>
+
+                <!-- Mobile Controls -->
+                <div class="lg:hidden flex items-center gap-3">
+                    <button id="langToggleMobile"
+                            class="px-3 py-2 rounded-full text-white border border-emerald-500/30 hover:bg-white/10 transition text-sm"
+                            aria-label="Toggle language between English and Bengali">
+                        EN
+                    </button>
+                    <button id="mobileMenuBtn" 
+                            class="text-white p-2" 
+                            aria-label="Open mobile menu"
+                            aria-expanded="false"
+                            aria-controls="mobileMenu">
+                        <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="lg:hidden mobile-menu" aria-hidden="true">
+            <div class="container mx-auto px-4 py-4 bg-[#022c22]/95 backdrop-blur-lg border-t border-emerald-800/20">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">Home</a>
+                    <a href="mission.html" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">Mission & Vision</a>
+                    <a href="index.html#contactForm" class="block text-center w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg hover:shadow-emerald-500/25 transition mt-4">
+                        Start Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-[30vh] flex items-center justify-center overflow-hidden mt-16">
+        <!-- Animated Background -->
+        <div class="absolute inset-0" aria-hidden="true">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-emerald-500/10 rounded-full filter blur-3xl float-animation"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-green-500/10 rounded-full filter blur-3xl float-animation" style="animation-delay: 3s;"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <div class="hero-content">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-emerald-500 to-green-500 rounded-2xl mb-6 shadow-2xl shadow-emerald-500/30">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Privacy Policy
+                </h1>
+                <p class="text-xl text-emerald-200/80">Your privacy is important to us</p>
+                <div class="mt-4 text-sm text-emerald-300/60">
+                    <time datetime="2025-08-30">Last updated: August 30, 2025</time>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative py-12" id="main-content">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-4 gap-8">
+                
+                <!-- Mobile TOC -->
+                <div class="lg:hidden col-span-full mb-6">
+                    <div class="bg-emerald-900/40 backdrop-blur-xl rounded-xl border border-emerald-500/30 overflow-hidden">
+                        <details class="group">
+                            <summary class="flex items-center justify-between cursor-pointer p-4 text-emerald-200 font-semibold hover:bg-emerald-500/10 transition">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                                        </svg>
+                                    </div>
+                                    <span>🛡️ Quick Navigation</span>
+                                </div>
+                                <svg class="w-5 h-5 transform group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </summary>
+                            <div class="px-4 pb-4">
+                                <nav class="space-y-2" role="navigation" aria-label="Mobile table of contents">
+                                    <a href="#interpretation" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">1. Interpretation & Definitions</a>
+                                    <a href="#collecting" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">2. Collecting Your Data</a>
+                                    <a href="#use" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">3. Use of Personal Data</a>
+                                    <a href="#retention" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">4. Data Retention</a>
+                                    <a href="#transfer" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">5. Data Transfer</a>
+                                    <a href="#delete" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">6. Delete Your Data</a>
+                                    <a href="#disclosure" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">7. Data Disclosure</a>
+                                    <a href="#security" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">8. Data Security</a>
+                                    <a href="#children" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">9. Children's Privacy</a>
+                                    <a href="#changes" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">10. Policy Changes</a>
+                                    <a href="#contact-info" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">11. Contact Us</a>
+                                </nav>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Desktop TOC Sidebar -->
+                <aside class="lg:col-span-1" aria-label="Desktop table of contents">
+                    <div class="sticky top-24 bg-gradient-to-br from-emerald-900/40 to-green-900/40 backdrop-blur-lg rounded-2xl p-6 border border-emerald-500/30 shadow-xl shadow-emerald-900/50 hidden lg:block">
+                        
+                        <!-- Header with Icon -->
+                        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-emerald-500/20">
+                            <div class="w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-bold text-white">Quick Navigation</h2>
+                                <p class="text-xs text-emerald-300/60 mt-1">Jump to section</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Navigation Links -->
+                        <nav class="space-y-2" role="navigation" aria-label="Desktop table of contents">
+                            <a href="#interpretation" class="toc-link group">
+                                <span class="toc-number">01</span>
+                                <span class="toc-text">Interpretation & Definitions</span>
+                                <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                            
+                            <a href="#collecting" class="toc-link group">
+                                <span class="toc-number">02</span>
+                                <span class="toc-text">Collecting Your Data</span>
+                                <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                            
+                            <a href="#use" class="toc-link group">
+                                <span class="toc-number">03</span>
+                                <span class="toc-text">Use of Personal Data</span>
+                                <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                            
+                            <a href="#retention" class="toc-link group">
+                                <span class="toc-number">04</span>
+                                <span class="toc-text">Data Retention</span>
+                                <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                            
+                            <a href="#transfer" class="toc-link group">
+                                <span class="toc-number">05</span>
+                                <span class="toc-text">Data Transfer</span>
+                                <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                            
+                            <a href="#delete" class="toc-link group">
+                                <span class="toc-number">06</span>
+                                <span class="toc-text">Delete Your Data</span>
+                                <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                            
+                            <a href="#disclosure" class="toc-link group">
+                                <span class="toc-number">07</span>
+                                <span class="toc-text">Data Disclosure</span>
+                                <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                            
+                            <a href="#security" class="toc-link group">
+                                <span class="toc-number">08</span>
+                                <span class="toc-text">Data Security</span>
+                                <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                            
+                            <a href="#children" class="toc-link group">
+                                <span class="toc-number">09</span>
+                                <span class="toc-text">Children's Privacy</span>
+                                <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                            
+                            <a href="#changes" class="toc-link group">
+                                <span class="toc-number">10</span>
+                                <span class="toc-text">Policy Changes</span>
+                                <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                            
+                            <a href="#contact-info" class="toc-link group">
+                                <span class="toc-number">11</span>
+                                <span class="toc-text">Contact Us</span>
+                                <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </nav>
+                        
+                        <!-- Progress Indicator -->
+                        <div class="mt-6 pt-6 border-t border-emerald-500/20">
+                            <div class="flex items-center justify-between text-xs text-emerald-300/60 mb-2">
+                                <span>Reading Progress</span>
+                                <span id="progress-percentage" aria-live="polite">0%</span>
+                            </div>
+                            <div class="w-full h-2 bg-emerald-900/30 rounded-full overflow-hidden">
+                                <div id="progress-bar" 
+                                     class="h-full bg-gradient-to-r from-emerald-500 to-green-500 rounded-full transition-all duration-300" 
+                                     style="width: 0%"
+                                     role="progressbar"
+                                     aria-valuemin="0"
+                                     aria-valuemax="100"
+                                     aria-valuenow="0"></div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Policy Content -->
+                <div class="lg:col-span-3">
+                    <article class="bg-emerald-900/30 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-emerald-500/20 policy-content">
+                        
+                        <h1>Privacy Policy</h1>
+                        <p><strong>Last updated:</strong> <time datetime="2025-08-30">August 30, 2025</time></p>
+                        <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>
+                        <p>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy.</p>
+                        
+                        <h2 id="interpretation">Interpretation and Definitions</h2>
+                        <h3>Interpretation</h3>
+                        <p>The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
+                        
+                        <h3>Definitions</h3>
+                        <p>For the purposes of this Privacy Policy:</p>
+                        <ul>
+                            <li>
+                                <p><strong>Account</strong> means a unique account created for You to access our Service or parts of our Service.</p>
+                            </li>
+                            <li>
+                                <p><strong>Affiliate</strong> means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</p>
+                            </li>
+                            <li>
+                                <p><strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Daarul Quran Academy.</p>
+                            </li>
+                            <li>
+                                <p><strong>Cookies</strong> are small files that are placed on Your computer, mobile device or any other device by a website, containing the details of Your browsing history on that website among its many uses.</p>
+                            </li>
+                            <li>
+                                <p><strong>Country</strong> refers to: Bangladesh</p>
+                            </li>
+                            <li>
+                                <p><strong>Device</strong> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</p>
+                            </li>
+                            <li>
+                                <p><strong>Personal Data</strong> is any information that relates to an identified or identifiable individual.</p>
+                            </li>
+                            <li>
+                                <p><strong>Service</strong> refers to the Website.</p>
+                            </li>
+                            <li>
+                                <p><strong>Service Provider</strong> means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used.</p>
+                            </li>
+                            <li>
+                                <p><strong>Third-party Social Media Service</strong> refers to any website or any social network website through which a User can log in or create an account to use the Service.</p>
+                            </li>
+                            <li>
+                                <p><strong>Usage Data</strong> refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).</p>
+                            </li>
+                            <li>
+                                <p><strong>Website</strong> refers to Daarul Quran Academy, accessible from <a href="https://daarulquran.live/" rel="external nofollow noopener" target="_blank">https://daarulquran.live/</a></p>
+                            </li>
+                            <li>
+                                <p><strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</p>
+                            </li>
+                        </ul>
+
+                        <h2 id="collecting">Collecting and Using Your Personal Data</h2>
+                        <h3>Types of Data Collected</h3>
+                        
+                        <h4>Personal Data</h4>
+                        <p>While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:</p>
+                        <ul>
+                            <li>
+                                <p>Email address</p>
+                            </li>
+                            <li>
+                                <p>First name and last name</p>
+                            </li>
+                            <li>
+                                <p>Phone number</p>
+                            </li>
+                            <li>
+                                <p>Address, State, Province, ZIP/Postal code, City</p>
+                            </li>
+                            <li>
+                                <p>Usage Data</p>
+                            </li>
+                        </ul>
+
+                        <h4>Usage Data</h4>
+                        <p>Usage Data is collected automatically when using the Service.</p>
+                        <p>Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>
+                        <p>When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.</p>
+                        <p>We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p>
+
+                        <h4>Information from Third-Party Social Media Services</h4>
+                        <p>The Company allows You to create an account and log in to use the Service through the following Third-party Social Media Services:</p>
+                        <ul>
+                            <li>Google</li>
+                            <li>Facebook</li>
+                            <li>Instagram</li>
+                            <li>Twitter</li>
+                            <li>LinkedIn</li>
+                        </ul>
+                        <p>If You decide to register through or otherwise grant us access to a Third-Party Social Media Service, We may collect Personal data that is already associated with Your Third-Party Social Media Service's account, such as Your name, Your email address, Your activities or Your contact list associated with that account.</p>
+                        <p>You may also have the option of sharing additional information with the Company through Your Third-Party Social Media Service's account. If You choose to provide such information and Personal Data, during registration or otherwise, You are giving the Company permission to use, share, and store it in a manner consistent with this Privacy Policy.</p>
+
+                        <h4>Tracking Technologies and Cookies</h4>
+                        <p>We use Cookies and similar tracking technologies to track the activity on Our Service and store certain information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyze Our Service. The technologies We use may include:</p>
+                        <ul>
+                            <li><strong>Cookies or Browser Cookies.</strong> A cookie is a small file placed on Your Device. You can instruct Your browser to refuse all Cookies or to indicate when a Cookie is being sent. However, if You do not accept Cookies, You may not be able to use some parts of our Service. Unless you have adjusted Your browser setting so that it will refuse Cookies, our Service may use Cookies.</li>
+                            <li><strong>Web Beacons.</strong> Certain sections of our Service and our emails may contain small electronic files known as web beacons (also referred to as clear gifs, pixel tags, and single-pixel gifs) that permit the Company, for example, to count users who have visited those pages or opened an email and for other related website statistics (for example, recording the popularity of a certain section and verifying system and server integrity).</li>
+                        </ul>
+                        <p>Cookies can be "Persistent" or "Session" Cookies. Persistent Cookies remain on Your personal computer or mobile device when You go offline, while Session Cookies are deleted as soon as You close Your web browser.</p>
+                        <p>We use both Session and Persistent Cookies for the purposes set out below:</p>
+                        <ul>
+                            <li>
+                                <p><strong>Necessary / Essential Cookies</strong></p>
+                                <p>Type: Session Cookies</p>
+                                <p>Administered by: Us</p>
+                                <p>Purpose: These Cookies are essential to provide You with services available through the Website and to enable You to use some of its features. They help to authenticate users and prevent fraudulent use of user accounts. Without these Cookies, the services that You have asked for cannot be provided, and We only use these Cookies to provide You with those services.</p>
+                            </li>
+                            <li>
+                                <p><strong>Cookies Policy / Notice Acceptance Cookies</strong></p>
+                                <p>Type: Persistent Cookies</p>
+                                <p>Administered by: Us</p>
+                                <p>Purpose: These Cookies identify if users have accepted the use of cookies on the Website.</p>
+                            </li>
+                            <li>
+                                <p><strong>Functionality Cookies</strong></p>
+                                <p>Type: Persistent Cookies</p>
+                                <p>Administered by: Us</p>
+                                <p>Purpose: These Cookies allow us to remember choices You make when You use the Website, such as remembering your login details or language preference. The purpose of these Cookies is to provide You with a more personal experience and to avoid You having to re-enter your preferences every time You use the Website.</p>
+                            </li>
+                        </ul>
+                        <p>For more information about the cookies we use and your choices regarding cookies, please visit our Cookies Policy or the Cookies section of our Privacy Policy.</p>
+
+                        <h3 id="use">Use of Your Personal Data</h3>
+                        <p>The Company may use Personal Data for the following purposes:</p>
+                        <ul>
+                            <li>
+                                <p><strong>To provide and maintain our Service</strong>, including to monitor the usage of our Service.</p>
+                            </li>
+                            <li>
+                                <p><strong>To manage Your Account:</strong> to manage Your registration as a user of the Service. The Personal Data You provide can give You access to different functionalities of the Service that are available to You as a registered user.</p>
+                            </li>
+                            <li>
+                                <p><strong>For the performance of a contract:</strong> the development, compliance and undertaking of the purchase contract for the products, items or services You have purchased or of any other contract with Us through the Service.</p>
+                            </li>
+                            <li>
+                                <p><strong>To contact You:</strong> To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile application's push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation.</p>
+                            </li>
+                            <li>
+                                <p><strong>To provide You</strong> with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless You have opted not to receive such information.</p>
+                            </li>
+                            <li>
+                                <p><strong>To manage Your requests:</strong> To attend and manage Your requests to Us.</p>
+                            </li>
+                            <li>
+                                <p><strong>For business transfers:</strong> We may use Your information to evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of Our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which Personal Data held by Us about our Service users is among the assets transferred.</p>
+                            </li>
+                            <li>
+                                <p><strong>For other purposes</strong>: We may use Your information for other purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Service, products, services, marketing and your experience.</p>
+                            </li>
+                        </ul>
+                        <p>We may share Your personal information in the following situations:</p>
+                        <ul>
+                            <li><strong>With Service Providers:</strong> We may share Your personal information with Service Providers to monitor and analyze the use of our Service, to contact You.</li>
+                            <li><strong>For business transfers:</strong> We may share or transfer Your personal information in connection with, or during negotiations of, any merger, sale of Company assets, financing, or acquisition of all or a portion of Our business to another company.</li>
+                            <li><strong>With Affiliates:</strong> We may share Your information with Our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include Our parent company and any other subsidiaries, joint venture partners or other companies that We control or that are under common control with Us.</li>
+                            <li><strong>With business partners:</strong> We may share Your information with Our business partners to offer You certain products, services or promotions.</li>
+                            <li><strong>With other users:</strong> when You share personal information or otherwise interact in the public areas with other users, such information may be viewed by all users and may be publicly distributed outside. If You interact with other users or register through a Third-Party Social Media Service, Your contacts on the Third-Party Social Media Service may see Your name, profile, pictures and description of Your activity. Similarly, other users will be able to view descriptions of Your activity, communicate with You and view Your profile.</li>
+                            <li><strong>With Your consent</strong>: We may disclose Your personal information for any other purpose with Your consent.</li>
+                        </ul>
+
+                        <h3 id="retention">Retention of Your Personal Data</h3>
+                        <p>The Company will retain Your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use Your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.</p>
+                        <p>The Company will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of Our Service, or We are legally obligated to retain this data for longer time periods.</p>
+
+                        <h3 id="transfer">Transfer of Your Personal Data</h3>
+                        <p>Your information, including Personal Data, is processed at the Company's operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction.</p>
+                        <p>Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.</p>
+                        <p>The Company will take all steps reasonably necessary to ensure that Your data is treated securely and in accordance with this Privacy Policy and no transfer of Your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of Your data and other personal information.</p>
+
+                        <h3 id="delete">Delete Your Personal Data</h3>
+                        <p>You have the right to delete or request that We assist in deleting the Personal Data that We have collected about You.</p>
+                        <p>Our Service may give You the ability to delete certain information about You from within the Service.</p>
+                        <p>You may update, amend, or delete Your information at any time by signing in to Your Account, if you have one, and visiting the account settings section that allows you to manage Your personal information. You may also contact Us to request access to, correct, or delete any personal information that You have provided to Us.</p>
+                        <p>Please note, however, that We may need to retain certain information when we have a legal obligation or lawful basis to do so.</p>
+
+                        <h3 id="disclosure">Disclosure of Your Personal Data</h3>
+                        <h4>Business Transactions</h4>
+                        <p>If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. We will provide notice before Your Personal Data is transferred and becomes subject to a different Privacy Policy.</p>
+                        <h4>Law enforcement</h4>
+                        <p>Under certain circumstances, the Company may be required to disclose Your Personal Data if required to do so by law or in response to valid requests by public authorities (e.g. a court or a government agency).</p>
+                        <h4>Other legal requirements</h4>
+                        <p>The Company may disclose Your Personal Data in the good faith belief that such action is necessary to:</p>
+                        <ul>
+                            <li>Comply with a legal obligation</li>
+                            <li>Protect and defend the rights or property of the Company</li>
+                            <li>Prevent or investigate possible wrongdoing in connection with the Service</li>
+                            <li>Protect the personal safety of Users of the Service or the public</li>
+                            <li>Protect against legal liability</li>
+                        </ul>
+
+                        <h3 id="security">Security of Your Personal Data</h3>
+                        <p>The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means to protect Your Personal Data, We cannot guarantee its absolute security.</p>
+
+                        <h2>Detailed Information on the Processing of Your Personal Data</h2>
+                        <p>The Service Providers We use may have access to Your Personal Data. These third-party vendors collect, store, use, process and transfer information about Your activity on Our Service in accordance with their Privacy Policies.</p>
+                        
+                        <h3>Usage, Performance and Miscellaneous</h3>
+                        <p>We may use third-party Service Providers to maintain and improve our Service.</p>
+                        
+                        <div class="bg-emerald-800/20 rounded-xl p-6 my-6 border border-emerald-500/20">
+                            <h4 class="text-emerald-300 font-semibold mb-4">Third-Party Services We Use:</h4>
+                            <ul class="space-y-4">
+                                <li>
+                                    <p><strong>Google Analytics</strong></p>
+                                    <p>Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google uses the data collected to track and monitor the use of our Service.</p>
+                                    <p>You may opt-out of having made your activity on the Service available to Google Analytics by installing the Google Analytics opt-out browser add-on.</p>
+                                    <p>For more information on the privacy practices of Google, please visit the Google Privacy & Terms web page: <a href="https://policies.google.com/privacy" rel="external nofollow noopener" target="_blank">https://policies.google.com/privacy</a></p>
+                                </li>
+                                <li>
+                                    <p><strong>Email Services</strong></p>
+                                    <p>We use third-party email services to send you emails. These services may have access to your email address and name for the purpose of sending emails.</p>
+                                    <p>We ensure that these service providers maintain appropriate security measures to protect your information.</p>
+                                </li>
+                                <li>
+                                    <p><strong>Payment Processing</strong></p>
+                                    <p>We may use third-party payment processors to process payments. These processors may collect payment information in accordance with their own privacy policies.</p>
+                                    <p>We do not store your payment information on our servers.</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <h2 id="children">Children's Privacy</h2>
+                        <p>Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has provided Us with Personal Data, please contact Us. If We become aware that We have collected Personal Data from anyone under the age of 13 without verification of parental consent, We take steps to remove that information from Our servers.</p>
+                        <p>If We need to rely on consent as a legal basis for processing Your information and Your country requires consent from a parent, We may require Your parent's consent before We collect and use that information.</p>
+
+                        <h2>Links to Other Websites</h2>
+                        <p>Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third party's site. We strongly advise You to review the Privacy Policy of every site You visit.</p>
+                        <p>We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.</p>
+
+                        <h2 id="changes">Changes to this Privacy Policy</h2>
+                        <p>We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page.</p>
+                        <p>We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the "Last updated" date at the top of this Privacy Policy.</p>
+                        <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+
+                        <h2 id="contact-info">Contact Us</h2>
+                        <p>If you have any questions about this Privacy Policy, You can contact us:</p>
+                        
+                        <div class="bg-gradient-to-br from-emerald-800/30 to-green-800/30 rounded-xl p-6 mt-6 border border-emerald-500/30">
+                            <address class="not-italic">
+                                <ul class="space-y-4">
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-emerald-200 text-sm font-medium mb-1">Email:</p>
+                                            <a href="mailto:info@daarulquran.live" class="text-emerald-400 hover:text-emerald-300 text-lg transition">info@daarulquran.live</a>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-emerald-200 text-sm font-medium mb-1">Website:</p>
+                                            <a href="https://daarulquran.live/" rel="external nofollow noopener" target="_blank" class="text-emerald-400 hover:text-emerald-300 text-lg transition">https://daarulquran.live/</a>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-emerald-200 text-sm font-medium mb-1">Phone:</p>
+                                            <a href="tel:+8801345291197" class="text-emerald-400 hover:text-emerald-300 text-lg transition">+880 1345 291197</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </address>
+                        </div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" 
+            class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-full shadow-lg shadow-emerald-500/30 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 z-40"
+            aria-label="Back to top">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer class="relative pb-10 pt-4 bg-[#011a14] border-t border-emerald-800/20">
+        <div class="px-4">
+            <div class="text-center">
+                <div>
+                    <div class="flex flex-col items-center mb-4">
+                        <img src="assets/images/daarulquran.webp" 
+                             loading="lazy" 
+                             class="w-[70px] mb-2" 
+                             alt="Daarul Quran Academy Logo"
+                             width="70"
+                             height="70">
+                        <span class="text-white font-bold text-xl">Daarul Quran</span>
+                    </div>
+                    <p class="text-emerald-200/70 text-base leading-relaxed max-w-2xl mx-auto">
+                        Daarul Quran is an online platform whose aim is to spread the knowledge of the Quran across the world. We are the first online platform to offer live one-to-one Quran classes at your convenient time. You can join our live classes at any time. Our expert teachers will teach you the Quran correctly so that you can recite the Noble Book without mistakes.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="pt-8 mt-8 border-t border-emerald-800/30">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-emerald-200 text-sm text-center md:text-left">
+                    © 2025 Daarul Quran Academy. All rights reserved.
+                </p>
+                
+                <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                    <a href="terms.html" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm">Terms & Conditions</a>
+                    <a href="privacy.html" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-[6rem] right-8 flex flex-col gap-3 z-40">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/88001345291197" class="group">
+            <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:shadow-green-500/30 transform hover:scale-110 transition-all">
+                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+            </div>
+            <span class="absolute right-16 top-1/2 transform -translate-y-1/2 bg-black/80 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                WhatsApp এ চ্যাট করুন
+            </span>
+        </a>
+
+        <!-- Call Button -->
+        <a href="tel:+88001345291197" class="group">
+            <div class="w-14 h-14 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:shadow-emerald-500/30 transform hover:scale-110 transition-all">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+            </div>
+            <span class="absolute right-16 top-1/2 transform -translate-y-1/2 bg-black/80 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                সরাসরি কল করুন
+            </span>
+        </a>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Error handling wrapper
+        function safeExecute(func, errorMsg = 'Error occurred') {
+            try {
+                return func();
+            } catch (error) {
+                console.warn(errorMsg, error);
+                return null;
+            }
+        }
+
+        // Safe DOM selector
+        function safeQuerySelector(selector) {
+            return safeExecute(() => document.querySelector(selector), `Selector not found: ${selector}`);
+        }
+
+        function safeQuerySelectorAll(selector) {
+            return safeExecute(() => document.querySelectorAll(selector), `Selectors not found: ${selector}`) || [];
+        }
+
+        // Throttle function for performance
+        function throttle(func, limit) {
+            let inThrottle;
+            return function(...args) {
+                if (!inThrottle) {
+                    func.apply(this, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            }
+        }
+
+        // Mobile Menu functionality
+        const mobileMenuBtn = safeQuerySelector('#mobileMenuBtn');
+        const mobileMenu = safeQuerySelector('#mobileMenu');
+        const menuIcon = safeQuerySelector('#menuIcon');
+        const closeIcon = safeQuerySelector('#closeIcon');
+
+        if (mobileMenuBtn && mobileMenu && menuIcon && closeIcon) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('show');
+                
+                if (!isOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('show');
+                    mobileMenu.setAttribute('aria-hidden', 'false');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                    menuIcon.classList.add('hidden');
+                    closeIcon.classList.remove('hidden');
+                } else {
+                    mobileMenu.classList.remove('show');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                }
+            });
+
+            // Close on link click
+            safeQuerySelectorAll('#mobileMenu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('show');
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                });
+            });
+        }
+
+        // Reading Progress Bar and Back to Top
+        const progressBar = safeQuerySelector('#progress-bar');
+        const progressPercentage = safeQuerySelector('#progress-percentage');
+        const backToTopBtn = safeQuerySelector('#backToTop');
+
+        const handleScroll = throttle(() => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Reading Progress
+            if (progressBar && progressPercentage) {
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = height > 0 ? (scrollTop / height) * 100 : 0;
+                const roundedProgress = Math.round(Math.min(scrolled, 100));
+                
+                progressBar.style.width = roundedProgress + '%';
+                progressBar.setAttribute('aria-valuenow', roundedProgress);
+                progressPercentage.textContent = roundedProgress + '%';
+            }
+            
+            // Back to Top Button
+            if (backToTopBtn) {
+                if (scrollTop > 300) {
+                    backToTopBtn.style.opacity = '1';
+                    backToTopBtn.style.pointerEvents = 'auto';
+                } else {
+                    backToTopBtn.style.opacity = '0';
+                    backToTopBtn.style.pointerEvents = 'none';
+                }
+            }
+        }, 16); // ~60fps
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        // Back to top click handler
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Active section highlighting
+        const sections = safeQuerySelectorAll('h2[id], h3[id]');
+        const tocLinks = safeQuerySelectorAll('.toc-link');
+
+        if (sections.length > 0 && tocLinks.length > 0) {
+            const observerOptions = {
+                rootMargin: '-100px 0px -70% 0px',
+                threshold: 0
+            };
+
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            
+                            tocLinks.forEach(link => {
+                                link.classList.remove('active');
+                                if (link.getAttribute('href') === `#${id}`) {
+                                    link.classList.add('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                sections.forEach(section => {
+                    observer.observe(section);
+                });
+            } else {
+                // Fallback for older browsers
+                window.addEventListener('scroll', throttle(() => {
+                    const scrollTop = window.pageYOffset + 150;
+                    
+                    sections.forEach(section => {
+                        const offsetTop = section.offsetTop;
+                        const height = section.offsetHeight;
+                        const id = section.getAttribute('id');
+                        
+                        if (scrollTop >= offsetTop && scrollTop < offsetTop + height) {
+                            tocLinks.forEach(link => {
+                                link.classList.remove('active');
+                                if (link.getAttribute('href') === `#${id}`) {
+                                    link.classList.add('active');
+                                }
+                            });
+                        }
+                    });
+                }, 100));
+            }
+        }
+
+        // Smooth scroll on click
+        tocLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = safeQuerySelector(targetId);
+                
+                if (targetElement) {
+                    const offsetTop = targetElement.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Loading screen
+        window.addEventListener('load', () => {
+            const loadingScreen = safeQuerySelector('#loadingScreen');
+            if (loadingScreen) {
+                setTimeout(() => {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                        initAnimations();
+                    }, 500);
+                }, 800);
+            } else {
+                initAnimations();
+            }
+        });
+
+        // Animation initialization
+        function initAnimations() {
+            // Load GSAP conditionally
+            if (typeof gsap !== 'undefined') {
+                // Hero animation
+                gsap.from('.hero-content', {
+                    opacity: 0,
+                    y: 50,
+                    duration: 1,
+                    delay: 0.3,
+                    ease: 'power3.out'
+                });
+
+                // Policy content animation
+                gsap.from('.policy-content', {
+                    opacity: 0,
+                    y: 30,
+                    duration: 1,
+                    delay: 0.5,
+                    ease: 'power2.out'
+                });
+
+                // TOC animation
+                gsap.from('.toc-link', {
+                    opacity: 0,
+                    x: -20,
+                    duration: 0.5,
+                    stagger: 0.05,
+                    delay: 0.7,
+                    ease: 'power2.out'
+                });
+
+                // ScrollTrigger for headings
+                if (typeof ScrollTrigger !== 'undefined') {
+                    gsap.registerPlugin(ScrollTrigger);
+                    
+                    safeQuerySelectorAll('.policy-content h2').forEach(heading => {
+                        gsap.from(heading, {
+                            scrollTrigger: {
+                                trigger: heading,
+                                start: 'top 85%',
+                                toggleActions: 'play none none reverse'
+                            },
+                            opacity: 0,
+                            x: -30,
+                            duration: 0.6,
+                            ease: 'power2.out'
+                        });
+                    });
+
+                    ScrollTrigger.refresh();
+                }
+            }
+        }
+
+        // Language toggle (placeholder)
+        const langToggle = safeQuerySelector('#langToggle');
+        const langToggleMobile = safeQuerySelector('#langToggleMobile');
+
+        [langToggle, langToggleMobile].forEach(btn => {
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    const currentLang = btn.textContent.trim();
+                    btn.textContent = currentLang === 'EN' ? 'বাং' : 'EN';
+                });
+            }
+        });
+
+        // Keyboard navigation for accessibility
+        document.addEventListener('keydown', (e) => {
+            // ESC to close mobile menu
+            if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('show')) {
+                mobileMenuBtn.click();
+            }
+        });
+
+        // Error boundary for unhandled errors
+        window.addEventListener('error', (e) => {
+            console.error('Global error:', e.error);
+            // Graceful degradation - ensure basic functionality works
+        });
+
+        // Load external scripts asynchronously
+        function loadScript(src, callback) {
+            const script = document.createElement('script');
+            script.src = src;
+            script.async = true;
+            script.onload = callback;
+            script.onerror = () => console.warn(`Failed to load script: ${src}`);
+            document.head.appendChild(script);
+        }
+
+        // Load GSAP after page load for better performance
+        if (typeof gsap === 'undefined') {
+            loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js', () => {
+                loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js', () => {
+                    if (document.readyState === 'complete') {
+                        initAnimations();
+                    }
+                });
+            });
+        }
+
+        // Service Worker registration for better performance
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('SW registered'))
+                    .catch(err => console.log('SW registration failed'));
+            });
+        }
+
+        // Performance monitoring
+        if ('performance' in window) {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    const perfData = performance.getEntriesByType('navigation')[0];
+                    console.log('Page load time:', perfData.loadEventEnd - perfData.fetchStart, 'ms');
+                }, 0);
+            });
+        }
+    </script>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Privacy Policy - Daarul Quran Academy",
+        "description": "দারুল কুরআন একাডেমির প্রাইভেসি পলিসি। আমরা কীভাবে আপনার ব্যক্তিগত তথ্য সংগ্রহ, ব্যবহার এবং সুরক্ষা করি তা জানুন।",
+        "url": "https://daarulquran.live/privacy.html",
+        "inLanguage": "bn-BD",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Daarul Quran Academy",
+            "url": "https://daarulquran.live/"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "Daarul Quran Academy",
+            "url": "https://daarulquran.live/",
+            "logo": "https://daarulquran.live/assets/images/daarulquran.webp",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+880-1345-291197",
+                "contactType": "Customer Service",
+                "email": "info@daarulquran.live"
+            }
+        },
+        "dateModified": "2025-08-30"
+    }
+    </script>
+</body>
+</html>

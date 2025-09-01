@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>শর্তাবলী - দারুল কুরআন একাডেমি | Terms and Conditions</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="দারুল কুরআন একাডেমির শর্তাবলী এবং ব্যবহারের নীতিমালা। অনলাইন কুরআন শিক্ষার জন্য আমাদের নিয়মকানুন জানুন।">
+    <meta name="keywords" content="দারুল কুরআন, শর্তাবলী, অনলাইন কুরআন শিক্ষা, Terms and Conditions, Quran Academy">
+    <meta name="author" content="Daarul Quran Academy">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="শর্তাবলী - দারুল কুরআন একাডেমি">
+    <meta property="og:description" content="দারুল কুরআন একাডেমির শর্তাবলী এবং ব্যবহারের নীতিমালা">
+    <meta property="og:image" content="https://daarulquran.live/assets/images/daarulquran.webp">
+    <meta property="og:url" content="https://daarulquran.live/terms.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Daarul Quran Academy">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="শর্তাবলী - দারুল কুরআন একাডেমি">
+    <meta name="twitter:description" content="দারুল কুরআন একাডেমির শর্তাবলী এবং ব্যবহারের নীতিমালা">
+    <meta name="twitter:image" content="https://daarulquran.live/assets/images/daarulquran.webp">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/daarulquran.webp">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://daarulquran.live/terms.html">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="assets/images/daarulquran.webp" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
+            overflow-x: hidden;
+            background: #022c22;
+            line-height: 1.6;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #064e3b 0%, #022c22 100%);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(16, 185, 129, 0.3);
+            border-top: 4px solid #10b981;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Screen Reader Only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #064e3b;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #059669;
+        }
+
+        /* Mobile Menu Animation */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+
+        .mobile-menu.show {
+            max-height: 500px;
+        }
+
+        /* TOC Styles */
+        .toc-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: rgba(6, 78, 59, 0.3);
+            border: 1px solid transparent;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .toc-link:hover {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(34, 197, 94, 0.15));
+            border-color: rgba(16, 185, 129, 0.3);
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+        }
+
+        .toc-link.active {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(34, 197, 94, 0.25));
+            border-color: rgba(16, 185, 129, 0.5);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.25);
+        }
+
+        .toc-indicator {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 0;
+            background: linear-gradient(to bottom, #10b981, #22c55e);
+            border-radius: 0 3px 3px 0;
+            transition: height 0.3s ease;
+        }
+
+        .toc-link.active .toc-indicator {
+            height: 70%;
+        }
+
+        .toc-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 26px;
+            height: 26px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(34, 197, 94, 0.15));
+            color: #6ee7b7;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 8px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .toc-link:hover .toc-number {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(34, 197, 94, 0.3));
+            border-color: rgba(16, 185, 129, 0.4);
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .toc-link.active .toc-number {
+            background: linear-gradient(135deg, #10b981, #22c55e);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+        }
+
+        .toc-text {
+            flex: 1;
+            color: rgba(209, 250, 229, 0.8);
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1.4;
+            transition: all 0.3s ease;
+        }
+
+        .toc-link:hover .toc-text {
+            color: #6ee7b7;
+        }
+
+        .toc-link.active .toc-text {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .toc-arrow {
+            width: 14px;
+            height: 14px;
+            color: rgba(16, 185, 129, 0.3);
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all 0.3s ease;
+        }
+
+        .toc-link:hover .toc-arrow {
+            opacity: 1;
+            transform: translateX(0);
+            color: #10b981;
+        }
+
+        .toc-link.active .toc-arrow {
+            opacity: 1;
+            transform: translateX(0) rotate(90deg);
+            color: #10b981;
+        }
+
+        /* Terms content styles */
+        .terms-content h1 {
+            color: #10b981;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .terms-content h2 {
+            color: #10b981;
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(16, 185, 129, 0.3);
+            scroll-margin-top: 100px;
+        }
+
+        .terms-content h3 {
+            color: #34d399;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .terms-content p {
+            color: rgba(209, 250, 229, 0.9);
+            margin-bottom: 1.25rem;
+            line-height: 1.8;
+        }
+
+        .terms-content ul {
+            color: rgba(209, 250, 229, 0.9);
+            margin-left: 2rem;
+            margin-bottom: 1.25rem;
+            list-style-type: disc;
+        }
+
+        .terms-content li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .terms-content li p {
+            margin-bottom: 0.5rem;
+        }
+
+        .terms-content strong {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .terms-content a {
+            color: #10b981;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        .terms-content a:hover {
+            color: #34d399;
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Gradient animation */
+        @keyframes gradient-move {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .gradient-bg {
+            background-size: 200% 200%;
+            animation: gradient-move 10s ease infinite;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .terms-content h1 {
+                font-size: 2rem;
+            }
+            
+            .terms-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .terms-content h3 {
+                font-size: 1.25rem;
+            }
+
+            .terms-content {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .terms-content {
+                padding: 1rem;
+            }
+
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        .toc-link:focus,
+        button:focus,
+        a:focus {
+            outline: 2px solid #10b981;
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .terms-content {
+                background: #000;
+                color: #fff;
+            }
+            
+            .toc-link {
+                background: #000;
+                border: 2px solid #fff;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-emerald-950 via-emerald-900 to-green-950">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen" aria-hidden="true">
+        <div class="loader" role="status" aria-label="Loading page content"></div>
+    </div>
+
+    <!-- Skip to main content link for screen readers -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-emerald-600 text-white px-4 py-2 rounded">
+        Skip to main content
+    </a>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-[#022c22]/80 border-b border-emerald-800/20" role="navigation" aria-label="Main navigation">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <a href="index.html" class="flex items-center gap-2" aria-label="Go to homepage">
+                        <img src="assets/images/daarulquran.webp" 
+                             loading="eager" 
+                             class="w-[60px]" 
+                             alt="Daarul Quran Academy Logo"
+                             width="60" 
+                             height="60">
+                        <span class="text-white font-semibold text-lg">Daarul Quran</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="index.html" class="text-emerald-100/70 hover:text-white transition">Home</a>
+                    <a href="mission.html" class="text-emerald-100/70 hover:text-white transition">Mission & Vision</a>
+                    <a href="index.html#contactForm" class="px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg hover:shadow-emerald-500/25 transition">
+                        Start Now
+                    </a>
+                </div>
+
+                <!-- Mobile Controls -->
+                <div class="lg:hidden flex items-center gap-3">
+                    <button id="mobileMenuBtn" 
+                            class="text-white p-2" 
+                            aria-label="Open mobile menu"
+                            aria-expanded="false"
+                            aria-controls="mobileMenu">
+                        <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="lg:hidden mobile-menu" aria-hidden="true">
+            <div class="container mx-auto px-4 py-4 bg-[#022c22]/95 backdrop-blur-lg border-t border-emerald-800/20">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">Home</a>
+                    <a href="mission.html" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">Mission & Vision</a>
+                    <a href="index.html#contactForm" class="block text-center w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg hover:shadow-emerald-500/25 transition mt-4">
+                        Start Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-[40vh] flex items-center justify-center overflow-hidden mt-16">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 gradient-bg bg-gradient-to-br from-emerald-900/50 via-green-900/50 to-emerald-800/50" aria-hidden="true"></div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute inset-0" aria-hidden="true">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-emerald-500/10 rounded-full filter blur-3xl float-animation"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-green-500/10 rounded-full filter blur-3xl float-animation" style="animation-delay: 3s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-emerald-400/10 rounded-full filter blur-3xl float-animation" style="animation-delay: 1.5s;"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <div class="hero-content">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-emerald-500 to-green-500 rounded-2xl mb-6 shadow-2xl shadow-emerald-500/30">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">
+                    <span class="bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent">
+                        Terms and Conditions
+                    </span>
+                </h1>
+                <p class="text-xl text-emerald-200/80">Please read these terms carefully before using our service</p>
+                <div class="mt-4 text-sm text-emerald-300/60">
+                    <time datetime="2025-08-30">Effective Date: August 30, 2025</time>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative py-12" id="main-content">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-4 gap-8">
+                
+                <!-- Mobile TOC -->
+                <div class="lg:hidden col-span-full mb-6">
+                    <div class="bg-emerald-900/40 backdrop-blur-xl rounded-xl border border-emerald-500/30 overflow-hidden">
+                        <details class="group">
+                            <summary class="flex items-center justify-between cursor-pointer p-4 text-emerald-200 font-semibold hover:bg-emerald-500/10 transition">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                                        </svg>
+                                    </div>
+                                    <span>📋 Quick Navigation</span>
+                                </div>
+                                <svg class="w-5 h-5 transform group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </summary>
+                            <div class="px-4 pb-4">
+                                <nav class="space-y-2" role="navigation" aria-label="Mobile table of contents">
+                                    <a href="#interpretation" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">1. Interpretation & Definitions</a>
+                                    <a href="#acknowledgment" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">2. Acknowledgment</a>
+                                    <a href="#links" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">3. Links to Other Websites</a>
+                                    <a href="#termination" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">4. Termination</a>
+                                    <a href="#limitation" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">5. Limitation of Liability</a>
+                                    <a href="#disclaimer" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">6. Disclaimer</a>
+                                    <a href="#governing" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">7. Governing Law</a>
+                                    <a href="#disputes" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">8. Disputes Resolution</a>
+                                    <a href="#severability" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">9. Severability & Waiver</a>
+                                    <a href="#changes" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">10. Changes to Terms</a>
+                                    <a href="#contact-info" class="block py-2 px-3 text-sm text-emerald-300 hover:bg-emerald-500/20 rounded transition">11. Contact Us</a>
+                                </nav>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Desktop TOC Sidebar -->
+                <aside class="lg:col-span-1" aria-label="Desktop table of contents">
+                    <div class="sticky top-24 bg-gradient-to-br from-emerald-900/40 to-green-900/40 backdrop-blur-xl rounded-2xl overflow-hidden border border-emerald-500/30 shadow-2xl shadow-emerald-900/50 hidden lg:block">
+                        
+                        <!-- Header Section -->
+                        <div class="bg-gradient-to-r from-emerald-800/40 to-green-800/40 p-6 border-b border-emerald-500/20">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/30">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h2 class="text-xl font-bold text-white">Quick Navigation</h2>
+                                    <p class="text-xs text-emerald-300/60 mt-1">Jump to section</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Navigation Links -->
+                        <div class="p-4">
+                            <nav class="space-y-2" role="navigation" aria-label="Desktop table of contents">
+                                <a href="#interpretation" class="toc-link group">
+                                    <div class="toc-indicator"></div>
+                                    <span class="toc-number">01</span>
+                                    <span class="toc-text">Interpretation & Definitions</span>
+                                    <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                
+                                <a href="#acknowledgment" class="toc-link group">
+                                    <div class="toc-indicator"></div>
+                                    <span class="toc-number">02</span>
+                                    <span class="toc-text">Acknowledgment</span>
+                                    <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                
+                                <a href="#links" class="toc-link group">
+                                    <div class="toc-indicator"></div>
+                                    <span class="toc-number">03</span>
+                                    <span class="toc-text">Links to Other Websites</span>
+                                    <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                
+                                <a href="#termination" class="toc-link group">
+                                    <div class="toc-indicator"></div>
+                                    <span class="toc-number">04</span>
+                                    <span class="toc-text">Termination</span>
+                                    <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                
+                                <a href="#limitation" class="toc-link group">
+                                    <div class="toc-indicator"></div>
+                                    <span class="toc-number">05</span>
+                                    <span class="toc-text">Limitation of Liability</span>
+                                    <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                
+                                <a href="#disclaimer" class="toc-link group">
+                                    <div class="toc-indicator"></div>
+                                    <span class="toc-number">06</span>
+                                    <span class="toc-text">Disclaimer</span>
+                                    <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                
+                                <a href="#governing" class="toc-link group">
+                                    <div class="toc-indicator"></div>
+                                    <span class="toc-number">07</span>
+                                    <span class="toc-text">Governing Law</span>
+                                    <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                
+                                <a href="#disputes" class="toc-link group">
+                                    <div class="toc-indicator"></div>
+                                    <span class="toc-number">08</span>
+                                    <span class="toc-text">Disputes Resolution</span>
+                                    <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                
+                                <a href="#severability" class="toc-link group">
+                                    <div class="toc-indicator"></div>
+                                    <span class="toc-number">09</span>
+                                    <span class="toc-text">Severability & Waiver</span>
+                                    <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                
+                                <a href="#changes" class="toc-link group">
+                                    <div class="toc-indicator"></div>
+                                    <span class="toc-number">10</span>
+                                    <span class="toc-text">Changes to Terms</span>
+                                    <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                                
+                                <a href="#contact-info" class="toc-link group">
+                                    <div class="toc-indicator"></div>
+                                    <span class="toc-number">11</span>
+                                    <span class="toc-text">Contact Us</span>
+                                    <svg class="toc-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </nav>
+                        </div>
+                        
+                        <!-- Progress Section -->
+                        <div class="p-4 pt-0">
+                            <div class="bg-emerald-900/30 rounded-xl p-4 border border-emerald-500/10">
+                                <div class="flex items-center justify-between text-xs mb-2">
+                                    <span class="text-emerald-300/60 font-medium">Reading Progress</span>
+                                    <span id="progress-text" class="text-emerald-400 font-bold" aria-live="polite">0%</span>
+                                </div>
+                                <div class="w-full h-2 bg-emerald-950/50 rounded-full overflow-hidden">
+                                    <div id="progress-bar" 
+                                         class="h-full bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-400 rounded-full transition-all duration-500 ease-out" 
+                                         style="width: 0%"
+                                         role="progressbar"
+                                         aria-valuemin="0"
+                                         aria-valuemax="100"
+                                         aria-valuenow="0">
+                                        <div class="h-full bg-white/20 animate-pulse"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Terms Content -->
+                <div class="lg:col-span-3">
+                    <article class="bg-emerald-900/30 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-emerald-500/20 terms-content">
+                        
+                        <h1>Terms and Conditions</h1>
+                        <p><strong>Last updated:</strong> <time datetime="2025-08-30">August 30, 2025</time></p>
+                        <p>Please read these terms and conditions carefully before using Our Service.</p>
+                        
+                        <h2 id="interpretation">Interpretation and Definitions</h2>
+                        <h3>Interpretation</h3>
+                        <p>The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
+                        
+                        <h3>Definitions</h3>
+                        <p>For the purposes of these Terms and Conditions:</p>
+                        <ul>
+                            <li>
+                                <p><strong>Affiliate</strong> means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</p>
+                            </li>
+                            <li>
+                                <p><strong>Country</strong> refers to: Bangladesh</p>
+                            </li>
+                            <li>
+                                <p><strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Daarul Quran Academy.</p>
+                            </li>
+                            <li>
+                                <p><strong>Device</strong> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</p>
+                            </li>
+                            <li>
+                                <p><strong>Service</strong> refers to the Website.</p>
+                            </li>
+                            <li>
+                                <p><strong>Terms and Conditions</strong> (also referred as "Terms") mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service.</p>
+                            </li>
+                            <li>
+                                <p><strong>Third-party Social Media Service</strong> means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the Service.</p>
+                            </li>
+                            <li>
+                                <p><strong>Website</strong> refers to Daarul Quran Academy, accessible from <a href="https://daarulquran.live/" rel="external nofollow noopener" target="_blank">https://daarulquran.live/</a></p>
+                            </li>
+                            <li>
+                                <p><strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</p>
+                            </li>
+                        </ul>
+
+                        <h2 id="acknowledgment">Acknowledgment</h2>
+                        <p>These are the Terms and Conditions governing the use of this Service and the agreement that operates between You and the Company. These Terms and Conditions set out the rights and obligations of all users regarding the use of the Service.</p>
+                        <p>Your access to and use of the Service is conditioned on Your acceptance of and compliance with these Terms and Conditions. These Terms and Conditions apply to all visitors, users and others who access or use the Service.</p>
+                        <p>By accessing or using the Service You agree to be bound by these Terms and Conditions. If You disagree with any part of these Terms and Conditions then You may not access the Service.</p>
+                        <p>You represent that you are over the age of 18. The Company does not permit those under 18 to use the Service.</p>
+                        <p>Your access to and use of the Service is also conditioned on Your acceptance of and compliance with the Privacy Policy of the Company. Our Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your personal information when You use the Application or the Website and tells You about Your privacy rights and how the law protects You. Please read Our Privacy Policy carefully before using Our Service.</p>
+
+                        <h2 id="links">Links to Other Websites</h2>
+                        <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by the Company.</p>
+                        <p>The Company has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that the Company shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods or services available on or through any such web sites or services.</p>
+                        <p>We strongly advise You to read the terms and conditions and privacy policies of any third-party web sites or services that You visit.</p>
+
+                        <h2 id="termination">Termination</h2>
+                        <p>We may terminate or suspend Your access immediately, without prior notice or liability, for any reason whatsoever, including without limitation if You breach these Terms and Conditions.</p>
+                        <p>Upon termination, Your right to use the Service will cease immediately.</p>
+
+                        <h2 id="limitation">Limitation of Liability</h2>
+                        <p>Notwithstanding any damages that You might incur, the entire liability of the Company and any of its suppliers under any provision of this Terms and Your exclusive remedy for all of the foregoing shall be limited to the amount actually paid by You through the Service or 100 USD if You haven't purchased anything through the Service.</p>
+                        <p>To the maximum extent permitted by applicable law, in no event shall the Company or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not limited to, damages for loss of profits, loss of data or other information, for business interruption, for personal injury, loss of privacy arising out of or in any way related to the use of or inability to use the Service, third-party software and/or third-party hardware used with the Service, or otherwise in connection with any provision of this Terms), even if the Company or any supplier has been advised of the possibility of such damages and even if the remedy fails of its essential purpose.</p>
+                        <p>Some states do not allow the exclusion of implied warranties or limitation of liability for incidental or consequential damages, which means that some of the above limitations may not apply. In these states, each party's liability will be limited to the greatest extent permitted by law.</p>
+
+                        <h2 id="disclaimer">"AS IS" and "AS AVAILABLE" Disclaimer</h2>
+                        <p>The Service is provided to You "AS IS" and "AS AVAILABLE" and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, the Company, on its own behalf and on behalf of its Affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the Service, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement, and warranties that may arise out of course of dealing, course of performance, usage or trade practice.</p>
+                        <p>Without limitation to the foregoing, the Company provides no warranty or undertaking, and makes no representation of any kind that the Service will meet Your requirements, achieve any intended results, be compatible or work with any other software, applications, systems or services, operate without interruption, meet any performance or reliability standards or be error free or that any errors or defects can or will be corrected.</p>
+                        <p>Without limiting the foregoing, neither the Company nor any of the company's provider makes any representation or warranty of any kind, express or implied: (i) as to the operation or availability of the Service, or the information, content, and materials or products included thereon; (ii) that the Service will be uninterrupted or error-free; (iii) as to the accuracy, reliability, or currency of any information or content provided through the Service; or (iv) that the Service, its servers, the content, or e-mails sent from or on behalf of the Company are free of viruses, scripts, trojan horses, worms, malware, timebombs or other harmful components.</p>
+                        <p>Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to You. But in such a case the exclusions and limitations set forth in this section shall be applied to the greatest extent enforceable under applicable law.</p>
+
+                        <h2 id="governing">Governing Law</h2>
+                        <p>The laws of the Country, excluding its conflicts of law rules, shall govern this Terms and Your use of the Service. Your use of the Application may also be subject to other local, state, national, or international laws.</p>
+
+                        <h2 id="disputes">Disputes Resolution</h2>
+                        <p>If You have any concern or dispute about the Service, You agree to first try to resolve the dispute informally by contacting the Company.</p>
+
+                        <h2>For European Union (EU) Users</h2>
+                        <p>If You are a European Union consumer, you will benefit from any mandatory provisions of the law of the country in which You are resident.</p>
+
+                        <h2>United States Legal Compliance</h2>
+                        <p>You represent and warrant that (i) You are not located in a country that is subject to the United States government embargo, or that has been designated by the United States government as a "terrorist supporting" country, and (ii) You are not listed on any United States government list of prohibited or restricted parties.</p>
+
+                        <h2 id="severability">Severability and Waiver</h2>
+                        <h3>Severability</h3>
+                        <p>If any provision of these Terms is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.</p>
+                        
+                        <h3>Waiver</h3>
+                        <p>Except as provided herein, the failure to exercise a right or to require performance of an obligation under these Terms shall not affect a party's ability to exercise such right or require such performance at any time thereafter nor shall the waiver of a breach constitute a waiver of any subsequent breach.</p>
+
+                        <h2>Translation Interpretation</h2>
+                        <p>These Terms and Conditions may have been translated if We have made them available to You on our Service. You agree that the original English text shall prevail in the case of a dispute.</p>
+
+                        <h2 id="changes">Changes to These Terms and Conditions</h2>
+                        <p>We reserve the right, at Our sole discretion, to modify or replace these Terms at any time. If a revision is material We will make reasonable efforts to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at Our sole discretion.</p>
+                        <p>By continuing to access or use Our Service after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the website and the Service.</p>
+
+                        <h2 id="contact-info">Contact Us</h2>
+                        <p>If you have any questions about these Terms and Conditions, You can contact us:</p>
+                        
+                        <div class="bg-gradient-to-br from-emerald-800/30 to-green-800/30 rounded-xl p-6 mt-6 border border-emerald-500/30">
+                            <address class="not-italic">
+                                <ul class="space-y-4">
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-emerald-200 text-sm font-medium mb-1">Email:</p>
+                                            <a href="mailto:info@daarulquran.live" class="text-emerald-400 hover:text-emerald-300 text-lg transition">info@daarulquran.live</a>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-emerald-200 text-sm font-medium mb-1">Website:</p>
+                                            <a href="https://daarulquran.live/" rel="external nofollow noopener" target="_blank" class="text-emerald-400 hover:text-emerald-300 text-lg transition">https://daarulquran.live/</a>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="flex items-start gap-3">
+                                        <div class="w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                                            <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-emerald-200 text-sm font-medium mb-1">Phone:</p>
+                                            <a href="tel:+8801345291197" class="text-emerald-400 hover:text-emerald-300 text-lg transition">+880 1345 291197</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </address>
+                        </div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" 
+            class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-full shadow-lg shadow-emerald-500/30 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 z-40"
+            aria-label="Back to top">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer class="relative pb-10 pt-4 bg-[#011a14] border-t border-emerald-800/20">
+        <div class="px-4">
+            <div class="text-center">
+                <div>
+                    <div class="flex flex-col items-center mb-4">
+                        <img src="assets/images/daarulquran.webp" 
+                             loading="lazy" 
+                             class="w-[70px] mb-2" 
+                             alt="Daarul Quran Academy Logo"
+                             width="70"
+                             height="70">
+                        <span class="text-white font-bold text-xl">Daarul Quran</span>
+                    </div>
+                    <p class="text-emerald-200/70 text-base leading-relaxed max-w-2xl mx-auto">
+                        Daarul Quran is an online platform whose aim is to spread the knowledge of the Quran across the world. We are the first online platform to offer live one-to-one Quran classes at your convenient time. You can join our live classes at any time. Our expert teachers will teach you the Quran correctly so that you can recite the Noble Book without mistakes.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="pt-8 mt-8 border-t border-emerald-800/30">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-emerald-200 text-sm text-center md:text-left">
+                    © 2025 Daarul Quran Academy. All rights reserved.
+                </p>
+                
+                <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                    <a href="terms.html" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm">Terms & Conditions</a>
+                    <a href="privacy.html" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-[6rem] right-8 flex flex-col gap-3 z-40">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/88001345291197" class="group">
+            <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:shadow-green-500/30 transform hover:scale-110 transition-all">
+                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+            </div>
+            <span class="absolute right-16 top-1/2 transform -translate-y-1/2 bg-black/80 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                WhatsApp এ চ্যাট করুন
+            </span>
+        </a>
+
+        <!-- Call Button -->
+        <a href="tel:+88001345291197" class="group">
+            <div class="w-14 h-14 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:shadow-emerald-500/30 transform hover:scale-110 transition-all">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+            </div>
+            <span class="absolute right-16 top-1/2 transform -translate-y-1/2 bg-black/80 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                সরাসরি কল করুন
+            </span>
+        </a>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Error handling wrapper
+        function safeExecute(func, errorMsg = 'Error occurred') {
+            try {
+                return func();
+            } catch (error) {
+                console.warn(errorMsg, error);
+                return null;
+            }
+        }
+
+        // Safe DOM selector
+        function safeQuerySelector(selector) {
+            return safeExecute(() => document.querySelector(selector), `Selector not found: ${selector}`);
+        }
+
+        function safeQuerySelectorAll(selector) {
+            return safeExecute(() => document.querySelectorAll(selector), `Selectors not found: ${selector}`) || [];
+        }
+
+        // Throttle function for performance
+        function throttle(func, limit) {
+            let inThrottle;
+            return function(...args) {
+                if (!inThrottle) {
+                    func.apply(this, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            }
+        }
+
+        // Mobile Menu functionality
+        const mobileMenuBtn = safeQuerySelector('#mobileMenuBtn');
+        const mobileMenu = safeQuerySelector('#mobileMenu');
+        const menuIcon = safeQuerySelector('#menuIcon');
+        const closeIcon = safeQuerySelector('#closeIcon');
+
+        if (mobileMenuBtn && mobileMenu && menuIcon && closeIcon) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('show');
+                
+                if (!isOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('show');
+                    mobileMenu.setAttribute('aria-hidden', 'false');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                    menuIcon.classList.add('hidden');
+                    closeIcon.classList.remove('hidden');
+                } else {
+                    mobileMenu.classList.remove('show');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                }
+            });
+
+            // Close on link click
+            safeQuerySelectorAll('#mobileMenu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('show');
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                });
+            });
+        }
+
+        // Loading screen
+        window.addEventListener('load', () => {
+            const loadingScreen = safeQuerySelector('#loadingScreen');
+            if (loadingScreen) {
+                setTimeout(() => {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                        initAnimations();
+                    }, 500);
+                }, 800);
+            } else {
+                initAnimations();
+            }
+        });
+
+        // Animation initialization
+        function initAnimations() {
+            // Load GSAP conditionally
+            if (typeof gsap !== 'undefined') {
+                // Hero animation
+                gsap.from('.hero-content', {
+                    opacity: 0,
+                    y: 50,
+                    duration: 1,
+                    delay: 0.3,
+                    ease: 'power3.out'
+                });
+
+                // Terms content animation
+                gsap.from('.terms-content', {
+                    opacity: 0,
+                    y: 30,
+                    duration: 1,
+                    delay: 0.5,
+                    ease: 'power2.out'
+                });
+
+                // TOC animation
+                gsap.from('.toc-link', {
+                    opacity: 0,
+                    x: -20,
+                    duration: 0.5,
+                    stagger: 0.05,
+                    delay: 0.7,
+                    ease: 'power2.out'
+                });
+
+                // ScrollTrigger for headings
+                if (typeof ScrollTrigger !== 'undefined') {
+                    gsap.registerPlugin(ScrollTrigger);
+                    
+                    safeQuerySelectorAll('.terms-content h2').forEach(heading => {
+                        gsap.from(heading, {
+                            scrollTrigger: {
+                                trigger: heading,
+                                start: 'top 85%',
+                                toggleActions: 'play none none reverse'
+                            },
+                            opacity: 0,
+                            x: -30,
+                            duration: 0.6,
+                            ease: 'power2.out'
+                        });
+                    });
+
+                    ScrollTrigger.refresh();
+                }
+            }
+        }
+
+        // Back to top and reading progress
+        const backToTopBtn = safeQuerySelector('#backToTop');
+        const progressBar = safeQuerySelector('#progress-bar');
+        const progressText = safeQuerySelector('#progress-text');
+
+        const handleScroll = throttle(() => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Back to Top Button
+            if (backToTopBtn) {
+                if (scrollTop > 300) {
+                    backToTopBtn.style.opacity = '1';
+                    backToTopBtn.style.pointerEvents = 'auto';
+                } else {
+                    backToTopBtn.style.opacity = '0';
+                    backToTopBtn.style.pointerEvents = 'none';
+                }
+            }
+            
+            // Reading Progress
+            if (progressBar && progressText) {
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = height > 0 ? (scrollTop / height) * 100 : 0;
+                const roundedProgress = Math.round(Math.min(scrolled, 100));
+                
+                progressBar.style.width = roundedProgress + '%';
+                progressBar.setAttribute('aria-valuenow', roundedProgress);
+                progressText.textContent = roundedProgress + '%';
+            }
+        }, 16); // ~60fps
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        // Back to top click handler
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Active section detection
+        const sections = safeQuerySelectorAll('h2[id]');
+        const tocLinks = safeQuerySelectorAll('.toc-link');
+
+        if (sections.length > 0 && tocLinks.length > 0) {
+            const observerOptions = {
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            
+                            tocLinks.forEach(link => {
+                                link.classList.remove('active');
+                                if (link.getAttribute('href') === `#${id}`) {
+                                    link.classList.add('active');
+                                }
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                sections.forEach(section => {
+                    observer.observe(section);
+                });
+            } else {
+                // Fallback for older browsers
+                window.addEventListener('scroll', throttle(() => {
+                    const scrollTop = window.pageYOffset + 150;
+                    
+                    sections.forEach(section => {
+                        const offsetTop = section.offsetTop;
+                        const height = section.offsetHeight;
+                        const id = section.getAttribute('id');
+                        
+                        if (scrollTop >= offsetTop && scrollTop < offsetTop + height) {
+                            tocLinks.forEach(link => {
+                                link.classList.remove('active');
+                                if (link.getAttribute('href') === `#${id}`) {
+                                    link.classList.add('active');
+                                }
+                            });
+                        }
+                    });
+                }, 100));
+            }
+        }
+
+        // Smooth scroll for TOC links
+        tocLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = safeQuerySelector(targetId);
+                
+                if (targetElement) {
+                    const offsetTop = targetElement.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Language toggle (placeholder)
+        const langToggle = safeQuerySelector('#langToggle');
+        const langToggleMobile = safeQuerySelector('#langToggleMobile');
+
+        [langToggle, langToggleMobile].forEach(btn => {
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    const currentLang = btn.textContent.trim();
+                    btn.textContent = currentLang === 'EN' ? 'বাং' : 'EN';
+                });
+            }
+        });
+
+        // Keyboard navigation for accessibility
+        document.addEventListener('keydown', (e) => {
+            // ESC to close mobile menu
+            if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('show')) {
+                mobileMenuBtn.click();
+            }
+        });
+
+        // Error boundary for unhandled errors
+        window.addEventListener('error', (e) => {
+            console.error('Global error:', e.error);
+            // Graceful degradation - ensure basic functionality works
+        });
+
+        // Load external scripts asynchronously
+        function loadScript(src, callback) {
+            const script = document.createElement('script');
+            script.src = src;
+            script.async = true;
+            script.onload = callback;
+            script.onerror = () => console.warn(`Failed to load script: ${src}`);
+            document.head.appendChild(script);
+        }
+
+        // Load GSAP after page load for better performance
+        if (typeof gsap === 'undefined') {
+            loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js', () => {
+                loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js', () => {
+                    if (document.readyState === 'complete') {
+                        initAnimations();
+                    }
+                });
+            });
+        }
+
+        // Service Worker registration for better performance
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('SW registered'))
+                    .catch(err => console.log('SW registration failed'));
+            });
+        }
+
+        // Performance monitoring
+        if ('performance' in window) {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    const perfData = performance.getEntriesByType('navigation')[0];
+                    console.log('Page load time:', perfData.loadEventEnd - perfData.fetchStart, 'ms');
+                }, 0);
+            });
+        }
+    </script>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Terms and Conditions - Daarul Quran Academy",
+        "description": "দারুল কুরআন একাডেমির শর্তাবলী এবং ব্যবহারের নীতিমালা। অনলাইন কুরআন শিক্ষার জন্য আমাদের নিয়মকানুন জানুন।",
+        "url": "https://daarulquran.live/terms.html",
+        "inLanguage": "bn-BD",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Daarul Quran Academy",
+            "url": "https://daarulquran.live/"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "Daarul Quran Academy",
+            "url": "https://daarulquran.live/",
+            "logo": "https://daarulquran.live/assets/images/daarulquran.webp",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+880-1345-291197",
+                "contactType": "Customer Service",
+                "email": "info@daarulquran.live"
+            }
+        },
+        "dateModified": "2025-08-30"
+    }
+    </script>
+</body>
+</html>

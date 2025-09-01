@@ -3,6 +3,7 @@
         en: {
             // nav
         'nav.home': 'Home',
+        'nav.mission': 'Mission & Vision',
         'nav.start': 'Start Now',
         'nav.courses': 'Courses',
         'nav.get_started': 'Get Started',
@@ -66,11 +67,11 @@
         "courses.arabic.points.mizan_sarf_munshaib": "Mizan al-Sarf and Munshaib",
         "courses.arabic.points.tamrinaat": "Essential exercises (Tamrinaat)",
         "courses.arabic.points.nazirah": "Nazirah",
-        "courses.common.maqamat":"maqamat",
         "courses.common.makharij": "Makharij",
         "courses.common.tajweed": "Tajweed",
         "courses.common.sifat": "Sifat (letter attributes)",
         "courses.common.nazirah": "Nazirah (reading practice)",
+        "courses.common.maqamat":"Maqamat",
         "courses.common.fiqh": "Essential fiqh rulings",
         "courses.common.whatsapp": "24/7 WhatsApp support",
         "courses.badge.popular": "Popular",
@@ -224,6 +225,17 @@
         "faq.q5.body": "After your trial class, we will contact you again, in shaa Allah. We will ask how long you wish to study, how many days per week, and what you want to learn. Based on this, we will inform you of the fee. If everything looks good, you can begin your Quran learning journey, by Allah’s will.",
         "faq.q6.title": "How can I make payment?",
         "faq.q6.body": "Alhamdulillah, you can pay to our bank account or via bKash/Nagad as well.",
+        
+            // donate 
+        "ui.copied": "Copied!",
+        "donation.bank.heading": "Bank details",
+        "donation.bank.subtitle": "Bank details for donation",
+        "donation.copy_all": "Copy all details",
+        "donation.copy_all.aria": "Copy all donation details",
+        "donation.note.title": "Please note",
+        "donation.note.desc": "After donating, please contact us and provide the transaction ID. We will verify the donation and send you a confirmation email.",
+
+
 
             // contact
         "contact.badge": "24/7 support service",
@@ -245,12 +257,77 @@
         "footer.copyright": "© 2025 Daarul Quran. All rights reserved.",
         "footer.links.terms": "Terms & Conditions",
         "footer.links.privacy": "Privacy Policy",
-        "footer.links.refund": "Refund Policy"
+        "footer.links.refund": "Refund Policy",
 
+            // Mission Vision page------
+
+            // Hero Section
+        "hero.vm.heading.top": "Our",
+        "hero.vm.heading.highlight": "Vision & Mission",
+        "hero.vm.subtitle": "Our journey with the dream of building a world illuminated by the light of the Quran",
+        "hero.vm.scroll_label": "Scroll down",
+
+            // Vision Section
+        "vision.heading": "Our Vision",
+        "vision.subtitle": "Our vision — future goals",
+        "vision.item1.title": "Quran in every home",
+        "vision.item1.desc": "Deliver the light of the Quran to every home so every family becomes enlightened and peaceful.",
+        "vision.item2.title": "Global network",
+        "vision.item2.desc": "Build a worldwide Quran-learning network where Muslims and non‑Muslims alike can experience its guidance.",
+        "vision.item3.title": "Model generation",
+        "vision.item3.desc": "Raise a Quran-centered generation—morally strong, spiritually fulfilled, and advanced in modern knowledge.",
+        "vision.item4.title": "Diaspora connection",
+        "vision.item4.desc": "Keep the Muslim diaspora connected to the Quran so their children do not lose Islamic identity.",
+        "vision.item5.title": "Model academy",
+        "vision.item5.desc": "Establish a global model academy—uniquely blending Islamic knowledge with modern technology.",
+        "vision.item6.title": "International standards",
+        "vision.item6.desc": "Uphold international standards in tilawah, tajweed, hifz, and tafsir education.",
+        "vision.item7.title": "Expand da'wah",
+        "vision.item7.desc": "Introduce the beauty of the Quran to the non‑Muslim world—through the message of peace, love, and justice.",
+        "vision.item8.title": "Research center",
+        "vision.item8.desc": "Build Quran-centered research and educational institutions where scholars, researchers, and teachers collaborate.",
+        "vision.item9.title": "Multilingual outreach",
+        "vision.item9.desc": "Spread the Quran’s message beyond language and culture—via Arabic, English, and other languages.",
+        "vision.item10.title": "A peaceful world",
+        "vision.item10.desc": "Build a balanced world where people walk the path of truth, justice, mercy, and peace in the light of the Quran.",
+        
+            // Mission Section
+        "mission.heading": "Our Mission",
+        "mission.subtitle": "Our mission — actionable goals",
+        "mission.item1.title": "Accessible learning",
+        "mission.item1.desc": "Make Quran learning accessible—online 1‑to‑1 and group classes from anywhere in the world.",
+        "mission.item2.title": "Qualified teachers",
+        "mission.item2.desc": "Develop qualified teachers who teach not only recitation, but also meaning, tafsir, and practical application.",
+        "mission.item3.title": "Global platform",
+        "mission.item3.desc": "Build Dawatul Quran’s global platform where da'wah, education, research, and training run together.",
+        "mission.item4.title": "Modern technology",
+        "mission.item4.desc": "Use modern tech—apps, video lectures, interactive quizzes, and live sessions—to make learning engaging.",
+        "mission.item5.title": "For all ages",
+        "mission.item5.desc": "Design courses for children, teens, youth, and adults so everyone benefits.",
+        "mission.item6.title": "Diaspora connection",
+        "mission.item6.desc": "Keep expatriate Muslim children connected to Islamic roots through special courses and activities.",
+        "mission.item7.title": "Hifz project",
+        "mission.item7.desc": "Launch a Hifz al‑Quran project so every student can memorize easily and maintain retention.",
+        "mission.item8.title": "Da'wah training",
+        "mission.item8.desc": "Offer tafsir and da'wah training sessions so students become capable of inviting to the truth.",
+        "mission.item9.title": "Women's education",
+        "mission.item9.desc": "Launch dedicated Quran programs for women so they can spread the light at home and in society.",
+        "mission.item10.title": "International conferences",
+        "mission.item10.desc": "Organize global conferences, seminars, and webinars uniting scholars, students, and the ummah to discuss the Quran’s message.",
+
+            // CTA Section
+        "cta.heading": "Join our dream",
+        "cta.subtitle": "Join us on this noble journey to build a world illuminated by the light of the Quran.",
+        "cta.primary": "Enroll in a course",
+        "cta.primary.aria": "Enroll in a course",
+        "cta.secondary": "Contact us",
+        "cta.secondary.aria": "Contact us"
+        
         },
         bn: {
             // nav
         'nav.home': 'হোম',
+        'nav.mission': 'মিশন ও ভিশন',
         'nav.start': 'শুরু করুন',
         'nav.courses': 'কোর্সসমূহ',
         'nav.get_started': 'শুরু করুন',
@@ -493,9 +570,97 @@
         "footer.copyright": "© ২০২৫ Daarul Quran. সর্বস্বত্ব সংরক্ষিত।",
         "footer.links.terms": "শর্তাবলী",
         "footer.links.privacy": "প্রাইভেসি পলিসি",
-        "footer.links.refund": "রিফান্ড পলিসি"
+        "footer.links.refund": "রিফান্ড পলিসি",
+
+        // donate
+        "ui.copied": "কপি হয়েছে!",
+        "donation.bank.heading": "ব্যাংক তথ্য",
+        "donation.bank.subtitle": "দানের জন্য ব্যাংক তথ্য",
+        "donation.copy_all": "সব তথ্য কপি করুন",
+        "donation.copy_all.aria": "সমস্ত দানের তথ্য কপি করুন",
+        "donation.note.title": "দয়া করে মনে রাখুন",
+        "donation.note.desc": "অনুদানের পর অনুগ্রহ করে আমাদের সাথে যোগাযোগ করুন এবং ট্রান্জ্যাকশন আইডি প্রদান করুন।",
+
+            // mission vision page-------
+
+            // Hero section
+        "hero.vm.heading.top": "আমাদের",
+        "hero.vm.heading.highlight": "ভিশন ও মিশন",
+        "hero.vm.subtitle": "কুরআনের আলোয় আলোকিত একটি পৃথিবী গড়ার স্বপ্ন নিয়ে আমাদের যাত্রা",
+        "hero.vm.scroll_label": "নিচে স্ক্রল করুন",
+
+            // Vision section
+        "vision.heading": "আমাদের ভিশন",
+        "vision.subtitle": "আমাদের ভিশন – ভবিষ্যৎ লক্ষ্য",
+        "vision.item1.title": "প্রতিটি ঘরে কুরআন",
+        "vision.item1.desc": "কুরআনের আলো প্রতিটি ঘরে পৌঁছে দেওয়া—যাতে প্রতিটি পরিবার আলোকিত ও শান্তিময় হয়।",
+        "vision.item2.title": "বৈশ্বিক নেটওয়ার্ক",
+        "vision.item2.desc": "বিশ্বব্যাপী একটি কুরআন শিক্ষা নেটওয়ার্ক তৈরি করা—যেখানে মুসলিম ও অমুসলিম উভয়েই কুরআনের হিদায়াতের আলো স্পর্শ করতে পারে।",
+        "vision.item3.title": "আদর্শ প্রজন্ম",
+        "vision.item3.desc": "কুরআন-কেন্দ্রিক প্রজন্ম তৈরি করা—যারা নৈতিকভাবে দৃঢ়, আধ্যাত্মিকভাবে পরিপূর্ণ এবং আধুনিক জ্ঞানেও অগ্রগামী।",
+        "vision.item4.title": "প্রবাসী সংযোগ",
+        "vision.item4.desc": "প্রবাসী মুসলিম সমাজকে কুরআনের সাথে সংযুক্ত রাখা—যাতে তাদের সন্তানরা ইসলামী পরিচয় হারিয়ে না ফেলে।",
+        "vision.item5.title": "মডেল একাডেমি",
+        "vision.item5.desc": "দাওয়াতুল কুরআনকে বৈশ্বিক মডেল একাডেমি হিসেবে প্রতিষ্ঠা করা—যা ইসলামি জ্ঞান ও আধুনিক প্রযুক্তির সমন্বয়ে অনন্য।",
+        "vision.item6.title": "আন্তর্জাতিক মান",
+        "vision.item6.desc": "তিলাওয়াত, তাজবিদ, হিফজ ও তাফসীর শিক্ষায় আন্তর্জাতিক মান বজায় রাখা।",
+        "vision.item7.title": "দাওয়াহ সম্প্রসারণ",
+        "vision.item7.desc": "অমুসলিম বিশ্বকে কুরআনের সৌন্দর্য পরিচয় করানো—শান্তি, ভালোবাসা ও ন্যায়বিচারের বার্তার মাধ্যমে।",
+        "vision.item8.title": "গবেষণা কেন্দ্র",
+        "vision.item8.desc": "কুরআনকেন্দ্রিক গবেষণা ও শিক্ষা প্রতিষ্ঠান গড়ে তোলা—যেখানে বিদ্বান, গবেষক ও শিক্ষকরা একসাথে কাজ করবেন।",
+        "vision.item9.title": "বহুভাষিক প্রসার",
+        "vision.item9.desc": "ভাষা ও সংস্কৃতির সীমা অতিক্রম করে কুরআনের বার্তা ছড়িয়ে দেওয়া—আরবি, ইংরেজি ও অন্যান্য ভাষার মাধ্যমে।",
+        "vision.item10.title": "শান্তিময় বিশ্ব",
+        "vision.item10.desc": "একটি ভারসাম্যপূর্ণ বিশ্ব গড়ে তোলা—যেখানে মানুষ কুরআনের আলোয় সত্য, ন্যায়, দয়া ও শান্তির পথে অগ্রসর হবে।",
+        
+            // Mission Section
+        "mission.heading": "আমাদের মিশন",
+        "mission.subtitle": "আমাদের মিশন – করণীয় কাজ",
+        "mission.item1.title": "সহজলভ্য শিক্ষা",
+        "mission.item1.desc": "কুরআন শিক্ষা সহজলভ্য করা—বিশ্বের যেকোনো স্থানে অনলাইনে ১-টু-১ ও গ্রুপ ক্লাসের মাধ্যমে।",
+        "mission.item2.title": "যোগ্য শিক্ষক",
+        "mission.item2.desc": "যোগ্য শিক্ষক গড়ে তোলা—যারা শুধু তিলাওয়াত নয়, বরং কুরআনের অর্থ, ব্যাখ্যা ও বাস্তব প্রয়োগ শেখাবেন।",
+        "mission.item3.title": "বৈশ্বিক প্ল্যাটফর্ম",
+        "mission.item3.desc": "দাওয়াতুল কুরআনের বৈশ্বিক প্ল্যাটফর্ম তৈরি করা—যেখানে দাওয়াহ, শিক্ষা, গবেষণা ও প্রশিক্ষণ একসাথে চলবে।",
+        "mission.item4.title": "আধুনিক প্রযুক্তি",
+        "mission.item4.desc": "আধুনিক প্রযুক্তি ব্যবহার—অ্যাপ, ভিডিও লেকচার, ইন্টারেক্টিভ কুইজ, লাইভ সেশন ইত্যাদির মাধ্যমে কুরআন শিক্ষা আকর্ষণীয় করা।",
+        "mission.item5.title": "সব বয়সের জন্য",
+        "mission.item5.desc": "শিশু, কিশোর, যুবক ও প্রাপ্তবয়স্ক সবার জন্য কোর্স ডিজাইন করা, যাতে সব বয়সের মানুষ উপকৃত হয়।",
+        "mission.item6.title": "প্রবাসী সংযোগ",
+        "mission.item6.desc": "প্রবাসী মুসলিম সন্তানদের ইসলামী শেকড়ের সাথে যুক্ত রাখা—বিশেষ কোর্স ও কার্যক্রমের মাধ্যমে।",
+        "mission.item7.title": "হিফজ প্রকল্প",
+        "mission.item7.desc": "হিফজুল কুরআন প্রকল্প চালু করা—যাতে প্রতিটি শিক্ষার্থী সহজে মুখস্থ করতে পারে এবং হিফজ বজায় রাখতে পারে।",
+        "mission.item8.title": "দাওয়াহ প্রশিক্ষণ",
+        "mission.item8.desc": "তাফসীর ও দাওয়াহ ট্রেনিং সেশন চালু করা—যাতে শিক্ষার্থীরা দাওয়াতের যোগ্য হয়ে ওঠে।",
+        "mission.item9.title": "নারী শিক্ষা",
+        "mission.item9.desc": "নারী শিক্ষার্থীদের জন্য বিশেষ কুরআন শিক্ষা প্রোগ্রাম চালু করা, যাতে তারা নিজেদের পরিবার ও সমাজে কুরআনের আলো পৌঁছে দিতে পারে।",
+        "mission.item10.title": "আন্তর্জাতিক সম্মেলন",
+        "mission.item10.desc": "আন্তর্জাতিক সম্মেলন, সেমিনার ও ওয়েবিনার আয়োজন করা—যার মাধ্যমে বিশ্বব্যাপী আলেম, ছাত্র, এবং সাধারণ মুসলিমরা একত্রিত হয়ে কুরআনের বার্তা নিয়ে আলোচনা করা হবে।",
+
+            // CTA Section
+        "cta.heading": "আমাদের স্বপ্নের সাথী হন",
+        "cta.subtitle": "কুরআনের আলোয় আলোকিত পৃথিবী গড়ার এই মহান যাত্রায় আমাদের সাথে যুক্ত হন",
+        "cta.primary": "কোর্সে ভর্তি হন",
+        "cta.primary.aria": "কোর্সে ভর্তি হন",
+        "cta.secondary": "যোগাযোগ করুন",
+        "cta.secondary.aria": "যোগাযোগ করুন"
         }
     };
+
+    // Helpers for digit localization
+    const BN_DIGITS = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+    const EN_DIGITS = ['0','1','2','3','4','5','6','7','8','9'];
+
+    function convertDigits(str, lang) {
+        if (!str) return str;
+        if (lang === 'bn') {
+            // ASCII -> Bangla digits
+            return String(str).replace(/[0-9]/g, d => BN_DIGITS[Number(d)]);
+        } else {
+            // Bangla -> ASCII digits
+            return String(str).replace(/[০-৯]/g, d => EN_DIGITS[BN_DIGITS.indexOf(d)]);
+        }
+    }
 
     function setLang(lang) {
         document.documentElement.setAttribute('lang', lang === 'bn' ? 'bn' : 'en');
@@ -520,11 +685,26 @@
         }
         });
 
+        // Localize digits wherever needed
+        document.querySelectorAll('[data-localize-digits]').forEach(el => {
+            el.textContent = convertDigits(el.textContent, lang);
+        });
+
         // Update toggle button labels
         const desktopBtn = document.getElementById('langToggle');
         const mobileBtn  = document.getElementById('langToggleMobile');
         if (desktopBtn) desktopBtn.textContent = (lang === 'bn') ? 'EN' : 'বাংলা';
         if (mobileBtn)  mobileBtn.textContent  = (lang === 'bn') ? 'Switch to English' : 'বাংলায় দেখুন';
+
+        // Update YouTube video source based on language
+        const player = document.getElementById('youtube-player');
+        if (player) {
+            const videoSrc = player.getAttribute(`data-src-${lang}`);
+            // Only update the src if it's different, to avoid unnecessary reloads
+            if (videoSrc && player.src !== videoSrc) {
+                player.src = videoSrc;
+            }
+        }
     }
 
     function toggleLang() {

@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision & Mission - Dawatul Quran Academy</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+            overflow-x: hidden;
+            background: #022c22;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #064e3b 0%, #022c22 100%);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(16, 185, 129, 0.3);
+            border-top: 4px solid #10b981;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Particle animations */
+        @keyframes float-particle {
+            0%, 100% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-30px) translateX(20px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(20px) translateX(-20px) rotate(240deg);
+            }
+        }
+
+        .particle-vm {
+            animation: float-particle 10s ease-in-out infinite;
+        }
+
+        .particle-vm:nth-child(odd) {
+            animation-duration: 15s;
+            animation-delay: 2s;
+        }
+
+        /* Gradient animation */
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .gradient-text {
+            background-size: 200% 200%;
+            animation: gradient-shift 4s ease infinite;
+        }
+
+        /* Blob animation */
+        @keyframes blob {
+            0%, 100% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #064e3b;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #059669;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-emerald-950 via-emerald-900 to-green-950">
+
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navigation with Mobile Menu -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-[#022c22]/80 border-b border-emerald-800/20">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <img src="assets/images/daarulquran.webp" loading="lazy" class="w-[60px]" alt="Daarul Quran Logo">
+                        <span class="text-white font-semibold text-lg">Daarul Quran</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-6">
+                    <button id="langToggle"
+                            class="px-3 py-2 rounded-full text-white border border-emerald-500/30 hover:bg-white/10 transition"
+                            aria-label="Toggle language">
+                        EN
+                    </button>
+                    <a href="index.html" data-i18n="nav.home" class="text-emerald-100/70 hover:text-white transition">হোম</a>
+                    <a href="mission.html" data-i18n="nav.mission" class="text-emerald-100/70 hover:text-white transition">মিশন ও ভিশন</a>
+                    <a href="#contactForm" data-i18n="nav.start" class="px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg hover:shadow-emerald-500/25 transition">
+                        শুরু করুন
+                    </a>
+                </div>
+
+                <!-- Mobile Controls (Language Toggle + Menu Button) -->
+                <div class="lg:hidden flex items-center gap-3">
+                    <button id="langToggleMobile"
+                            class="px-3 py-2 rounded-full text-white border border-emerald-500/30 hover:bg-white/10 transition text-sm"
+                            aria-label="Toggle language">
+                        EN
+                    </button>
+                    <button id="mobileMenuBtn" class="text-white p-2" aria-label="Open mobile menu">
+                        <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="lg:hidden hidden">
+            <div class="container mx-auto px-4 py-4 bg-[#022c22]/95 backdrop-blur-lg border-t border-emerald-800/20">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" data-i18n="nav.home" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">হোম</a>
+                    <a href="mission.html" data-i18n="nav.mission" class="text-emerald-100/70 hover:text-white transition py-2 border-b border-emerald-800/10">মিশন ও ভিশন</a>
+                    <a href="#contactForm" data-i18n="nav.start" class="block text-center w-full py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-full hover:shadow-lg hover:shadow-emerald-500/25 transition mt-4">
+                        শুরু করুন
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden mt-16">
+    <!-- Animated Background -->
+    <div class="absolute inset-0">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-emerald-500/20 rounded-full filter blur-3xl animate-blob"></div>
+        <div class="absolute top-40 right-20 w-96 h-96 bg-green-500/20 rounded-full filter blur-3xl animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-20 left-1/2 w-80 h-80 bg-emerald-400/20 rounded-full filter blur-3xl animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- Floating Elements -->
+    <div class="absolute inset-0">
+        <div class="particle-vm absolute top-1/4 left-1/4 w-3 h-3 bg-emerald-400 rounded-full opacity-60"></div>
+        <div class="particle-vm absolute top-3/4 right-1/3 w-2 h-2 bg-green-400 rounded-full opacity-60"></div>
+        <div class="particle-vm absolute bottom-1/3 right-1/4 w-4 h-4 bg-emerald-300 rounded-full opacity-60"></div>
+        <div class="particle-vm absolute top-1/3 right-1/2 w-2 h-2 bg-green-300 rounded-full opacity-60"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10 text-center hero-content">
+        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+        <span class="block" data-i18n="hero.vm.heading.top">Our</span>
+        <span class="bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent gradient-text" data-i18n="hero.vm.heading.highlight">
+            Vision & Mission
+        </span>
+        </h1>
+        <p class="text-xl text-emerald-200/80 max-w-3xl mx-auto" data-i18n="hero.vm.subtitle">
+        কুরআনের আলোয় আলোকিত একটি পৃথিবী গড়ার স্বপ্ন নিয়ে আমাদের যাত্রা
+        </p>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+        <span class="sr-only" data-i18n="hero.vm.scroll_label">নিচে স্ক্রল করুন</span>
+        </div>
+    </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="relative py-20 overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
+        
+        <!-- Section Title -->
+        <div class="flex items-center gap-4 mb-12 vision-title">
+        <div class="w-20 h-20 bg-gradient-to-br from-emerald-500 to-green-500 rounded-2xl flex items-center justify-center shadow-2xl shadow-emerald-500/30">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+            </svg>
+        </div>
+        <div>
+            <h2 class="text-4xl md:text-5xl font-bold text-white" data-i18n="vision.heading">Our Vision</h2>
+            <p class="text-emerald-300 text-lg mt-2" data-i18n="vision.subtitle">আমাদের ভিশন – ভবিষ্যৎ লক্ষ্য</p>
+        </div>
+        </div>
+
+        <!-- Vision Cards Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 1 -->
+        <div class="vision-card">
+            <div class="group bg-gradient-to-br from-emerald-900/50 to-green-900/50 backdrop-blur-sm rounded-2xl p-6 border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>১</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-emerald-400 font-semibold mb-2" data-i18n="vision.item1.title">প্রতিটি ঘরে কুরআন</h3>
+                <p class="text-emerald-100/90 leading-relaxed text-sm" data-i18n="vision.item1.desc">
+                    কুরআনের আলো প্রতিটি ঘরে পৌঁছে দেওয়া—যাতে প্রতিটি পরিবার আলোকিত ও শান্তিময় হয়।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="vision-card">
+            <div class="group bg-gradient-to-br from-emerald-900/50 to-green-900/50 backdrop-blur-sm rounded-2xl p-6 border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>২</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-emerald-400 font-semibold mb-2" data-i18n="vision.item2.title">বৈশ্বিক নেটওয়ার্ক</h3>
+                <p class="text-emerald-100/90 leading-relaxed text-sm" data-i18n="vision.item2.desc">
+                    বিশ্বব্যাপী একটি কুরআন শিক্ষা নেটওয়ার্ক তৈরি করা—যেখানে মুসলিম ও অমুসলিম উভয়েই কুরআনের হিদায়াতের আলো স্পর্শ করতে পারে।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="vision-card">
+            <div class="group bg-gradient-to-br from-emerald-900/50 to-green-900/50 backdrop-blur-sm rounded-2xl p-6 border border-emerald-500/20 hover:border-েমারল্ড-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>৩</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-emerald-400 font-semibold mb-2" data-i18n="vision.item3.title">আদর্শ প্রজন্ম</h3>
+                <p class="text-emerald-100/90 leading-relaxed text-sm" data-i18n="vision.item3.desc">
+                    কুরআন-কেন্দ্রিক প্রজন্ম তৈরি করা—যারা নৈতিকভাবে দৃঢ়, আধ্যাত্মিকভাবে পরিপূর্ণ এবং আধুনিক জ্ঞানেও অগ্রগামী।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="vision-card">
+            <div class="group bg-gradient-to-br from-emerald-900/50 to-green-900/50 backdrop-blur-sm rounded-2xl p-6 border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>৪</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-emerald-400 font-semibold mb-2" data-i18n="vision.item4.title">প্রবাসী সংযোগ</h3>
+                <p class="text-emerald-100/90 leading-relaxed text-sm" data-i18n="vision.item4.desc">
+                    প্রবাসী মুসলিম সমাজকে কুরআনের সাথে সংযুক্ত রাখা—যাতে তাদের সন্তানরা ইসলামী পরিচয় হারিয়ে না ফেলে।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="vision-card">
+            <div class="group bg-gradient-to-br from-emerald-900/50 to-green-900/50 backdrop-blur-sm rounded-2xl p-6 border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>৫</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-emerald-400 font-semibold mb-2" data-i18n="vision.item5.title">মডেল একাডেমি</h3>
+                <p class="text-emerald-100/90 leading-relaxed text-sm" data-i18n="vision.item5.desc">
+                    দাওয়াতুল কুরআনকে বৈশ্বিক মডেল একাডেমি হিসেবে প্রতিষ্ঠা করা—যা ইসলামি জ্ঞান ও আধুনিক প্রযুক্তির সমন্বয়ে অনন্য।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="vision-card">
+            <div class="group bg-gradient-to-br from-emerald-900/50 to-green-900/50 backdrop-blur-sm rounded-2xl p-6 border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>৬</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-emerald-400 font-semibold mb-2" data-i18n="vision.item6.title">আন্তর্জাতিক মান</h3>
+                <p class="text-emerald-100/90 leading-relaxed text-sm" data-i18n="vision.item6.desc">
+                    তিলাওয়াত, তাজবিদ, হিফজ ও তাফসীর শিক্ষায় আন্তর্জাতিক মান বজায় রাখা।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="vision-card">
+            <div class="group bg-gradient-to-br from-emerald-900/50 to-green-900/50 backdrop-blur-sm rounded-2xl p-6 border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>৭</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-emerald-400 font-semibold mb-2" data-i18n="vision.item7.title">দাওয়াহ সম্প্রসারণ</h3>
+                <p class="text-emerald-100/90 leading-relaxed text-sm" data-i18n="vision.item7.desc">
+                    অমুসলিম বিশ্বকে কুরআনের সৌন্দর্য পরিচয় করানো—শান্তি, ভালোবাসা ও ন্যায়বিচারের বার্তার মাধ্যমে।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="vision-card">
+            <div class="group bg-gradient-to-br from-emerald-900/50 to-green-900/50 backdrop-blur-sm rounded-2xl p-6 border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>৮</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-emerald-400 font-semibold mb-2" data-i18n="vision.item8.title">গবেষণা কেন্দ্র</h3>
+                <p class="text-emerald-100/90 leading-relaxed text-sm" data-i18n="vision.item8.desc">
+                    কুরআনকেন্দ্রিক গবেষণা ও শিক্ষা প্রতিষ্ঠান গড়ে তোলা—যেখানে বিদ্বান, গবেষক ও শিক্ষকরা একসাথে কাজ করবেন।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="vision-card">
+            <div class="group bg-gradient-to-br from-emerald-900/50 to-green-900/50 backdrop-blur-sm rounded-2xl p-6 border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>৯</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-emerald-400 font-semibold mb-2" data-i18n="vision.item9.title">বহুভাষিক প্রসার</h3>
+                <p class="text-emerald-100/90 leading-relaxed text-sm" data-i18n="vision.item9.desc">
+                    ভাষা ও সংস্কৃতির সীমা অতিক্রম করে কুরআনের বার্তা ছড়িয়ে দেওয়া—আরবি, ইংরেজি ও অন্যান্য ভাষার মাধ্যমে।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="vision-card">
+            <div class="group bg-gradient-to-br from-emerald-900/50 to-green-900/50 backdrop-blur-sm rounded-2xl p-6 border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-green-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>১০</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-emerald-400 font-semibold mb-2" data-i18n="vision.item10.title">শান্তিময় বিশ্ব</h3>
+                <p class="text-emerald-100/90 leading-relaxed text-sm" data-i18n="vision.item10.desc">
+                    একটি ভারসাম্যপূর্ণ বিশ্ব গড়ে তোলা—যেখানে মানুষ কুরআনের আলোয় সত্য, ন্যায়, দয়া ও শান্তির পথে অগ্রসর হবে।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="relative py-10">
+        <div class="container mx-auto px-4">
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-emerald-500 to-transparent"></div>
+        </div>
+    </div>
+
+    <!-- Mission Section -->
+    <section id="mission" class="relative py-20 overflow-hidden">
+    <div class="container mx-auto px-4 relative z-10">
+        
+        <!-- Section Title -->
+        <div class="flex items-center gap-4 mb-12 mission-title">
+        <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-2xl shadow-green-500/30">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+        </div>
+        <div>
+            <h2 class="text-4xl md:text-5xl font-bold text-white" data-i18n="mission.heading">Our Mission</h2>
+            <p class="text-green-300 text-lg mt-2" data-i18n="mission.subtitle">আমাদের মিশন – করণীয় কাজ</p>
+        </div>
+        </div>
+
+        <!-- Mission Cards Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 1 -->
+        <div class="mission-card">
+            <div class="group bg-gradient-to-br from-green-900/50 to-emerald-900/50 backdrop-blur-sm rounded-2xl p-6 border border-green-500/20 hover:border-green-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>১</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-green-400 font-semibold mb-2" data-i18n="mission.item1.title">সহজলভ্য শিক্ষা</h3>
+                <p class="text-green-100/90 leading-relaxed text-sm" data-i18n="mission.item1.desc">
+                    কুরআন শিক্ষা সহজলভ্য করা—বিশ্বের যেকোনো স্থানে অনলাইনে ১-টু-১ ও গ্রুপ ক্লাসের মাধ্যমে।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="mission-card">
+            <div class="group bg-gradient-to-br from-green-900/50 to-emerald-900/50 backdrop-blur-sm rounded-2xl p-6 border border-green-500/20 hover:border-green-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>২</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-green-400 font-semibold mb-2" data-i18n="mission.item2.title">যোগ্য শিক্ষক</h3>
+                <p class="text-green-100/90 leading-relaxed text-sm" data-i18n="mission.item2.desc">
+                    যোগ্য শিক্ষক গড়ে তোলা—যারা শুধু তিলাওয়াত নয়, বরং কুরআনের অর্থ, ব্যাখ্যা ও বাস্তব প্রয়োগ শেখাবেন।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="mission-card">
+            <div class="group bg-gradient-to-br from-green-900/50 to-emerald-900/50 backdrop-blur-sm rounded-2xl p-6 border border-green-500/20 hover:border-green-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>৩</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-green-400 font-semibold mb-2" data-i18n="mission.item3.title">বৈশ্বিক প্ল্যাটফর্ম</h3>
+                <p class="text-green-100/90 leading-relaxed text-sm" data-i18n="mission.item3.desc">
+                    দাওয়াতুল কুরআনের বৈশ্বিক প্ল্যাটফর্ম তৈরি করা—যেখানে দাওয়াহ, শিক্ষা, গবেষণা ও প্রশিক্ষণ একসাথে চলবে।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="mission-card">
+            <div class="group bg-gradient-to-br from-green-900/50 to-emerald-900/50 backdrop-blur-sm rounded-2xl p-6 border border-green-500/20 hover:border-green-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>৪</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-green-400 font-semibold mb-2" data-i18n="mission.item4.title">আধুনিক প্রযুক্তি</h3>
+                <p class="text-green-100/90 leading-relaxed text-sm" data-i18n="mission.item4.desc">
+                    আধুনিক প্রযুক্তি ব্যবহার—অ্যাপ, ভিডিও লেকচার, ইন্টারেক্টিভ কুইজ, লাইভ সেশন ইত্যাদির মাধ্যমে কুরআন শিক্ষা আকর্ষণীয় করা।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="mission-card">
+            <div class="group bg-gradient-to-br from-green-900/50 to-emerald-900/50 backdrop-blur-sm rounded-2xl p-6 border border-green-500/20 hover:border-green-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>৫</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-green-400 font-semibold mb-2" data-i18n="mission.item5.title">সব বয়সের জন্য</h3>
+                <p class="text-green-100/90 leading-relaxed text-sm" data-i18n="mission.item5.desc">
+                    শিশু, কিশোর, যুবক ও প্রাপ্তবয়স্ক সবার জন্য কোর্স ডিজাইন করা, যাতে সব বয়সের মানুষ উপকৃত হয়।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="mission-card">
+            <div class="group bg-gradient-to-br from-green-900/50 to-emerald-900/50 backdrop-blur-sm rounded-2xl p-6 border border-green-500/20 hover:border-green-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>৬</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-green-400 font-semibold mb-2" data-i18n="mission.item6.title">প্রবাসী সংযোগ</h3>
+                <p class="text-green-100/90 leading-relaxed text-sm" data-i18n="mission.item6.desc">
+                    প্রবাসী মুসলিম সন্তানদের ইসলামী শেকড়ের সাথে যুক্ত রাখা—বিশেষ কোর্স ও কার্যক্রমের মাধ্যমে।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="mission-card">
+            <div class="group bg-gradient-to-br from-green-900/50 to-emerald-900/50 backdrop-blur-sm rounded-2xl p-6 border border-green-500/20 hover:border-green-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>৭</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-green-400 font-semibold mb-2" data-i18n="mission.item7.title">হিফজ প্রকল্প</h3>
+                <p class="text-green-100/90 leading-relaxed text-sm" data-i18n="mission.item7.desc">
+                    হিফজুল কুরআন প্রকল্প চালু করা—যাতে প্রতিটি শিক্ষার্থী সহজে মুখস্থ করতে পারে এবং হিফজ বজায় রাখতে পারে।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="mission-card">
+            <div class="group bg-gradient-to-br from-green-900/50 to-emerald-900/50 backdrop-blur-sm rounded-2xl p-6 border border-green-500/20 hover:border-green-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>৮</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-green-400 font-semibold mb-2" data-i18n="mission.item8.title">দাওয়াহ প্রশিক্ষণ</h3>
+                <p class="text-green-100/90 leading-relaxed text-sm" data-i18n="mission.item8.desc">
+                    তাফসীর ও দাওয়াহ ট্রেনিং সেশন চালু করা—যাতে শিক্ষার্থীরা দাওয়াতের যোগ্য হয়ে ওঠে।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="mission-card">
+            <div class="group bg-gradient-to-br from-green-900/50 to-emerald-900/50 backdrop-blur-sm rounded-2xl p-6 border border-green-500/20 hover:border-green-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>৯</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-green-400 font-semibold mb-2" data-i18n="mission.item9.title">নারী শিক্ষা</h3>
+                <p class="text-green-100/90 leading-relaxed text-sm" data-i18n="mission.item9.desc">
+                    নারী শিক্ষার্থীদের জন্য বিশেষ কুরআন শিক্ষা প্রোগ্রাম চালু করা, যাতে তারা নিজেদের পরিবার ও সমাজে কুরআনের আলো পৌঁছে দিতে পারে।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="mission-card">
+            <div class="group bg-gradient-to-br from-green-900/50 to-emerald-900/50 backdrop-blur-sm rounded-2xl p-6 border border-green-500/20 hover:border-green-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/20 hover:-translate-y-2">
+            <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                    <span class="text-white font-bold text-lg" data-localize-digits>১০</span>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-green-400 font-semibold mb-2" data-i18n="mission.item10.title">আন্তর্জাতিক সম্মেলন</h3>
+                <p class="text-green-100/90 leading-relaxed text-sm" data-i18n="mission.item10.desc">
+                    আন্তর্জাতিক সম্মেলন, সেমিনার ও ওয়েবিনার আয়োজন করা—যার মাধ্যমে বিশ্বব্যাপী আলেম, ছাত্র, এবং সাধারণ মুসলিমরা একত্রিত হয়ে কুরআনের বার্তা নিয়ে আলোচনা করা হবে।
+                </p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative py-20 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/50 to-green-900/50"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6" data-i18n="cta.heading">
+            আমাদের স্বপ্নের সাথী হন
+            </h2>
+            <p class="text-xl text-emerald-200/80 mb-8 max-w-2xl mx-auto" data-i18n="cta.subtitle">
+            কুরআনের আলোয় আলোকিত পৃথিবী গড়ার এই মহান যাত্রায় আমাদের সাথে যুক্ত হন
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="index.html#contactForm"
+                class="px-8 py-4 bg-gradient-to-r from-emerald-500 to-green-500 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-emerald-500/30 transform hover:scale-105 transition-all"
+                data-i18n="form.submit"
+                data-i18n-aria-label="cta.primary.aria"
+                aria-label="ফ্রি ট্রায়াল ক্লাস">
+                ফ্রি ট্রায়াল ক্লাস
+            </a>
+            <!-- If your contact section id is 'info', change href to index.html#info -->
+            <a href="index.html#info"
+                class="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all"
+                data-i18n="cta.secondary"
+                data-i18n-aria-label="cta.secondary.aria"
+                aria-label="যোগাযোগ করুন">
+                যোগাযোগ করুন
+            </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative pb-10 pt-4 bg-[#011a14] border-t border-emerald-800/20">
+        <div class="px-4">
+            <div class="text-center">
+                <!-- Logo & About -->
+                <div>
+                    <div class="flex flex-col items-center mb-4">
+                        <img src="assets/images/daarulquran.webp" loading="lazy" class="w-[70px] mb-2" alt="Daarul Quran Logo">
+                        <span class="text-white font-bold text-xl">Daarul Quran</span>
+                    </div>
+                <p class="text-emerald-200/70 text-base leading-relaxed max-w-2xl mx-auto" data-i18n="footer.about">
+                    Daarul Quran is an online platform whose aim is to spread the knowledge of the Quran across the world. We are the first online platform to offer live one-to-one Quran classes at your convenient time. You can join our live classes at any time. Our expert teachers will teach you the Quran correctly so that you can recite the Noble Book without mistakes.
+                </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+       <div class="pt-8 mt-8 border-t border-emerald-800/30">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+                <!-- Left Side -->
+                <p class="text-emerald-200 text-sm text-center md:text-left" data-i18n="footer.copyright">
+                    © ২০২৫ Daarul Quran. সর্বস্বত্ব সংরক্ষিত।
+                </p>
+                
+                <!-- Right Side -->
+                <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                    <a href="terms.html" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm" data-i18n="footer.links.terms">শর্তাবলী</a>
+                    <a href="privacy.html" class="text-emerald-200 hover:text-emerald-400 transition-colors duration-200 text-sm" data-i18n="footer.links.privacy">প্রাইভেসি পলিসি</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-3 z-40">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/88001345291197" class="group">
+            <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:shadow-green-500/30 transform hover:scale-110 transition-all">
+                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+            </div>
+            <span class="absolute right-16 top-1/2 transform -translate-y-1/2 bg-black/80 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                WhatsApp এ চ্যাট করুন
+            </span>
+        </a>
+
+        <!-- Call Button -->
+        <a href="tel:+88001345291197" class="group">
+            <div class="w-14 h-14 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:shadow-emerald-500/30 transform hover:scale-110 transition-all">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+            </div>
+            <span class="absolute right-16 top-1/2 transform -translate-y-1/2 bg-black/80 text-white px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                সরাসরি কল করুন
+            </span>
+        </a>
+    </div>
+
+    <script src="assets/js/translations.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        const closeIcon = document.getElementById('closeIcon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('show');
+            
+            if (!isOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('show');
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.remove('show');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300); // Animation duration
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        });
+
+        // Close on link click
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('show');
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            });
+        });
+
+
+        // Hide loading screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                gsap.to('.loading-screen', {
+                    opacity: 0,
+                    duration: 0.5,
+                    onComplete: () => {
+                        document.querySelector('.loading-screen').style.display = 'none';
+                        initAnimations();
+                    }
+                });
+            }, 1000);
+        });
+
+        function initAnimations() {
+            // Hero content animation
+            gsap.from('.hero-content', {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                delay: 0.5,
+                ease: 'power3.out'
+            });
+
+            // Vision cards animation
+            gsap.from('.vision-card', {
+                scrollTrigger: {
+                    trigger: '#vision',
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                stagger: 0.1,
+                ease: 'power2.out'
+            });
+
+            // Mission cards animation
+            gsap.from('.mission-card', {
+                scrollTrigger: {
+                    trigger: '#mission',
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                stagger: 0.1,
+                ease: 'power2.out'
+            });
+
+            // Title animations
+            gsap.from('.vision-title', {
+                scrollTrigger: {
+                    trigger: '.vision-title',
+                    start: 'top 85%'
+                },
+                opacity: 0,
+                x: -100,
+                duration: 1,
+                ease: 'power3.out'
+            });
+
+            gsap.from('.mission-title', {
+                scrollTrigger: {
+                    trigger: '.mission-title',
+                    start: 'top 85%'
+                },
+                opacity: 0,
+                x: -100,
+                duration: 1,
+                ease: 'power3.out'
+            });
+
+            // Parallax effect
+            gsap.to('.particle-vm', {
+                scrollTrigger: {
+                    trigger: 'body',
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: 1
+                },
+                y: -200,
+                ease: 'none'
+            });
+
+            // Refresh ScrollTrigger
+            ScrollTrigger.refresh();
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
