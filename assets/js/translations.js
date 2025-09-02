@@ -46,6 +46,7 @@
         "lang.features.custom": "Language-tailored courses",
 
             // course
+        "courses.heading": "Our courses",
         "courses.hifz.title": "Quran Memorization (Hifz)",
         "courses.hifz.subtitle": "For children 5+ and learners of any age",
         "courses.hifz.points.1": "Memorize the entire Quran with proper tajweed",
@@ -370,6 +371,7 @@
         "lang.features.custom": "ভাষা অনুযায়ী কাস্টমাইজড কোর্স",
 
             // course
+        "courses.heading": "আমাদের কোর্সসমূহ",
         "courses.hifz.title": "হিফযুল কোরআন",
         "courses.hifz.subtitle": "৫ বছরের ওপরের বাচ্চা থেকে শুরু করে যেকোন বয়সের নারী-পুরুষের জন্য",
         "courses.hifz.points.1": "সম্পূর্ণ কুরআন সহিহ-শুদ্ধভাবে হিফয",
