@@ -1,3 +1,213 @@
+    // Bank Modal Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const donationBtns = document.querySelectorAll('.donation-btn'); // All buttons with class
+        const bankModal = document.getElementById('bankModal');
+        const bankModalContent = document.getElementById('bankModalContent');
+        const closeBankModal = document.getElementById('closeBankModal');
+        const copyBtns = document.querySelectorAll('.copy-btn');
+        const copyAllBtn = document.getElementById('copyAllBtn');
+        const copyToast = document.getElementById('copyToast');
+        const modalTitle = document.querySelector('#bankModal h3');
+        const modalSubtitle = document.querySelector('#bankModal p');
+
+        // Service specific messages
+        const serviceMessages = {
+            quran: {
+                title: 'কুরআন শিক্ষার জন্য দান',
+                subtitle: 'আল-কুরআনের দারসের জন্য ব্যাংক তথ্য'
+            },
+            aqidah: {
+                title: 'ইসলামিক আকিদার জন্য দান',
+                subtitle: 'ইসলামিক শিক্ষার জন্য ব্যাংক তথ্য'
+            },
+            activities: {
+                title: 'ইসলামিক কার্যক্রমের জন্য দান',
+                subtitle: 'দাওয়াহ ও কার্যক্রমের জন্য ব্যাংক তথ্য'
+            },
+            humanitarian: {
+                title: 'মানবিক সেবার জন্য দান',
+                subtitle: 'মানবিক কাজের জন্য ব্যাংক তথ্য'
+            }
+        };
+
+        // Open modal for all donation buttons
+        donationBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const service = this.getAttribute('data-service') || 'general';
+                openBankModal(service);
+            });
+        });
+
+        // Close modal
+        if (closeBankModal) {
+            closeBankModal.addEventListener('click', closeBankModalFn);
+        }
+
+        // Close on backdrop click
+        if (bankModal) {
+            bankModal.addEventListener('click', function(e) {
+                if (e.target === bankModal) {
+                    closeBankModalFn();
+                }
+            });
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && bankModal && !bankModal.classList.contains('hidden')) {
+                closeBankModalFn();
+            }
+        });
+
+        // Copy individual items
+        copyBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const textToCopy = this.getAttribute('data-copy');
+                copyToClipboard(textToCopy, this);
+            });
+        });
+
+        // Copy all information
+        if (copyAllBtn) {
+            copyAllBtn.addEventListener('click', function() {
+                const allBankInfo = `
+    Bank Details - DAARULQURAN
+    =====================================
+    Bank Name: NRB Bank
+    Account Name: DAARULQURAN
+    Account Number: 6022210086360
+    Customer ID: 0355234/0355261
+    SWIFT Code: NRBDBDDH
+    Routing Number: 290761212
+    =====================================
+
+    অনুদানের পর অনুগ্রহ করে আমাদের সাথে যোগাযোগ করুন।
+    Phone: +880 1345 291197
+    Email: info@daarulquran.live
+                `.trim();
+                
+                copyToClipboard(allBankInfo, this);
+            });
+        }
+
+        // Functions
+        function openBankModal(service = 'general') {
+            // Update modal title and subtitle based on service
+            if (serviceMessages[service]) {
+                if (modalTitle) {
+                    modalTitle.textContent = serviceMessages[service].title;
+                }
+                if (modalSubtitle) {
+                    modalSubtitle.textContent = serviceMessages[service].subtitle;
+                }
+            }
+
+            bankModal.classList.remove('hidden');
+            bankModal.classList.add('show');
+            document.body.classList.add('bank-modal-open');
+            
+            // Animate in
+            setTimeout(() => {
+                if (bankModalContent) {
+                    bankModalContent.style.transform = 'scale(1)';
+                    bankModalContent.style.opacity = '1';
+                }
+            }, 10);
+
+            // Add click tracking (optional)
+            console.log(`Bank modal opened for service: ${service}`);
+        }
+
+        function closeBankModalFn() {
+            if (bankModalContent) {
+                bankModalContent.style.transform = 'scale(0.95)';
+                bankModalContent.style.opacity = '0';
+            }
+            
+            setTimeout(() => {
+                bankModal.classList.add('hidden');
+                bankModal.classList.remove('show');
+                document.body.classList.remove('bank-modal-open');
+            }, 300);
+        }
+
+        function copyToClipboard(text, button) {
+            // Try the modern approach first
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showCopySuccess(button);
+                    showToast();
+                }).catch(err => {
+                    // Fallback to older method
+                    fallbackCopyTextToClipboard(text, button);
+                });
+            } else {
+                // Fallback for older browsers
+                fallbackCopyTextToClipboard(text, button);
+            }
+        }
+
+        function fallbackCopyTextToClipboard(text, button) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            
+            // Avoid scrolling to bottom
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+            
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showCopySuccess(button);
+                    showToast();
+                }
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        function showCopySuccess(button) {
+            button.classList.add('copied');
+            setTimeout(() => {
+                button.classList.remove('copied');
+            }, 1000);
+        }
+
+        function showToast() {
+            if (copyToast) {
+                copyToast.classList.add('toast-show');
+                setTimeout(() => {
+                    copyToast.classList.remove('toast-show');
+                }, 2000);
+            }
+        }
+
+        // Button hover effects for better UX
+        donationBtns.forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.02)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    });    
+    
+    
+    
+    
+    
+    
     // license section Parallax effect on scroll
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
