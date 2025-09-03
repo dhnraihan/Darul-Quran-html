@@ -607,16 +607,15 @@
                                             
                                             <!-- Submit Button -->
                                             <button type="submit" 
-                                                    id="submitBtn"
-                                                    data-i18n="form.submit"
+                                                    id="submitBtn"                                                    
                                                     class="w-full py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-lg font-semibold text-lg hover:shadow-xl hover:shadow-emerald-500/30 transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed">
-                                                <span id="btnText">ফ্রি ট্রায়াল ক্লাস</span>
+                                                <span id="btnText" data-i18n="form.submit">ফ্রি ট্রায়াল ক্লাস</span>
                                                 <span id="btnLoader" class="hidden">
                                                     <svg class="inline-block w-5 h-5 animate-spin mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                                                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                                     </svg>
-                                                    Processing...
+                                                    <span data-i18n="form.processing">Processing...</span>
                                                 </span>
                                             </button>
 
@@ -2414,7 +2413,9 @@
             }
 
             // Form submission handler
-            document.getElementById('leadForm').addEventListener('submit', async function(e) {
+            const leadForm = document.getElementById('leadForm');
+            if (leadForm) {
+              leadForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
                 const submitBtn = document.getElementById('submitBtn');
@@ -2436,101 +2437,44 @@
                 
                 // Show loading state
                 submitBtn.disabled = true;
-                btnText.textContent = 'Processing...';
                 
                 if (btnLoader) {
                     btnText.classList.add('hidden');
                     btnLoader.classList.remove('hidden');
                 }
                 
+                const formData = {
+                    name: nameInput.value.trim(),
+                    phone: iti && typeof iti.getNumber === 'function' ? iti.getNumber() : phoneInput.value
+                };
+
+                if (!formData.name || !formData.phone) {
+                    alert('সকল ক্ষেত্র পূরণ করুন');
+                    submitBtn.disabled = false;
+                    btnText.textContent = 'ফ্রি ট্রায়াল ক্লাস';
+                    if (btnLoader) {
+                        btnText.classList.remove('hidden');
+                        btnLoader.classList.add('hidden');
+                    }
+                    return;
+                }
+
+                console.log('Submitting form data:', formData);
+
                 try {
-                    // Get form data
-                    const formData = {
-                        name: nameInput.value.trim(),
-                        phone: iti && typeof iti.getNumber === 'function' ? iti.getNumber() : phoneInput.value
-                    };
+                    const response = await fetch('https://script.google.com/macros/s/AKfycbx89IlYZw_WfbXN9_ks3DCoWxcresbOBVQt8XhdYfA0NOP57jcqJXxA8z_WBETUpmW6-g/exec', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData),
+                        mode: 'cors'
+                    });
+
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                     
-                    // Validate required fields
-                    if (!formData.name || !formData.phone) {
-                        throw new Error('সকল ক্ষেত্র পূরণ করুন');
-                    }
-                    
-                    console.log('Submitting form data:', formData);
-                    
-                   // Replace the commented section with this code:
-                    try {
-                        const formData = {
-                            name: nameInput.value.trim(),
-                            phone: iti && typeof iti.getNumber === 'function' ? iti.getNumber() : phoneInput.value
-                        };
-                        
-                        // Validate required fields
-                        if (!formData.name || !formData.phone) {
-                            throw new Error('সকল ক্ষেত্র পূরণ করুন');
-                        }
-                        
-                        console.log('Submitting form data:', formData);
-                        
-                        // Send to Google Apps Script
-                        const response = await fetch('https://script.google.com/macros/s/AKfycbx89IlYZw_WfbXN9_ks3DCoWxcresbOBVQt8XhdYfA0NOP57jcqJXxA8z_WBETUpmW6-g/exec', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify(formData),
-                            mode: 'cors'
-                        });
-                        
-                        // Check if response is ok
-                        if (!response.ok) {
-                            throw new Error(`HTTP error! status: ${response.status}`);
-                        }
-                        
-                        const result = await response.json();
-                        console.log('Server response:', result);
-                        
-                        if (result.success) {
-                            // Success message
-                            alert('ধন্যবাদ! আপনার তথ্য সফলভাবে জমা হয়েছে। শীঘ্রই আমরা আপনার সাথে যোগাযোগ করব।');
-                            
-                            // Reset form
-                            document.getElementById('leadForm').reset();
-                            if (iti && typeof iti.setNumber === 'function') {
-                                iti.setNumber('');
-                            }
-                            
-                            // Optional: Redirect to thank you page
-                            // setTimeout(() => {
-                            //     window.location.href = '/thank-you.html';
-                            // }, 2000);
-                            
-                        } else {
-                            throw new Error(result.message || 'Server returned error');
-                        }
-                        
-                    } catch (error) {
-                        console.error('Form submission error:', error);
-                        
-                        // Show user-friendly error message
-                        if (error.message.includes('Failed to fetch')) {
-                            alert('ইন্টারনেট সংযোগ চেক করুন এবং আবার চেষ্টা করুন।');
-                        } else if (error.message.includes('HTTP error')) {
-                            alert('সার্ভার সমস্যা হয়েছে। অনুগ্রহ করে পরে আবার চেষ্টা করুন।');
-                        } else {
-                            alert('দুঃখিত, কিছু সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
-                        }
-                    } finally {
-                        // Reset button state
-                        submitBtn.disabled = false;
-                        btnText.textContent = 'ফ্রি ট্রায়াল ক্লাস';
-                        
-                        if (btnLoader) {
-                            btnText.classList.remove('hidden');
-                            btnLoader.classList.add('hidden');
-                        }
-                    }
-                    // Simulate API call for testing
-                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    const result = await response.json();
+                    console.log('Server response:', result);
+
+                    if (!result.success) throw new Error(result.message || 'Server returned error');
                     
                     // Success message
                     alert('ধন্যবাদ! আপনার তথ্য সফলভাবে জমা হয়েছে। শীঘ্রই আমরা আপনার সাথে যোগাযোগ করব।');
@@ -2540,21 +2484,26 @@
                     if (iti && typeof iti.setNumber === 'function') {
                         iti.setNumber('');
                     }
-                    
                 } catch (error) {
                     console.error('Form submission error:', error);
-                    alert('দুঃখিত, কিছু সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
+                    if (error.message.includes('Failed to fetch')) {
+                        alert('ইন্টারনেট সংযোগ চেক করুন এবং আবার চেষ্টা করুন।');
+                    } else if (error.message.includes('HTTP error')) {
+                        alert('সার্ভার সমস্যা হয়েছে। অনুগ্রহ করে পরে আবার চেষ্টা করুন।');
+                    } else {
+                        alert('দুঃখিত, কিছু সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
+                    }
                 } finally {
                     // Reset button state
                     submitBtn.disabled = false;
-                    btnText.textContent = 'ফ্রি ট্রায়াল ক্লাস';
                     
                     if (btnLoader) {
                         btnText.classList.remove('hidden');
                         btnLoader.classList.add('hidden');
                     }
                 }
-            });
+              });
+            }
         });
 
     </script>

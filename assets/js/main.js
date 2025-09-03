@@ -420,34 +420,6 @@
     // });
     
 
-
-
-
-
-    // Parallax effect for Hero Section geometric shapes
-    let ticking = false;
-    function updateParallax() {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.parallax-shape');
-        
-        parallaxElements.forEach((element) => {
-            const speed = element.dataset.speed || 0.5;
-            const yPos = -(scrolled * speed);
-            element.style.transform = `translateY(${yPos}px)`;
-        });
-
-        ticking = false;
-    }
-
-    function requestTick() {
-        if (!ticking) {
-            window.requestAnimationFrame(updateParallax);
-            ticking = true;
-        }
-    }
-
-    window.addEventListener('scroll', requestTick);
-
     // Intersection Observer for Hero Section animations
     const observerOptions = {
         threshold: 0.1,
@@ -524,6 +496,22 @@
     });
 
     function initAnimations() {
+        // Refactored Parallax effects using GSAP ScrollTrigger
+        gsap.utils.toArray('.parallax-shape').forEach(shape => {
+            const speed = shape.dataset.speed || 0.5;
+            gsap.to(shape, {
+                y: (i, el) => -window.innerHeight * speed * ScrollTrigger.maxScroll(window),
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "body",
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: 1.5,
+                }
+            });
+        });
+
+
         // Hero section animations
         const heroTl = gsap.timeline({ delay: 0.5 });
 
@@ -759,4 +747,3 @@
             }
         });
     });
-

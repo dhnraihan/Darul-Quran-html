@@ -17,6 +17,7 @@
         'form.name_placeholder': 'Enter your full name',
         'form.phone_label': 'Mobile Number',
         'form.submit': 'Free Trial Class',
+        'form.processing': 'Processing...',
         'form.note': 'Note: When you provide your name and mobile number in the first step of the form, this information will be sent to us, Insha’Allah. In the next step, you can also provide your email, trial class date, and time. However, in all cases, we will first contact you directly, talk to you, and provide all the necessary details before arranging your trial class, Insha’Allah.',
 
             // start quote here
@@ -342,6 +343,7 @@
         'form.name_placeholder': 'আপনার পূর্ণ নাম লিখুন',
         'form.phone_label': 'মোবাইল নম্বর',
         'form.submit': 'ফ্রি ট্রায়াল ক্লাস',
+        'form.processing': 'প্রসেসিং...',
         'form.note': 'বিঃদ্রঃ ফর্মের প্রথম ধাপ অর্থাৎ আপনার নাম ও মোবাইল নম্বর প্রদান করলে সেই তথ্য আমাদের কাছে চলে আসবে, ইনশাআল্লাহ। এছাড়াও, পরবর্তী ধাপে আপনি আপনার ইমেইল, ট্রায়াল ক্লাসের তারিখ ও সময় দিতে পারবেন। তবে সব ক্ষেত্রে আমরা প্রথমে আপনার সঙ্গে সরাসরি যোগাযোগ করব, কথা বলব ও বিস্তারিত জানাব, তারপরই ট্রায়াল ক্লাসের আয়োজন করা হবে, ইনশাআল্লাহ।',
 
             // start quote here
