@@ -2362,11 +2362,16 @@
         
         // Initialize intl-tel-input
         const phoneInput = document.querySelector("#phone");
-        const iti = window.intlTelInput(phoneInput, {
-            //initialCountry: "bd",
-            // preferredCountries: ['bd', 'pk', 'sa', 'ae', 'us', 'gb'],
+        window.intlTelInput(phoneInput, {
             separateDialCode: true,
             utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+            initialCountry: "auto",
+            geoIpLookup: function(callback) {
+                fetch('https://ipinfo.io/json?token=23f53f10a156c5')
+                    .then(resp => resp.json())
+                    .then(resp => callback(resp.country))
+                    .catch(() => callback('us'));
+            }
         });
 
         // Form submission
